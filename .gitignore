@@ -1,3 +1,9 @@
+#Ignore all data folder but not the folder structure itself (therefore, keep the .gitkeep)
+**/Data/**
+!**/Data/**/.gitkeep
+
+#---------------------------------DEFAULT ".gignore" python template by github--------------------------
+#---------------------------------Ignores all python-related scripts------------------------------------
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
