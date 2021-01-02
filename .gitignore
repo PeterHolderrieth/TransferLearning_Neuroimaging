@@ -1,6 +1,6 @@
 #Ignore all data folder but not the folder structure itself (therefore, keep the .gitkeep)
-/Data/**/*.* # Exclude all files in Data folder
-!/Data/**/*.gitkeep # include only .gitkeep files
+/data/**/*.* # Exclude all files in Data folder
+!/data/**/*.gitkeep # include only .gitkeep files
 
 
 #---------------------------------DEFAULT ".gignore" python template by github--------------------------
