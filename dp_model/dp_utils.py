@@ -3,7 +3,7 @@ from scipy.stats import norm
 
 def num2vect(x, bin_range, bin_step, sigma):
     """
-    v,bin_centers = number2vector(x,bin_range,bin_step,sigma)
+    v,bin_centers = num2vector(x,bin_range,bin_step,sigma)
     bin_range: (start, end), size-2 tuple
     bin_step: should be a divisor of |end-start|
     sigma:
