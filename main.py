@@ -2,10 +2,15 @@ from dp_model.model_files.sfcn import SFCN
 from dp_model import dp_loss as dpl
 from dp_model import dp_utils as dpu
 import torch
+import torch.nn as nn
 import torch.nn.functional as F
 import numpy as np
 import matplotlib.pyplot as plt
 import datetime
+from torch.utils.tensorboard import SummaryWriter
+
+writer = SummaryWriter('results/test/test_tb')
+
 
 if torch.cuda.is_available():
     DEVICE = torch.device("cuda:0")  
@@ -49,19 +54,19 @@ print(f'dtype: {input_data.dtype}')
 
 # Evaluation
 model.eval() # Don't forget this. BatchNorm will be affected if not in eval mode.
-with torch.no_grad():
-    print(datetime.datetime.today())
-    output = model(input_data)
-    print(datetime.datetime.today())  
+#with torch.no_grad():
+print(datetime.datetime.today())
+output = model(input_data)
+print(datetime.datetime.today())  
 
 # Output, loss, visualisation
 x = output[0].cpu().reshape([1, -1])
 print(f'Output shape: {x.shape}')
-loss = dpl.my_KLDivLoss(x, y).numpy()
+loss = dpl.my_KLDivLoss(x, y).detach().numpy()
 
 # Prediction, Visualisation and Summary
-x = x.numpy().reshape(-1)
-y = y.numpy().reshape(-1)
+x = x.detach().numpy().reshape(-1)
+y = y.detach().numpy().reshape(-1)
 
 prob = np.exp(x)
 pred = prob@bc #Scalar product
@@ -71,3 +76,7 @@ plt.show()
 
 x=np.array([3,-1,2])
 y=np.array([0.5,-1,7])
+
+
+writer.add_graph(model, input_data)
+writer.close()
