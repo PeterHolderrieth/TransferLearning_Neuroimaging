@@ -20,7 +20,7 @@ model = SFCN()
 model = torch.nn.DataParallel(model)
 fp_ = './pre_trained_models/brain_age/run_20190719_00_epoch_best_mae.p'
 model.load_state_dict(torch.load(fp_,map_location=DEVICE))
-
+model=model.to(DEVICE)
 print(model)
 
 # Example data: some random brain in the MNI152 1mm std space
@@ -32,7 +32,6 @@ bin_range = [42,82]
 bin_step = 1
 sigma = 1
 y, bc = dpu.num2vect(label, bin_range, bin_step, sigma)
-print("y:", y)
 
 y = torch.tensor(y, dtype=torch.float32)
 print(f'Label shape: {y.shape}')
