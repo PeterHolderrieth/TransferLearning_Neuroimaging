@@ -1,0 +1,109 @@
+# Code for dataset
+import torch
+from torch import nn
+
+def construct_preprocessing(kwd):
+    """
+    kwd: dictionary of one of the following forms:
+     {'method': 'pixel_shift',
+      'x_shift': int,
+      'y_shift': int,
+      'z_shift': int} 
+            --> returns a method to randomly shift data along the 
+                three axis (randomly forth and back with maximum difference x_shift/y_shift/z_shift)
+     {'method': 'mirror',
+      'probability': 0.5}
+            -->  returns a method which mirrors the MRI scan 
+     {'method': 'average'}
+     {'method': 'crop',
+     'nx': 160,
+     'ny': 192,
+     'nz': 160}
+    """
+    if kwd['method'] == 'pixel_shift':
+
+        def pixel_shift(data, x0=kwd['x_shift'], y0=kwd['y_shift'], z0=kwd['z_shift']):
+            '''
+            data - torch.Tensor - shape
+            '''
+            x_shift = int(torch.randint(low=-x0, high=x0 + 1, size=(1, 1)).numpy()[0, 0])
+            y_shift = int(torch.randint(low=-y0, high=y0 + 1, size=(1, 1)).numpy()[0, 0])
+            z_shift = int(torch.randint(low=-z0, high=z0 + 1, size=(1, 1)).numpy()[0, 0])
+            data = np.roll(data, x_shift, axis=0)
+            data = np.roll(data, y_shift, axis=1)
+            data = np.roll(data, z_shift, axis=2)
+            return data
+
+        return pixel_shift
+
+    elif kwd['method'] == 'mirror':
+
+        def mirror(data, p0=kwd['probability']):
+            '''
+            data - torch.Tensor - shape 
+            '''
+            p = torch.rand([1, 1]).numpy()[0, 0]
+            if p < p0:
+                data = np.flip(data, 0)
+            return data
+
+        return mirror
+
+    elif kwd['method'] == 'average':
+
+        def average(data):
+            data = data / np.mean(data) - 1
+            return data
+
+        return average
+
+    elif kwd['method'] == 'crop':
+
+        def crop(data, nx=kwd['nx'], ny=kwd['ny'], nz=kwd['nz']):
+            nx0, ny0, nz0 = data.shape
+            x_start = np.ceil((nx0 - nx) / 2).astype(np.int)
+            x_end = - np.floor((nx0 - nx) / 2).astype(np.int)
+            y_start = np.ceil((ny0 - ny) / 2).astype(np.int)
+            y_end = - np.floor((ny0 - ny) / 2).astype(np.int)
+            z_start = np.ceil((nz0 - nz) / 2).astype(np.int)
+            z_end = - np.floor((nz0 - nz) / 2).astype(np.int)
+            data = data[x_start:x_end, y_start:y_end, z_start:z_end]
+            return data
+
+        return crop
+
+    else:
+        raise Exception('method \'' + kwd['method'] + '\' not support')
+
+
+
+class Dataset(torch.utils.data.Dataset):
+
+    def __init__(self, file_list, label_list, preprocessing=None):
+        '''
+        file_list - list of paths/to/files 
+        label_list - list/array of labels of the same length as the file_list
+        preprocessing - a list of 
+        '''
+        self.file_list = file_list
+        self.label_list = label_list
+        self._len = len(file_list)
+        self.preprocessing = preprocessing
+
+    def get_data(self, idx):
+        label = self.label_list[idx]
+        fp_ = self.file_list[idx]
+        x = nibabel.load(fp_).get_fdata()
+        if self.preprocessing is not None:
+            for func_ in self.preprocessing:
+                x = func_(x)
+        data = np.reshape(x, (1,) + x.shape)
+        return data, label
+
+    def __len__(self):
+        return self._len
+
+    def __getitem__(self, idx):
+        data, label = self.get_data(idx)
+        data = torch.tensor(data, dtype=torch.float32, requires_grad=False)
+        return data, label
