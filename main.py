@@ -44,7 +44,6 @@ print(f'Label shape: {y.shape}')
 # Preprocessing
 data = data/data.mean()
 data = dpu.crop_center(data, (160, 192, 160)) 
-
 # Move the data from numpy to torch tensor on GPU
 sp = (1,1)+data.shape
 data = data.reshape(sp)
