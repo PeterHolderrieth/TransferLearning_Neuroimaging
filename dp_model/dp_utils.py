@@ -3,47 +3,60 @@ import torch
 import sys
 from scipy.stats import norm
 
-def num2vect(x, bin_range, bin_step, sigma):
-    """
-    Function to convert a numerical vector x (hard label) into a label used by the model 
-    (distribution over bins), e.g. the age 71.6 is converted into bin "10" (sigma=0) 
-    or a distribution over age bins with mean 10 and variance sigma.
-    Input:
-        x: float or torch.Tensor of shape (n) - numeric value which we put in a valid label
-        bin_range: (start, end), size-2 tuple
-        bin_step: int - should be a divisor of |end-start|
-        sigma:  = 0 for 'hard label', v (see output) is integer (index of label)
-                > 0 for 'soft label', v is vector of sha(distribution with mean label)
-                < 0 error. Returns error message.      
-    Output:
-        v - label output - shape (n,bin_number) and (bin_number) for n=1
-        bin_centers - the centers of the bins 
-    """
-    bin_length = bin_range[1]-bin_range[0]
-    if not bin_length % bin_step == 0:
-        sys.exit("bin's range should be divisible by bin_step!")
-        return -1
+def give_label_translater(kwd):
 
-    bin_number = int(bin_length / bin_step)
-    bin_centers = bin_range[0] + float(bin_step) / 2 + bin_step * torch.arange(bin_number)
+    if kwd['type']=='label_to_bindist':
 
-    #If sigma is zero, set v to be index such that bin_centers[v] is closest
-    #to x:
-    if sigma == 0:
-        abs_diff=torch.abs(x[:,None]-bin_centers[None,:])
-        v=torch.argmin(abs_diff,dim=1)
-        return v, bin_centers
+        def label_to_bindist(x, bin_range=kwd['bin_range'], bin_step=['bin_step'], sigma=kwd['sigma']):
+            """
+            Function to convert a numerical vector x (hard label) into a bin distribution, 
+            e.g. the age 71.6 is either converted into bin "10", i.e. a deterministic distribution, (if sigma=0)
+            or a "normal" distribution over age bins with mean 10 and variance sigma (if sigma>0).
+            Input:
+                x: float or torch.Tensor of shape (n) - numeric value which we put in a valid label
+                bin_range: (start, end), size-2 tuple
+                bin_step: int - should be a divisor of |end-start|
+                sigma:  = 0 for 'hard label', v (see output) is integer (index of label)
+                        > 0 for 'soft label', v is vector of sha(distribution with mean label)
+                        < 0 error. Returns error message.      
+            Output:
+                v - label output - shape (n,bin_number) and (bin_number) for n=1
+                bin_centers - the centers of the bins 
+            """
+            bin_length = bin_range[1]-bin_range[0]
+            if not bin_length % bin_step == 0:
+                sys.exit("bin's range should be divisible by bin_step!")
+                return -1
+
+            bin_number = int(bin_length / bin_step)
+            bin_centers = bin_range[0] + float(bin_step) / 2 + bin_step * torch.arange(bin_number)
+
+            #If sigma is zero, set v to be index such that bin_centers[v] is closest
+            #to x:
+            if sigma == 0:
+                abs_diff=torch.abs(x[:,None]-bin_centers[None,:])
+                v=torch.argmin(abs_diff,dim=1)
+                return v, bin_centers
+            
+            #If sigma is greater than zero, then return the probability of 
+            #a bin under the normal distribution:
+            elif sigma > 0:
+                x1=bin_centers - float(bin_step) / 2 #Left bin boundary
+                x2=bin_centers + float(bin_step) / 2 #Right bin boundary
+                dist=torch.distributions.Normal(loc=0.,scale=sigma) 
+                v=dist.cdf(x2[None,:]-x[:,None])-dist.cdf(x1[None,:]-x[:,None]) #Probability of bin-interval 
+                return v, bin_centers
+            else:
+                sys.exit("Sigma must be either >=0.")
+        return (label_to_bindist)
+   
+    elif kwd['type']='identity':
+
+        def identity(x): 
+            return (x)
     
-    #If sigma is greater than zero, then return the probability of 
-    #a bin under the normal distribution:
-    elif sigma > 0:
-        x1=bin_centers - float(bin_step) / 2 #Left bin boundary
-        x2=bin_centers + float(bin_step) / 2 #Right bin boundary
-        dist=torch.distributions.Normal(loc=0.,scale=sigma) 
-        v=dist.cdf(x2[None,:]-x[:,None])-dist.cdf(x1[None,:]-x[:,None]) #Probability of bin-interval 
-        return v, bin_centers
-    else:
-        sys.exit("Sigma must be either >=0.")
+    else: 
+        sys.exit("Unkown type.")
 
 def crop_center(data, out_sp):
     """

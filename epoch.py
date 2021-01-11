@@ -1,17 +1,23 @@
+#DOES MODEL OPTIMIZATION REALLY HAPPEN INPLACE?
+
+def identity(x):
+    return x
 
 #Function to go one epoch and evaluate results:
-def go_one_epoch(state, model, loss_func, unpack_func, device, data_loader, metric_func=None, optimizer=None,
-                 record_output=False):
+def go_one_epoch(state, model, loss_func, device, data_loader, optimizer, eval_func=None, label_translater=identity):
     '''
-    state - string - specifies training or test state
-    model - torch.nn.Module 
-    loss_func - the loss function
-    unpack_func - 
-    device - torch.device 
-    data_loader - torch.
-    metric_func - 
-    optimizer - 
-    record_output - Boolean - 
+    Function training the model over one epoch or evaluating the model over one epoch.
+    Inputs: 
+        state - string - specifies training or test state
+        model - torch.nn.Module 
+        loss_func - the loss function (average over batch)
+        device - torch.device 
+        data_loader - giving inputs and labels of model
+        eval_func - function evaluating model performance by comparing model output with true label (average over batch)
+        optimizer - optimizer torch.optim.NAME 
+        label_translater - function transforming a "hard" label y into a "soft" label similar to the output of the model
+    Output: 
+        results - dictionary - giving evaluation metric (e.g. accuracy or MAE) and average loss 
     '''
     #Set train or evaluation state:
     if state == 'train':
@@ -21,51 +27,49 @@ def go_one_epoch(state, model, loss_func, unpack_func, device, data_loader, metr
     else:
         raise (f'train or test? Received {state}')
 
+    #Send model to device:
+    model=model.to(device)
+
     # Initialize logging:
     output_all = list()
     label_all = list()
     n_total = 0
     loss_total = 0
-    metric_total = 0
+    eval_total = 0
     
     #Go over data:
     for batch_idx, (data, label) in enumerate(data_loader):
         data = data.to(device)
         n_batch = data.shape[0]
-
+        
+        #Translate label into the same space as the outputs:
+        target = label_translater(label)
+        target=target.to(device)
+        
         if state == 'train':
-            target = unpack_func(label, device)
+            #Compute loss and gradient step:
             optimizer.zero_grad()
             output = model(data)
-            loss, loss_list = loss_func(output, target, device)
+            loss = loss_func(output, target)
             loss.backward()
             optimizer.step()
-        elif state == 'test':
+
+        else:
+            #Compute loss without gradient step:
             with torch.no_grad():
-                target = unpack_func(label, device)
                 output = model(data)
-                loss, loss_list = loss_func(output, target, device)
+                loss = loss_func(output, target)
 
         # Step Logging:
         n_total += n_batch
-        ???WHY TIMES n_batch?
         loss_total += loss.detach().cpu().item() * n_batch 
 
-        if metric_func is not None:
-            metric = metric_func(output, label)
-            metric = metric * n_batch
-            metric_total += metric
-        if record_output is True:
-            output_all.append(list(out_.detach().cpu() for out_ in output))
-            label_all.append(list(l_.detach().cpu() for l_ in label))
-    
+        if eval_func is not None:
+            eval_total = eval_func(output, label)*n_batch        
     
     # Output Logging
-    results = { 'metric': metric_total / n_total,
+    results = { 'eval': eval_total / n_total,
                 'loss': loss_total / n_total
-                }    
-    if record_output is True:
-        results['output'] = output_all
-        results['label'] = label_all
+                }   
     
     return results

@@ -16,7 +16,7 @@ import torch
 from torch import nn
 from torch import optim
 
-EXP_DIR = '/well/win-biobank/users/jdo465/age_sex_prediction/oasis3/run_20191206/'
+EXP_DIR = '/gpfs3/well/win-fmrib-analysis/users/lhw539/oasis3/'
 
 
 def get_df_by_list(df=None, key='Subject', ref_list=None, exclusion=False):
