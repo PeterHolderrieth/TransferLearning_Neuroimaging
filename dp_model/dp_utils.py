@@ -59,20 +59,19 @@ def crop_center(data, out_sp):
     nd = np.ndim(data) #number of dimensions
 
     #Get the limits:
-    x_crop_low = int(np.floor((in_sp[-1] - out_sp[-1]) / 2))
-    x_crop_high = int(np.ceil((in_sp[-1] - out_sp[-1]) / 2))
+    x_crop_low = int(np.floor((in_sp[-3] - out_sp[-3]) / 2))
+    x_crop_high = in_sp[-3]-int(np.ceil((in_sp[-3] - out_sp[-3]) / 2))
     y_crop_low = int(np.floor((in_sp[-2] - out_sp[-2]) / 2))
-    y_crop_high = int(np.ceil((in_sp[-2] - out_sp[-2]) / 2))
-    z_crop_low = int(np.floor((in_sp[-3] - out_sp[-3]) / 2))
-    z_crop_high = int(np.ceil((in_sp[-3] - out_sp[-3]) / 2))
+    y_crop_high = in_sp[-2]-int(np.ceil((in_sp[-2] - out_sp[-2]) / 2))
+    z_crop_low = int(np.floor((in_sp[-1] - out_sp[-1]) / 2))
+    z_crop_high = in_sp[-1]-int(np.ceil((in_sp[-1] - out_sp[-1]) / 2))
 
     #Extract:
     if nd == 3:
-        data_crop = data[z_crop_low:-z_crop_high, y_crop_low:-y_crop_high, x_crop_low:-x_crop_high]
+        data_crop = data[x_crop_low:x_crop_high, y_crop_low:y_crop_high, z_crop_low:z_crop_high]
     elif nd == 4:
-        data_crop = data[:, z_crop_low:-z_crop_high, y_crop_low:-y_crop_high, x_crop_low:-x_crop_high]
+        data_crop = data[:, x_crop_low:x_crop_high, y_crop_low:y_crop_high, z_crop_low:z_crop_high]
     else:
         raise ('Wrong dimension! dim=%d.' % nd)
     return data_crop
-
 
