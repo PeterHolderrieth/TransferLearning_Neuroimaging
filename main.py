@@ -19,9 +19,10 @@ else:
     DEVICE = torch.device("cpu")
     print("Running on the CPU")
 
-
+print(type(DEVICE))
 # Example
 model = SFCN()
+print(type(model))
 model = torch.nn.DataParallel(model)
 fp_ = './pre_trained_models/brain_age/run_20190719_00_epoch_best_mae.p'
 model.load_state_dict(torch.load(fp_,map_location=DEVICE))
