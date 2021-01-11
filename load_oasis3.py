@@ -6,3 +6,4 @@ img = nib.load(data_folder+example_file)
 data=img.get_fdata()
 print(type(data))
 print(data.shape)
+
