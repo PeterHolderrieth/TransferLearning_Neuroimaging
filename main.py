@@ -37,7 +37,8 @@ SIGMA=1
 #Set model:
 
 model = SFCN(output_dim=56)
-model = torch.nn.DataParallel(model,device_ids=[0,])#1,2])
+model = torch.nn.DataParallel(model, device_ids=[0, ]).cuda()
+print(torch.cuda.device_count())
 optimizer=torch.optim.SGD(model.parameters(),lr=LR)
 #The following learning rate scheduler decays the learning by gamma every step_size epochs:
 scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=8, gamma=.1) #gamma=1 means no decay
@@ -57,7 +58,6 @@ N_EPOCHS=30
 
 
 for epoch in range(N_EPOCHS):
-    print(scheduler._last_lr[0])
     results=go_one_epoch('train',model,LOSS_FUNC,DEVICE,train_loader,optimizer,label_translater,eval_func=EVAL_FUNC)
     print("| Epoch: %d | train loss: %.5f | train MAE:  %.5f |"%(epoch,results['loss'],results['eval']))
     scheduler.step()
