@@ -18,3 +18,33 @@ def my_KLDivLoss(x, y):
     y += 1e-16
     loss = loss_func(x, y) 
     return loss
+
+def MSE(x,y):
+    '''
+    x,y - torch.Tensor - arbitrary but similar shape
+    '''
+    MSE=torch.mean((x-y)**2)
+    return(MSE)
+
+def MAE(x,y):
+    '''
+    x,y - torch.Tensor - arbitrary but similar shape
+    '''
+    MAE=torch.mean(torch.abs(x-y))
+    return(MAE)
+
+def pred_from_dist(log_probs,bin_centers):
+    '''
+    Input:
+        log_probs - torch.Tensor - shape (batch_size,length(bin_centers))/(bin_centers) - logarithmn of probability weights
+        bin_centers - list of ints - centers of the (age) bins
+    Output: means - torch.Tensor - shape (batch_size)/[1]
+    '''
+    probs=torch.exp(log_probs)
+    bin_centers_=torch.tensor(bin_centers,dtype=probs.dtype)
+    means=torch.matmul(probs,bin_centers_)
+    return(means)
+
+def eval_MAE(log_probs,bin_centers,target):
+    preds=pred_from_dist(log_probs,bin_centers)
+    return MAE(preds,target)

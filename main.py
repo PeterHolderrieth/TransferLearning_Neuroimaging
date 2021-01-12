@@ -12,11 +12,12 @@ from dp_model.model_files.sfcn import SFCN
 from dp_model import dp_loss as dpl
 from dp_model import dp_utils as dpu
 from data.oasis.load_oasis3 import give_oasis_data
+from epoch import go_one_epoch
 
 #Initialize tensorboard writer:
 writer = SummaryWriter('results/test/test_tb')
 
-#Set device type:
+#Set device type:nv
 if torch.cuda.is_available():
     DEVICE = torch.device("cuda:0")  
     print("Running on the GPU")
@@ -29,7 +30,7 @@ BATCH_SIZE=8
 NUM_WORKERS=4
 SHUFFLE=True
 LR=1e-4
-BIN_RANGE=[40,82]
+BIN_RANGE=[40,96]
 BIN_STEP=1
 SIGMA=1
 
@@ -41,11 +42,17 @@ optimizer=torch.optim.SGD(model.parameters(),lr=LR)
 _,train_loader=give_oasis_data('train',batch_size=BATCH_SIZE,num_workers=NUM_WORKERS,shuffle=SHUFFLE)
 _,val_loader=give_oasis_data('val',batch_size=BATCH_SIZE,num_workers=NUM_WORKERS,shuffle=SHUFFLE)
 
-dpu.give_label_translater({  'type': 'label_to_bindist', 
+#Set the label translater:
+label_translater=dpu.give_label_translater({ 'type': 'label_to_bindist', 
                             'bin_step': BIN_STEP,
                             'bin_range': BIN_RANGE,
                             'sigma': SIGMA})
+LOSS_FUNC=dpl.my_KLDivLoss
+EVAL_FUNC=dpl.eval_MAE
+N_EPOCHS=1
 
+for epoch in range(N_EPOCHS):
+    go_one_epoch('train',model,LOSS_FUNC,DEVICE,train_loader,optimizer,label_translater,eval_func=EVAL_FUNC)
 
 '''
 

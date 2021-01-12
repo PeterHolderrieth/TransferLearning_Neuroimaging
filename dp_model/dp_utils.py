@@ -24,6 +24,8 @@ def give_label_translater(kwd):
                 bin_centers - the centers of the bins 
             """
             bin_length = bin_range[1]-bin_range[0]
+            print(bin_length)
+            print(bin_step)
             if not bin_length % bin_step == 0:
                 sys.exit("bin's range should be divisible by bin_step!")
                 return -1
