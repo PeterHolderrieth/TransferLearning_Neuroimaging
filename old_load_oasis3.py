@@ -105,3 +105,31 @@ test_loader1 = torch.utils.data.DataLoader(
     drop_last=False,
     pin_memory=True,
 )
+'''
+#Control whether it is unique:
+subjects_train=np.unique(df_session_train.Subject.values)
+subjects_val=np.unique(df_session_val.Subject.values)
+subjects_test0=np.unique(df_session_test0.Subject.values)
+subjects_test1=np.unique(df_session_test1.Subject.values)
+print(subjects_val.shape)
+print(subjects_test0.shape)
+print(subjects_test1.shape)
+print(np.intersect1d(subjects_train,subjects_val).shape)
+print(np.intersect1d(subjects_val,subjects_test0).shape)
+print(np.intersect1d(subjects_train,subjects_test0).shape)
+print(np.intersect1d(subjects_test0,subjects_test1).shape)
+print(np.intersect1d(subjects_test1,subjects_train).shape)
+print(np.intersect1d(subjects_test1,subjects_val).shape)
+    
+
+    if dataset='train':
+        fp_ = osp.join(DIR_IDs, 'subject_train.csv')
+    
+    df_subject_train = pd.read_csv(fp_)
+    fp_ = osp.join(DIR_IDs, 'subject_val.csv')
+    df_subject_val = pd.read_csv(fp_)
+    fp_ = osp.join(DIR_IDs, 'subject_test0.csv')
+    df_subject_test0 = pd.read_csv(fp_)
+    fp_ = osp.join(DIR_IDs, 'subject_test1.csv')
+    df_subject_test1 = pd.read_csv(fp_)
+'''

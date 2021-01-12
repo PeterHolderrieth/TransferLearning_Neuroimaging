@@ -1,7 +1,4 @@
-from dp_model.model_files.sfcn import SFCN
-from dp_model import dp_loss as dpl
-from dp_model import dp_utils as dpu
-from data.oasis.load_oasis3 import give_oasis_data
+#Modules:
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -10,6 +7,11 @@ import matplotlib.pyplot as plt
 import datetime
 from torch.utils.tensorboard import SummaryWriter
 
+#Own files:
+from dp_model.model_files.sfcn import SFCN
+from dp_model import dp_loss as dpl
+from dp_model import dp_utils as dpu
+from data.oasis.load_oasis3 import give_oasis_data
 
 #Initialize tensorboard writer:
 writer = SummaryWriter('results/test/test_tb')
@@ -22,10 +24,27 @@ else:
     DEVICE = torch.device("cpu")
     print("Running on the CPU")
 
+#Set batch size and number of workers:
+BATCH_SIZE=8
+NUM_WORKERS=4
+SHUFFLE=True
+LR=1e-4
+BIN_RANGE=[40,82]
+BIN_STEP=1
+SIGMA=1
+
+#Set model:
+model = SFCN()
+optimizer=torch.optim.SGD(model.parameters(),lr=LR)
 
 #Load OASIS data:
-_,train_loader=give_oasis_data('train')
-_,val_loader=give_oasis_data('val')
+_,train_loader=give_oasis_data('train',batch_size=BATCH_SIZE,num_workers=NUM_WORKERS,shuffle=SHUFFLE)
+_,val_loader=give_oasis_data('val',batch_size=BATCH_SIZE,num_workers=NUM_WORKERS,shuffle=SHUFFLE)
+
+dpu.give_label_translater({  'type': 'label_to_bindist', 
+                            'bin_step': BIN_STEP,
+                            'bin_range': BIN_RANGE,
+                            'sigma': SIGMA})
 
 
 '''

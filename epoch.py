@@ -1,10 +1,7 @@
 #DOES MODEL OPTIMIZATION REALLY HAPPEN INPLACE?
 
-def identity(x):
-    return x
-
 #Function to go one epoch and evaluate results:
-def go_one_epoch(state, model, loss_func, device, data_loader, optimizer, eval_func=None, label_translater=identity):
+def go_one_epoch(state, model, loss_func, device, data_loader, optimizer, label_translater, eval_func=None):
     '''
     Function training the model over one epoch or evaluating the model over one epoch.
     Inputs: 
