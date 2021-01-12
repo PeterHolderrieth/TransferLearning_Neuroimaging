@@ -1,5 +1,5 @@
 #!/bin/bash
-#$ -wd /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/results/
+#$ -wd /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/experiments/first_run_oasis/
 #$ -P win.prjc
 echo "------------------------------------------------"
 echo "Run on host: "`hostname`
@@ -11,16 +11,10 @@ echo "------------------------------------------------"
 #Load Python module:
 module load Python/3.7.4-GCCcore-8.3.0
 
-
 #Activate the correct python environment:
 source ~/python/ccpu_py_tlneuro
 pip --version
 
+python ~/TransferLearning_Neuroimaging/main.py	
+
 #qsub -l gpu=2 -l gputype=p100 -pe shmem 2 ~/deep_medicine/submit_sh/run_20191206_00.sh
-
-sleep 10s
-python -c 'print("Hello")'
-pip list
-
-
-
