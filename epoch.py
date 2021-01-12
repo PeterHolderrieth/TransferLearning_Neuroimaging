@@ -1,5 +1,5 @@
 #DOES MODEL OPTIMIZATION REALLY HAPPEN INPLACE?
-
+import torch 
 #Function to go one epoch and evaluate results:
 def go_one_epoch(state, model, loss_func, device, data_loader, optimizer, label_translater, eval_func=None):
     '''
@@ -16,6 +16,8 @@ def go_one_epoch(state, model, loss_func, device, data_loader, optimizer, label_
     Output: 
         results - dictionary - giving evaluation metric (e.g. accuracy or MAE) and average loss 
     '''
+    #Send model to device:
+    model=model.to(device)
 
     #Set train or evaluation state:
     if state == 'train':
@@ -25,12 +27,7 @@ def go_one_epoch(state, model, loss_func, device, data_loader, optimizer, label_
     else:
         raise (f'train or test? Received {state}')
 
-    #Send model to device:
-    model=model.to(device)
-
     # Initialize logging:
-    output_all = list()
-    label_all = list()
     n_total = 0
     loss_total = 0
     eval_total = 0
@@ -38,18 +35,23 @@ def go_one_epoch(state, model, loss_func, device, data_loader, optimizer, label_
     #Go over data:
     for batch_idx, (data, label) in enumerate(data_loader):
         print("Batch: ", batch_idx)
+        print("Data shape: ", data.shape)
+        print("Allocated memory: ", torch.cuda.memory_allocated(0)*1e-6)
         data = data.to(device)
         n_batch = data.shape[0]
-
+        label=label.squeeze().to(device)
         #Translate label into the same space as the outputs:
         target,bin_centers = label_translater(label)
-        target=target.to(device)
-        
+        print("Target shape: ", target.shape)
+        print("Target device:", target.device)
         if state == 'train':
             #Compute loss and gradient step:
             optimizer.zero_grad()
             output = model(data)
+            output=output.squeeze()
+            print("Output shape: ", output.shape)
             loss = loss_func(output, target)
+            print("Backpropagate.")
             loss.backward()
             optimizer.step()
 
@@ -57,6 +59,7 @@ def go_one_epoch(state, model, loss_func, device, data_loader, optimizer, label_
             #Compute loss without gradient step:
             with torch.no_grad():
                 output = model(data)
+                output=output.squeeze()
                 loss = loss_func(output, target)
 
         # Step Logging:
@@ -65,7 +68,7 @@ def go_one_epoch(state, model, loss_func, device, data_loader, optimizer, label_
 
         if eval_func is not None:
             eval_total = eval_func(output, label,bin_centers=bin_centers)*n_batch        
-    
+        
     # Output Logging
     results = { 'eval': eval_total / n_total,
                 'loss': loss_total / n_total

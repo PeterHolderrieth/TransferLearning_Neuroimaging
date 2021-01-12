@@ -41,8 +41,8 @@ def pred_from_dist(log_probs,bin_centers):
     Output: means - torch.Tensor - shape (batch_size)/[1]
     '''
     probs=torch.exp(log_probs)
-    bin_centers_=torch.tensor(bin_centers,dtype=probs.dtype)
-    means=torch.matmul(probs,bin_centers_)
+    #bin_centers_=torch.tensor(bin_centers,dtype=probs.dtype)
+    means=torch.matmul(probs,bin_centers)#_)
     return(means)
 
 def give_bin_eval(bin_centers):

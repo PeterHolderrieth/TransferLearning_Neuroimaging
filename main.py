@@ -26,16 +26,17 @@ else:
     print("Running on the CPU")
 
 #Set batch size and number of workers:
-BATCH_SIZE=4
-NUM_WORKERS=4
+BATCH_SIZE=2
+NUM_WORKERS=1
 SHUFFLE=True
-LR=1e-4
+LR=1e-8
 BIN_RANGE=[40,96]
 BIN_STEP=1
 SIGMA=1
 
 #Set model:
-model = SFCN()
+model = SFCN(output_dim=56)
+model = torch.nn.DataParallel(model,device_ids=[0,])
 optimizer=torch.optim.SGD(model.parameters(),lr=LR)
 
 #Load OASIS data:
@@ -52,7 +53,7 @@ EVAL_FUNC=dpl.give_bin_eval(bin_centers=None)
 N_EPOCHS=1
 
 for epoch in range(N_EPOCHS):
-    go_one_epoch('train',model,LOSS_FUNC,DEVICE,train_loader,optimizer,label_translater,eval_func=EVAL_FUNC)
+    go_one_epoch('test',model,LOSS_FUNC,DEVICE,train_loader,optimizer,label_translater,eval_func=EVAL_FUNC)
 
 '''
 
