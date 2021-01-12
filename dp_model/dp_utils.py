@@ -29,19 +29,19 @@ def give_label_translater(kwd):
 
             bin_number = int(bin_length / bin_step)
             bin_centers = bin_range[0] + float(bin_step) / 2 + bin_step * torch.arange(bin_number)
-            bin_centers_=bin_centers.to(x.device)
+            bin_centers=bin_centers.to(x.device)
             #If sigma is zero, set v to be index such that bin_centers[v] is closest
             #to x:
             if sigma == 0:
-                abs_diff=torch.abs(x[:,None]-bin_centers_[None,:])
+                abs_diff=torch.abs(x[:,None]-bin_centers[None,:])
                 v=torch.argmin(abs_diff,dim=1)
                 return v, bin_centers
             
             #If sigma is greater than zero, then return the probability of 
             #a bin under the normal distribution:
             elif sigma > 0:
-                x1=bin_centers_ - float(bin_step) / 2 #Left bin boundary
-                x2=bin_centers_ + float(bin_step) / 2 #Right bin boundary
+                x1=bin_centers - float(bin_step) / 2 #Left bin boundary
+                x2=bin_centers + float(bin_step) / 2 #Right bin boundary
                 dist=torch.distributions.Normal(loc=0.,scale=sigma) 
                 v=dist.cdf(x2[None,:]-x[:,None])-dist.cdf(x1[None,:]-x[:,None]) #Probability of bin-interval 
                 return v, bin_centers

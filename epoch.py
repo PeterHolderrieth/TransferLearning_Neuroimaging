@@ -34,24 +34,19 @@ def go_one_epoch(state, model, loss_func, device, data_loader, optimizer, label_
     
     #Go over data:
     for batch_idx, (data, label) in enumerate(data_loader):
-        print("Batch: ", batch_idx)
-        print("Data shape: ", data.shape)
-        print("Allocated memory: ", torch.cuda.memory_allocated(0)*1e-6)
+        print(batch_idx)
         data = data.to(device)
         n_batch = data.shape[0]
         label=label.squeeze().to(device)
         #Translate label into the same space as the outputs:
         target,bin_centers = label_translater(label)
-        print("Target shape: ", target.shape)
-        print("Target device:", target.device)
+        
         if state == 'train':
             #Compute loss and gradient step:
             optimizer.zero_grad()
             output = model(data)
             output=output.squeeze()
-            print("Output shape: ", output.shape)
             loss = loss_func(output, target)
-            print("Backpropagate.")
             loss.backward()
             optimizer.step()
 
@@ -61,13 +56,15 @@ def go_one_epoch(state, model, loss_func, device, data_loader, optimizer, label_
                 output = model(data)
                 output=output.squeeze()
                 loss = loss_func(output, target)
-
+        
         # Step Logging:
         n_total += n_batch
         loss_total += loss.detach().cpu().item() * n_batch 
 
         if eval_func is not None:
-            eval_total = eval_func(output, label,bin_centers=bin_centers)*n_batch        
+            with torch.no_grad():
+                eval_= eval_func(output, label,bin_centers=bin_centers)
+                eval_total=eval_total+eval_.item()*n_batch        
         
     # Output Logging
     results = { 'eval': eval_total / n_total,

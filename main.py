@@ -35,8 +35,9 @@ BIN_STEP=1
 SIGMA=1
 
 #Set model:
+
 model = SFCN(output_dim=56)
-model = torch.nn.DataParallel(model,device_ids=[0,])
+#model = torch.nn.DataParallel(model,device_ids=[0,])
 optimizer=torch.optim.SGD(model.parameters(),lr=LR)
 
 #Load OASIS data:
@@ -53,10 +54,14 @@ EVAL_FUNC=dpl.give_bin_eval(bin_centers=None)
 N_EPOCHS=1
 
 for epoch in range(N_EPOCHS):
-    go_one_epoch('test',model,LOSS_FUNC,DEVICE,train_loader,optimizer,label_translater,eval_func=EVAL_FUNC)
+    results=go_one_epoch('train',model,LOSS_FUNC,DEVICE,train_loader,optimizer,label_translater,eval_func=EVAL_FUNC)
+    print("| Epoch: %d | train loss: %.5f | train MAE:  %.5f |"%(epoch,results['loss'],results['eval']))
+
+
+
+
 
 '''
-
 print(type(DEVICE))
 # Example
 model = SFCN()

@@ -23,15 +23,15 @@ def MSE(x,y):
     '''
     x,y - torch.Tensor - arbitrary but similar shape
     '''
-    MSE=torch.mean((x-y)**2)
-    return(MSE)
+    mse=torch.mean((x-y)**2)
+    return(mse)
 
 def MAE(x,y):
     '''
     x,y - torch.Tensor - arbitrary but similar shape
     '''
-    MAE=torch.mean(torch.abs(x-y))
-    return(MAE)
+    mae=torch.mean(torch.abs(x-y))
+    return(mae)
 
 def pred_from_dist(log_probs,bin_centers):
     '''
@@ -48,5 +48,6 @@ def pred_from_dist(log_probs,bin_centers):
 def give_bin_eval(bin_centers):
     def eval_MAE(log_probs,target,bin_centers=bin_centers):
         preds=pred_from_dist(log_probs,bin_centers)
-        return MAE(preds,target)
+        mae=MAE(preds,target)
+        return(mae)
     return(eval_MAE)
