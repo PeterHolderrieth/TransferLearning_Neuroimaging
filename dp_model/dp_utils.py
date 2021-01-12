@@ -50,7 +50,7 @@ def give_label_translater(kwd):
                 sys.exit("Sigma must be either >=0.")
         return (label_to_bindist)
    
-    elif kwd['type']='identity':
+    elif kwd['type']=='identity':
 
         def identity(x): 
             return (x)

@@ -1,6 +1,7 @@
 from dp_model.model_files.sfcn import SFCN
 from dp_model import dp_loss as dpl
 from dp_model import dp_utils as dpu
+from data.oasis.load_oasis3 import give_oasis_data
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -9,15 +10,25 @@ import matplotlib.pyplot as plt
 import datetime
 from torch.utils.tensorboard import SummaryWriter
 
+
+#Initialize tensorboard writer:
 writer = SummaryWriter('results/test/test_tb')
 
-
+#Set device type:
 if torch.cuda.is_available():
     DEVICE = torch.device("cuda:0")  
     print("Running on the GPU")
 else:
     DEVICE = torch.device("cpu")
     print("Running on the CPU")
+
+
+#Load OASIS data:
+_,train_loader=give_oasis_data('train')
+_,val_loader=give_oasis_data('val')
+
+
+'''
 
 print(type(DEVICE))
 # Example
@@ -80,3 +91,4 @@ y=np.array([0.5,-1,7])
 
 writer.add_graph(model, input_data)
 writer.close()
+'''
