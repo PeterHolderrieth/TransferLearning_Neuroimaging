@@ -18,7 +18,10 @@ def go_one_epoch(state, model, loss_func, device, data_loader, optimizer, label_
     '''
     #Send model to device:
     model=model.to(device)
-
+    
+    #Track learning rate of optimizer:
+    #print("Optimizer learning rate:", optimizer.state_dict()['param_groups'][0]['lr'])
+    
     #Set train or evaluation state:
     if state == 'train':
         model.train()
@@ -68,5 +71,4 @@ def go_one_epoch(state, model, loss_func, device, data_loader, optimizer, label_
     results = { 'eval': eval_total / n_total,
                 'loss': loss_total / n_total
                 }   
-    
     return results

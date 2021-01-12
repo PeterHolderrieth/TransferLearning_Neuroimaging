@@ -15,7 +15,7 @@ from data.oasis.load_oasis3 import give_oasis_data
 from epoch import go_one_epoch
 
 #Initialize tensorboard writer:
-writer = SummaryWriter('results/test/test_tb')
+#writer = SummaryWriter('results/test/test_tb')
 
 #Set device type:nv
 if torch.cuda.is_available():
@@ -26,10 +26,10 @@ else:
     print("Running on the CPU")
 
 #Set batch size and number of workers:
-BATCH_SIZE=2
-NUM_WORKERS=1
+BATCH_SIZE=10
+NUM_WORKERS=4
 SHUFFLE=True
-LR=1e-2
+LR=1e-1
 BIN_RANGE=[40,96]
 BIN_STEP=1
 SIGMA=1
@@ -37,8 +37,10 @@ SIGMA=1
 #Set model:
 
 model = SFCN(output_dim=56)
-#model = torch.nn.DataParallel(model,device_ids=[0,])
+model = torch.nn.DataParallel(model,device_ids=[0,])#1,2])
 optimizer=torch.optim.SGD(model.parameters(),lr=LR)
+#The following learning rate scheduler decays the learning by gamma every step_size epochs:
+scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=8, gamma=.1) #gamma=1 means no decay
 
 #Load OASIS data:
 _,train_loader=give_oasis_data('train',batch_size=BATCH_SIZE,num_workers=NUM_WORKERS,shuffle=SHUFFLE)
@@ -51,11 +53,14 @@ label_translater=dpu.give_label_translater({ 'type': 'label_to_bindist',
                             'sigma': SIGMA})
 LOSS_FUNC=dpl.my_KLDivLoss
 EVAL_FUNC=dpl.give_bin_eval(bin_centers=None)
-N_EPOCHS=1
+N_EPOCHS=30
+
 
 for epoch in range(N_EPOCHS):
+    print(scheduler._last_lr[0])
     results=go_one_epoch('train',model,LOSS_FUNC,DEVICE,train_loader,optimizer,label_translater,eval_func=EVAL_FUNC)
     print("| Epoch: %d | train loss: %.5f | train MAE:  %.5f |"%(epoch,results['loss'],results['eval']))
+    scheduler.step()
 
 
 
