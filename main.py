@@ -26,7 +26,7 @@ else:
     print("Running on the CPU")
 
 #Set batch size and number of workers:
-BATCH_SIZE=8
+BATCH_SIZE=4
 NUM_WORKERS=4
 SHUFFLE=True
 LR=1e-4
@@ -48,7 +48,7 @@ label_translater=dpu.give_label_translater({ 'type': 'label_to_bindist',
                             'bin_range': BIN_RANGE,
                             'sigma': SIGMA})
 LOSS_FUNC=dpl.my_KLDivLoss
-EVAL_FUNC=dpl.eval_MAE
+EVAL_FUNC=dpl.give_bin_eval(bin_centers=None)
 N_EPOCHS=1
 
 for epoch in range(N_EPOCHS):

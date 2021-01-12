@@ -124,5 +124,6 @@ class MRIDataset(torch.utils.data.Dataset):
     def __getitem__(self, idx):
         data, label = self.get_data(idx)
         data = torch.tensor(data, dtype=torch.float32, requires_grad=False)
+        label = torch.tensor(label, dtype=torch.float32, requires_grad=False)
         return data, label
 

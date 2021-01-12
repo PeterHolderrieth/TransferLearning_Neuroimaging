@@ -67,9 +67,10 @@ class SFCN(nn.Module):
         Every row are the log-probabilities of a probability distribution (later the distribution
         over age bins)
         '''
-        out = list()
+        #out = list()
         x_f = self.feature_extractor(x)
         x = self.classifier(x_f)
         x = F.log_softmax(x, dim=1)
-        out.append(x)
-        return out
+        return(x)
+        #out.append(x)
+        #return out

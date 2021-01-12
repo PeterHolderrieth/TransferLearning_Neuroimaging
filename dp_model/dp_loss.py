@@ -45,6 +45,8 @@ def pred_from_dist(log_probs,bin_centers):
     means=torch.matmul(probs,bin_centers_)
     return(means)
 
-def eval_MAE(log_probs,bin_centers,target):
-    preds=pred_from_dist(log_probs,bin_centers)
-    return MAE(preds,target)
+def give_bin_eval(bin_centers):
+    def eval_MAE(log_probs,target,bin_centers=bin_centers):
+        preds=pred_from_dist(log_probs,bin_centers)
+        return MAE(preds,target)
+    return(eval_MAE)

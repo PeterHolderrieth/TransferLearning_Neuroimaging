@@ -5,9 +5,8 @@ from scipy.stats import norm
 
 def give_label_translater(kwd):
 
-    if kwd['type']=='label_to_bindist':
-
-        def label_to_bindist(x, bin_range=kwd['bin_range'], bin_step=['bin_step'], sigma=kwd['sigma']):
+    if kwd['type']=='label_to_bindist':  
+        def label_to_bindist(x, bin_range=kwd['bin_range'], bin_step=kwd['bin_step'], sigma=kwd['sigma']):
             """
             Function to convert a numerical vector x (hard label) into a bin distribution, 
             e.g. the age 71.6 is either converted into bin "10", i.e. a deterministic distribution, (if sigma=0)
@@ -24,8 +23,6 @@ def give_label_translater(kwd):
                 bin_centers - the centers of the bins 
             """
             bin_length = bin_range[1]-bin_range[0]
-            print(bin_length)
-            print(bin_step)
             if not bin_length % bin_step == 0:
                 sys.exit("bin's range should be divisible by bin_step!")
                 return -1
@@ -50,6 +47,7 @@ def give_label_translater(kwd):
                 return v, bin_centers
             else:
                 sys.exit("Sigma must be either >=0.")
+
         return (label_to_bindist)
    
     elif kwd['type']=='identity':

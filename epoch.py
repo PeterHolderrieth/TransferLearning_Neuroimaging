@@ -16,6 +16,7 @@ def go_one_epoch(state, model, loss_func, device, data_loader, optimizer, label_
     Output: 
         results - dictionary - giving evaluation metric (e.g. accuracy or MAE) and average loss 
     '''
+
     #Set train or evaluation state:
     if state == 'train':
         model.train()
@@ -36,11 +37,12 @@ def go_one_epoch(state, model, loss_func, device, data_loader, optimizer, label_
     
     #Go over data:
     for batch_idx, (data, label) in enumerate(data_loader):
+        print("Batch: ", batch_idx)
         data = data.to(device)
         n_batch = data.shape[0]
-        
+
         #Translate label into the same space as the outputs:
-        target = label_translater(label)
+        target,bin_centers = label_translater(label)
         target=target.to(device)
         
         if state == 'train':
@@ -62,7 +64,7 @@ def go_one_epoch(state, model, loss_func, device, data_loader, optimizer, label_
         loss_total += loss.detach().cpu().item() * n_batch 
 
         if eval_func is not None:
-            eval_total = eval_func(output, label)*n_batch        
+            eval_total = eval_func(output, label,bin_centers=bin_centers)*n_batch        
     
     # Output Logging
     results = { 'eval': eval_total / n_total,
