@@ -34,7 +34,6 @@ def go_one_epoch(state, model, loss_func, device, data_loader, optimizer, label_
     
     #Go over data:
     for batch_idx, (data, label) in enumerate(data_loader):
-        print(batch_idx)
         data = data.to(device)
         n_batch = data.shape[0]
         label=label.squeeze().to(device)
@@ -49,7 +48,6 @@ def go_one_epoch(state, model, loss_func, device, data_loader, optimizer, label_
             loss = loss_func(output, target)
             loss.backward()
             optimizer.step()
-
         else:
             #Compute loss without gradient step:
             with torch.no_grad():
