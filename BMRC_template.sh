@@ -1,6 +1,15 @@
 #!/bin/bash
 #$ -wd /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/results/
 #$ -P win.prjc
+#$ -q gpu8.q
+#$ -pe shmem 2
+#$ -l gpu=2
+#$ -l gputype=p100
+# Log locations which are relative to the current                                                                                                                                                                  # working directory of the submission
+###$ -o output.log
+###$ -e error.log   
+
+
 echo "------------------------------------------------"
 echo "Run on host: "`hostname`
 echo "Operating system: "`uname -s`
