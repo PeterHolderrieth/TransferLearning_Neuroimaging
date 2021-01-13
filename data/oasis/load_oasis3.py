@@ -13,7 +13,7 @@ from dataset import MRIDataset
 
 def give_oasis_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=False):
 
-    '''
+    
     #Construct preprocessing functions:
     ps = construct_preprocessing({'method': 'pixel_shift',
                                         'x_shift': 2,
@@ -27,7 +27,7 @@ def give_oasis_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=Fals
                                             'ny': 192,
                                             'nz': 160})
 	
-	'''
+
     #Get the directory of the data_type:
     DIR = '/gpfs3/well/win-fmrib-analysis/users/lhw539/oasis3/'
     DIR_IDs=osp.join(DIR, 'oasis3_info/') 
