@@ -62,6 +62,8 @@ def go_one_epoch(state, model, loss_func, device, data_loader, optimizer, label_
         n_total += n_batch
         loss_total += loss.detach().cpu().item() * n_batch 
 
+        #Note that if state=='train', this is not necessarily the correct
+        #error on the train set since we use dropout and batch normalization.
         if eval_func is not None:
             with torch.no_grad():
                 eval_= eval_func(output, label,bin_centers=bin_centers)
