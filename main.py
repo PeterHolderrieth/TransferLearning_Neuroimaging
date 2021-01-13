@@ -38,9 +38,10 @@ BIN_STEP=1
 SIGMA=1
 N_EPOCHS=300
 PRINT_EVERY=1
-
+DROPOUT=False
+BATCH_NORM=False
 #Set model:
-model = SFCN(output_dim=56,dropout=False)
+model = SFCN(output_dim=56,dropout=DROPOUT,batch_norm=BATCH_NORM)
 #model = torch.nn.DataParallel(model, device_ids=[0, ]).cuda()
 #print(torch.cuda.device_count())
 optimizer=torch.optim.SGD(model.parameters(),lr=LR)
