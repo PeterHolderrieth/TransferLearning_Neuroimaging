@@ -25,26 +25,31 @@ else:
     DEVICE = torch.device("cpu")
     print("Running on the CPU")
 
+#If debugging is true, we only use a small subset of the train and validation data:
+DEBUG=True
+
 #Set batch size and number of workers:
-BATCH_SIZE=10
+BATCH_SIZE=2
 NUM_WORKERS=4
 SHUFFLE=True
 LR=1e-1
 BIN_RANGE=[40,96]
 BIN_STEP=1
 SIGMA=1
+N_EPOCHS=300
+PRINT_EVERY=1
 
 #Set model:
-model = SFCN(output_dim=56)
+model = SFCN(output_dim=56,dropout=False)
 #model = torch.nn.DataParallel(model, device_ids=[0, ]).cuda()
 #print(torch.cuda.device_count())
 optimizer=torch.optim.SGD(model.parameters(),lr=LR)
 #The following learning rate scheduler decays the learning by gamma every step_size epochs:
-scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=8, gamma=.1) #gamma=1 means no decay
+scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=np.floor(N_EPOCHS/4), gamma=.1) #gamma=1 means no decay
 
 #Load OASIS data:
-_,train_loader=give_oasis_data('train',batch_size=BATCH_SIZE,num_workers=NUM_WORKERS,shuffle=SHUFFLE)
-_,val_loader=give_oasis_data('val',batch_size=BATCH_SIZE,num_workers=NUM_WORKERS,shuffle=SHUFFLE)
+_,train_loader=give_oasis_data('train',batch_size=BATCH_SIZE,num_workers=NUM_WORKERS,shuffle=SHUFFLE,debug=DEBUG)
+_,val_loader=give_oasis_data('val',batch_size=BATCH_SIZE,num_workers=NUM_WORKERS,shuffle=SHUFFLE,debug=DEBUG)
 
 #Set the label translater:
 label_translater=dpu.give_label_translater({ 'type': 'label_to_bindist', 
@@ -53,11 +58,14 @@ label_translater=dpu.give_label_translater({ 'type': 'label_to_bindist',
                             'sigma': SIGMA})
 LOSS_FUNC=dpl.my_KLDivLoss
 EVAL_FUNC=dpl.give_bin_eval(bin_centers=None)
-N_EPOCHS=30
 
+print()
+print("Start training.")
 for epoch in range(N_EPOCHS):
+    lr=optimizer.state_dict()['param_groups'][0]['lr']
     results=go_one_epoch('train',model,LOSS_FUNC,DEVICE,train_loader,optimizer,label_translater,eval_func=EVAL_FUNC)
-    print("| Epoch: %d | train loss: %.5f | train MAE:  %.5f |"%(epoch,results['loss'],results['eval']))
+    if epoch%PRINT_EVERY==0:
+        print("| Epoch: %3d | train loss: %.5f | train MAE:  %.5f | learning rate: %.3f |"%(epoch,results['loss'],results['eval'],lr))
     scheduler.step()
 
 '''
