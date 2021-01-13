@@ -11,9 +11,9 @@ import pandas as pd
 from dataset import construct_preprocessing 
 from dataset import MRIDataset
 
-def give_oasis_data(data_type,batch_size=1,num_workers=1,shuffle=True):
+def give_oasis_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=False):
 
-
+    '''
     #Construct preprocessing functions:
     ps = construct_preprocessing({'method': 'pixel_shift',
                                         'x_shift': 2,
@@ -26,20 +26,24 @@ def give_oasis_data(data_type,batch_size=1,num_workers=1,shuffle=True):
                                             'nx': 160,
                                             'ny': 192,
                                             'nz': 160})
-
+	
+	'''
     #Get the directory of the data_type:
     DIR = '/gpfs3/well/win-fmrib-analysis/users/lhw539/oasis3/'
     DIR_IDs=osp.join(DIR, 'oasis3_info/') 
+    default_name=DIR_IDs
+    if debug:
+        default_name=DIR_IDs+'debug_'
 
     # Load files:
     if data_type=='train':
-        fp_ = osp.join(DIR_IDs, 'session_train.csv')
+        fp_ = default_name+'session_train.csv'
     elif data_type=='val':
-        fp_ = osp.join(DIR_IDs, 'session_val.csv')
+        fp_ = default_name+'session_val.csv'
     elif data_type=='test0':
-        fp_ = osp.join(DIR_IDs, 'session_test0.csv')
+        fp_ = default_name+'session_test0.csv'
     elif data_type=='test1':
-        fp_ = osp.join(DIR_IDs, 'session_test1.csv')
+        fp_ = default_name+'session_test1.csv'
     else: 
         sys.exit("Unknown data type.")
     
@@ -48,6 +52,8 @@ def give_oasis_data(data_type,batch_size=1,num_workers=1,shuffle=True):
     #Load T1 file path values - in the special ase of test1, we use ????:
     if data_type=='test1':
         fp_ = osp.join(DIR_IDs, 'subject_test1.csv')
+        if debug:
+            fp_=osp.join('debug_',fp_)
         df_subject_test1 = pd.read_csv(fp_)
         fp_list = list(df_subject_test1.max_cdr_mri_T1_path.values)
     else: 
@@ -57,9 +63,9 @@ def give_oasis_data(data_type,batch_size=1,num_workers=1,shuffle=True):
     label_list = list([age_, ] for age_ in df_session.AgeBasedOnClinicalData.values)
 
     if data_type=='train':
-        data_set = MRIDataset(fp_list, label_list, [mr, ps, avg, crop])
+        data_set = MRIDataset(fp_list, label_list, [avg,crop])#mr, ps, avg, crop])
     else: 
-        data_set = MRIDataset(fp_list, label_list, [avg, crop])
+        data_set = MRIDataset(fp_list, label_list, [avg,crop])#avg, crop])
 
     #Return data loader:
     data_loader = torch.utils.data.DataLoader(
@@ -70,6 +76,7 @@ def give_oasis_data(data_type,batch_size=1,num_workers=1,shuffle=True):
         drop_last=True,
         pin_memory=True
     )
+    print("Succesfully loaded OASIS %5s data."%data_type)
 
     return(data_set,data_loader)
 
