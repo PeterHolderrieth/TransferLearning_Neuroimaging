@@ -17,7 +17,7 @@ from epoch import go_one_epoch
 #Initialize tensorboard writer:
 #writer = SummaryWriter('results/test/test_tb')
 
-#Set device type:nv
+#Set device type:
 if torch.cuda.is_available():
     DEVICE = torch.device("cuda:0")  
     print("Running on the GPU")
