@@ -13,7 +13,7 @@ from dp_model import dp_loss as dpl
 from dp_model import dp_utils as dpu
 from data.oasis.load_oasis3 import give_oasis_data
 from epoch import go_one_epoch
-
+import utils
 #Initialize tensorboard writer:
 #writer = SummaryWriter('results/test/test_tb')
 
@@ -32,8 +32,9 @@ DEBUG=True
 BATCH_SIZE=2
 NUM_WORKERS=4
 SHUFFLE=True
-LR=1e-1
-BIN_RANGE=[40,96]
+LR=1e-3
+AGE_RANGE=[40,96] #Age range of data
+BIN_RANGE=[38,98] #Enlarge age range with 2 at both sides to account for border effects.
 BIN_STEP=1
 SIGMA=1
 N_EPOCHS=300
@@ -41,7 +42,7 @@ PRINT_EVERY=1
 DROPOUT=False
 BATCH_NORM=False
 #Set model:
-model = SFCN(output_dim=56,dropout=DROPOUT,batch_norm=BATCH_NORM)
+model = SFCN(output_dim=BIN_RANGE[1]-BIN_RANGE[0],dropout=DROPOUT,batch_norm=BATCH_NORM)
 #model = torch.nn.DataParallel(model, device_ids=[0, ]).cuda()
 #print(torch.cuda.device_count())
 optimizer=torch.optim.SGD(model.parameters(),lr=LR)
@@ -60,14 +61,27 @@ label_translater=dpu.give_label_translater({ 'type': 'label_to_bindist',
 LOSS_FUNC=dpl.my_KLDivLoss
 EVAL_FUNC=dpl.give_bin_eval(bin_centers=None)
 
+length_avg=10
+loss_meter=utils.AverageMeter(length_avg)
+mae_meter=utils.AverageMeter(length_avg)
+
 print()
 print("Start training.")
 for epoch in range(N_EPOCHS):
     lr=optimizer.state_dict()['param_groups'][0]['lr']
+    
     results=go_one_epoch('train',model,LOSS_FUNC,DEVICE,train_loader,optimizer,label_translater,eval_func=EVAL_FUNC)
+    
+    #Update logging:
+    loss_meter.update(results['loss'])
+    mae_meter.update(results['eval'])
+    
+    #Print update:
     if epoch%PRINT_EVERY==0:
-        print("| Epoch: %3d | train loss: %.5f | train MAE:  %.5f | learning rate: %.3f |"%(epoch,results['loss'],results['eval'],lr))
+        print("| Epoch: %3d | train loss: %.5f | train MAE:  %.5f | learning rate: %.3f |"%(epoch,loss_meter.run_avg,mae_meter.run_avg,lr))
+
     scheduler.step()
+
 
 '''
 print(type(DEVICE))

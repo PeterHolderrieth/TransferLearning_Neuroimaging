@@ -75,7 +75,7 @@ def give_oasis_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=Fals
         shuffle=shuffle,
         drop_last=True,
         pin_memory=True
-    )
+)
     print("Succesfully loaded OASIS %5s data."%data_type)
 
     return(data_set,data_loader)

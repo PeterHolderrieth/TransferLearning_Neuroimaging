@@ -6,7 +6,7 @@ from scipy.stats import norm
 def give_label_translater(kwd):
 
     if kwd['type']=='label_to_bindist':  
-        def label_to_bindist(x, bin_range=kwd['bin_range'], bin_step=kwd['bin_step'], sigma=kwd['sigma']):
+        def label_to_bindist(x, bin_range=kwd['bin_range'], bin_step=kwd['bin_step'], sigma=kwd['sigma'],normalize=True):
             """
             Function to convert a numerical vector x (hard label) into a bin distribution, 
             e.g. the age 71.6 is either converted into bin "10", i.e. a deterministic distribution, (if sigma=0)
@@ -44,7 +44,10 @@ def give_label_translater(kwd):
                 x2=bin_centers + float(bin_step) / 2 #Right bin boundary
                 dist=torch.distributions.Normal(loc=0.,scale=sigma) 
                 v=dist.cdf(x2[None,:]-x[:,None])-dist.cdf(x1[None,:]-x[:,None]) #Probability of bin-interval 
-                return v, bin_centers
+                #Normalize v: 
+                if normalize:
+                    v=v/v.sum(dim=1)[:,None]
+                return v, bin_centers                
             else:
                 sys.exit("Sigma must be either >=0.")
 
