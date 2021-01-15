@@ -78,7 +78,7 @@ class test_model(nn.Module):
 model=test_model(bin_range=BIN_RANGE)
 
 #model = torch.nn.DataParallel(model, device_ids=[0, ]).cuda()
-#print(torch.cuda.device_count())
+#print(torch.cuda.device_count()) 
 optimizer=torch.optim.SGD(model.parameters(),lr=ARGS['LR'],weight_decay=.1)
 #The following learning rate scheduler decays the learning by gamma every step_size epochs:
 step_size=max(int(np.floor(ARGS['N_EPOCHS']/4)),1)
