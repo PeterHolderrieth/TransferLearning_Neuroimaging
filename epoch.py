@@ -41,14 +41,14 @@ def go_one_epoch(state, model, loss_func, device, data_loader, optimizer, label_
         n_batch = data.shape[0]
         label=label.squeeze().to(device)
         #Translate label into the same space as the outputs:
-        target,bin_centers = label_translater(label)
+        target_probs,bin_centers = label_translater(label)
         
         if state == 'train':
             #Compute loss and gradient step:
             optimizer.zero_grad()
             output = model(data)
             output=output.squeeze()
-            loss = loss_func(output, target)
+            loss = loss_func(logs_probs=output, target_probs=target_probs)
             loss.backward()
             optimizer.step()
         else:
@@ -66,7 +66,7 @@ def go_one_epoch(state, model, loss_func, device, data_loader, optimizer, label_
         #error on the train set since we use dropout and batch normalization.
         if eval_func is not None:
             with torch.no_grad():
-                eval_= eval_func(output, label,bin_centers=bin_centers)
+                eval_= eval_func(log_probs=output, target=label,bin_centers=bin_centers)
                 eval_total=eval_total+eval_.item()*n_batch        
         
     # Output Logging

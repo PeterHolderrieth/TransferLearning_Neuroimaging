@@ -1,22 +1,22 @@
 import torch.nn as nn
 import torch 
 
-def my_KLDivLoss(x, y):
+def my_KLDivLoss(log_probs, target_probs):
     """
     Input: 
-        x  - torch.tensor - shape (n, m) - log-probabilities!
+        log_probs  - torch.tensor - shape (n, m) - log-probabilities!
         y  - torch.tensor - shape (n, m) - probabilities
     Output:
         loss - float
-    Returns KL-Divergence KL(y||x)
+    Returns KL-Divergence KL(y||log_probs)
     Different from the default PyTorch nn.KLDivLoss in that
     a) the result is averaged by the 0th dimension (Batch size)
     b) the y distribution is added with a small value (1e-16) to ensure
     numerical stability ("log(0)-problem")
     """
     loss_func = nn.KLDivLoss(reduction='batchmean')
-    y += 1e-16
-    loss = loss_func(x, y) 
+    target_probs += 1e-16
+    loss = loss_func(log_probs, target_probs) 
     return loss
 
 def MSE(x,y):

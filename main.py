@@ -2,10 +2,11 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from torch.utils.tensorboard import SummaryWriter
 import numpy as np
 import matplotlib.pyplot as plt
 import datetime
-from torch.utils.tensorboard import SummaryWriter
+import argparse
 
 #Own files:
 from dp_model.model_files.sfcn import SFCN
@@ -25,36 +26,58 @@ else:
     DEVICE = torch.device("cpu")
     print("Running on the CPU")
 
-#If debugging is true, we only use a small subset of the train and validation data:
-DEBUG=True
+
+# Construct the argument parser
+ap = argparse.ArgumentParser()
+ap.set_defaults(
+    BATCH_SIZE=2,
+    N_EPOCHS=3,
+    LR=1e-3, 
+    NUM_WORKERS=4,
+    DEBUG=True,
+    PRINT_EVERY=1,
+    GAMMA=1.)
+
+#Debugging? Then use small data set:
+ap.add_argument("-debug", "--DEBUG", type=bool, required=False,help="Debug or not.")
+
+#Arguments for training:
+ap.add_argument("-batch", "--BATCH_SIZE", type=int, required=False,help="Batch size.")
+ap.add_argument("-n_work", "--NUM_WORKERS", type=int, required=False,help="Number of workers.")
+ap.add_argument("-lr", "--LR", type=float, required=False, help="Learning rate.")
+ap.add_argument("-gamma", "--GAMMA", type=int, required=False,help="Decay factor for learning rate schedule.")
+ap.add_argument("-epochs", "--N_EPOCHS", type=int, required=False,help="Number of epochs.")
+#ap.add_argument("-seed","--SEED", type=int, required=False, help="Seed for randomness.")
+#ap.add_argument("-continue","--CONTINUE",type=str,required=False,help="File to continue training")
+
+#Arguments for tracking:
+ARGS = vars(ap.parse_args())
 
 #Set batch size and number of workers:
-BATCH_SIZE=2
-NUM_WORKERS=4
 SHUFFLE=True
-LR=1e-3
 AGE_RANGE=[40,96] #Age range of data
-BIN_RANGE=[38,98] #Enlarge age range with 2 at both sides to account for border effects.
+BIN_RANGE=[37,99] #Enlarge age range with 3 at both sides to account for border effecs
 BIN_STEP=1
 SIGMA=1
-N_EPOCHS=300
-PRINT_EVERY=1
 DROPOUT=False
 BATCH_NORM=False
+
 #Set model:
 model = SFCN(output_dim=BIN_RANGE[1]-BIN_RANGE[0],dropout=DROPOUT,batch_norm=BATCH_NORM)
 #model = torch.nn.DataParallel(model, device_ids=[0, ]).cuda()
 #print(torch.cuda.device_count())
-optimizer=torch.optim.SGD(model.parameters(),lr=LR)
+optimizer=torch.optim.SGD(model.parameters(),lr=ARGS['LR'])
 #The following learning rate scheduler decays the learning by gamma every step_size epochs:
-scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=np.floor(N_EPOCHS/4), gamma=.1) #gamma=1 means no decay
+step_size=max(int(np.floor(ARGS['N_EPOCHS']/4)),1)
+scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=step_size, gamma=ARGS['GAMMA']) #gamma=1 means no decay
 
 #Load OASIS data:
-_,train_loader=give_oasis_data('train',batch_size=BATCH_SIZE,num_workers=NUM_WORKERS,shuffle=SHUFFLE,debug=DEBUG)
-_,val_loader=give_oasis_data('val',batch_size=BATCH_SIZE,num_workers=NUM_WORKERS,shuffle=SHUFFLE,debug=DEBUG)
+_,train_loader=give_oasis_data('train',batch_size=ARGS['BATCH_SIZE'],num_workers=ARGS['NUM_WORKERS'],shuffle=SHUFFLE,debug=ARGS['DEBUG'])
+_,val_loader=give_oasis_data('val',batch_size=ARGS['BATCH_SIZE'],num_workers=ARGS['NUM_WORKERS'],shuffle=SHUFFLE,debug=ARGS['DEBUG'])
 
 #Set the label translater:
-label_translater=dpu.give_label_translater({ 'type': 'label_to_bindist', 
+label_translater=dpu.give_label_translater({
+                            'type': 'label_to_bindist', 
                             'bin_step': BIN_STEP,
                             'bin_range': BIN_RANGE,
                             'sigma': SIGMA})
@@ -64,24 +87,36 @@ EVAL_FUNC=dpl.give_bin_eval(bin_centers=None)
 length_avg=10
 loss_meter=utils.AverageMeter(length_avg)
 mae_meter=utils.AverageMeter(length_avg)
-
+loss_list=[]
+mae_list=[]
 print()
 print("Start training.")
-for epoch in range(N_EPOCHS):
+for epoch in range(ARGS['N_EPOCHS']):
     lr=optimizer.state_dict()['param_groups'][0]['lr']
     
-    results=go_one_epoch('train',model,LOSS_FUNC,DEVICE,train_loader,optimizer,label_translater,eval_func=EVAL_FUNC)
+    results=go_one_epoch('train',model=model,
+                                loss_func=LOSS_FUNC,
+                                device=DEVICE,
+                                data_loader=train_loader,
+                                optimizer=optimizer,
+                                label_translater=label_translater,
+                                eval_func=EVAL_FUNC)
     
     #Update logging:
     loss_meter.update(results['loss'])
     mae_meter.update(results['eval'])
-    
+    loss_list.append(results['loss'])
+    mae_list.append(results['eval'])
+
     #Print update:
-    if epoch%PRINT_EVERY==0:
+    if epoch%ARGS['PRINT_EVERY']==0:
         print("| Epoch: %3d | train loss: %.5f | train MAE:  %.5f | learning rate: %.3f |"%(epoch,loss_meter.run_avg,mae_meter.run_avg,lr))
 
     scheduler.step()
 
+loss_arr=np.array(loss_list)
+mae_arr=np.array(mae_list)
+print("Correlation between loss and MAE:", np.corrcoef(loss_arr,mae_arr)[0,0])
 
 '''
 print(type(DEVICE))
