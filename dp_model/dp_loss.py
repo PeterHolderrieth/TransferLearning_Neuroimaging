@@ -1,7 +1,7 @@
 import torch.nn as nn
 import torch 
 
-def my_KLDivLoss(log_probs, target_probs):
+def my_KLDivLoss(log_probs, target_probs,bin_centers=None):
     """
     Input: 
         log_probs  - torch.tensor - shape (n, m) - log-probabilities!
@@ -19,6 +19,20 @@ def my_KLDivLoss(log_probs, target_probs):
     log_probs=torch.log(1e-10+torch.exp(log_probs))
     loss = loss_func(log_probs, target_probs)  
     return loss
+
+def my_MAELoss(log_probs, target_probs,bin_centers=None):
+    """
+    Input: 
+        log_probs  - torch.tensor - shape (n, m) - log-probabilities!
+        y  - torch.tensor - shape (n, m) - probabilities
+    Output:
+        loss - float
+    Returns MSE between the predictions/
+    """
+    pred=pred_from_dist(log_probs,bin_centers)
+    true_label=torch.matmul(target_probs,bin_centers)
+    mae=MAE(pred,true_label)
+    return(mae)
 
 def MSE(x,y):
     '''

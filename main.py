@@ -32,7 +32,7 @@ ap = argparse.ArgumentParser()
 ap.set_defaults(
     BATCH_SIZE=2,
     N_EPOCHS=3,
-    LR=1e-3, 
+    LR=1e-2, 
     NUM_WORKERS=4,
     DEBUG=True,
     PRINT_EVERY=1,
@@ -64,9 +64,9 @@ DROPOUT=False
 BATCH_NORM=False
 
 #Set model:
-#model = SFCN(output_dim=BIN_RANGE[1]-BIN_RANGE[0],dropout=DROPOUT,batch_norm=BATCH_NORM)
-class test_model(nn.Module):
-    def __init__(self, bin_range, n_x=160,n_y=192,n_z=160):
+model = SFCN(output_dim=BIN_RANGE[1]-BIN_RANGE[0],dropout=DROPOUT,batch_norm=BATCH_NORM)
+'''class test_model(nn.Module):
+    def __init__(self, bin_range, n_x=160,n_y=192,n_z=160)expo:
         super(test_model, self).__init__()
         self.linear=nn.Linear(n_x*n_y*n_z,BIN_RANGE[1]-BIN_RANGE[0])
 
@@ -76,10 +76,10 @@ class test_model(nn.Module):
         return(out)
 
 model=test_model(bin_range=BIN_RANGE)
-
+'''
 #model = torch.nn.DataParallel(model, device_ids=[0, ]).cuda()
 #print(torch.cuda.device_count()) 
-optimizer=torch.optim.SGD(model.parameters(),lr=ARGS['LR'],weight_decay=.1)
+optimizer=torch.optim.SGD(model.parameters(),lr=ARGS['LR'])#,weight_decay=.1)
 #The following learning rate scheduler decays the learning by gamma every step_size epochs:
 step_size=max(int(np.floor(ARGS['N_EPOCHS']/4)),1)
 scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=step_size, gamma=ARGS['GAMMA']) #gamma=1 means no decay
@@ -94,7 +94,7 @@ label_translater=dpu.give_label_translater({
                             'bin_step': BIN_STEP,
                             'bin_range': BIN_RANGE,
                             'sigma': SIGMA})
-LOSS_FUNC=dpl.my_KLDivLoss
+LOSS_FUNC=dpl.my_MAELoss #my_KLDivLoss
 EVAL_FUNC=dpl.give_bin_eval(bin_centers=None)
 
 length_avg=10
