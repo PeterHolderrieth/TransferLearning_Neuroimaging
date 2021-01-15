@@ -48,7 +48,7 @@ def go_one_epoch(state, model, loss_func, device, data_loader, optimizer, label_
             optimizer.zero_grad()
             output = model(data)
             output=output.squeeze()
-            loss = loss_func(logs_probs=output, target_probs=target_probs)
+            loss = loss_func(log_probs=output, target_probs=target_probs)
             loss.backward()
             optimizer.step()
         else:
@@ -66,6 +66,8 @@ def go_one_epoch(state, model, loss_func, device, data_loader, optimizer, label_
         #error on the train set since we use dropout and batch normalization.
         if eval_func is not None:
             with torch.no_grad():
+                print("True labels: ", label)
+                print("Predictions:", torch.matmul(torch.exp(output),bin_centers))
                 eval_= eval_func(log_probs=output, target=label,bin_centers=bin_centers)
                 eval_total=eval_total+eval_.item()*n_batch        
         

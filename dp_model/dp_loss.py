@@ -15,8 +15,9 @@ def my_KLDivLoss(log_probs, target_probs):
     numerical stability ("log(0)-problem")
     """
     loss_func = nn.KLDivLoss(reduction='batchmean')
-    target_probs += 1e-16
-    loss = loss_func(log_probs, target_probs) 
+    target_probs += 1e-10
+    log_probs=torch.log(1e-10+torch.exp(log_probs))
+    loss = loss_func(log_probs, target_probs)  
     return loss
 
 def MSE(x,y):
@@ -47,7 +48,7 @@ def pred_from_dist(log_probs,bin_centers):
 
 def give_bin_eval(bin_centers):
     def eval_MAE(log_probs,target,bin_centers=bin_centers):
-        preds=pred_from_dist(log_probs,bin_centers)
+        preds=pred_from_dist(log_probs=log_probs,bin_centers=bin_centers)
         mae=MAE(preds,target)
         return(mae)
     return(eval_MAE)
