@@ -49,7 +49,7 @@ def give_label_translater(kwd):
                     v=v/v.sum(dim=1)[:,None]
                 return v, bin_centers                
             else:
-                sys.exit("Sigma must be either >=0.")
+                sys.exit("Sigma must be >=0.")
 
         return (label_to_bindist)
    

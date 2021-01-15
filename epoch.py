@@ -18,10 +18,7 @@ def go_one_epoch(state, model, loss_func, device, data_loader, optimizer, label_
     '''
     #Send model to device:
     model=model.to(device)
-    
-    #Track learning rate of optimizer:
-    #print("Optimizer learning rate:", optimizer.state_dict()['param_groups'][0]['lr'])
-    
+
     #Set train or evaluation state:
     if state == 'train':
         model.train()
@@ -40,6 +37,7 @@ def go_one_epoch(state, model, loss_func, device, data_loader, optimizer, label_
         data = data.to(device)
         n_batch = data.shape[0]
         label=label.squeeze().to(device)
+        
         #Translate label into the same space as the outputs:
         target_probs,bin_centers = label_translater(label)
         
