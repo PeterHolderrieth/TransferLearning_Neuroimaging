@@ -65,7 +65,7 @@ SIGMA=1
 DROPOUT=False
 BATCH_NORM=True
 N_DECAYS=5
-PATH_TO_PRETRAINED='pre_trained_moddels/brain_age/run_20190719_00_epoch_best_mae.p'
+PATH_TO_PRETRAINED='pre_trained_models/brain_age/run_20190719_00_epoch_best_mae.p'
 
 #Set initialization of weights:
 INITIALIZE='pre'
