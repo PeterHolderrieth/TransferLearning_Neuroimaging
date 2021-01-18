@@ -100,3 +100,11 @@ class SFCN(nn.Module):
         '''
         for p in self.parameters():
             p.requires_grad=True
+
+    def train_nothing(self):
+        '''
+        After calling this function, all parameters
+        of the model will be trained.
+        '''
+        for p in self.parameters():
+            p.requires_grad=False
