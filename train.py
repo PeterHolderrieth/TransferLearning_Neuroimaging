@@ -7,7 +7,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import datetime
 import argparse
-
+import sys 
 #Own files:
 from dp_model.model_files.sfcn import SFCN
 from dp_model import dp_loss as dpl
@@ -63,9 +63,30 @@ SIGMA=1
 DROPOUT=False
 BATCH_NORM=True
 N_DECAYS=5
+PATH_TO_PRETRAINED='pre_trained_models/brain_age/run_20190719_00_epoch_best_mae.p'
 
 #Set model:
-model = SFCN(output_dim=BIN_RANGE[1]-BIN_RANGE[0],dropout=DROPOUT,batch_norm=BATCH_NORM)
+INITIALIZE='pre'
+
+if INITIALIZE=='fresh':
+    model = SFCN(output_dim=BIN_RANGE[1]-BIN_RANGE[0],dropout=DROPOUT,batch_norm=BATCH_NORM)
+    model.train_full_model()
+
+elif INITIALIZE=='pre':
+    #Load the model:
+    model = SFCN()
+    model=nn.DataParallel(model)
+    state_dict=torch.load(PATH_TO_PRETRAINED)#,map_location=DEVICE)
+    model.load_state_dict(state_dict)
+
+    #Reshape and reinitialize the final layer:
+    c_in = model.module.classifier.conv_6.in_channels
+    conv_last = nn.Conv3d(c_in, BIN_RANGE[1]-BIN_RANGE[0], kernel_size=1)
+    model.module.classifier.conv_6 = conv_last
+    model.module.train_final_layer()
+else: 
+    sys.exit("Initialization unknown.")
+
 '''class test_model(nn.Module):
     def __init__(self, bin_range, n_x=160,n_y=192,n_z=160)expo:
         super(test_model, self).__init__()
@@ -78,8 +99,6 @@ model = SFCN(output_dim=BIN_RANGE[1]-BIN_RANGE[0],dropout=DROPOUT,batch_norm=BAT
 
 model=test_model(bin_range=BIN_RANGE)
 '''
-print(dict(model.classifier.parameters()))
-print(model.state_dict()['classifier.conv_6.weight'].flatten())
 #model = torch.nn.DataParallel(model, device_ids=[0, ]).cuda()
 #print(torch.cuda.device_count()) 
 optimizer=torch.optim.SGD(model.parameters(),lr=ARGS['LR'])#,weight_decay=.1)
@@ -107,9 +126,12 @@ loss_list=[]
 mae_list=[]
 print()
 print("Start training.")
+    
+
+#print(model.state_dict()['classifier.conv_6.weight'].flatten())
 for epoch in range(ARGS['N_EPOCHS']):
     #Parameters of last layer:
-    par_llayer=model.state_dict()['classifier.conv_6.weight'].flatten().cpu()
+    #par_llayer=model.module.state_dict()['classifier.conv_6.weight'].flatten().cpu()
 
     lr=optimizer.state_dict()['param_groups'][0]['lr']
     
@@ -128,7 +150,7 @@ for epoch in range(ARGS['N_EPOCHS']):
     mae_list.append(results['eval'])
     
     #Parameters new layers:
-    #par_nlayer=model.state_dict()['classifier.conv_6.weight'].flatten().cpu()
+    #par_nlayer=model.module.state_dict()['classifier.conv_6.weight'].flatten().cpu()
     #abs_diff=torch.abs(par_llayer-par_nlayer)
     #print("Maximum difference: ", abs_diff.max().item())
     #print("Minimum difference: ", abs_diff.min().item())    

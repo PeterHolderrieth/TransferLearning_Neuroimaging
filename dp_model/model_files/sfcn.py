@@ -82,3 +82,21 @@ class SFCN(nn.Module):
         return(x)
         #out.append(x)
         #return out
+
+    def train_final_layer(self):
+        '''
+        After calling this function, only the finaly layer
+        of the model will be trained.
+        '''
+        for p in self.parameters():
+            p.requires_grad=False
+        for p in self.classifier.parameters():
+            p.requires_grad=True
+        
+    def train_full_model(self):
+        '''
+        After calling this function, all parameters
+        of the model will be trained.
+        '''
+        for p in self.parameters():
+            p.requires_grad=True
