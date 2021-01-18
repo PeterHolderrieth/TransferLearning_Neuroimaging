@@ -65,7 +65,7 @@ SIGMA=1
 DROPOUT=False
 BATCH_NORM=True
 N_DECAYS=5
-PATH_TO_PRETRAINED='pre_trained_models/brain_age/run_20190719_00_epoch_best_mae.p'
+PATH_TO_PRETRAINED='pre_trained_moddels/brain_age/run_20190719_00_epoch_best_mae.p'
 
 #Set initialization of weights:
 INITIALIZE='pre'
@@ -85,14 +85,13 @@ elif INITIALIZE=='pre':
     c_in = model.module.classifier.conv_6.in_channels
     conv_last = nn.Conv3d(c_in, BIN_RANGE[1]-BIN_RANGE[0], kernel_size=1)
     model.module.classifier.conv_6 = conv_last
-    print(model.module.classifier)
     if DROPOUT is False:
-        model.modulde.classifier.dropout
+        model.module.classifier.dropout.p=0.
 else: 
     sys.exit("Initialization unknown.")
 
 #Set parameters to train:
-TRAIN='full'
+TRAIN='none'
 
 if TRAIN=='full':
     model.module.train_full_model()
