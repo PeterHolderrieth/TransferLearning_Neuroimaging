@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 import datetime
 import argparse
 import sys 
+
 #Own files:
 from dp_model.model_files.sfcn import SFCN
 from dp_model import dp_loss as dpl
@@ -15,6 +16,7 @@ from dp_model import dp_utils as dpu
 from data.oasis.load_oasis3 import give_oasis_data
 from epoch import go_one_epoch
 import utils
+
 #Initialize tensorboard writer:
 #writer = SummaryWriter('results/test/test_tb')
 
@@ -65,12 +67,12 @@ BATCH_NORM=True
 N_DECAYS=5
 PATH_TO_PRETRAINED='pre_trained_models/brain_age/run_20190719_00_epoch_best_mae.p'
 
-#Set model:
+#Set initialization of weights:
 INITIALIZE='pre'
 
 if INITIALIZE=='fresh':
+    #Initialize model from scratch:
     model = SFCN(output_dim=BIN_RANGE[1]-BIN_RANGE[0],dropout=DROPOUT,batch_norm=BATCH_NORM)
-    model.train_full_model()
 
 elif INITIALIZE=='pre':
     #Load the model:
@@ -83,9 +85,23 @@ elif INITIALIZE=='pre':
     c_in = model.module.classifier.conv_6.in_channels
     conv_last = nn.Conv3d(c_in, BIN_RANGE[1]-BIN_RANGE[0], kernel_size=1)
     model.module.classifier.conv_6 = conv_last
-    model.module.train_final_layer()
+    print(model.module.classifier)
+    if DROPOUT is False:
+        model.modulde.classifier.dropout
 else: 
     sys.exit("Initialization unknown.")
+
+#Set parameters to train:
+TRAIN='full'
+
+if TRAIN=='full':
+    model.module.train_full_model()
+elif TRAIN=='last':
+    model.module.train_last_layer()
+elif TRAIN=='none':
+    model.module.train_nothing()
+else: 
+    sys.exit("Which parameters to train?")
 
 '''class test_model(nn.Module):
     def __init__(self, bin_range, n_x=160,n_y=192,n_z=160)expo:
