@@ -74,8 +74,10 @@ class SFCN(nn.Module):
         over age bins)
         '''
         #out = list()
+        batch_size=x.size(0)
         x_f = self.feature_extractor(x)
         x = self.classifier(x_f)
+        x=x.view(batch_size,-1)
         x = F.log_softmax(x, dim=1)
         return(x)
         #out.append(x)

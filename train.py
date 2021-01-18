@@ -78,6 +78,7 @@ model = SFCN(output_dim=BIN_RANGE[1]-BIN_RANGE[0],dropout=DROPOUT,batch_norm=BAT
 
 model=test_model(bin_range=BIN_RANGE)
 '''
+print(dict(model.classifier.parameters()))
 print(model.state_dict()['classifier.conv_6.weight'].flatten())
 #model = torch.nn.DataParallel(model, device_ids=[0, ]).cuda()
 #print(torch.cuda.device_count()) 

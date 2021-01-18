@@ -18,6 +18,8 @@ def go_one_epoch(state, model, loss_func, device, data_loader, optimizer, label_
     '''
     #Send model to device:
     model=model.to(device)
+    #DEBUG:
+    par_llayer=model.state_dict()['classifier.conv_6.weight'].flatten().cpu()
 
     #Set train or evaluation state:
     if state == 'train':
@@ -37,7 +39,6 @@ def go_one_epoch(state, model, loss_func, device, data_loader, optimizer, label_
         data = data.to(device)
         n_batch = data.shape[0]
         label=label.squeeze().to(device)
-        print("Data shape: ", data.shape)
         #Translate label into the same space as the outputs:
         target_probs,bin_centers = label_translater(label)
         
@@ -45,7 +46,6 @@ def go_one_epoch(state, model, loss_func, device, data_loader, optimizer, label_
             #Compute loss and gradient step:
             optimizer.zero_grad()
             output = model(data)
-            output=output.squeeze()
             loss = loss_func(log_probs=output, target_probs=target_probs,bin_centers=bin_centers)
             loss.backward()
             optimizer.step()
@@ -53,7 +53,6 @@ def go_one_epoch(state, model, loss_func, device, data_loader, optimizer, label_
             #Compute loss without gradient step:
             with torch.no_grad():
                 output = model(data)
-                output=output.squeeze()
                 loss = loss_func(output, target,bin_centers=bin_centers)
         
         # Step Logging:
@@ -69,6 +68,13 @@ def go_one_epoch(state, model, loss_func, device, data_loader, optimizer, label_
                 eval_= eval_func(log_probs=output, target=label,bin_centers=bin_centers)
                 eval_total=eval_total+eval_.item()*n_batch        
         
+    #DEBUG: Observe gradient descent in the parameters:
+    #par_nlayer=model.state_dict()['classifier.conv_6.weight'].flatten().cpu()
+    #abs_diff=torch.abs(par_llayer-par_nlayer)
+    #print("Inner-Loop Maximum difference: ", abs_diff.max().item())
+    #print("Inner-Loop Minimum difference: ", abs_diff.min().item())    
+    #print("Inner-Loop Mean difference: ", abs_diff.mean().item())
+    
     # Output Logging
     results = { 'eval': eval_total / n_total,
                 'loss': loss_total / n_total

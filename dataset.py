@@ -112,7 +112,6 @@ class MRIDataset(torch.utils.data.Dataset):
         label = self.label_list[idx]
         fp_ = self.file_list[idx]
         x = nib.load(fp_).get_fdata()
-        print("X shape:", x.shape, "Should be 3d not 4d!")
         if self.preprocessing is not None:
             for func_ in self.preprocessing:
                 x = func_(x)
