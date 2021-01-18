@@ -37,7 +37,7 @@ def go_one_epoch(state, model, loss_func, device, data_loader, optimizer, label_
         data = data.to(device)
         n_batch = data.shape[0]
         label=label.squeeze().to(device)
-        
+        print("Data shape: ", data.shape)
         #Translate label into the same space as the outputs:
         target_probs,bin_centers = label_translater(label)
         

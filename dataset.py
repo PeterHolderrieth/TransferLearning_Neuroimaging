@@ -17,7 +17,7 @@ def construct_preprocessing(kwd):
                 three axis (randomly forth and back with maximum difference x_shift/y_shift/z_shift)
      - {'method': 'mirror',
       'probability': 0.5}
-            -->  returns a method which mirrors the MRI scan 
+            -->  returns a method which mirrors the MRI scan along the first axis
      - {'method': 'average'}
      - {'method': 'crop',
         'nx': 160,
@@ -65,7 +65,7 @@ def construct_preprocessing(kwd):
             Function divides data by its mean and centers it zero mean, i.e. the resulting data vector has zero mean but variance!=1 possibly.
         '''
         def average(data):
-            data = data / np.mean(data) - 1
+            data = data / np.mean(data)
             return data
 
         return average
@@ -112,6 +112,7 @@ class MRIDataset(torch.utils.data.Dataset):
         label = self.label_list[idx]
         fp_ = self.file_list[idx]
         x = nib.load(fp_).get_fdata()
+        print("X shape:", x.shape, "Should be 3d not 4d!")
         if self.preprocessing is not None:
             for func_ in self.preprocessing:
                 x = func_(x)

@@ -31,7 +31,6 @@ else:
 ap = argparse.ArgumentParser()
 ap.set_defaults(
     BATCH_SIZE=2,
-    N_EPOCHS=3,
     LR=1e-2, 
     NUM_WORKERS=4,
     DEBUG=True,

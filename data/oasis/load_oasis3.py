@@ -80,3 +80,20 @@ def give_oasis_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=Fals
 
     return(data_set,data_loader)
 
+
+'''
+To control whether data sets intersect:
+subjects_train=np.unique(df_session_train.Subject.values)
+subjects_val=np.unique(df_session_val.Subject.values)
+subjects_test0=np.unique(df_session_test0.Subject.values)
+subjects_test1=np.unique(df_session_test1.Subject.values)
+print(subjects_val.shape)
+print(subjects_test0.shape)
+print(subjects_test1.shape)
+print(np.intersect1d(subjects_train,subjects_val).shape)
+print(np.intersect1d(subjects_val,subjects_test0).shape)
+print(np.intersect1d(subjects_train,subjects_test0).shape)
+print(np.intersect1d(subjects_test0,subjects_test1).shape)
+print(np.intersect1d(subjects_test1,subjects_train).shape)
+print(np.intersect1d(subjects_test1,subjects_val).shape)
+'''
