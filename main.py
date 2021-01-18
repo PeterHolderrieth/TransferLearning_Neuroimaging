@@ -62,7 +62,8 @@ BIN_STEP=1
 SIGMA=1
 DROPOUT=False
 BATCH_NORM=True
-N_DECAYS=5
+N_DECAYS=10
+
 
 #Set model:
 model = SFCN(output_dim=BIN_RANGE[1]-BIN_RANGE[0],dropout=DROPOUT,batch_norm=BATCH_NORM)
