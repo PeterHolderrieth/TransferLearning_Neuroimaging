@@ -1,16 +1,17 @@
 #!/bin/bash
-#$ -wd /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/results/
+#$ -wd /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/experiments/gpu_template/
 #$ -P win.prjc
-#$ -q short.qc
+#$ -q gpu8.q
+#$ -j y #Error and output file are merged to output file
+#$ -l gpu=1
 # -pe shmem 2
-# -l gpu=2
 # -l gputype=p100
+#Save file to:
 # Log locations which are relative to the current                                                                                                                                                                  # working directory of the submission
-###$ -o output.log
-###$ -e error.log   
-
+#$ -o template.log
 
 echo "------------------------------------------------"
+echo "Job ID: $JOB_ID"
 echo "Run on host: "`hostname`
 echo "Operating system: "`uname -s`
 echo "Username: "`whoami`
@@ -20,16 +21,13 @@ echo "------------------------------------------------"
 #Load Python module:
 module load Python/3.7.4-GCCcore-8.3.0
 
-
 #Activate the correct python environment:
 source ~/python/ccpu_py_tlneuro
-pip --version
 
-#qsub -l gpu=2 -l gputype=p100 -pe shmem 2 ~/deep_medicine/submit_sh/run_20191206_00.sh
-
-sleep 10s
-python -c 'print("Hello")'
-pip list
+#python ~/TransferLearning_Neuroimaging/train.py -epochs 3  	
 
 
+echo "------------------------------------------------"
+echo "Finished at: "`date`
+echo "------------------------------------------------"
 
