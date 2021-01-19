@@ -42,7 +42,7 @@ ap.set_defaults(
     TRAIN='full',
     INIT='fresh',
     N_DECAYS=5,
-    PL=True,
+    PL=False,
     LOSS='mae',
     DROP=False
     )
@@ -123,10 +123,11 @@ scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer,
                                                       factor=ARGS['GAMMA']) 
 
 #Load OASIS data:
-_,train_loader=give_oasis_data('train',batch_size=ARGS['BATCH_SIZE'],
+_,train_loader=give_oasis_data('train', batch_size=ARGS['BATCH_SIZE'],
                                         num_workers=ARGS['NUM_WORKERS'],
-                                        shuffle=SHUFFLE,debug=ARGS['DEBUG'])
-_,val_loader=give_oasis_data('val',batch_size=ARGS['BATCH_SIZE'],
+                                        shuffle=SHUFFLE,
+                                        debug=ARGS['DEBUG'])
+_,val_loader=give_oasis_data('val', batch_size=ARGS['BATCH_SIZE'],
                                     num_workers=ARGS['NUM_WORKERS'],
                                     shuffle=SHUFFLE,
                                     debug=ARGS['DEBUG'])
@@ -150,10 +151,7 @@ EVAL_FUNC=dpl.give_bin_eval(bin_centers=None)
 
 #Set average meters:
 length_avg=20
-loss_meter=utils.AverageMeter(length_avg)
-mae_meter=utils.AverageMeter(length_avg)
-loss_list=[]
-mae_list=[]
+meter=utils.TrainMeter(length_avg)
 
 
 print()
@@ -169,21 +167,28 @@ for epoch in range(ARGS['N_EPOCHS']):
     #Get learning rate:    
     lr=optimizer.state_dict()['param_groups'][0]['lr']
     #Go one epoch:
-    results=go_one_epoch('train',model=model,
+    results_tr=go_one_epoch('train',model=model,
                                 loss_func=LOSS_FUNC,
                                 device=DEVICE,
                                 data_loader=train_loader,
                                 optimizer=optimizer,
                                 label_translater=label_translater,
                                 eval_func=EVAL_FUNC)
+    #Go one epoch:
+    results_val=go_one_epoch('test',model=model,
+                                loss_func=LOSS_FUNC,
+                                device=DEVICE,
+                                data_loader=val_loader,
+                                optimizer=optimizer,
+                                label_translater=label_translater,
+                                eval_func=EVAL_FUNC)
     
     #Update logging:
-    loss_it=results['loss']
-    mae_it=results['eval']
-    loss_meter.update(loss_it)
-    mae_meter.update(mae_it)
-    loss_list.append(loss_it)
-    mae_list.append(mae_it)
+    meter.update(tr_loss_it=results_tr['loss'],
+                tr_eval_it=results_tr['eval'],
+                val_loss_it=results_val['loss'],
+                val_eval_it=results_val['eval'],
+                n=ARGS['BATCH_SIZE'])
     
     
     #Parameters new layers:
@@ -192,21 +197,25 @@ for epoch in range(ARGS['N_EPOCHS']):
     #print("Maximum difference: ", abs_diff.max().item())
     #print("Minimum difference: ", abs_diff.min().item())    
     #print("Mean difference: ", abs_diff.mean().item())
-d
+
     #Print update:
     if epoch%ARGS['PRINT_EVERY']==0:
         print(("|epoch: %3d | lr: %.3f |"+ 
                   "train loss: %.5f |train loss ravg: %.5f |"+
-                  "train MAE:  %.5f |train MAE ravg:  %.5f |")%(epoch,
-                  lr,loss_it,loss_meter.run_avg,mae_it,mae_meter.run_avg))
-    scheduler.step(it)
+                  "train MAE:  %.5f |train MAE ravg:  %.5f |"+
+                  "val loss: %.5f |val loss ravg: %.5f |"+
+                  "val MAE:  %.5f |val MAE ravg:  %.5f |")%(epoch,
+                  lr,meter.tr_loss.val,meter.tr_loss.run_avg,meter.tr_eval.val,meter.tr_eval.run_avg,
+                  meter.val_loss.val,meter.val_loss.run_avg,meter.val_eval.val,meter.val_eval.run_avg))
+
+    scheduler.step(meter.tr_loss.val)
 
 print("---------------------------------------------------------------------------------------------------"+
       "------------------")    
 print("Finished training.")
 
-loss_arr=np.array(loss_list)
-mae_arr=np.array(mae_list)
+loss_arr=np.array(meter.tr_loss.vec)
+mae_arr=np.array(meter.tr_eval.vec)
 print("Correlation between loss and MAE:", np.corrcoef(loss_arr,mae_arr)[0,1])
 
 

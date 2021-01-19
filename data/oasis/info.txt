@@ -1,7 +1,66 @@
-Split January 11 2021:
-Number of training examples:  355
-Number of validation examples:  91
-Number of test0 examples:  686
-Number of test1 examples:  343
-Isn't there missing something? I thought we have 2000 sessions?
+Split January 19 2021:
+Number of training examples:  (187 subjects |) 355 sessions 
+Number of validation examples:  (50 subjects |) 91 sessions 
+Number of test0 examples:  (343 subjects |) 686 sessions
+Number of test1 examples:  343 subjects (| 498 sessions )
+--------------------------------------------------------
+
+
+
+For training, validation and test0 we used all sessions of subjects.
+For test1, we only used one session per subject I guess? 343 is the number of subjects.
+The number of sessions in test1 is 498.
+
+Adding up gives:
+355+91+686+498=1630
+The selection process results in 1036 eligible subjects 
+and 1806 eligible sessions for the subsequent sampling process
+
+-----------------------
+Description from Han:
+-----------------------
+OASIS-3 dataset
+OASIS-3 contains 1098 subjects and 2168 longitudinal MRI scanning sessions.
+Following LaMontagne et al.,41 the healthy control group consists of the subjects
+ who have CDR score 0 from all clinical visits during the longitudinal studies. The 
+ dementia group consist of the subjects who receive at least one CDR score that is
+  larger or equal than 0.5 (which means we do not consider the subtypes of dementia).
+   We applied quality control strictly following both of the two criterions: 
+(1) Only the 3T MRI sessions with valid clinical visit (within one year since
+    or before the MRI scan) are included. This was because OASIS-3 contains both 1.5T and 3T MRI scans, 
+    while the CNN models were pretrained in UK Biobank scans using only 3T MRI.  
+(2) For the dementia group, every MRI session used in the study should be accompanied
+    with a CDR score that is larger or equal than 0.5. 
+    (2.a) If a subject has multiple visits,
+    we select only one MRI session that is accompanied the largest CDR score for the subject. 
+    (2.b) If a subject has multiple visits receiving the same largest CDR score,  we select the
+     first one among all these visits. 
+     (2.c) If a subject only receives one CDR score that is larger or equal than 0.5 during the 
+     clinical visits, and that visit is not accompanied with any 3T MRI session (within one year 
+     since or before the clinical visit), then the subject is excluded. 
+
+The selection process results in 1036 eligible subjects and 1806 eligible sessions for
+the subsequent sampling process.
+
+For the training/validation set, we randomly selected 187/50 subjects and used all 
+the 355/91 sessions from those subjects. The rest of the subjects are therefore 
+strictly untouched and forms a test/discovery set. For the HC group, if a subject
+receives multiple visits, we randomly sample one visit. Together with the criterion 
+(2), every subject in both HC and dementia group has only one matched MRI session, 
+and there are 343 subjects within each group. [NOTE: that means you will find ]
+
+We then sample the same number of subjects from the HC and dementia group. Within each 
+5-year interval, we sample the same number of subjects from both groups, and the number
+is determined by the maximally available number of subjects from the smaller group.
+For example, in the age interval 60 to 65, there are 19 subjects in the HC group and 
+36 subjects in the dementia group, and we used all 19 subjects in the HC group and sampled
+19 subjects from the dementia group. To produce the reported result, there are 228 subjects
+sampled in each group.
+
+The preprocessing pipeline uses fsl_anat command from FSL42 for automatic bias field removal,
+12 degree of freedom linear registration, non-linear registration to a standard space 
+(2mm MNI 152 space), and 1mm brain extraction. Finally, the 1mm brain is linearly transformed
+to MNI 152 (with flirt command) and used for the subsequent CNN training/validation/testing. 
+The preprocessing is largely automatic and can be considered as minimal comparing to complex
+feature extraction techniques for traditional machine learning methods.
 
