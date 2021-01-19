@@ -120,7 +120,8 @@ else:
     threshold=1 
 scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, 
                                                       patience=step_size, 
-                                                      factor=ARGS['GAMMA']) 
+                                                      factor=ARGS['GAMMA'],
+                                                      threshold=threshold) 
 
 #Load OASIS data:
 _,train_loader=give_oasis_data('train', batch_size=ARGS['BATCH_SIZE'],
@@ -166,6 +167,7 @@ for epoch in range(ARGS['N_EPOCHS']):
 
     #Get learning rate:    
     lr=optimizer.state_dict()['param_groups'][0]['lr']
+    
     #Go one epoch:
     results_tr=go_one_epoch('train',model=model,
                                 loss_func=LOSS_FUNC,
@@ -183,12 +185,14 @@ for epoch in range(ARGS['N_EPOCHS']):
                                 label_translater=label_translater,
                                 eval_func=EVAL_FUNC)
     
+    #results_tr={'loss': torch.rand(1).item(),'eval': torch.rand(1).item()}
+    #results_val={'loss': torch.rand(1).item(),'eval': torch.rand(1).item()}
+
     #Update logging:
     meter.update(tr_loss_it=results_tr['loss'],
                 tr_eval_it=results_tr['eval'],
                 val_loss_it=results_val['loss'],
-                val_eval_it=results_val['eval'],
-                n=ARGS['BATCH_SIZE'])
+                val_eval_it=results_val['eval'])
     
     
     #Parameters new layers:
@@ -216,8 +220,7 @@ print("Finished training.")
 
 loss_arr=np.array(meter.tr_loss.vec)
 mae_arr=np.array(meter.tr_eval.vec)
-print("Correlation between loss and MAE:", np.corrcoef(loss_arr,mae_arr)[0,1])
-
+print("Correlation between train loss and MAE:", np.corrcoef(loss_arr,mae_arr)[0,1])
 
 '''
 Utilities for later us:

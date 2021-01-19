@@ -53,7 +53,7 @@ def go_one_epoch(state, model, loss_func, device, data_loader, optimizer, label_
             #Compute loss without gradient step:
             with torch.no_grad():
                 output = model(data)
-                loss = loss_func(output, target,bin_centers=bin_centers)
+                loss = loss_func(log_probs=output, target_probs=target_probs,bin_centers=bin_centers)
         
         # Step Logging:
         n_total += n_batch
