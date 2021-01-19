@@ -220,7 +220,8 @@ print("Finished training.")
 
 loss_arr=np.array(meter.tr_loss.vec)
 mae_arr=np.array(meter.tr_eval.vec)
-print("Correlation between train loss and MAE:", np.corrcoef(loss_arr,mae_arr)[0,1])
+corr=np.corrcoef(loss_arr,mae_arr)[0,1]
+print("Correlation between train loss and MAE:", "%.5f"%corr)
 
 '''
 Utilities for later us:
