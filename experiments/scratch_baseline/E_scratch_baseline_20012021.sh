@@ -8,7 +8,7 @@
 # -l gputype=p100
 #Save file to:
 # Log locations which are relative to the current                                                                                                                                                                  # working directory of the submission
-#$ -o results/A_scratch_baseline.log
+#$ -o results/E_scratch_baseline.log
 
 echo "------------------------------------------------"
 echo "Job ID: $JOB_ID"
