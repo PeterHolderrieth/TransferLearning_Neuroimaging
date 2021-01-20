@@ -29,7 +29,7 @@ lr=1e-2
 gamma=0.1
 loss=kl
 pat=10
-drop=False 
+drop=none 
 debug=full 
 
 python ~/TransferLearning_Neuroimaging/train.py -epochs $epochs -debug $debug -lr $lr -gamma 0.75 -init fresh -drop $drop -pat $pat -loss $loss
