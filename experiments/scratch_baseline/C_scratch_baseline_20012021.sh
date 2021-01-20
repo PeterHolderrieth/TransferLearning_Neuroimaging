@@ -24,14 +24,15 @@ module load Python/3.7.4-GCCcore-8.3.0
 #Activate the correct python environment:
 source ~/python/ccpu_py_tlneuro
 
-epochs=30
+epochs=150
 lr=1e-2
 gamma=0.75
 loss=kl
-pat=3
+pat=10
 drop=False 
+debug=full 
 
-python ~/TransferLearning_Neuroimaging/train.py -epochs $epochs -debug False -lr $lr -gamma 0.75 -init fresh -drop $drop -pat $pat -loss $loss
+python ~/TransferLearning_Neuroimaging/train.py -epochs $epochs -debug $debug -lr $lr -gamma 0.75 -init fresh -drop $drop -pat $pat -loss $loss
 
 
 echo "------------------------------------------------"

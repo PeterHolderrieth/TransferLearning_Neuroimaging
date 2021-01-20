@@ -35,7 +35,7 @@ ap.set_defaults(
     BATCH_SIZE=2,
     LR=1e-2, 
     NUM_WORKERS=4,
-    DEBUG=True,
+    DEBUG='debug',
     PRINT_EVERY=1,
     GAMMA=0.1,
     N_EPOCHS=3,
@@ -48,7 +48,7 @@ ap.set_defaults(
     )
 
 #Debugging? Then use small data set:
-ap.add_argument("-debug", "--DEBUG", type=bool, required=False,help="Debug or not.")
+ap.add_argument("-debug", "--DEBUG", type=str, required=False,help="Debug or not.")
 
 #Arguments for training:
 ap.add_argument("-batch", "--BATCH_SIZE", type=int, required=False,help="Batch size.")
@@ -121,16 +121,22 @@ scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer,
                                                       patience=ARGS['PAT'], 
                                                       factor=ARGS['GAMMA'],
                                                       threshold=threshold) 
-print("Debug flag:", ARGS['DEBUG'])
+if ARGS['DEBUG']=='debug':
+    debug=True
+elif ARGS['DEBUG']=='full':
+    debug=False 
+else: 
+    sys.exit("Unvalid debug flag.")
+
 #Load OASIS data:
 _,train_loader=give_oasis_data('train', batch_size=ARGS['BATCH_SIZE'],
                                         num_workers=ARGS['NUM_WORKERS'],
                                         shuffle=SHUFFLE,
-                                        debug=ARGS['DEBUG'])
+                                        debug=debug)
 _,val_loader=give_oasis_data('val', batch_size=ARGS['BATCH_SIZE'],
                                     num_workers=ARGS['NUM_WORKERS'],
                                     shuffle=SHUFFLE,
-                                    debug=ARGS['DEBUG'])
+                                    debug=debug)
 
 #Set the label translater:
 label_translater=dpu.give_label_translater({
