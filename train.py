@@ -41,7 +41,7 @@ ap.set_defaults(
     N_EPOCHS=3,
     TRAIN='full',
     INIT='fresh',
-    N_DECAYS=5,
+    PAT=10,
     PL=False,
     LOSS='mae',
     DROP=False
@@ -58,7 +58,7 @@ ap.add_argument("-gamma", "--GAMMA", type=float, required=False,help="Decay fact
 ap.add_argument("-epochs", "--N_EPOCHS", type=int, required=False,help="Number of epochs.")
 ap.add_argument("-train", "--TRAIN", type=str, required=False,help="Train mode (from scratch or pre-trained model.)")
 ap.add_argument("-init", "--INIT", type=str, required=False,help="Train mode (from scratch or pre-trained model.)")
-ap.add_argument("-dec", "--N_DECAYS", type=int, required=False,help="Number of decays (multiplications by gamma).")
+ap.add_argument("-pat", "--PAT", type=int, required=False,help="Patience, i.e. number of steps until lr is diminished.")
 ap.add_argument("-pl", "--PL", type=bool, required=False,help="Bool to indicate whether we use an adaptive learning changing when loss reaches plateu (True) or just rate decay.")
 ap.add_argument("-loss", "--LOSS", type=str, required=False,help="Loss function to use: mae or kl.")
 ap.add_argument("-drop", "--DROP", type=bool, required=False,help="Dropout or not?")
@@ -112,14 +112,13 @@ else:
 optimizer=torch.optim.SGD(model.parameters(),lr=ARGS['LR'])#,weight_decay=.1)
 
 #The following learning rate scheduler decays the learning by gamma every step_size epochs:
-step_size=max(int(np.floor(ARGS['N_EPOCHS']/ARGS['N_DECAYS'])),1)
 if ARGS['PL']:
     threshold=1e-4
 else: 
     #Make every change insignificant such that deterministic decay after step_size steps
     threshold=1 
 scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, 
-                                                      patience=step_size, 
+                                                      patience=ARGS['PAT'], 
                                                       factor=ARGS['GAMMA'],
                                                       threshold=threshold) 
 
@@ -161,7 +160,7 @@ print("-------------------------------------------------------------------------
       "-------------------") 
 
 for epoch in range(ARGS['N_EPOCHS']):
-    
+     
     #Parameters of last layer:
     #par_llayer=model.module.state_dict()['classifier.conv_6.weight'].flatten().cpu()
 
@@ -190,9 +189,9 @@ for epoch in range(ARGS['N_EPOCHS']):
 
     #Update logging:
     meter.update(tr_loss_it=results_tr['loss'],
-                tr_eval_it=results_tr['eval'],
-                val_loss_it=results_val['loss'],
-                val_eval_it=results_val['eval'])
+                 tr_eval_it=results_tr['eval'],
+                 val_loss_it=results_val['loss'],
+                 val_eval_it=results_val['eval'])
     
     
     #Parameters new layers:
