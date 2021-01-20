@@ -21,12 +21,7 @@ import utils
 #writer = SummaryWriter('results/test/test_tb')
 
 #Set device type:
-if torch.cuda.is_available():
-    DEVICE = torch.device("cuda:0")  
-    print("Running on the GPU")
-else:
-    DEVICE = torch.device("cpu")
-    print("Running on the CPU")
+DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 
 # Construct the argument parser
@@ -174,7 +169,7 @@ print()
 print("Start training.")
 print("---------------------------------------------------------------------------------------------------"+
       "-------------------") 
-'''
+
 for epoch in range(ARGS['N_EPOCHS']):
      
     #Parameters of last layer:
@@ -237,7 +232,7 @@ loss_arr=np.array(meter.tr_loss.vec)
 mae_arr=np.array(meter.tr_eval.vec)
 corr=np.corrcoef(loss_arr,mae_arr)[0,1]
 print("Correlation between train loss and MAE:", "%.5f"%corr)
-'''
+
 '''
 Utilities for later us:
 writer.add_graph(model, input_data)
