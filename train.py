@@ -43,7 +43,7 @@ ap.set_defaults(
     )
 
 #Debugging? Then use small data set:
-ap.add_argument("-debug", "--DEBUG", type=str, required=False,help="Debug or not.")
+ap.add_argument("-deb", "--DEBUG", type=str, required=False,help="Debug or not.")
 
 #Arguments for training:
 ap.add_argument("-batch", "--BATCH_SIZE", type=int, required=False,help="Batch size.")
@@ -121,7 +121,6 @@ elif ARGS['PL']=='none':
     threshold=1 
 else: 
     sys.exit("Plateau or not? Either pl or none.")
-print(threshold)
 scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, 
                                                       patience=ARGS['PAT'], 
                                                       factor=ARGS['GAMMA'],
@@ -169,7 +168,7 @@ print()
 print("Start training.")
 print("---------------------------------------------------------------------------------------------------"+
       "-------------------") 
-
+print(datetime.datetime.today())
 for epoch in range(ARGS['N_EPOCHS']):
      
     #Parameters of last layer:
@@ -227,6 +226,7 @@ for epoch in range(ARGS['N_EPOCHS']):
 print("---------------------------------------------------------------------------------------------------"+
       "------------------")    
 print("Finished training.")
+print(datetime.datetime.today())
 
 loss_arr=np.array(meter.tr_loss.vec)
 mae_arr=np.array(meter.tr_eval.vec)
