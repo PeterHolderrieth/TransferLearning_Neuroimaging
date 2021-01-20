@@ -42,9 +42,9 @@ ap.set_defaults(
     TRAIN='full',
     INIT='fresh',
     PAT=10,
-    PL=False,
+    PL='pl',
     LOSS='mae',
-    DROP=False
+    DROP='drop'
     )
 
 #Debugging? Then use small data set:
@@ -59,9 +59,9 @@ ap.add_argument("-epochs", "--N_EPOCHS", type=int, required=False,help="Number o
 ap.add_argument("-train", "--TRAIN", type=str, required=False,help="Train mode (from scratch or pre-trained model.)")
 ap.add_argument("-init", "--INIT", type=str, required=False,help="Train mode (from scratch or pre-trained model.)")
 ap.add_argument("-pat", "--PAT", type=int, required=False,help="Patience, i.e. number of steps until lr is diminished.")
-ap.add_argument("-pl", "--PL", type=bool, required=False,help="Bool to indicate whether we use an adaptive learning changing when loss reaches plateu (True) or just rate decay.")
+ap.add_argument("-pl", "--PL", type=str, required=False,help="pl indicate whether we use an adaptive learning changing when loss reaches plateu (True) or none for deterministic decay.")
 ap.add_argument("-loss", "--LOSS", type=str, required=False,help="Loss function to use: mae or kl.")
-ap.add_argument("-drop", "--DROP", type=bool, required=False,help="Dropout or not?")
+ap.add_argument("-drop", "--DROP", type=str, required=False,help="drop for dropout and none for no dropout.")
 
 #ap.add_argument("-seed","--SEED", type=int, required=False, help="Seed for randomness.")
 
@@ -77,9 +77,16 @@ BIN_STEP=1
 SIGMA=1
 PATH_TO_PRETRAINED='pre_trained_models/brain_age/run_20190719_00_epoch_best_mae.p'
 
+if ARGS['DROP']=='drop':
+    dropout=True
+elif ARGS['DROP']=='none':
+    dropout=False
+else: 
+    sys.exit("Dropout or not? Either drop or none.")
+
 if ARGS['INIT']=='fresh':
     #Initialize model from scratch:
-    model = SFCN(output_dim=BIN_RANGE[1]-BIN_RANGE[0],dropout=ARGS['DROP'])
+    model = SFCN(output_dim=BIN_RANGE[1]-BIN_RANGE[0],dropout=dropout)
     model=nn.DataParallel(model)
 
 elif ARGS['INIT']=='pre':
@@ -93,7 +100,7 @@ elif ARGS['INIT']=='pre':
     c_in = model.module.classifier.conv_6.in_channels
     conv_last = nn.Conv3d(c_in, BIN_RANGE[1]-BIN_RANGE[0], kernel_size=1)
     model.module.classifier.conv_6 = conv_last
-    if ARGS['DROP'] is False:
+    if dropout is False:
         model.module.classifier.dropout.p=0.
 else: 
     sys.exit("Initialization unknown.")
@@ -112,11 +119,14 @@ else:
 optimizer=torch.optim.SGD(model.parameters(),lr=ARGS['LR'])#,weight_decay=.1)
 
 #The following learning rate scheduler decays the learning by gamma every step_size epochs:
-if ARGS['PL']:
+if ARGS['PL']=='pl':
     threshold=1e-4
-else: 
+elif ARGS['PL']=='none': 
     #Make every change insignificant such that deterministic decay after step_size steps
     threshold=1 
+else: 
+    sys.exit("Plateau or not? Either pl or none.")
+
 scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, 
                                                       patience=ARGS['PAT'], 
                                                       factor=ARGS['GAMMA'],
