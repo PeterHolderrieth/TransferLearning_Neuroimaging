@@ -121,7 +121,7 @@ scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer,
                                                       patience=ARGS['PAT'], 
                                                       factor=ARGS['GAMMA'],
                                                       threshold=threshold) 
-
+print("Debug flag:", ARGS['DEBUG'])
 #Load OASIS data:
 _,train_loader=give_oasis_data('train', batch_size=ARGS['BATCH_SIZE'],
                                         num_workers=ARGS['NUM_WORKERS'],
