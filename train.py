@@ -22,6 +22,7 @@ import utils
 
 #Set device type:
 DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+print("Number of GPUs: ", torch.cuda.device_count())
 
 
 # Construct the argument parser
@@ -99,6 +100,9 @@ elif ARGS['INIT']=='pre':
         model.module.classifier.dropout.p=0.
 else: 
     sys.exit("Initialization unknown.")
+
+#Send model to device:
+model=model.to(DEVICE)
 
 
 #Set train mode:

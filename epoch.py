@@ -17,7 +17,7 @@ def go_one_epoch(state, model, loss_func, device, data_loader, optimizer, label_
         results - dictionary - giving evaluation metric (e.g. accuracy or MAE) and average loss 
     '''
     #Send model to device:
-    model=model.to(device)
+    #model=model.to(device)
     #DEBUG:
     #par_llayer=model.module.state_dict()['classifier.conv_6.weight'].flatten().cpu()
 
