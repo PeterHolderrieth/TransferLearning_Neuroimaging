@@ -42,7 +42,7 @@ ap.set_defaults(
     TRAIN='full',
     INIT='fresh',
     PAT=10,
-    PL='pl',
+    PL='none',
     LOSS='mae',
     DROP='drop'
     )
@@ -126,7 +126,7 @@ elif ARGS['PL']=='none':
     threshold=1 
 else: 
     sys.exit("Plateau or not? Either pl or none.")
-
+print(threshold)
 scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, 
                                                       patience=ARGS['PAT'], 
                                                       factor=ARGS['GAMMA'],
@@ -174,7 +174,7 @@ print()
 print("Start training.")
 print("---------------------------------------------------------------------------------------------------"+
       "-------------------") 
-
+'''
 for epoch in range(ARGS['N_EPOCHS']):
      
     #Parameters of last layer:
@@ -237,7 +237,7 @@ loss_arr=np.array(meter.tr_loss.vec)
 mae_arr=np.array(meter.tr_eval.vec)
 corr=np.corrcoef(loss_arr,mae_arr)[0,1]
 print("Correlation between train loss and MAE:", "%.5f"%corr)
-
+'''
 '''
 Utilities for later us:
 writer.add_graph(model, input_data)
