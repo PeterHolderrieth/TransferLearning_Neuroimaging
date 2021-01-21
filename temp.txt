@@ -1,0 +1,318 @@
+Requirement already satisfied: absl-py==0.11.0 in /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 1)) (0.11.0)
+Collecting backcall==0.1.0 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 2))
+  Downloading https://files.pythonhosted.org/packages/84/71/c8ca4f5bb1e08401b916c68003acf0a0655df935d74d93bf3f3364b310e0/backcall-0.1.0.tar.gz
+Collecting bleach==3.1.0 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/ab/05/27e1466475e816d3001efb6e0a85a819be17411420494a1e602c36f8299d/bleach-3.1.0-py2.py3-none-any.whl (157kB)
+Requirement already satisfied: cachetools==4.2.0 in /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 4)) (4.2.0)
+Requirement already satisfied: certifi==2020.12.5 in /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 5)) (2020.12.5)
+Requirement already satisfied: chardet==4.0.0 in /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 6)) (4.0.0)
+Requirement already satisfied: cycler==0.10.0 in /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 7)) (0.10.0)
+Requirement already satisfied: decorator==4.4.2 in /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 8)) (4.4.2)
+Collecting defusedxml==0.6.0 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 9))
+  Using cached https://files.pythonhosted.org/packages/06/74/9b387472866358ebc08732de3da6dc48e44b0aacd2ddaa5cb85ab7e986a2/defusedxml-0.6.0-py2.py3-none-any.whl
+Collecting entrypoints==0.3 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 10))
+  Using cached https://files.pythonhosted.org/packages/ac/c6/44694103f8c221443ee6b0041f69e2740d89a25641e62fb4f2ee568f2f9c/entrypoints-0.3-py2.py3-none-any.whl
+Requirement already satisfied: google-auth==1.24.0 in /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 11)) (1.24.0)
+Requirement already satisfied: google-auth-oauthlib==0.4.2 in /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 12)) (0.4.2)
+Requirement already satisfied: grpcio==1.34.0 in /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 13)) (1.34.0)
+Collecting html5lib==1.0.1 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 14))
+  Downloading https://files.pythonhosted.org/packages/a5/62/bbd2be0e7943ec8504b517e62bab011b4946e1258842bc159e5dfde15b96/html5lib-1.0.1-py2.py3-none-any.whl (117kB)
+Requirement already satisfied: idna==2.10 in /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 15)) (2.10)
+Requirement already satisfied: importlib-metadata==3.3.0 in /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 16)) (3.3.0)
+Collecting ipykernel==5.1.3 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 17))
+  Downloading https://files.pythonhosted.org/packages/e1/92/8fec943b5b81078399f969f00557804d884c96fcd0bc296e81a2ed4fd270/ipykernel-5.1.3-py3-none-any.whl (116kB)
+Collecting ipython==7.9.0 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 18))
+  Downloading https://files.pythonhosted.org/packages/81/2e/59cdacea6476a4c21b7c090a91250ffbcd085900f5eb9f4e4d68dd2ee4e3/ipython-7.9.0-py3-none-any.whl (775kB)
+Requirement already satisfied: ipython-genutils==0.2.0 in /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 19)) (0.2.0)
+Collecting ipywidgets==7.5.1 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 20))
+  Downloading https://files.pythonhosted.org/packages/56/a0/dbcf5881bb2f51e8db678211907f16ea0a182b232c591a6d6f276985ca95/ipywidgets-7.5.1-py2.py3-none-any.whl (121kB)
+Collecting jedi==0.15.1 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 21))
+  Downloading https://files.pythonhosted.org/packages/55/54/da994f359e4e7da4776a200e76dbc85ba5fc319eefc22e33d55296d95a1d/jedi-0.15.1-py2.py3-none-any.whl (1.0MB)
+Collecting jsonschema==3.1.1 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 22))
+  Downloading https://files.pythonhosted.org/packages/ce/6c/888d7c3c1fce3974c88a01a6bc553528c99d3586e098eee23e8383dd11c3/jsonschema-3.1.1-py2.py3-none-any.whl (56kB)
+Collecting jupyter-client==5.3.4 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 23))
+  Downloading https://files.pythonhosted.org/packages/13/81/fe0eee1bcf949851a120254b1f530ae1e01bdde2d3ab9710c6ff81525061/jupyter_client-5.3.4-py2.py3-none-any.whl (92kB)
+Collecting jupyter-contrib-core==0.3.3 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 24))
+  Downloading https://files.pythonhosted.org/packages/e6/8f/04a752a8b66a66e7092c035e5d87d2502ac7ec07f9fb6059059b6c0dc272/jupyter_contrib_core-0.3.3-py2.py3-none-any.whl
+Collecting jupyter-core==4.6.1 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 25))
+  Downloading https://files.pythonhosted.org/packages/fb/82/86437f661875e30682e99d04c13ba6c216f86f5f6ca6ef212d3ee8b6ca11/jupyter_core-4.6.1-py2.py3-none-any.whl (82kB)
+Collecting jupyter-nbextensions-configurator==0.4.1 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 26))
+  Downloading https://files.pythonhosted.org/packages/51/a3/d72d5f2dc10c5ccf5a6f4c79f636bf071a5ce462dedd07af2f70384db6cb/jupyter_nbextensions_configurator-0.4.1.tar.gz (479kB)
+Collecting kiwisolver==1.1.0 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 27))
+  Downloading https://files.pythonhosted.org/packages/93/f8/518fb0bb89860eea6ff1b96483fbd9236d5ee991485d0f3eceff1770f654/kiwisolver-1.1.0-cp37-cp37m-manylinux1_x86_64.whl (90kB)
+Requirement already satisfied: Markdown==3.3.3 in /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 28)) (3.3.3)
+Collecting matplotlib==3.1.1 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 29))
+  Downloading https://files.pythonhosted.org/packages/19/7a/60bd79c5d79559150f8bba866dd7d434f0a170312e4d15e8aefa5faba294/matplotlib-3.1.1-cp37-cp37m-manylinux1_x86_64.whl (13.1MB)
+Collecting mistune==0.8.4 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 30))
+  Using cached https://files.pythonhosted.org/packages/09/ec/4b43dae793655b7d8a25f76119624350b4d65eb663459eb9603d7f1f0345/mistune-0.8.4-py2.py3-none-any.whl
+Collecting mpi4py==3.0.2 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 31))
+  Downloading https://files.pythonhosted.org/packages/04/f5/a615603ce4ab7f40b65dba63759455e3da610d9a155d4d4cece1d8fd6706/mpi4py-3.0.2.tar.gz (1.4MB)
+Collecting mpmath==1.1.0 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 32))
+  Downloading https://files.pythonhosted.org/packages/ca/63/3384ebb3b51af9610086b23ea976e6d27d6d97bf140a76a365bd77a3eb32/mpmath-1.1.0.tar.gz (512kB)
+Collecting nbconvert==5.6.1 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 33))
+  Downloading https://files.pythonhosted.org/packages/79/6c/05a569e9f703d18aacb89b7ad6075b404e8a4afde2c26b73ca77bb644b14/nbconvert-5.6.1-py2.py3-none-any.whl (455kB)
+Collecting nbformat==4.4.0 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 34))
+  Downloading https://files.pythonhosted.org/packages/da/27/9a654d2b6cc1eaa517d1c5a4405166c7f6d72f04f6e7eea41855fe808a46/nbformat-4.4.0-py2.py3-none-any.whl (155kB)
+Requirement already satisfied: nibabel==3.2.1 in /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 35)) (3.2.1)
+Collecting notebook==6.0.2 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 36))
+  Downloading https://files.pythonhosted.org/packages/f5/69/d2ffaf7efc20ce47469187e3a41e6e03e17b45de5a6559f4e7ab3eace5e1/notebook-6.0.2-py3-none-any.whl (9.7MB)
+Collecting numpy==1.17.3 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 37))
+  Downloading https://files.pythonhosted.org/packages/00/4a/e34fce8f18c0e052c2b49f1b3713469d855f7662d58ae2b82a88341e865b/numpy-1.17.3-cp37-cp37m-manylinux1_x86_64.whl (20.0MB)
+Requirement already satisfied: oauthlib==3.1.0 in /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 38)) (3.1.0)
+Requirement already satisfied: packaging==20.8 in /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 39)) (20.8)
+Collecting pandas==0.25.3 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 40))
+  Downloading https://files.pythonhosted.org/packages/63/e0/a1b39cdcb2c391f087a1538bc8a6d62a82d0439693192aef541d7b123769/pandas-0.25.3-cp37-cp37m-manylinux1_x86_64.whl (10.4MB)
+Collecting pandocfilters==1.4.2 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 41))
+  Downloading https://files.pythonhosted.org/packages/4c/ea/236e2584af67bb6df960832731a6e5325fd4441de001767da328c33368ce/pandocfilters-1.4.2.tar.gz
+Collecting parso==0.5.1 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 42))
+  Downloading https://files.pythonhosted.org/packages/a3/bd/bf4e5bd01d79906e5b945a7af033154da49fd2b0d5b5c705a21330323305/parso-0.5.1-py2.py3-none-any.whl (95kB)
+Collecting pexpect==4.7.0 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 43))
+  Downloading https://files.pythonhosted.org/packages/0e/3e/377007e3f36ec42f1b84ec322ee12141a9e10d808312e5738f52f80a232c/pexpect-4.7.0-py2.py3-none-any.whl (58kB)
+Requirement already satisfied: pickleshare==0.7.5 in /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 44)) (0.7.5)
+Requirement already satisfied: Pillow==8.1.0 in /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 45)) (8.1.0)
+Requirement already satisfied: prettytable==2.0.0 in /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 46)) (2.0.0)
+Collecting prometheus-client==0.7.1 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 47))
+  Downloading https://files.pythonhosted.org/packages/b3/23/41a5a24b502d35a4ad50a5bb7202a5e1d9a0364d0c12f56db3dbf7aca76d/prometheus_client-0.7.1.tar.gz
+Collecting prompt-toolkit==2.0.10 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 48))
+  Downloading https://files.pythonhosted.org/packages/87/61/2dfea88583d5454e3a64f9308a686071d58d59a55db638268a6413e1eb6d/prompt_toolkit-2.0.10-py3-none-any.whl (340kB)
+Requirement already satisfied: protobuf==3.14.0 in /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 49)) (3.14.0)
+Collecting ptyprocess==0.6.0 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 50))
+  Downloading https://files.pythonhosted.org/packages/d1/29/605c2cc68a9992d18dada28206eeada56ea4bd07a239669da41674648b6f/ptyprocess-0.6.0-py2.py3-none-any.whl
+Requirement already satisfied: pyasn1==0.4.8 in /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 51)) (0.4.8)
+Requirement already satisfied: pyasn1-modules==0.2.8 in /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 52)) (0.2.8)
+Requirement already satisfied: Pygments==2.7.3 in /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 53)) (2.7.3)
+Requirement already satisfied: pyparsing==2.4.7 in /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 54)) (2.4.7)
+Collecting pyrsistent==0.15.5 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 55))
+  Downloading https://files.pythonhosted.org/packages/30/86/53a88c0a57698fa228db29a4000c28f4124823010388cb7042fe6e2be8dd/pyrsistent-0.15.5.tar.gz (107kB)
+Requirement already satisfied: python-dateutil==2.8.1 in /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 56)) (2.8.1)
+Requirement already satisfied: pytz==2020.5 in /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 57)) (2020.5)
+Collecting PyYAML==5.1.2 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 58))
+  Downloading https://files.pythonhosted.org/packages/e3/e8/b3212641ee2718d556df0f23f78de8303f068fe29cdaa7a91018849582fe/PyYAML-5.1.2.tar.gz (265kB)
+Collecting pyzmq==18.1.1 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 59))
+  Downloading https://files.pythonhosted.org/packages/bf/dd/547bee2080beefe6546c332422cb0f189b3cd71cfff048146cd9ac3751cc/pyzmq-18.1.1-cp37-cp37m-manylinux1_x86_64.whl (1.1MB)
+Requirement already satisfied: requests==2.25.1 in /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 60)) (2.25.1)
+Requirement already satisfied: requests-oauthlib==1.3.0 in /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 61)) (1.3.0)
+Requirement already satisfied: rsa==4.6 in /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 62)) (4.6)
+Collecting scipy==1.3.1 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 63))
+  Downloading https://files.pythonhosted.org/packages/94/7f/b535ec711cbcc3246abea4385d17e1b325d4c3404dd86f15fc4f3dba1dbb/scipy-1.3.1-cp37-cp37m-manylinux1_x86_64.whl (25.2MB)
+Collecting Send2Trash==1.5.0 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 64))
+  Using cached https://files.pythonhosted.org/packages/49/46/c3dc27481d1cc57b9385aff41c474ceb7714f7935b1247194adae45db714/Send2Trash-1.5.0-py3-none-any.whl
+Collecting simplegeneric==0.8.1 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 65))
+  Downloading https://files.pythonhosted.org/packages/3d/57/4d9c9e3ae9a255cd4e1106bb57e24056d3d0709fc01b2e3e345898e49d5b/simplegeneric-0.8.1.zip
+Requirement already satisfied: six==1.15.0 in /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 66)) (1.15.0)
+Requirement already satisfied: tensorboard==2.4.0 in /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 67)) (2.4.0)
+Requirement already satisfied: tensorboard-plugin-wit==1.7.0 in /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 68)) (1.7.0)
+Collecting terminado==0.8.3 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 69))
+  Downloading https://files.pythonhosted.org/packages/ff/96/1d9a2c23990aea8f8e0b5c3b6627d03196a73771a17a2d9860bbe9823ab6/terminado-0.8.3-py2.py3-none-any.whl
+Collecting testpath==0.4.4 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 70))
+  Using cached https://files.pythonhosted.org/packages/1b/9e/1a170feaa54f22aeb5a5d16c9015e82234275a3c8ab630b552493f9cb8a9/testpath-0.4.4-py2.py3-none-any.whl
+Requirement already satisfied: torch==1.7.1+cu101 in /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 71)) (1.7.1+cu101)
+Requirement already satisfied: torchaudio==0.7.2 in /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 72)) (0.7.2)
+Requirement already satisfied: torchvision==0.8.2+cu101 in /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 73)) (0.8.2+cu101)
+Collecting tornado==6.0.3 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 74))
+  Downloading https://files.pythonhosted.org/packages/30/78/2d2823598496127b21423baffaa186b668f73cd91887fcef78b6eade136b/tornado-6.0.3.tar.gz (482kB)
+Collecting traitlets==4.3.3 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 75))
+  Using cached https://files.pythonhosted.org/packages/ca/ab/872a23e29cec3cf2594af7e857f18b687ad21039c1f9b922fac5b9b142d5/traitlets-4.3.3-py2.py3-none-any.whl
+Requirement already satisfied: typing-extensions==3.7.4.3 in /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 76)) (3.7.4.3)
+Requirement already satisfied: urllib3==1.26.2 in /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 77)) (1.26.2)
+Collecting vcversioner==2.16.0.0 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 78))
+  Downloading https://files.pythonhosted.org/packages/c5/cc/33162c0a7b28a4d8c83da07bc2b12cee58c120b4a9e8bba31c41c8d35a16/vcversioner-2.16.0.0.tar.gz
+Collecting wcwidth==0.1.7 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 79))
+  Downloading https://files.pythonhosted.org/packages/7e/9f/526a6947247599b084ee5232e4f9190a38f398d7300d866af3ab571a5bfe/wcwidth-0.1.7-py2.py3-none-any.whl
+Collecting webencodings==0.5.1 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 80))
+  Using cached https://files.pythonhosted.org/packages/f4/24/2a3e3df732393fed8b3ebf2ec078f05546de641fe1b667ee316ec1dcf3b7/webencodings-0.5.1-py2.py3-none-any.whl
+Requirement already satisfied: Werkzeug==1.0.1 in /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 81)) (1.0.1)
+Collecting widgetsnbextension==3.5.1 (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 82))
+  Using cached https://files.pythonhosted.org/packages/6c/7b/7ac231c20d2d33c445eaacf8a433f4e22c60677eb9776c7c5262d7ddee2d/widgetsnbextension-3.5.1-py2.py3-none-any.whl
+Requirement already satisfied: zipp==3.4.0 in /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages (from -r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 83)) (3.4.0)
+Requirement already satisfied: setuptools>=40.3.0 in /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages (from google-auth==1.24.0->-r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 11)) (40.8.0)
+Collecting attrs>=17.4.0 (from jsonschema==3.1.1->-r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 22))
+  Using cached https://files.pythonhosted.org/packages/c3/aa/cb45262569fcc047bf070b5de61813724d6726db83259222cd7b4c79821a/attrs-20.3.0-py2.py3-none-any.whl
+Collecting jinja2>=2.4 (from nbconvert==5.6.1->-r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 33))
+  Using cached https://files.pythonhosted.org/packages/30/9e/f663a2aa66a09d838042ae1a2c5659828bb9b41ea3a6efa20a20fd92b121/Jinja2-2.11.2-py2.py3-none-any.whl
+Requirement already satisfied: wheel>=0.26; python_version >= "3" in /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages (from tensorboard==2.4.0->-r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 67)) (0.36.2)
+Collecting MarkupSafe>=0.23 (from jinja2>=2.4->nbconvert==5.6.1->-r /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/requirements.txt (line 33))
+  Using cached https://files.pythonhosted.org/packages/98/7b/ff284bd8c80654e471b769062a9b43cc5d03e7a615048d96f4619df8d420/MarkupSafe-1.1.1-cp37-cp37m-manylinux1_x86_64.whl
+Building wheels for collected packages: backcall, jupyter-nbextensions-configurator, mpi4py, mpmath, pandocfilters, prometheus-client, pyrsistent, PyYAML, simplegeneric, tornado, vcversioner
+  Building wheel for backcall (setup.py): started
+  Building wheel for backcall (setup.py): finished with status 'done'
+  Stored in directory: /users/win-fmrib-analysis/lhw539/.cache/pip/wheels/98/b0/dd/29e28ff615af3dda4c67cab719dd51357597eabff926976b45
+  Building wheel for jupyter-nbextensions-configurator (setup.py): started
+  Building wheel for jupyter-nbextensions-configurator (setup.py): finished with status 'done'
+  Stored in directory: /users/win-fmrib-analysis/lhw539/.cache/pip/wheels/15/df/fe/2a74fe34709e7fdc5ae153a768675d9fda93cc7d5133ed1fb0
+  Building wheel for mpi4py (setup.py): started
+  Building wheel for mpi4py (setup.py): finished with status 'error'
+  Complete output from command /gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/bin/python -u -c "import setuptools, tokenize;__file__='/tmp/pip-install-rj0jirce/mpi4py/setup.py';f=getattr(tokenize, 'open', open)(__file__);code=f.read().replace('\r\n', '\n');f.close();exec(compile(code, __file__, 'exec'))" bdist_wheel -d /tmp/pip-wheel-dar62m1g --python-tag cp37:
+  running bdist_wheel
+  running build
+  running build_src
+  running build_py
+  creating build
+  creating build/lib.linux-x86_64-3.7
+  creating build/lib.linux-x86_64-3.7/mpi4py
+  copying src/mpi4py/run.py -> build/lib.linux-x86_64-3.7/mpi4py
+  copying src/mpi4py/__main__.py -> build/lib.linux-x86_64-3.7/mpi4py
+  copying src/mpi4py/bench.py -> build/lib.linux-x86_64-3.7/mpi4py
+  copying src/mpi4py/__init__.py -> build/lib.linux-x86_64-3.7/mpi4py
+  creating build/lib.linux-x86_64-3.7/mpi4py/futures
+  copying src/mpi4py/futures/__main__.py -> build/lib.linux-x86_64-3.7/mpi4py/futures
+  copying src/mpi4py/futures/_base.py -> build/lib.linux-x86_64-3.7/mpi4py/futures
+  copying src/mpi4py/futures/server.py -> build/lib.linux-x86_64-3.7/mpi4py/futures
+  copying src/mpi4py/futures/pool.py -> build/lib.linux-x86_64-3.7/mpi4py/futures
+  copying src/mpi4py/futures/_lib.py -> build/lib.linux-x86_64-3.7/mpi4py/futures
+  copying src/mpi4py/futures/__init__.py -> build/lib.linux-x86_64-3.7/mpi4py/futures
+  copying src/mpi4py/futures/aplus.py -> build/lib.linux-x86_64-3.7/mpi4py/futures
+  copying src/mpi4py/MPI.pxd -> build/lib.linux-x86_64-3.7/mpi4py
+  copying src/mpi4py/__init__.pxd -> build/lib.linux-x86_64-3.7/mpi4py
+  copying src/mpi4py/libmpi.pxd -> build/lib.linux-x86_64-3.7/mpi4py
+  creating build/lib.linux-x86_64-3.7/mpi4py/include
+  creating build/lib.linux-x86_64-3.7/mpi4py/include/mpi4py
+  copying src/mpi4py/include/mpi4py/mpi4py.MPI_api.h -> build/lib.linux-x86_64-3.7/mpi4py/include/mpi4py
+  copying src/mpi4py/include/mpi4py/mpi4py.MPI.h -> build/lib.linux-x86_64-3.7/mpi4py/include/mpi4py
+  copying src/mpi4py/include/mpi4py/mpi4py.h -> build/lib.linux-x86_64-3.7/mpi4py/include/mpi4py
+  copying src/mpi4py/include/mpi4py/mpi4py.i -> build/lib.linux-x86_64-3.7/mpi4py/include/mpi4py
+  copying src/mpi4py/include/mpi4py/mpi.pxi -> build/lib.linux-x86_64-3.7/mpi4py/include/mpi4py
+  running build_clib
+  MPI configuration: [mpi] from 'mpi.cfg'
+  checking for library 'lmpe' ...
+  gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -O2 -ftree-vectorize -march=native -fno-math-errno -fPIC -O2 -ftree-vectorize -march=native -fno-math-errno -fPIC -fPIC -c _configtest.c -o _configtest.o
+  gcc _configtest.o -llmpe -o _configtest
+  /apps/eb/skylake/software/binutils/2.32-GCCcore-8.3.0/bin/ld.gold: error: cannot find -llmpe
+  collect2: error: ld returned 1 exit status
+  failure.
+  removing: _configtest.c _configtest.o
+  building 'mpe' dylib library
+  creating build/temp.linux-x86_64-3.7
+  creating build/temp.linux-x86_64-3.7/src
+  creating build/temp.linux-x86_64-3.7/src/lib-pmpi
+  gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -O2 -ftree-vectorize -march=native -fno-math-errno -fPIC -O2 -ftree-vectorize -march=native -fno-math-errno -fPIC -fPIC -c src/lib-pmpi/mpe.c -o build/temp.linux-x86_64-3.7/src/lib-pmpi/mpe.o
+  creating build/lib.linux-x86_64-3.7/mpi4py/lib-pmpi
+  gcc -shared -L/apps/eb/skylake/software/libffi/3.2.1-GCCcore-8.3.0/lib64 -L/apps/eb/skylake/software/libffi/3.2.1-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/GMP/6.1.2-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/XZ/5.2.4-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/SQLite/3.29.0-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/ncurses/6.1-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/libreadline/8.0-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/zlib/1.2.11-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/bzip2/1.0.8-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/binutils/2.32-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/GCCcore/8.3.0/lib64 -L/apps/eb/skylake/software/GCCcore/8.3.0/lib -L/apps/eb/skylake/software/libffi/3.2.1-GCCcore-8.3.0/lib64 -L/apps/eb/skylake/software/libffi/3.2.1-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/GMP/6.1.2-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/XZ/5.2.4-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/SQLite/3.29.0-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/ncurses/6.1-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/libreadline/8.0-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/zlib/1.2.11-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/bzip2/1.0.8-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/binutils/2.32-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/GCCcore/8.3.0/lib64 -L/apps/eb/skylake/software/GCCcore/8.3.0/lib -Wl,--no-as-needed build/temp.linux-x86_64-3.7/src/lib-pmpi/mpe.o -o build/lib.linux-x86_64-3.7/mpi4py/lib-pmpi/libmpe.so
+  checking for library 'vt-mpi' ...
+  gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -O2 -ftree-vectorize -march=native -fno-math-errno -fPIC -O2 -ftree-vectorize -march=native -fno-math-errno -fPIC -fPIC -c _configtest.c -o _configtest.o
+  gcc _configtest.o -lvt-mpi -o _configtest
+  /apps/eb/skylake/software/binutils/2.32-GCCcore-8.3.0/bin/ld.gold: error: cannot find -lvt-mpi
+  collect2: error: ld returned 1 exit status
+  failure.
+  removing: _configtest.c _configtest.o
+  checking for library 'vt.mpi' ...
+  gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -O2 -ftree-vectorize -march=native -fno-math-errno -fPIC -O2 -ftree-vectorize -march=native -fno-math-errno -fPIC -fPIC -c _configtest.c -o _configtest.o
+  gcc _configtest.o -lvt.mpi -o _configtest
+  /apps/eb/skylake/software/binutils/2.32-GCCcore-8.3.0/bin/ld.gold: error: cannot find -lvt.mpi
+  collect2: error: ld returned 1 exit status
+  failure.
+  removing: _configtest.c _configtest.o
+  building 'vt' dylib library
+  gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -O2 -ftree-vectorize -march=native -fno-math-errno -fPIC -O2 -ftree-vectorize -march=native -fno-math-errno -fPIC -fPIC -c src/lib-pmpi/vt.c -o build/temp.linux-x86_64-3.7/src/lib-pmpi/vt.o
+  gcc -shared -L/apps/eb/skylake/software/libffi/3.2.1-GCCcore-8.3.0/lib64 -L/apps/eb/skylake/software/libffi/3.2.1-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/GMP/6.1.2-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/XZ/5.2.4-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/SQLite/3.29.0-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/ncurses/6.1-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/libreadline/8.0-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/zlib/1.2.11-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/bzip2/1.0.8-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/binutils/2.32-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/GCCcore/8.3.0/lib64 -L/apps/eb/skylake/software/GCCcore/8.3.0/lib -L/apps/eb/skylake/software/libffi/3.2.1-GCCcore-8.3.0/lib64 -L/apps/eb/skylake/software/libffi/3.2.1-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/GMP/6.1.2-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/XZ/5.2.4-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/SQLite/3.29.0-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/ncurses/6.1-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/libreadline/8.0-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/zlib/1.2.11-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/bzip2/1.0.8-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/binutils/2.32-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/GCCcore/8.3.0/lib64 -L/apps/eb/skylake/software/GCCcore/8.3.0/lib -Wl,--no-as-needed build/temp.linux-x86_64-3.7/src/lib-pmpi/vt.o -o build/lib.linux-x86_64-3.7/mpi4py/lib-pmpi/libvt.so
+  checking for library 'vt-mpi' ...
+  gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -O2 -ftree-vectorize -march=native -fno-math-errno -fPIC -O2 -ftree-vectorize -march=native -fno-math-errno -fPIC -fPIC -c _configtest.c -o _configtest.o
+  gcc _configtest.o -lvt-mpi -o _configtest
+  /apps/eb/skylake/software/binutils/2.32-GCCcore-8.3.0/bin/ld.gold: error: cannot find -lvt-mpi
+  collect2: error: ld returned 1 exit status
+  failure.
+  removing: _configtest.c _configtest.o
+  checking for library 'vt.mpi' ...
+  gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -O2 -ftree-vectorize -march=native -fno-math-errno -fPIC -O2 -ftree-vectorize -march=native -fno-math-errno -fPIC -fPIC -c _configtest.c -o _configtest.o
+  gcc _configtest.o -lvt.mpi -o _configtest
+  /apps/eb/skylake/software/binutils/2.32-GCCcore-8.3.0/bin/ld.gold: error: cannot find -lvt.mpi
+  collect2: error: ld returned 1 exit status
+  failure.
+  removing: _configtest.c _configtest.o
+  building 'vt-mpi' dylib library
+  gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -O2 -ftree-vectorize -march=native -fno-math-errno -fPIC -O2 -ftree-vectorize -march=native -fno-math-errno -fPIC -fPIC -c src/lib-pmpi/vt-mpi.c -o build/temp.linux-x86_64-3.7/src/lib-pmpi/vt-mpi.o
+  gcc -shared -L/apps/eb/skylake/software/libffi/3.2.1-GCCcore-8.3.0/lib64 -L/apps/eb/skylake/software/libffi/3.2.1-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/GMP/6.1.2-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/XZ/5.2.4-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/SQLite/3.29.0-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/ncurses/6.1-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/libreadline/8.0-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/zlib/1.2.11-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/bzip2/1.0.8-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/binutils/2.32-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/GCCcore/8.3.0/lib64 -L/apps/eb/skylake/software/GCCcore/8.3.0/lib -L/apps/eb/skylake/software/libffi/3.2.1-GCCcore-8.3.0/lib64 -L/apps/eb/skylake/software/libffi/3.2.1-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/GMP/6.1.2-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/XZ/5.2.4-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/SQLite/3.29.0-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/ncurses/6.1-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/libreadline/8.0-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/zlib/1.2.11-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/bzip2/1.0.8-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/binutils/2.32-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/GCCcore/8.3.0/lib64 -L/apps/eb/skylake/software/GCCcore/8.3.0/lib -Wl,--no-as-needed build/temp.linux-x86_64-3.7/src/lib-pmpi/vt-mpi.o -o build/lib.linux-x86_64-3.7/mpi4py/lib-pmpi/libvt-mpi.so
+  checking for library 'vt-hyb' ...
+  gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -O2 -ftree-vectorize -march=native -fno-math-errno -fPIC -O2 -ftree-vectorize -march=native -fno-math-errno -fPIC -fPIC -c _configtest.c -o _configtest.o
+  gcc _configtest.o -lvt-hyb -o _configtest
+  /apps/eb/skylake/software/binutils/2.32-GCCcore-8.3.0/bin/ld.gold: error: cannot find -lvt-hyb
+  collect2: error: ld returned 1 exit status
+  failure.
+  removing: _configtest.c _configtest.o
+  checking for library 'vt.ompi' ...
+  gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -O2 -ftree-vectorize -march=native -fno-math-errno -fPIC -O2 -ftree-vectorize -march=native -fno-math-errno -fPIC -fPIC -c _configtest.c -o _configtest.o
+  gcc _configtest.o -lvt.ompi -o _configtest
+  /apps/eb/skylake/software/binutils/2.32-GCCcore-8.3.0/bin/ld.gold: error: cannot find -lvt.ompi
+  collect2: error: ld returned 1 exit status
+  failure.
+  removing: _configtest.c _configtest.o
+  building 'vt-hyb' dylib library
+  gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -O2 -ftree-vectorize -march=native -fno-math-errno -fPIC -O2 -ftree-vectorize -march=native -fno-math-errno -fPIC -fPIC -c src/lib-pmpi/vt-hyb.c -o build/temp.linux-x86_64-3.7/src/lib-pmpi/vt-hyb.o
+  gcc -shared -L/apps/eb/skylake/software/libffi/3.2.1-GCCcore-8.3.0/lib64 -L/apps/eb/skylake/software/libffi/3.2.1-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/GMP/6.1.2-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/XZ/5.2.4-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/SQLite/3.29.0-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/ncurses/6.1-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/libreadline/8.0-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/zlib/1.2.11-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/bzip2/1.0.8-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/binutils/2.32-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/GCCcore/8.3.0/lib64 -L/apps/eb/skylake/software/GCCcore/8.3.0/lib -L/apps/eb/skylake/software/libffi/3.2.1-GCCcore-8.3.0/lib64 -L/apps/eb/skylake/software/libffi/3.2.1-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/GMP/6.1.2-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/XZ/5.2.4-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/SQLite/3.29.0-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/ncurses/6.1-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/libreadline/8.0-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/zlib/1.2.11-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/bzip2/1.0.8-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/binutils/2.32-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/GCCcore/8.3.0/lib64 -L/apps/eb/skylake/software/GCCcore/8.3.0/lib -Wl,--no-as-needed build/temp.linux-x86_64-3.7/src/lib-pmpi/vt-hyb.o -o build/lib.linux-x86_64-3.7/mpi4py/lib-pmpi/libvt-hyb.so
+  running build_ext
+  MPI configuration: [mpi] from 'mpi.cfg'
+  checking for dlopen() availability ...
+  checking for header 'dlfcn.h' ...
+  gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -O2 -ftree-vectorize -march=native -fno-math-errno -fPIC -O2 -ftree-vectorize -march=native -fno-math-errno -fPIC -fPIC -I/gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/include -I/apps/eb/skylake/software/Python/3.7.4-GCCcore-8.3.0/include/python3.7m -c _configtest.c -o _configtest.o
+  success!
+  removing: _configtest.c _configtest.o
+  success!
+  checking for library 'dl' ...
+  gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -O2 -ftree-vectorize -march=native -fno-math-errno -fPIC -O2 -ftree-vectorize -march=native -fno-math-errno -fPIC -fPIC -I/gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/include -I/apps/eb/skylake/software/Python/3.7.4-GCCcore-8.3.0/include/python3.7m -c _configtest.c -o _configtest.o
+  gcc _configtest.o -L/apps/eb/skylake/software/Python/3.7.4-GCCcore-8.3.0/lib -Lbuild/temp.linux-x86_64-3.7 -Wl,--enable-new-dtags,-R/apps/eb/skylake/software/Python/3.7.4-GCCcore-8.3.0/lib -ldl -o _configtest
+  success!
+  removing: _configtest.c _configtest.o _configtest
+  checking for function 'dlopen' ...
+  gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -O2 -ftree-vectorize -march=native -fno-math-errno -fPIC -O2 -ftree-vectorize -march=native -fno-math-errno -fPIC -fPIC -I/gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/include -I/apps/eb/skylake/software/Python/3.7.4-GCCcore-8.3.0/include/python3.7m -c _configtest.c -o _configtest.o
+  gcc _configtest.o -L/apps/eb/skylake/software/Python/3.7.4-GCCcore-8.3.0/lib -Lbuild/temp.linux-x86_64-3.7 -Wl,--enable-new-dtags,-R/apps/eb/skylake/software/Python/3.7.4-GCCcore-8.3.0/lib -ldl -o _configtest
+  success!
+  removing: _configtest.c _configtest.o _configtest
+  building 'mpi4py.dl' extension
+  gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -O2 -ftree-vectorize -march=native -fno-math-errno -fPIC -O2 -ftree-vectorize -march=native -fno-math-errno -fPIC -fPIC -DHAVE_DLFCN_H=1 -DHAVE_DLOPEN=1 -I/gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/include -I/apps/eb/skylake/software/Python/3.7.4-GCCcore-8.3.0/include/python3.7m -c src/dynload.c -o build/temp.linux-x86_64-3.7/src/dynload.o
+  gcc -shared -L/apps/eb/skylake/software/libffi/3.2.1-GCCcore-8.3.0/lib64 -L/apps/eb/skylake/software/libffi/3.2.1-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/GMP/6.1.2-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/XZ/5.2.4-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/SQLite/3.29.0-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/ncurses/6.1-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/libreadline/8.0-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/zlib/1.2.11-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/bzip2/1.0.8-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/binutils/2.32-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/GCCcore/8.3.0/lib64 -L/apps/eb/skylake/software/GCCcore/8.3.0/lib -L/apps/eb/skylake/software/libffi/3.2.1-GCCcore-8.3.0/lib64 -L/apps/eb/skylake/software/libffi/3.2.1-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/GMP/6.1.2-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/XZ/5.2.4-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/SQLite/3.29.0-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/ncurses/6.1-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/libreadline/8.0-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/zlib/1.2.11-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/bzip2/1.0.8-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/binutils/2.32-GCCcore-8.3.0/lib -L/apps/eb/skylake/software/GCCcore/8.3.0/lib64 -L/apps/eb/skylake/software/GCCcore/8.3.0/lib build/temp.linux-x86_64-3.7/src/dynload.o -L/apps/eb/skylake/software/Python/3.7.4-GCCcore-8.3.0/lib -Lbuild/temp.linux-x86_64-3.7 -Wl,--enable-new-dtags,-R/apps/eb/skylake/software/Python/3.7.4-GCCcore-8.3.0/lib -ldl -lpython3.7m -o build/lib.linux-x86_64-3.7/mpi4py/dl.cpython-37m-x86_64-linux-gnu.so
+  checking for MPI compile and link ...
+  gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -O2 -ftree-vectorize -march=native -fno-math-errno -fPIC -O2 -ftree-vectorize -march=native -fno-math-errno -fPIC -fPIC -I/gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/include -I/apps/eb/skylake/software/Python/3.7.4-GCCcore-8.3.0/include/python3.7m -c _configtest.c -o _configtest.o
+  _configtest.c:2:10: fatal error: mpi.h: No such file or directory
+   #include <mpi.h>
+            ^~~~~~~
+  compilation terminated.
+  failure.
+  removing: _configtest.c _configtest.o
+  error: Cannot compile MPI programs. Check your configuration!!!
+  
+  ----------------------------------------
+  Failed building wheel for mpi4py
+  Running setup.py clean for mpi4py
+  Building wheel for mpmath (setup.py): started
+  Building wheel for mpmath (setup.py): finished with status 'done'
+  Stored in directory: /users/win-fmrib-analysis/lhw539/.cache/pip/wheels/63/9d/8e/37c3f6506ed3f152733a699e92d8e0c9f5e5f01dea262f80ad
+  Building wheel for pandocfilters (setup.py): started
+  Building wheel for pandocfilters (setup.py): finished with status 'done'
+  Stored in directory: /users/win-fmrib-analysis/lhw539/.cache/pip/wheels/39/01/56/f1b08a6275acc59e846fa4c1e1b65dbc1919f20157d9e66c20
+  Building wheel for prometheus-client (setup.py): started
+  Building wheel for prometheus-client (setup.py): finished with status 'done'
+  Stored in directory: /users/win-fmrib-analysis/lhw539/.cache/pip/wheels/1c/54/34/fd47cd9b308826cc4292b54449c1899a30251ef3b506bc91ea
+  Building wheel for pyrsistent (setup.py): started
+  Building wheel for pyrsistent (setup.py): finished with status 'done'
+  Stored in directory: /users/win-fmrib-analysis/lhw539/.cache/pip/wheels/c4/5a/b2/d22f93864c638398dad50541af906e9838bb22044d2cc3ad3a
+  Building wheel for PyYAML (setup.py): started
+  Building wheel for PyYAML (setup.py): finished with status 'done'
+  Stored in directory: /users/win-fmrib-analysis/lhw539/.cache/pip/wheels/d9/45/dd/65f0b38450c47cf7e5312883deb97d065e030c5cca0a365030
+  Building wheel for simplegeneric (setup.py): started
+  Building wheel for simplegeneric (setup.py): finished with status 'done'
+  Stored in directory: /users/win-fmrib-analysis/lhw539/.cache/pip/wheels/a9/28/53/f24776b4c5bcbe91aaf1f1e247bd6fadd17191aa12fac63902
+  Building wheel for tornado (setup.py): started
+  Building wheel for tornado (setup.py): finished with status 'done'
+  Stored in directory: /users/win-fmrib-analysis/lhw539/.cache/pip/wheels/84/bf/40/2f6ef700f48401ca40e5e3dd7d0e3c0a90e064897b7fe5fc08
+  Building wheel for vcversioner (setup.py): started
+  Building wheel for vcversioner (setup.py): finished with status 'done'
+  Stored in directory: /users/win-fmrib-analysis/lhw539/.cache/pip/wheels/33/84/29/2fff179e8de0b5e0d17ee4a570536f547b809d62ada8d6d861
+Successfully built backcall jupyter-nbextensions-configurator mpmath pandocfilters prometheus-client pyrsistent PyYAML simplegeneric tornado vcversioner
+Failed to build mpi4py
+tensorboard 2.4.0 has requirement setuptools>=41.0.0, but you'll have setuptools 40.8.0 which is incompatible.
+Installing collected packages: backcall, webencodings, bleach, defusedxml, entrypoints, html5lib, ptyprocess, pexpect, parso, jedi, wcwidth, prompt-toolkit, traitlets, ipython, pyzmq, jupyter-core, tornado, jupyter-client, ipykernel, pyrsistent, attrs, jsonschema, nbformat, terminado, prometheus-client, MarkupSafe, jinja2, mistune, testpath, pandocfilters, nbconvert, Send2Trash, notebook, widgetsnbextension, ipywidgets, jupyter-contrib-core, PyYAML, jupyter-nbextensions-configurator, kiwisolver, numpy, matplotlib, mpi4py, mpmath, pandas, scipy, simplegeneric, vcversioner
+  Found existing installation: backcall 0.2.0
+    Uninstalling backcall-0.2.0:
+      Successfully uninstalled backcall-0.2.0
+  Found existing installation: ptyprocess 0.7.0
+    Uninstalling ptyprocess-0.7.0:
+      Successfully uninstalled ptyprocess-0.7.0
+  Found existing installation: pexpect 4.8.0
+    Uninstalling pexpect-4.8.0:
+      Successfully uninstalled pexpect-4.8.0
+  Found existing installation: parso 0.8.1
+    Uninstalling parso-0.8.1:
+      Successfully uninstalled parso-0.8.1
+  Found existing installation: jedi 0.18.0
+    Uninstalling jedi-0.18.0:
+      Successfully uninstalled jedi-0.18.0
