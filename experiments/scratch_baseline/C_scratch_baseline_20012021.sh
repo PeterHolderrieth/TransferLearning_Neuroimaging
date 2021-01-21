@@ -32,7 +32,7 @@ pat=10
 drop=drop
 debug=full 
 
-python ~/TransferLearning_Neuroimaging/train.py -epochs $epochs -debug $debug -lr $lr -gamma 0.75 -init fresh -drop $drop -pat $pat -loss $loss
+python ~/TransferLearning_Neuroimaging/train.py -epochs $epochs -deb $debug -lr $lr -gamma 0.75 -init fresh -drop $drop -pat $pat -loss $loss
 
 
 echo "------------------------------------------------"

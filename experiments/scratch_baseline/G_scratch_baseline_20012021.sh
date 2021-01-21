@@ -8,7 +8,7 @@
 # -l gputype=p100
 #Save file to:
 # Log locations which are relative to the current                                                                                                                                                                  # working directory of the submission
-#$ -o results/D_scratch_baseline_no_drop.log
+#$ -o results/G_scratch_baseline_mae.log
 
 echo "------------------------------------------------"
 echo "Job ID: $JOB_ID"
@@ -26,13 +26,14 @@ source ~/python/ccpu_py_tlneuro
 
 epochs=150
 lr=1e-2
-gamma=0.1
-loss=kl
+gamma=0.75
+loss=mae
 pat=10
-drop=none 
+drop=drop 
 debug=full 
+pl=none 
 
-python ~/TransferLearning_Neuroimaging/train.py -epochs $epochs -deb $debug -lr $lr -gamma 0.75 -init fresh -drop $drop -pat $pat -loss $loss
+python ~/TransferLearning_Neuroimaging/train.py -epochs $epochs -deb $debug -lr $lr -gamma 0.75 -init fresh -drop $drop -pat $pat -loss $loss -pl $pl 
 
 
 echo "------------------------------------------------"
