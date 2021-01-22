@@ -41,6 +41,9 @@ ap.set_defaults(
     PL='none',
     LOSS='mae',
     DROP='drop'
+    PRE='full',
+    WDEC=0.,
+    MOM=0.0
     )
 
 #Debugging? Then use small data set:
@@ -58,6 +61,9 @@ ap.add_argument("-pat", "--PAT", type=int, required=False,help="Patience, i.e. n
 ap.add_argument("-pl", "--PL", type=str, required=False,help="pl indicate whether we use an adaptive learning changing when loss reaches plateu (True) or none for deterministic decay.")
 ap.add_argument("-loss", "--LOSS", type=str, required=False,help="Loss function to use: mae or kl.")
 ap.add_argument("-drop", "--DROP", type=str, required=False,help="drop for dropout and none for no dropout.")
+ap.add_argument("-pre", "--PRE", type=str, required=False,help="Preprocessing.")
+ap.add_argument("-wdec", "--WDEC", type=float, required=False,help="Weight decay.")
+ap.add_argument("-mom", "--MOM", type=float, required=False,help="Momentum for SGD.")
 
 #ap.add_argument("-seed","--SEED", type=int, required=False, help="Seed for randomness.")
 
@@ -115,7 +121,7 @@ elif ARGS['TRAIN']=='last':
 else: 
     sys.exit("Which parameters to train?")
 
-optimizer=torch.optim.SGD(model.parameters(),lr=ARGS['LR'])#,weight_decay=.1)
+optimizer=torch.optim.SGD(model.parameters(),lr=ARGS['LR'],weight_decay=ARGS['WDEC'],momentum=ARGS['MOM'])
 
 #The following learning rate scheduler decays the learning by gamma every step_size epochs:
 if ARGS['PL']=='pl':
@@ -140,11 +146,14 @@ else:
 _,train_loader=give_oasis_data('train', batch_size=ARGS['BATCH_SIZE'],
                                         num_workers=ARGS['NUM_WORKERS'],
                                         shuffle=SHUFFLE,
-                                        debug=debug)
+                                        debug=debug,
+                                        preprocessing=ARGS['PRE'])
+                                        
 _,val_loader=give_oasis_data('val', batch_size=ARGS['BATCH_SIZE'],
                                     num_workers=ARGS['NUM_WORKERS'],
                                     shuffle=SHUFFLE,
-                                    debug=debug)
+                                    debug=debug,
+                                    preprocessing=ARGS['PRE'])
 
 #Set the label translater:
 label_translater=dpu.give_label_translater({

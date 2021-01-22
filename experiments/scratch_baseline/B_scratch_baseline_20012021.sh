@@ -4,8 +4,10 @@
 #$ -q gpu8.q
 #$ -j y #Error and output file are merged to output file
 #$ -l gpu=1
-# -pe shmem 2
-# -l gputype=p100
+
+#$ -pe shmem 1 #Keep equal to GPU number
+#$ -l gputype=p100
+
 #Save file to:
 # Log locations which are relative to the current                                                                                                                                                                  # working directory of the submission
 #$ -o results/B_scratch_baseline_mae.log

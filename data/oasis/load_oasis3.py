@@ -11,7 +11,7 @@ import pandas as pd
 from dataset import construct_preprocessing 
 from dataset import MRIDataset
 
-def give_oasis_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=False):
+def give_oasis_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=False,preprocessing='full'):
 
     
     #Construct preprocessing functions:
@@ -27,6 +27,21 @@ def give_oasis_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=Fals
                                             'ny': 192,
                                             'nz': 160})
 	
+    #Pick a list of preprocessing functions:
+    if preprocessing=='full':
+        preproc_train=[avg,crop,ps,mr]
+        preproc_val=[avg,crop]
+
+    elif preprocessing=='min':
+        preproc_train=[avg,crop]
+        preproc_val=[avg,crop]
+ 
+    elif preprocessing=='none':
+        preproc_train=[]
+        preproc_val=[]
+ 
+    else:
+        sys.exit("Unknown preprocessing combination.")
 
     #Get the directory of the data_type:
     DIR = '/gpfs3/well/win-fmrib-analysis/users/lhw539/oasis3/'
@@ -64,9 +79,9 @@ def give_oasis_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=Fals
     label_list = list([age_, ] for age_ in df_session.AgeBasedOnClinicalData.values)
 
     if data_type=='train':
-        data_set = MRIDataset(fp_list, label_list, [avg,crop])#mr, ps, avg, crop])
+        data_set = MRIDataset(fp_list, label_list, preproc_train)
     else: 
-        data_set = MRIDataset(fp_list, label_list, [avg,crop])#avg, crop])
+        data_set = MRIDataset(fp_list, label_list, preproc_val)
 
     #Return data loader:
     data_loader = torch.utils.data.DataLoader(

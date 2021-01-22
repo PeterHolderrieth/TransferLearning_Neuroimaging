@@ -131,6 +131,7 @@ test_loader1 = torch.utils.data.DataLoader(
 
 ## Construct Model
 
+
 for RUN_NAME in ['run_20191206_00', 'run_20191206_01', 'run_20191206_02', 'run_20191206_03']:
     print('************************')
     print(f'{RUN_NAME}')
