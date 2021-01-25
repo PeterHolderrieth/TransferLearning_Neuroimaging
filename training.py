@@ -1,8 +1,9 @@
-import utils.TrainMeter as TM
+#import utils.TrainMeter as TM
 from epoch import go_one_epoch
+from utils import TrainMeter as TM
 
-def train(model,n_epochs,loss_func,device,train_loader,val_loader,optimizer,label_translater,eval_func,print_every=1,len_avg=10):
-    meter=TM(len_avg=len_avg)
+def train(model,n_epochs,loss_func,device,train_loader,val_loader,optimizer,scheduler,label_translater,eval_func,print_every=1,len_rvg=10):
+    meter=TM(len_rvg=len_rvg)
     for epoch in range(n_epochs):
         
         #Get learning rate:    

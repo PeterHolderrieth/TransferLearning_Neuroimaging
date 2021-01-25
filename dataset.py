@@ -53,7 +53,7 @@ def construct_preprocessing(kwd):
             '''
             p = torch.rand(1).item()
             if p < p0:
-                data = np.flip(data, 0)
+                data = np.flip(data, 0).copy()
             return data
 
         return mirror

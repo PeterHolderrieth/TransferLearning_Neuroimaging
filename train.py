@@ -14,10 +14,9 @@ from dp_model.model_files.sfcn import SFCN
 from dp_model import dp_loss as dpl
 from dp_model import dp_utils as dpu
 from data.oasis.load_oasis3 import give_oasis_data
-from epoch import go_one_epochimport utils
+from epoch import go_one_epoch
 from training import train
-import utils.TrainMeter as TM
-
+from utils import TrainMeter
 #Initialize tensorboard writer:
 #writer = SummaryWriter('results/test/test_tb')
 
@@ -36,12 +35,10 @@ ap.set_defaults(
     PRINT_EVERY=1,
     GAMMA=0.1,
     N_EPOCHS=3,
-    TRAIN='full',
-    INIT='fresh',
     PAT=1,
     PL='none',
     LOSS='mae',
-    DROP='drop'
+    DROP='drop',
     PRE='full',
     WDEC=0.,
     MOM=0.0,
@@ -50,7 +47,9 @@ ap.set_defaults(
     MOM_LL=0.0,
     GAMMA_LL=0.1,
     N_EPOCHS_LL=3,
-    PAT_LL=1
+    PAT_LL=1,
+    TRAIN='pre_step',
+    LR_LL=1e-2
     )
 
 #Debugging? Then use small data set:
@@ -63,7 +62,6 @@ ap.add_argument("-train", "--TRAIN", type=str, required=False,help="Train mode. 
 
 ap.add_argument("-batch", "--BATCH_SIZE", type=int, required=False,help="Batch size.")
 ap.add_argument("-n_work", "--NUM_WORKERS", type=int, required=False,help="Number of workers.")
-ap.add_argument("-lr", "--LR", type=float, required=False, help="Learning rate.")
 ap.add_argument("-loss", "--LOSS", type=str, required=False,help="Loss function to use: mae or kl.")
 ap.add_argument("-drop", "--DROP", type=str, required=False,help="drop for dropout and none for no dropout.")
 
@@ -74,13 +72,15 @@ ap.add_argument("-mom", "--MOM", type=float, required=False,help="Momentum for S
 ap.add_argument("-gamma", "--GAMMA", type=float, required=False,help="Decay factor for learning rate schedule.")
 ap.add_argument("-epochs", "--N_EPOCHS", type=int, required=False,help="Number of epochs.")
 ap.add_argument("-pat", "--PAT", type=int, required=False,help="Patience, i.e. number of steps until lr is diminished.")
+ap.add_argument("-lr", "--LR", type=float, required=False, help="Learning rate.")
 
 ap.add_argument("-pl_ll", "--PL_LL", type=str, required=False,help="pl for last layer training.")
 ap.add_argument("-wdec_ll", "--WDEC_LL", type=float, required=False,help="Weight decay for last layer training.")
 ap.add_argument("-mom_ll", "--MOM_LL", type=float, required=False,help="Momentum last layer training.")
 ap.add_argument("-gamma_ll", "--GAMMA_LL", type=float, required=False,help="Decay factor last layer training")
 ap.add_argument("-epochs_ll", "--N_EPOCHS_LL", type=int, required=False,help="Number of epochs for last layer training.")
-ap.add_argument("-pat_ll", "--PAT_LL", type=int, required=False,help="Patience last layer training")
+ap.add_argument("-pat_ll", "--PAT_LL", type=int, required=False,help="Patience for last layer training")
+ap.add_argument("-lr_ll", "--LR_LL", type=float, required=False, help="Learning rate for last layer training.")
 
 #ap.add_argument("-seed","--SEED", type=int, required=False, help="Seed for randomness.")
 
@@ -95,8 +95,8 @@ n_bins=BIN_RANGE[1]-BIN_RANGE[0]
 BIN_STEP=1
 SIGMA=1
 PATH_TO_PRETRAINED='pre_trained_models/brain_age/run_20190719_00_epoch_best_mae.p'
-sep_line="---------------------------------------------------------------------------------------------------"+
-    "-------------------"
+sep_line=("---------------------------------------------------------------------------------------------------"+
+    "-------------------")
 
 if ARGS['DEBUG']=='debug':
     debug=True
@@ -148,7 +148,7 @@ if ARGS['TRAIN']=='fresh':
     model = SFCN(output_dim=BIN_RANGE[1]-BIN_RANGE[0],dropout=dropout)
     model=nn.DataParallel(model)
 
-elif ARGS['TRAIN']=='pre_full' or ARGS['Train']=='pre_step':
+elif ARGS['TRAIN']=='pre_full' or ARGS['TRAIN']=='pre_step':
     #Load the model:
     model = SFCN()
     model=nn.DataParallel(model)
@@ -171,7 +171,7 @@ model=model.to(DEVICE)
 #Training of last layer:
 #-------------------------------------
 if ARGS['TRAIN']=='pre_step':
-    model.module.train_last_layer()
+    model.module.train_final_layer()
     optimizer=torch.optim.SGD(model.parameters(),lr=ARGS['LR_LL'],weight_decay=ARGS['WDEC_LL'],momentum=ARGS['MOM_LL'])
 
     #The following learning rate scheduler decays the learning by gamma every step_size epochs:
@@ -189,7 +189,7 @@ if ARGS['TRAIN']=='pre_step':
     print()
     print("Start training of last layer: ", datetime.datetime.today())
     print(sep_line) 
-    meter=train(model,ARGS['N_EPOCHS_LL'],LOSS_FUNC,DEVICE,train_loader,val_loader,optimizer,label_translater,EVAL_FUNC)
+    meter=train(model,ARGS['N_EPOCHS_LL'],LOSS_FUNC,DEVICE,train_loader,val_loader,optimizer,scheduler,label_translater,EVAL_FUNC)
     print(sep_line)   
     print("Finished training of full model.")
     print(datetime.datetime.today())
@@ -223,7 +223,7 @@ scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer,
 print()
 print("Start training of full model: ", datetime.datetime.today())
 print(sep_line)
-meter=train(model,ARGS['N_EPOCHS'],LOSS_FUNC,DEVICE,train_loader,val_loader,optimizer,label_translater,EVAL_FUNC)
+meter=train(model,ARGS['N_EPOCHS'],LOSS_FUNC,DEVICE,train_loader,val_loader,optimizer,scheduler,label_translater,EVAL_FUNC)
 print(sep_line)    
 print("Finished training of full model.")
 print(datetime.datetime.today())
