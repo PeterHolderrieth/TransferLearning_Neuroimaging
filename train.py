@@ -37,7 +37,7 @@ ap.set_defaults(
     N_EPOCHS=3,
     PAT=1,
     PL='none',
-    LOSS='mae',
+    LOSS='kl',
     DROP='drop',
     PRE='full',
     WDEC=0.,
@@ -49,7 +49,7 @@ ap.set_defaults(
     N_EPOCHS_LL=3,
     PAT_LL=1,
     TRAIN='pre_step',
-    LR_LL=1e-2
+    LR_LL=1e-2,
     )
 
 #Debugging? Then use small data set:
@@ -64,6 +64,8 @@ ap.add_argument("-batch", "--BATCH_SIZE", type=int, required=False,help="Batch s
 ap.add_argument("-n_work", "--NUM_WORKERS", type=int, required=False,help="Number of workers.")
 ap.add_argument("-loss", "--LOSS", type=str, required=False,help="Loss function to use: mae or kl.")
 ap.add_argument("-drop", "--DROP", type=str, required=False,help="drop for dropout and none for no dropout.")
+ap.add_argument("-path", "--PATH", type=str, required=True,help="Path to project directory with training files.")
+
 
 ap.add_argument("-pl", "--PL", type=str, required=False,help="pl indicate whether we use an adaptive learning changing when loss reaches plateu (True) or none for deterministic decay.")
 ap.add_argument("-pre", "--PRE", type=str, required=False,help="Preprocessing. Either full, min or none.")
@@ -94,7 +96,10 @@ BIN_RANGE=[37,99] #Enlarge age range with 3 at both sides to account for border 
 n_bins=BIN_RANGE[1]-BIN_RANGE[0]
 BIN_STEP=1
 SIGMA=1
-PATH_TO_PRETRAINED='pre_trained_models/brain_age/run_20190719_00_epoch_best_mae.p'
+print("Path: ", ARGS['PATH'])
+print("Patience: ", ARGS['PAT_LL'])
+
+PATH_TO_PRETRAINED=ARGS['PATH']+'pre_trained_models/brain_age/run_20190719_00_epoch_best_mae.p'
 sep_line=("---------------------------------------------------------------------------------------------------"+
     "-------------------")
 
@@ -189,6 +194,7 @@ if ARGS['TRAIN']=='pre_step':
     print()
     print("Start training of last layer: ", datetime.datetime.today())
     print(sep_line) 
+    print("Number of epochs of pre-training:", ARGS['N_EPOCHS_LL'])
     meter=train(model,ARGS['N_EPOCHS_LL'],LOSS_FUNC,DEVICE,train_loader,val_loader,optimizer,scheduler,label_translater,EVAL_FUNC)
     print(sep_line)   
     print("Finished training of full model.")

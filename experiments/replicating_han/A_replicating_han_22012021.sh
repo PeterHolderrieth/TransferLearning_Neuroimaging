@@ -1,4 +1,4 @@
-#!/bin/bash
+#/bin/bash
 #$ -wd /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/experiments/replicating_han/
 #$ -P win.prjc
 #$ -q gpu8.q
@@ -24,30 +24,31 @@ module load Python/3.7.4-GCCcore-8.3.0
 #Activate the correct python environment:
 source ~/python/ccpu_py_tlneuro
 
-epochs=150
-lr=1e-2
-gamma=0.75
-loss=kl
-pat=10
-drop=True 
-debug=full 
-batch=4
+debug=debug
 
-learning_rate = 0.01
-weight_decay = 0.001
-decay_epoch = 30
-decay_gamma = 0.3
-momentum = 0.9
-total_epoch = 130
-log_interval = 1
-batch_size = 8
-seed_number = 3517
-preprocessing = ('pixel_shift', 'average', 'mirror_1')
-optimizer = sgd
-scheduler_type = step
-num_workers = 6
+python ~/TransferLearning_Neuroimaging/train.py \
+-deb $debug \
+-train pre_step \
+-loss kl \
+-batch 8 \
+-n_work 4 \
+-lr_ll 1e-1 \
+-mom_ll 0.9 \
+-wdec_ll 1e-3 \
+-pl_ll none \
+-pat_ll 8 \
+-gamma_ll 0.1 
+-path ../../
+#\
+#-epochs_ll                                                
+#-lr 1e-4 \
+#-gamma 0.1 \
+#-epochs 15 \
+#-pat 5 \
+#-wdec 1e-4 \
+#-mom 0.9 \
+#-pl none '''
 
-python ~/TransferLearning_Neuroimaging/train.py -epochs $epochs -debug $debug -lr $lr -gamma 0.75 -init fresh -drop $drop -pat $pat -loss $loss
 
 
 echo "------------------------------------------------"

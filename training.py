@@ -44,4 +44,4 @@ def train(model,n_epochs,loss_func,device,train_loader,val_loader,optimizer,sche
 
         scheduler.step(meter.tr_loss.val)
 
-        return(meter)
+    return(meter)
