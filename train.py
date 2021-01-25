@@ -31,7 +31,7 @@ ap.set_defaults(
     BATCH_SIZE=2,
     LR=1e-2, 
     NUM_WORKERS=4,
-    DEBUG='debug',
+    #DEBUG='debug',
     PRINT_EVERY=1,
     GAMMA=0.1,
     N_EPOCHS=3,
@@ -49,11 +49,11 @@ ap.set_defaults(
     N_EPOCHS_LL=3,
     PAT_LL=1,
     TRAIN='pre_step',
-    LR_LL=1e-2,
+    LR_LL=1e-2
     )
 
 #Debugging? Then use small data set:
-ap.add_argument("-deb", "--DEBUG", type=str, required=False,help="Debug or not.")
+ap.add_argument("-deb", "--DEBUG", type=str, required=True,help="Debug or not.")
 
 #Arguments for training:
 ap.add_argument("-train", "--TRAIN", type=str, required=False,help="Train mode. Either 'fresh' (for fresh initialization), \
@@ -88,7 +88,7 @@ ap.add_argument("-lr_ll", "--LR_LL", type=float, required=False, help="Learning 
 
 #Arguments for tracking:
 ARGS = vars(ap.parse_args())
-
+print(ARGS)
 #Set batch size and number of workers:
 SHUFFLE=True
 AGE_RANGE=[40,96] #Age range of data
@@ -96,6 +96,7 @@ BIN_RANGE=[37,99] #Enlarge age range with 3 at both sides to account for border 
 n_bins=BIN_RANGE[1]-BIN_RANGE[0]
 BIN_STEP=1
 SIGMA=1
+print("Debug: ", ARGS['DEBUG'])
 print("Path: ", ARGS['PATH'])
 print("Patience: ", ARGS['PAT_LL'])
 
