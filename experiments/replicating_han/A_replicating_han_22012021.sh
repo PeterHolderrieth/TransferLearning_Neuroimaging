@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 #$ -wd /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/experiments/replicating_han/
 #$ -P win.prjc
 #$ -q gpu8.q
