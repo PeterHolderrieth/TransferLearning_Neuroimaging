@@ -24,7 +24,7 @@ module load Python/3.7.4-GCCcore-8.3.0
 #Activate the correct python environment:
 source ~/python/ccpu_py_tlneuro
 
-debug=debug
+debug=full
 
 python ~/TransferLearning_Neuroimaging/train.py \
 -deb $debug \
