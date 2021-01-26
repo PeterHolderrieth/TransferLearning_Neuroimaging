@@ -37,19 +37,16 @@ python ~/TransferLearning_Neuroimaging/train.py \
 -wdec_ll 1e-3 \
 -pl_ll none \
 -pat_ll 8 \
--gamma_ll 0.1 
--path ../../
-#\
-#-epochs_ll                                                
-#-lr 1e-4 \
-#-gamma 0.1 \
-#-epochs 15 \
-#-pat 5 \
-#-wdec 1e-4 \
-#-mom 0.9 \
-#-pl none '''
-
-
+-gamma_ll 0.1 \
+-path ../../ \
+-lr 1e-4 \
+-gamma 0.1 \
+-epochs 15 \
+-pat 5 \
+-wdec 1e-4 \
+-mom 0.9 \
+-pl none \
+-epochs_ll 25
 
 echo "------------------------------------------------"
 echo "Finished at: "`date`
