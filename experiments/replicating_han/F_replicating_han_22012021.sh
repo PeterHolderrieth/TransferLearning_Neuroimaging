@@ -8,7 +8,7 @@
 #$ -l gputype=p100
 #Save file to:
 # Log locations which are relative to the current                                                                                                                                                                  # working directory of the submission
-#$ -o results/B_replicating_han_22012021.log
+#$ -o results/F_replicating_han_22012021.log
 
 echo "------------------------------------------------"
 echo "Job ID: $JOB_ID"
@@ -42,7 +42,7 @@ python ~/TransferLearning_Neuroimaging/train.py \
 -lr 1e-4 \
 -gamma 0.1 \
 -epochs 30 \
--pat 5 \
+-pat 10 \
 -wdec 1e-4 \
 -mom 0.9 \
 -pl none \

@@ -3,7 +3,7 @@
 #$ -P win.prjc
 #$ -q gpu8.q
 #$ -j y #Error and output file are merged to output file
-#$ -l gpu=1
+#$ -l gpu=2
 #$ -pe shmem 2 #Should be the same as the number of GPUs 
 #$ -l gputype=p100
 #Save file to:
@@ -30,18 +30,19 @@ python ~/TransferLearning_Neuroimaging/train.py \
 -deb $debug \
 -train pre_step \
 -loss kl \
--batch 4 \
--n_work 2 \
+-batch 8 \
+-n_work 4 \
 -lr_ll 1e-1 \
 -mom_ll 0.9 \
 -wdec_ll 1e-3 \
+-wdec 1e-4 \
 -pl_ll none \
 -pat_ll 8 \
 -gamma_ll 0.1 \
 -path ../../ \
 -lr 1e-4 \
 -gamma 0.1 \
--epochs 15 \
+-epochs 30 \
 -pat 5 \
 -wdec 1e-4 \
 -mom 0.9 \
