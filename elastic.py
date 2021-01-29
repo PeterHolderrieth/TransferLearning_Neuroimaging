@@ -114,11 +114,11 @@ val_data_trans,val_label=batch_trans_pca(pca,val_loader)
 Predic=eln.predict(val_data_trans)
 
 #Get mean absolute error (mae):
-mae=(Predic-val_label).abs().mean()
+mae=np.mean(np.abs(Predic-val_label))
 
 #Get "stupid" baselines:
-mae_stupid=(val_label-np.mean(label)).abs().mean()
-mae_val=(val_label-np.mean(val_label)).abs().mean()
+mae_stupid=np.mean(np.abs(val_label-np.mean(label)))
+mae_val=np.mean(np.abs(val_label-np.mean(val_label)))
 
 #Print results:
 print("MAE of ElasticNet: ",mae)
