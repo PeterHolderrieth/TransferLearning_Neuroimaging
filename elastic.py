@@ -17,7 +17,7 @@ ap.set_defaults(
     BATCH=3,
     DEBUG='debug',
     N_COMP=None,
-    l1rat=0.5,
+    L1RAT=0.5,
     reg=1.)
 
 ap.add_argument("-deb", "--DEBUG", type=str, required=True,help="'debug' or 'full'.")

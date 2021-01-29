@@ -5,7 +5,7 @@
 #$ -j y #Error and output file are merged to output file
 #Save file to:
 # Log locations which are relative to the current                                                                                                                                                                  # working directory of the submission
-#$ -o F_elnet_grid_search.log
+#$ -o N_elnet_grid_search.log
 
 echo "------------------------------------------------"
 echo "Job ID: $JOB_ID"
@@ -27,9 +27,9 @@ source ~/python/ccpu_py_tlneuro
 python ~/TransferLearning_Neuroimaging/elastic.py \
 -deb full \
 -batch 30 \
--reg .5 \
--l1rat 0.5 #\
-#-n_comp  	
+-reg 1. \
+-l1rat 0.5 \
+-n_comp 5 	
 
 
 echo "------------------------------------------------"

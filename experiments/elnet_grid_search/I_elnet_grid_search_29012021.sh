@@ -26,9 +26,10 @@ source ~/python/ccpu_py_tlneuro
 
 python ~/TransferLearning_Neuroimaging/elastic.py \
 -deb full \
--batch 50 \
+-batch 30 \
 -reg 1. \
--l1rat 0.7 #\
+-l1rat 0.6 #\
+#-n_comp  	
 
 
 echo "------------------------------------------------"

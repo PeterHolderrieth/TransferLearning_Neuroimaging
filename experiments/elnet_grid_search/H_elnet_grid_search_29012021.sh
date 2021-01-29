@@ -21,13 +21,14 @@ module load Python/3.7.4-GCCcore-8.3.0
 #Activate the correct python environment:
 source ~/python/ccpu_py_tlneuro
 
-#Change to A: l1-ratio much higher.
+#Default Elastic Net Regression on OASIS.
+
 
 python ~/TransferLearning_Neuroimaging/elastic.py \
 -deb full \
 -batch 30 \
--reg 1. \
--l1rat 1. #\
+-reg 1.5 \
+-l1rat 0.5 #\
 #-n_comp  	
 
 

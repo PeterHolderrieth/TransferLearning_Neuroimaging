@@ -1,11 +1,14 @@
 #!/bin/bash
-#$ -wd /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/experiments/elnet_grid_search/results/
+#$ -wd /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/experiments/replicating_han/
 #$ -P win.prjc
-#$ -q short.qe
+#$ -q gpu8.q
 #$ -j y #Error and output file are merged to output file
+#$ -l gpu=2
+#$ -pe shmem 2 #Should be the same as the number of GPUs 
+#$ -l gputype=p100
 #Save file to:
 # Log locations which are relative to the current                                                                                                                                                                  # working directory of the submission
-#$ -o F_elnet_grid_search.log
+#$ -o results/Y_replicating_han_22012021.log
 
 echo "------------------------------------------------"
 echo "Job ID: $JOB_ID"
@@ -21,16 +24,32 @@ module load Python/3.7.4-GCCcore-8.3.0
 #Activate the correct python environment:
 source ~/python/ccpu_py_tlneuro
 
-#Default Elastic Net Regression on OASIS.
+debug=full
 
+#Replicating U.
 
-python ~/TransferLearning_Neuroimaging/elastic.py \
--deb full \
--batch 30 \
--reg .5 \
--l1rat 0.5 #\
-#-n_comp  	
-
+python ~/TransferLearning_Neuroimaging/train.py \
+-deb $debug \
+-train pre_step \
+-loss kl \
+-batch 4 \
+-n_work 4 \
+-lr_ll 1e-1 \
+-mom_ll 0.9 \
+-wdec_ll 1e-3 \
+-wdec 1e-4 \
+-pl_ll none \
+-pat_ll 8 \
+-gamma_ll 0.1 \
+-path ../../ \
+-lr 5e-4 \
+-gamma 0.2 \
+-epochs 30 \
+-pat 5 \
+-wdec 5e-4 \
+-mom 0.8 \
+-pl none \
+-epochs_ll 25
 
 echo "------------------------------------------------"
 echo "Finished at: "`date`
