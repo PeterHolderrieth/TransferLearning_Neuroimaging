@@ -35,7 +35,7 @@ def batch_fit_pca(data_loader,n_components):
     '''
     Inputs:
         data_loader - pytorch data loader giving data in batches
-        n_components - int  - number of principal components to use
+        n_components - int - number of principal components to use
     Output:
         pca - sklearn.decomposition.PCA - pca function fitted to data from data_loader
     '''
