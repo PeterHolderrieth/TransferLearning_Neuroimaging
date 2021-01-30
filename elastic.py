@@ -26,7 +26,7 @@ ap.add_argument("-batch", "--BATCH", type=int, required=True,help="Batch size.")
 ap.add_argument("-ncomp", "--N_COMP", type=int, required=False,help="Number of principal components.")
 ap.add_argument("-l1rat", "--L1RAT", type=float, required=False,help="Ratio of L1 loss (compared to L2).")
 ap.add_argument("-reg", "--REG", type=float, required=False,help="Scaling of ElasticNet regularizer term.")
-ap.add_argument("-feat", "--N_FEAT", type=int, required=False,help="Number of most correlative features to pick."+
+ap.add_argument("-feat", "--FEAT", type=int, required=False,help="Number of most correlative features to pick."+
                                                                     "If None, all features are picked.")
 
 #Get arguments:
@@ -126,9 +126,9 @@ pca=batch_fit_pca(train_loader,N_COMP)
 #Get transformed train data:
 data_trans,label=batch_trans_pca(pca,train_loader)
 
-if ARGS['N_FEAT'] is not None:
+if ARGS['FEAT'] is not None:
     #Give the indices of the most correlative indices:
-    inds=give_most_correlative_features(data_trans, label,n_features=ARGS['N_FEAT'] )
+    inds=give_most_correlative_features(data_trans, label,n_features=ARGS['FEAT'] )
     #Select the features from the data:
     data_trans=data_trans[:,inds]
 
@@ -142,7 +142,7 @@ _,val_loader=load_oasis.give_oasis_data('val',batch_size=ARGS['BATCH'],debug=DEB
 #Get transformed validation data:
 val_data_trans,val_label=batch_trans_pca(pca,val_loader)
 
-if ARGS['N_FEAT'] is not None:
+if ARGS['FEAT'] is not None:
     #Select correlative features:
     val_data_trans=val_data_trans[:,inds]
 
