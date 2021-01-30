@@ -38,7 +38,6 @@ python ~/TransferLearning_Neuroimaging/train.py \
 -pl_ll none \
 -pat_ll 8 \
 -gamma_ll 0.1 \
--path ../../ \
 -lr 1e-4 \
 -gamma 0.1 \
 -epochs 15 \
