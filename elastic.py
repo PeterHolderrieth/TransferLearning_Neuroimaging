@@ -18,13 +18,16 @@ ap.set_defaults(
     DEBUG='debug',
     N_COMP=None,
     L1RAT=0.5,
-    reg=1.)
+    REG=1.,
+    FEAT=None)
 
 ap.add_argument("-deb", "--DEBUG", type=str, required=True,help="'debug' or 'full'.")
 ap.add_argument("-batch", "--BATCH", type=int, required=True,help="Batch size.")
 ap.add_argument("-ncomp", "--N_COMP", type=int, required=False,help="Number of principal components.")
-ap.add_argument("-l1rat", "--L1RAT", type=float, required=True,help="Ratio of L1 loss (compared to L2).")
-ap.add_argument("-reg", "--REG", type=float, required=True,help="Scaling of ElasticNet regularizer term.")
+ap.add_argument("-l1rat", "--L1RAT", type=float, required=False,help="Ratio of L1 loss (compared to L2).")
+ap.add_argument("-reg", "--REG", type=float, required=False,help="Scaling of ElasticNet regularizer term.")
+ap.add_argument("-feat", "--N_FEAT", type=int, required=False,help="Number of most correlative features to pick."+
+                                                                    "If None, all features are picked.")
 
 #Get arguments:
 ARGS = vars(ap.parse_args())
@@ -79,6 +82,27 @@ def batch_trans_pca(pca,data_loader):
 
     return(data_trans,label)
 
+def mat_corr_coeff(x,y):
+    '''
+    Input: 
+        x - np.array - shape (n,p)
+        y - np.array - shape (n)
+    Output: 
+       corrcoeff- np.array - shape (p) - coerrcoeff[i] gives Pearson correlation between
+        x[:,i] and y
+    '''    
+    y_cent=y-y.mean()
+    x_cent=x-x.mean(axis=0)[None,:]
+    cov=np.dot(y_cent,x_cent)/x.shape[0]
+    std_y=y.std()
+    std_x=x.std(axis=0)
+    corrcoeff=(cov/std_y)/std_x
+    return(corrcoeff)
+
+def give_most_correlative_features(x,y,n_features):
+    corrcoeff=mat_corr_coeff(x,y)
+    ind=corrcoeff.argsort()[-n_features:][::-1]
+    return(ind)
 
 #Set debug option:
 if ARGS['DEBUG']=='debug':
@@ -88,17 +112,25 @@ elif ARGS['DEBUG']=='full':
 else:
     sys.exit("Unknown debug option.")
 
-#Set the number of PCA-components:
-N_COMP=ARGS['N_COMP'] if ARGS['N_COMP'] is not None else ARGS['BATCH']-1
+
 
 #Load train loader:
 _,train_loader=load_oasis.give_oasis_data('train',batch_size=ARGS['BATCH'],debug=DEBUG,shuffle=False)
+
+#Set the number of PCA-components:
+N_COMP=ARGS['N_COMP'] if ARGS['N_COMP'] is not None else train_loader.batch_size-1
 
 #Get PCA of train data:
 pca=batch_fit_pca(train_loader,N_COMP)
 
 #Get transformed train data:
 data_trans,label=batch_trans_pca(pca,train_loader)
+
+if ARGS['N_FEAT'] is not None:
+    #Give the indices of the most correlative indices:
+    inds=give_most_correlative_features(data_trans, label,n_features=ARGS['N_FEAT'] )
+    #Select the features from the data:
+    data_trans=data_trans[:,inds]
 
 #Fit ElasticNet:
 eln=ElasticNet(alpha=ARGS['REG'],l1_ratio=ARGS['L1RAT'])
@@ -109,6 +141,10 @@ _,val_loader=load_oasis.give_oasis_data('val',batch_size=ARGS['BATCH'],debug=DEB
 
 #Get transformed validation data:
 val_data_trans,val_label=batch_trans_pca(pca,val_loader)
+
+if ARGS['N_FEAT'] is not None:
+    #Select correlative features:
+    val_data_trans=val_data_trans[:,inds]
 
 #Predict on validation set:
 Predic=eln.predict(val_data_trans)

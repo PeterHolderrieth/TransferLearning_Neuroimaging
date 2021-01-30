@@ -83,10 +83,13 @@ def give_oasis_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=Fals
     else: 
         data_set = MRIDataset(fp_list, label_list, preproc_val)
 
+    
+    batch_size_=min(data_set._len,batch_size)
+
     #Return data loader:
     data_loader = torch.utils.data.DataLoader(
         data_set,
-        batch_size=batch_size,
+        batch_size=batch_size_,
         num_workers=num_workers,
         shuffle=shuffle,
         drop_last=True,
