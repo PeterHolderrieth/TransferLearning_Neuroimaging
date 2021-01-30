@@ -66,7 +66,7 @@ ap.add_argument("-n_work", "--NUM_WORKERS", type=int, required=False,help="Numbe
 ap.add_argument("-loss", "--LOSS", type=str, required=False,help="Loss function to use: mae or kl.")
 ap.add_argument("-drop", "--DROP", type=str, required=False,help="drop for dropout and none for no dropout.")
 ap.add_argument("-run", "--RUN", type=int, required=False,help="Choose pre-trained model. Either 0,1,2,3 or 4.")
-ap.add_argument("-path", "--PATH", type=int, required=False,help="Path to (for later usage).")
+ap.add_argument("-path", "--PATH", type=str, required=False,help="Path to (for later usage).")
 
 ap.add_argument("-pl", "--PL", type=str, required=False,help="pl indicate whether we use an adaptive learning changing when loss reaches plateu (True) or none for deterministic decay.")
 ap.add_argument("-pre", "--PRE", type=str, required=False,help="Preprocessing. Either full, min or none.")
