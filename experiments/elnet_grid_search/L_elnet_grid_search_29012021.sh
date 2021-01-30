@@ -29,7 +29,7 @@ python ~/TransferLearning_Neuroimaging/elastic.py \
 -batch 30 \
 -reg 1. \
 -l1rat 0.5 \
--n_comp 10 	
+-ncomp 10 	
 
 
 echo "------------------------------------------------"

@@ -49,7 +49,8 @@ ap.set_defaults(
     N_EPOCHS_LL=3,
     PAT_LL=1,
     TRAIN='pre_step',
-    LR_LL=1e-2
+    LR_LL=1e-2,
+    RUN=4
     )
 
 #Debugging? Then use small data set:
@@ -64,7 +65,7 @@ ap.add_argument("-batch", "--BATCH_SIZE", type=int, required=False,help="Batch s
 ap.add_argument("-n_work", "--NUM_WORKERS", type=int, required=False,help="Number of workers.")
 ap.add_argument("-loss", "--LOSS", type=str, required=False,help="Loss function to use: mae or kl.")
 ap.add_argument("-drop", "--DROP", type=str, required=False,help="drop for dropout and none for no dropout.")
-ap.add_argument("-path", "--PATH", type=str, required=True,help="Path to project directory with training files.")
+ap.add_argument("-run", "--RUN", type=int, required=False,help="Choose pre-trained model. Either 0,1,2,3 or 4.")
 
 
 ap.add_argument("-pl", "--PL", type=str, required=False,help="pl indicate whether we use an adaptive learning changing when loss reaches plateu (True) or none for deterministic decay.")
@@ -97,10 +98,14 @@ n_bins=BIN_RANGE[1]-BIN_RANGE[0]
 BIN_STEP=1
 SIGMA=1
 print("Debug: ", ARGS['DEBUG'])
-print("Path: ", ARGS['PATH'])
 print("Patience: ", ARGS['PAT_LL'])
 
-PATH_TO_PRETRAINED=ARGS['PATH']+'pre_trained_models/brain_age/run_20190719_00_epoch_best_mae.p'
+
+RUNS=['run_20191206_00', 'run_20191206_01', 'run_20191206_02', 'run_20191206_03','run_20190719_00']
+RUN_NAME=RUNS[ARGS['RUN']]
+print('Run: ', f'{RUN_NAME}')
+PATH_TO_PRETRAINED= f'/well/win-fmrib-analysis/users/lhw539/pre_trained_models/{RUN_NAME}_epoch_best_mae.p'
+
 sep_line=("---------------------------------------------------------------------------------------------------"+
     "-------------------")
 
@@ -156,10 +161,15 @@ if ARGS['TRAIN']=='fresh':
 
 elif ARGS['TRAIN']=='pre_full' or ARGS['TRAIN']=='pre_step':
     #Load the model:
-    model = SFCN()
+    if ARGS['RUN']==4:
+        model = SFCN()
+    else:
+        model=SFCN(channel_number=[32, 64, 64, 64, 64, 64])
     model=nn.DataParallel(model)
+    
     state_dict=torch.load(PATH_TO_PRETRAINED)#,map_location=DEVICE)
     model.load_state_dict(state_dict)
+
 
     #Reshape and reinitialize the final layer:
     c_in = model.module.classifier.conv_6.in_channels

@@ -19,7 +19,7 @@ S: 2.93  (lower momentum)
 T: 3.12 (higher weight decay, weird result.)
 U: 2.83 (different combination of lr, wdec and gamma)
 V: 2.94 (Change to K: Decrease weight decay for last layer, increase patience.)
-W: 
-X:
-Y:
-Z:
+W: 2.94 (Replicating L.)
+X: 2.93 (Replicating K.)
+Y: 2.90 (Replicating U.)
+Z: 2.90 (Replicating U with higher momentum.)
