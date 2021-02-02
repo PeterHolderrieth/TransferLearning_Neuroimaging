@@ -1,4 +1,4 @@
-#!/bin/bash
+#/bin/bash
 #$ -wd /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/experiments/replicating_han/
 #$ -P win.prjc
 #$ -q gpu8.q
@@ -24,7 +24,7 @@ module load Python/3.7.4-GCCcore-8.3.0
 #Activate the correct python environment:
 source ~/python/ccpu_py_tlneuro
 
-debug=full
+debug=debug
 
 python ~/TransferLearning_Neuroimaging/train.py \
 -deb $debug \
