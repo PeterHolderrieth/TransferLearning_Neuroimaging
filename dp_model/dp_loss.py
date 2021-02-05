@@ -33,6 +33,17 @@ def my_MAELoss(log_probs, target_probs,bin_centers=None):
     mae=MAE(pred,true_label)
     return(mae)
 
+def my_cross_entropy(log_probs, y,bin_centers=None):
+    """
+    Input: 
+        log_probs  - torch.tensor - shape (n, p) - probabilities of classes
+        y  - torch.tensor - shape (n,p) - one-hot encoding of class
+    Output:
+        loss - float
+    """
+    cross_entr=-(log_probs*y).mean(dim=1)
+    return(cross_entr)
+    
 def MSE(x,y):
     '''
     x,y - torch.Tensor - arbitrary but similar shape

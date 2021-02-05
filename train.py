@@ -93,7 +93,12 @@ print(ARGS)
 #Set batch size and number of workers:
 SHUFFLE=True
 AGE_RANGE=[40,96] #Age range of data
-BIN_RANGE=[37,99] #Enlarge age range with 3 at both sides to account for border effecs
+if ARGS['task']=='age':
+    BIN_RANGE=[37,99] #Enlarge age range with 3 at both sides to account for border effecs
+elif ARGS['task']=='sex':
+    BIN_RANGE=[0,2]
+else: 
+    sys.exit("Unknown tasks.")
 n_bins=BIN_RANGE[1]-BIN_RANGE[0]
 BIN_STEP=1
 SIGMA=1
@@ -121,13 +126,15 @@ _,train_loader=give_oasis_data('train', batch_size=ARGS['BATCH_SIZE'],
                                         num_workers=ARGS['NUM_WORKERS'],
                                         shuffle=SHUFFLE,
                                         debug=debug,
-                                        preprocessing=ARGS['PRE'])
+                                        preprocessing=ARGS['PRE'],
+                                        task=ARGS['task'])
                                         
 _,val_loader=give_oasis_data('val', batch_size=ARGS['BATCH_SIZE'],
                                     num_workers=ARGS['NUM_WORKERS'],
                                     shuffle=SHUFFLE,
                                     debug=debug,
-                                    preprocessing=ARGS['PRE'])
+                                    preprocessing=ARGS['PRE'],
+                                    task=ARGS['task'])                   
 
 #Set the label translater:
 label_translater=dpu.give_label_translater({
@@ -140,6 +147,8 @@ if ARGS['LOSS']=='mae':
     LOSS_FUNC=dpl.my_MAELoss #my_KLDivLoss
 elif ARGS['LOSS']=='kl':
     LOSS_FUNC=dpl.my_KLDivLoss
+elif ARGS['LOSS']=='ent':
+    LOSS_FUNC=dpl.my_cross_entropy
 else: 
     sys.exit("Unknown loss.")
 

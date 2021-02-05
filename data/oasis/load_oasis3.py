@@ -7,11 +7,11 @@ import nibabel as nib
 import os
 import os.path as osp
 import pandas as pd 
-
+sys.path.append('../../')
 from dataset import construct_preprocessing 
 from dataset import MRIDataset
 
-def give_oasis_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=False,preprocessing='full'):
+def give_oasis_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=False,preprocessing='full', task='age'):
 
     
     #Construct preprocessing functions:
@@ -48,7 +48,7 @@ def give_oasis_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=Fals
     DIR_IDs=osp.join(DIR, 'oasis3_info/') 
     default_name=DIR_IDs
     if debug:
-        default_name=DIR_IDs+'debug_'
+        default_name+='debug_'
 
     # Load files:
     if data_type=='train':
@@ -75,8 +75,19 @@ def give_oasis_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=Fals
     else: 
         fp_list = list(df_session.T1_path.values)
     
-    #Get list of labels:
-    label_list = list([age_, ] for age_ in df_session.AgeBasedOnClinicalData.values)
+    
+    if task=='age':
+        label_list = list([age_, ] for age_ in df_session.AgeBasedOnClinicalData.values)
+    
+    elif task=='sex':
+        #Get subject info:
+        subject_df=pd.read_csv(DIR_IDs+'subject_info.csv')
+        #Extract subject and sex info. Set subject as index:
+        subject_sex=subject_df[["Subject","Sex"]].set_index("Subject")
+        #Extract labels:
+        label_list=subject_sex.loc[df_session.Subject.values,:]
+    else: 
+        sys.exit("Unknown task.")
 
     if data_type=='train':
         data_set = MRIDataset(fp_list, label_list, preproc_train)
@@ -104,19 +115,3 @@ def give_oasis_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=Fals
     return(data_set,data_loader)
 
 
-'''
-To control whether data sets intersect:
-subjects_train=np.unique(df_session_train.Subject.values)
-subjects_val=np.unique(df_session_val.Subject.values)
-subjects_test0=np.unique(df_session_test0.Subject.values)
-subjects_test1=np.unique(df_session_test1.Subject.values)
-print(subjects_val.shape)
-print(subjects_test0.shape)
-print(subjects_test1.shape)
-print(np.intersect1d(subjects_train,subjects_val).shape)
-print(np.intersect1d(subjects_val,subjects_test0).shape)
-print(np.intersect1d(subjects_train,subjects_test0).shape)
-print(np.intersect1d(subjects_test0,subjects_test1).shape)
-print(np.intersect1d(subjects_test1,subjects_train).shape)
-print(np.intersect1d(subjects_test1,subjects_val).shape)
-'''
