@@ -1,0 +1,16 @@
+------------------------------------------------
+Job ID: 34717630
+Run on host: compe062.hpc.in.bmrc.ox.ac.uk
+Operating system: Linux
+Username: lhw539
+Started at: Fri Jan 29 21:56:18 GMT 2021
+------------------------------------------------
+{'DEBUG': 'full', 'BATCH': 30, 'N_COMP': None, 'L1RAT': 0.5, 'REG': 1.5, 'reg': 1.0}
+Succesfully loaded OASIS train data.
+Succesfully loaded OASIS   val data.
+MAE of ElasticNet:  7.170950258096435
+MAE on valid when train mean is predicted:  7.3705144
+MAE on valid when valid mean is predicted:  7.3415723
+------------------------------------------------
+Finished at: Fri Jan 29 22:15:46 GMT 2021
+------------------------------------------------
