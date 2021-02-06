@@ -43,3 +43,8 @@ class TrainMeter(object):
         if tr_eval_it is not None: self.tr_eval.update(tr_eval_it,n)      
         if val_loss_it is not None: self.val_loss.update(val_loss_it,n)        
         if val_eval_it is not None: self.val_eval.update(val_eval_it,n)
+
+def print_sep_line():
+    sep_line=("---------------------------------------------------------------------------------------------------"+
+    "-------------------")
+    print(sep_line)

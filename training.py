@@ -32,15 +32,17 @@ def train(model,n_epochs,loss_func,device,train_loader,val_loader,optimizer,sche
                     val_loss_it=results_val['loss'],
                     val_eval_it=results_val['eval'])
         
+        loss_name=loss_func.__name__[-3:]
+        ev_name=eval_func.__name__[-3:]
         #Print update:
         if epoch%print_every==0:
             print(("|epoch: %3d | lr: %.3f |"+ 
-                    "train loss: %.5f |train loss ravg: %.5f |"+
-                    "train MAE:  %.5f |train MAE ravg:  %.5f |"+
-                    "val loss: %.5f |val loss ravg: %.5f |"+
-                    "val MAE:  %.5f |val MAE ravg:  %.5f |")%(epoch,
-                    lr,meter.tr_loss.val,meter.tr_loss.run_avg,meter.tr_eval.val,meter.tr_eval.run_avg,
-                    meter.val_loss.val,meter.val_loss.run_avg,meter.val_eval.val,meter.val_eval.run_avg))
+                    "train %s: %.5f |train %s ravg: %.5f |"+
+                    "train %s:  %.5f |train %s ravg:  %.5f |"+
+                    "val %s: %.5f |val %sravg: %.5f |"+
+                    "val %s:  %.5f |val %s ravg:  %.5f |")%(epoch,
+                    lr,loss_name,meter.tr_loss.val,loss_name,meter.tr_loss.run_avg,ev_name,meter.tr_eval.val,ev_name,meter.tr_eval.run_avg,
+                    loss_name,meter.val_loss.val,loss_name,meter.val_loss.run_avg,ev_name,meter.val_eval.val,ev_name,meter.val_eval.run_avg))
 
         scheduler.step(meter.tr_loss.val)
 

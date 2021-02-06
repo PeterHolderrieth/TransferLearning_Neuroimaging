@@ -8,48 +8,18 @@ import os
 import os.path as osp
 import pandas as pd 
 sys.path.append('../../')
-from dataset import construct_preprocessing 
-from dataset import MRIDataset
+from dataset import give_mri_data
+
 
 def give_oasis_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=False,preprocessing='full', task='age'):
-
     
-    #Construct preprocessing functions:
-    ps = construct_preprocessing({'method': 'pixel_shift',
-                                        'x_shift': 2,
-                                        'y_shift': 2,
-                                        'z_shift': 2})
-    mr = construct_preprocessing({'method': 'mirror',
-                                        'probability': 0.5})
-    avg = construct_preprocessing({'method': 'average'})
-    crop = construct_preprocessing({'method': 'crop',
-                                            'nx': 160,
-                                            'ny': 192,
-                                            'nz': 160})
-	
-    #Pick a list of preprocessing functions:
-    if preprocessing=='full':
-        preproc_train=[avg,crop,ps,mr]
-        preproc_val=[avg,crop]
-
-    elif preprocessing=='min':
-        preproc_train=[avg,crop]
-        preproc_val=[avg,crop]
- 
-    elif preprocessing=='none':
-        preproc_train=[]
-        preproc_val=[]
- 
-    else:
-        sys.exit("Unknown preprocessing combination.")
-
     #Get the directory of the data_type:
     DIR = '/gpfs3/well/win-fmrib-analysis/users/lhw539/oasis3/'
     DIR_IDs=osp.join(DIR, 'oasis3_info/') 
     default_name=DIR_IDs
     if debug:
         default_name+='debug_'
-
+    
     # Load files:
     if data_type=='train':
         fp_ = default_name+'session_train.csv'
@@ -85,33 +55,17 @@ def give_oasis_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=Fals
         #Extract subject and sex info. Set subject as index:
         subject_sex=subject_df[["Subject","Sex"]].set_index("Subject")
         #Extract labels:
-        label_list=subject_sex.loc[df_session.Subject.values,:]
+        label_list=list([sex_, ] for sex_ in subject_sex.loc[df_session.Subject.values,:].values)
     else: 
         sys.exit("Unknown task.")
-
-    if data_type=='train':
-        data_set = MRIDataset(fp_list, label_list, preproc_train)
-    else: 
-        data_set = MRIDataset(fp_list, label_list, preproc_val)
-
     
-    batch_size_=min(data_set._len,batch_size)
-
-    #Return data loader:
-    data_loader = torch.utils.data.DataLoader(
-        data_set,
-        batch_size=batch_size_,
-        num_workers=num_workers,
-        shuffle=shuffle,
-        drop_last=True,
-        pin_memory=True
-    )
-
-    #Print information:
     if  debug:    
-        print("Succesfully loaded OASIS %5s debug data."%data_type)
+        print("Loading OASIS %5s debug data."%data_type)
     else: 
-        print("Succesfully loaded OASIS %5s data."%data_type)
-    return(data_set,data_loader)
+        print("Loading loaded OASIS %5s data."%data_type)
+
+    return(give_mri_data(fp_list=fp_list,label_list=label_list,data_type=data_type,batch_size=batch_size,num_workers=num_workers,shuffle=shuffle,preprocessing=preprocessing))
+
+
 
 

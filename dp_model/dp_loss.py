@@ -1,49 +1,7 @@
 import torch.nn as nn
 import torch 
+import sys
 
-def my_KLDivLoss(log_probs, target_probs,bin_centers=None):
-    """
-    Input: 
-        log_probs  - torch.tensor - shape (n, m) - log-probabilities!
-        y  - torch.tensor - shape (n, m) - probabilities
-    Output:
-        loss - float
-    Returns KL-Divergence KL(target_probs||log_probs)
-    Different from the default PyTorch nn.KLDivLoss in that
-    a) the result is averaged by the 0th dimension (Batch size)
-    b) the y distribution is added with a small value (1e-16) to ensure
-    numerical stability ("log(0)-problem")
-    """
-    loss_func = nn.KLDivLoss(reduction='batchmean')
-    target_probs += 1e-10
-    loss = loss_func(log_probs, target_probs)  
-    return loss
-
-def my_MAELoss(log_probs, target_probs,bin_centers=None):
-    """
-    Input: 
-        log_probs  - torch.tensor - shape (n, m) - log-probabilities!
-        y  - torch.tensor - shape (n, m) - probabilities
-    Output:
-        loss - float
-    Returns MSE between the predictions/
-    """
-    pred=pred_from_dist(log_probs,bin_centers)
-    true_label=torch.matmul(target_probs,bin_centers)
-    mae=MAE(pred,true_label)
-    return(mae)
-
-def my_cross_entropy(log_probs, y,bin_centers=None):
-    """
-    Input: 
-        log_probs  - torch.tensor - shape (n, p) - probabilities of classes
-        y  - torch.tensor - shape (n,p) - one-hot encoding of class
-    Output:
-        loss - float
-    """
-    cross_entr=-(log_probs*y).mean(dim=1)
-    return(cross_entr)
-    
 def MSE(x,y):
     '''
     x,y - torch.Tensor - arbitrary but similar shape
@@ -66,13 +24,74 @@ def pred_from_dist(log_probs,bin_centers):
     Output: means - torch.Tensor - shape (batch_size)/[1]
     '''
     probs=torch.exp(log_probs)
-    #bin_centers_=torch.tensor(bin_centers,dtype=probs.dtype)
     means=torch.matmul(probs,bin_centers)#_)
     return(means)
 
-def give_bin_eval(bin_centers):
-    def eval_MAE(log_probs,target,bin_centers=bin_centers):
-        preds=pred_from_dist(log_probs=log_probs,bin_centers=bin_centers)
-        mae=MAE(preds,target)
-        return(mae)
-    return(eval_MAE)
+
+def give_my_loss_func(kwd):
+    if kwd['type']=='kl':
+        def my_kld(log_probs, target,bin_centers=kwd['bin_centers']):
+            """
+            Input: 
+                log_probs  - torch.tensor - shape (n, m) - log-probabilities!
+                target  - torch.tensor - shape (n, m) - probabilities
+            Output:
+                loss - float
+            Returns KL-Divergence KL(target_probs||log_probs)
+            Different from the default PyTorch nn.KLDivLoss in that
+            a) the result is averaged by the 0th dimension (Batch size)
+            b) the y distribution is added with a small value (1e-16) to ensure
+            numerical stability ("log(0)-problem")
+            """
+            loss_func = nn.KLDivLoss(reduction='batchmean')
+            target += 1e-10
+            loss = loss_func(log_probs, target)  
+            return loss
+        return(my_kld)
+        
+    elif kwd['type']=='mae':
+        
+        def my_mae(log_probs, target,bin_centers=kwd['bin_centers'],probs=kwd['probs']):
+            """
+            Input: 
+                log_probs  - torch.tensor - shape (n, m) - log-probabilities!
+                target  - torch.tensor - if probs: shape (n, m) - probabilities
+                                         else: shape (n) - targets
+            Output:
+                loss - float
+            Returns MAE between the predictions/
+            """
+            bin_centers_=bin_centers.to(log_probs.device)
+            pred=pred_from_dist(log_probs,bin_centers_)
+            true_label=torch.matmul(target,bin_centers_) if probs else target
+            mae=MAE(pred,true_label)
+            return(mae)
+        
+        return(my_mae)
+
+    elif kwd['type']=='ent':
+        def my_ent(log_probs, target):
+            """
+            Input: 
+                log_probs  - torch.tensor - shape (n, p) - probabilities of classes
+                target  - torch.tensor - shape (n,p) - one-hot encoding of class
+            Output:
+                loss - float - cross entropy
+            """
+            cross_entr=-(log_probs*target).sum(dim=1).mean()
+            return(cross_entr)
+        return(my_ent)
+    
+    elif kwd['type']=='acc':
+        def my_acc(log_probs,target,thresh=kwd['thresh']):
+            log_tresh=torch.log(torch.tensor(thresh))
+            above_thresh=(log_probs[:,1]>log_tresh).float()
+            correct_vec=above_thresh*target+(1-above_thresh)*(1-target)
+            return(correct_vec.float().mean())
+        return(my_acc)
+    else: 
+        sys.exit("Unknown loss function.")
+
+
+
+

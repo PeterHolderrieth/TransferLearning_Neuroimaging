@@ -40,20 +40,20 @@ def go_one_epoch(state, model, loss_func, device, data_loader, optimizer, label_
         n_batch = data.shape[0]
         label=label.squeeze().to(device)
         #Translate label into the same space as the outputs:
-        target_probs,bin_centers = label_translater(label)
+        target_probs= label_translater(label)
         
         if state == 'train':
             #Compute loss and gradient step:
             optimizer.zero_grad()
             output = model(data)
-            loss = loss_func(log_probs=output, target_probs=target_probs,bin_centers=bin_centers)
+            loss = loss_func(log_probs=output, target=target_probs)
             loss.backward()
             optimizer.step()
         else:
             #Compute loss without gradient step:
             with torch.no_grad():
                 output = model(data)
-                loss = loss_func(log_probs=output, target_probs=target_probs,bin_centers=bin_centers)
+                loss = loss_func(log_probs=output, target=target_probs)
         
         # Step Logging:
         n_total += n_batch
@@ -65,7 +65,7 @@ def go_one_epoch(state, model, loss_func, device, data_loader, optimizer, label_
             with torch.no_grad():
                 #print("True labels: ", label)
                 #print("Predictions:", torch.matmul(torch.exp(output),bin_centers))
-                eval_= eval_func(log_probs=output, target=label,bin_centers=bin_centers)
+                eval_= eval_func(log_probs=output, target=label)
                 eval_total=eval_total+eval_.item()*n_batch        
         
     #DEBUG: Observe gradient descent in the parameters:

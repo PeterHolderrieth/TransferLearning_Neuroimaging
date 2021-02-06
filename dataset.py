@@ -127,3 +127,54 @@ class MRIDataset(torch.utils.data.Dataset):
         label = torch.tensor(label, dtype=torch.float32, requires_grad=False)
         return data, label
 
+
+def give_mri_data(fp_list,label_list,data_type,batch_size=1,num_workers=1,shuffle=True,preprocessing='full'):
+    
+    #Construct preprocessing functions:
+    ps = construct_preprocessing({'method': 'pixel_shift',
+                                        'x_shift': 2,
+                                        'y_shift': 2,
+                                        'z_shift': 2})
+    mr = construct_preprocessing({'method': 'mirror',
+                                        'probability': 0.5})
+    avg = construct_preprocessing({'method': 'average'})
+    crop = construct_preprocessing({'method': 'crop',
+                                            'nx': 160,
+                                            'ny': 192,
+                                            'nz': 160})
+	
+    #Pick a list of preprocessing functions:
+    if preprocessing=='full':
+        preproc_train=[avg,crop,ps,mr]
+        preproc_val=[avg,crop]
+
+    elif preprocessing=='min':
+        preproc_train=[avg,crop]
+        preproc_val=[avg,crop]
+ 
+    elif preprocessing=='none':
+        preproc_train=[]
+        preproc_val=[]
+ 
+    else:
+        sys.exit("Unknown preprocessing combination.")
+
+    if data_type=='train':
+        data_set = MRIDataset(fp_list, label_list, preproc_train)
+    else: 
+        data_set = MRIDataset(fp_list, label_list, preproc_val)
+
+    
+    batch_size_=min(data_set._len,batch_size)
+
+    #Return data loader:
+    data_loader = torch.utils.data.DataLoader(
+        data_set,
+        batch_size=batch_size_,
+        num_workers=num_workers,
+        shuffle=shuffle,
+        drop_last=True,
+        pin_memory=True
+    )
+    
+    return(data_set,data_loader)
