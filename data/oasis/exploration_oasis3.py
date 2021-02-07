@@ -50,7 +50,7 @@ ax[1,0].set_xlim(limits)
 ax[1,1].set_xlim(limits)
 
 fig.suptitle("Age distribution of samples (not subjects!).")
-plt.savefig("OASIS3_age_dist.pdf")
+plt.savefig("exploration/plots/OASIS3_age_dist.png")
 # %%
 import os
 import os.path as osp
@@ -84,6 +84,7 @@ ax[1].bar(x=["Train","Valid","Test0","Test1"],
         height=[df_train.shape[0],df_val.shape[0],
         df_test0.shape[0],df_test1.shape[0]],color=col_list)
 ax[1].set_title("Number of sessions (=samples).")
+plt.savefig("exploration/plots/OASIS3_numbers.png")
 
 # %%
 #The distribution is quite similar:
@@ -97,6 +98,7 @@ ax[1,0].set_title("Test0")
 ax[1,1].hist(test1_counts,bins=[0.5,1.5,2.5,3.5,4.5,5.5],color=col_list[3])
 ax[1,1].set_title("Test1")
 fig.suptitle("Number of sessions per subject")
+plt.savefig("exploration/plots/OASIS3_sessions_per_subject.png")
 
 # %%
 #All intersections are empty:
