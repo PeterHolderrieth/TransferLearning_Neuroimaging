@@ -1,0 +1,22 @@
+------------------------------------------------
+Job ID: 35911786
+Run on host: compg011.hpc.in.bmrc.ox.ac.uk
+Operating system: Linux
+Username: lhw539
+Started at: Sun Feb 7 23:47:54 GMT 2021
+------------------------------------------------
+Number of GPUs:  2
+----------------------------------------------------------------------------------------------------------------------
+Passed arguments: 
+{'DEBUG': 'full', 'TRAIN': 'pre_full', 'BATCH_SIZE': 8, 'NUM_WORKERS': 4, 'LOSS': 'ent', 'DROP': 'drop', 'PRE': 'sex', 'TASK': 'sex', 'RUN': 0, 'PATH': '../../', 'PL': 'none', 'PRO': 'full', 'WDEC': 0.005, 'MOM': 0.8, 'GAMMA': 0.2, 'N_EPOCHS': 40, 'PAT': 5, 'LR': 0.0005, 'PL_LL': 'none', 'WDEC_LL': 0.001, 'MOM_LL': 0.9, 'GAMMA_LL': 0.1, 'N_EPOCHS_LL': 25, 'PAT_LL': 8, 'LR_LL': 0.1, 'PRINT_EVERY': 1}
+
+----------------------------------------------------------------------------------------------------------------------
+Pre-trained on:  sex  prediction.
+Run:  run_20191008_00_epoch_last.p
+Loading loaded OASIS train data.
+Loading loaded OASIS   val data.
+
+Start training of full model:  2021-02-07 23:48:02.447843
+----------------------------------------------------------------------------------------------------------------------
+|epoch:   0 | lr: 0.001 |train ent: 0.21686 |train ent ravg: 0.21686 |train acc:  0.91193 |train acc ravg:  0.91193 |val ent: 0.17639 |val entravg: 0.17639 |val acc:  0.94318 |val acc ravg:  0.94318 |
+|epoch:   1 | lr: 0.001 |train ent: 0.15346 |train ent ravg: 0.18516 |train acc:  0.93466 |train acc ravg:  0.92330 |val ent: 0.53362 |val entravg: 0.35500 |val acc:  0.72727 |val acc ravg:  0.83523 |

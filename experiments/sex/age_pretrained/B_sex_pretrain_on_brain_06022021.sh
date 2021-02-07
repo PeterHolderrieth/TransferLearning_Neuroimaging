@@ -25,7 +25,7 @@ source ~/python/ccpu_py_tlneuro
 
 debug=full
 
-#CHANGE TO C_replicating_han_22012021.sh: batch size reduced.
+#A,B: increase regularizer.
 
 python ~/TransferLearning_Neuroimaging/train.py \
 -deb $debug \
@@ -35,7 +35,6 @@ python ~/TransferLearning_Neuroimaging/train.py \
 -lr_ll 1e-2 \
 -mom_ll 0.9 \
 -wdec_ll 1e-3 \
--wdec 1e-4 \
 -pl_ll none \
 -pat_ll 12 \
 -gamma_ll 0.1 \

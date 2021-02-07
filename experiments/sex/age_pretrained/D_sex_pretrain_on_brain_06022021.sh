@@ -7,7 +7,7 @@
 #$ -pe shmem 2 #Should be the same as the number of GPUs 
 #$ -l gputype=p100
 #Save file to:
-#$ -o results/A_sex_age_pretrained.log
+#$ -o results/D_sex_age_pretrained.log
 
 echo "------------------------------------------------"
 echo "Job ID: $JOB_ID"
@@ -25,11 +25,11 @@ source ~/python/ccpu_py_tlneuro
 
 debug=full
 
-#CHANGE TO C_replicating_han_22012021.sh: batch size reduced.
-
+#Increase regularization effect: increas weight decay compared to A.
+#Avoid pre-training of final layer. That seems to be detrimental. Features might not be useful.
 python ~/TransferLearning_Neuroimaging/train.py \
 -deb $debug \
--train pre_step \
+-train pre_full \
 -batch 4 \
 -n_work 4 \
 -lr_ll 1e-2 \
@@ -39,11 +39,11 @@ python ~/TransferLearning_Neuroimaging/train.py \
 -pat_ll 12 \
 -gamma_ll 0.1 \
 -path ../../ \
--lr 5e-4 \
+-lr 5e-3 \
 -gamma 0.2 \
--epochs 30 \
--pat 5 \
--wdec 5e-4 \
+-epochs 60 \
+-pat 10 \
+-wdec 1e-3 \
 -mom 0.8 \
 -pl none \
 -epochs_ll 25 \

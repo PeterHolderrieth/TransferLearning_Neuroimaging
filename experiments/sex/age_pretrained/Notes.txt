@@ -1,0 +1,6 @@
+A,B: 
+- Test accuracy goes up to 0.80 which is quite high but validation accuracy is at 0.56
+- I am not sure whether it has actually converged. Potentially training longer? Since we 
+change tasks we might need more epochs to train than same-task transfer.
+-
+

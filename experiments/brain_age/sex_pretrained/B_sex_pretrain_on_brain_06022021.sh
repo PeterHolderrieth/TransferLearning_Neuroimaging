@@ -25,11 +25,11 @@ source ~/python/ccpu_py_tlneuro
 
 debug=full
 
-#CHANGE TO C_replicating_han_22012021.sh: batch size reduced.
+#Change to A: no re-training of final layer at the start.
 
 python ~/TransferLearning_Neuroimaging/train.py \
 -deb $debug \
--train pre_step \
+-train pre_full \
 -batch 4 \
 -n_work 4 \
 -lr_ll 1e-2 \
