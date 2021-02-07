@@ -1,5 +1,5 @@
 #!/bin/bash
-#$ -wd /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/experiments/sex/age_pretrained/
+#$ -wd /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/experiments/brain_age/scratch_baseline/
 #$ -P win.prjc
 #$ -q gpu8.q
 #$ -j y #Error and output file are merged to output file
@@ -7,7 +7,7 @@
 #$ -pe shmem 2 #Should be the same as the number of GPUs 
 #$ -l gputype=p100
 #Save file to:
-#$ -o results/A_sex_age_pretrained.log
+#$ -o results/G_scratch_baseline.log
 
 echo "------------------------------------------------"
 echo "Job ID: $JOB_ID"
@@ -25,35 +25,19 @@ source ~/python/ccpu_py_tlneuro
 
 debug=full
 
-#CHANGE TO C_replicating_han_22012021.sh: batch size reduced.
-
 python ~/TransferLearning_Neuroimaging/train.py \
 -deb $debug \
--train pre_step \
--batch 4 \
+-train fresh \
+-loss kl \
+-batch 8 \
 -n_work 4 \
--lr_ll 1e-2 \
--mom_ll 0.9 \
--wdec_ll 1e-3 \
--wdec 1e-4 \
--pl_ll none \
--pat_ll 12 \
--gamma_ll 0.1 \
--path ../../ \
--lr 5e-4 \
--gamma 0.2 \
--epochs 30 \
--pat 5 \
--wdec 5e-4 \
--mom 0.8 \
--pl none \
--epochs_ll 25 \
--task sex \
--pre age \
--loss ent \
--run 0 
+-lr 1e-2 \
+-gamma 0.3 \
+-epochs 150 \
+-pat 30 \
+-wdec 1e-3 \
+-mom 0.9
 
 echo "------------------------------------------------"
 echo "Finished at: "`date`
 echo "------------------------------------------------"
-

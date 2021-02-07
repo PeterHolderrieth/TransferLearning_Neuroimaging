@@ -1,5 +1,5 @@
 #!/bin/bash
-#$ -wd /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/experiments/sex/age_pretrained/
+#$ -wd /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/experiments/brain_age/sex_pretrained/
 #$ -P win.prjc
 #$ -q gpu8.q
 #$ -j y #Error and output file are merged to output file
@@ -7,7 +7,7 @@
 #$ -pe shmem 2 #Should be the same as the number of GPUs 
 #$ -l gputype=p100
 #Save file to:
-#$ -o results/A_sex_age_pretrained.log
+#$ -o results/B_age_sex_pretrained.log
 
 echo "------------------------------------------------"
 echo "Job ID: $JOB_ID"
@@ -48,9 +48,9 @@ python ~/TransferLearning_Neuroimaging/train.py \
 -mom 0.8 \
 -pl none \
 -epochs_ll 25 \
--task sex \
--pre age \
--loss ent \
+-task age \
+-pre sex \
+-loss kl \
 -run 0 
 
 echo "------------------------------------------------"

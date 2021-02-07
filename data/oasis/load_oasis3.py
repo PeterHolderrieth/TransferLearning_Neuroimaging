@@ -11,6 +11,7 @@ sys.path.append('../../')
 from dataset import give_mri_data
 
 
+
 def give_oasis_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=False,preprocessing='full', task='age'):
     
     #Get the directory of the data_type:
