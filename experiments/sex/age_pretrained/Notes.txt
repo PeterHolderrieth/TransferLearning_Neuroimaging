@@ -2,5 +2,13 @@ A,B:
 - Test accuracy goes up to 0.80 which is quite high but validation accuracy is at 0.56
 - I am not sure whether it has actually converged. Potentially training longer? Since we 
 change tasks we might need more epochs to train than same-task transfer.
--
+- Moreover, the huge gap in performance between training and validation data seems 
+to indicate overfitting.
 
+
+C: test accuracy goes up to 0.85 and increase in validation accuracy to 0.68
+-increase the number of epochs to train the model
+
+D: test accuracy 0.98 and validation accuracy 0.82
+- Increase regularization effect: increas weight decay compared to A.
+- Avoid pre-training of final layer. That seems to be detrimental. Features might not be useful.
