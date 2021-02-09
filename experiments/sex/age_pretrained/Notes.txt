@@ -12,3 +12,10 @@ C: test accuracy goes up to 0.85 and increase in validation accuracy to 0.68
 D: test accuracy 0.98 and validation accuracy 0.82
 - Increase regularization effect: increas weight decay compared to A.
 - Avoid pre-training of final layer. That seems to be detrimental. Features might not be useful.
+
+E:
+- compare with D with pre-training of final layer
+-
+
+F:
+- increase regularization of D 
