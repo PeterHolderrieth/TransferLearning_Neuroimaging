@@ -108,3 +108,9 @@ class SFCN(nn.Module):
         '''
         for p in self.parameters():
             p.requires_grad=False
+
+
+#How to select modules by name:
+#model=SFCN()
+#for name, module in model.named_modules():
+#    print(name)

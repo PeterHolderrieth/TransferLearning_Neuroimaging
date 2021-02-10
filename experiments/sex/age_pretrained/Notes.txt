@@ -13,9 +13,12 @@ D: test accuracy 0.98 and validation accuracy 0.82
 - Increase regularization effect: increas weight decay compared to A.
 - Avoid pre-training of final layer. That seems to be detrimental. Features might not be useful.
 
-E:
+E: 0.83
 - compare with D with pre-training of final layer
--
+--> slight improvement but not significant
 
-F:
-- increase regularization of D 
+F: 0.86
+- increase regularization of D --> regularization seems to bring improvement
+
+Proposal to do: re-train more layers than only the final layer. How to make sure
+task transfer works?

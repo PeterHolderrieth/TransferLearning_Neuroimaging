@@ -10,3 +10,9 @@ C: accuracy 98.5%
 D: accuracy 97.7% 
 - regularization seems to bring less of a performance boost here 
 - Next step: regularize in a different way
+
+E: accuracy 98.8%
+-regularize even more (increase weight decay, increase momentum)
+
+F: accuracy 99.6 %
+-increase gamma, increase learning rate, increase patience, increase number of epochs.
