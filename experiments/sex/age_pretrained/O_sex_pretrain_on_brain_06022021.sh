@@ -1,5 +1,5 @@
 #!/bin/bash
-#$ -wd /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/experiments/brain_age/init_with_scaling/
+#$ -wd /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/experiments/sex/age_pretrained/
 #$ -P win.prjc
 #$ -q gpu8.q
 #$ -j y #Error and output file are merged to output file
@@ -7,8 +7,7 @@
 #$ -pe shmem 2 #Should be the same as the number of GPUs 
 #$ -l gputype=p100
 #Save file to:
-# Log locations which are relative to the current                                                                                                                                                                  # working directory of the submission
-#$ -o results/A_Run_0_init_with_scaling.log
+#$ -o results/N_sex_age_pretrained.log
 
 echo "------------------------------------------------"
 echo "Job ID: $JOB_ID"
@@ -26,25 +25,36 @@ source ~/python/ccpu_py_tlneuro
 
 debug=full
 
+#Change to F: re-train final 5 layers.
+
 python ~/TransferLearning_Neuroimaging/train.py \
 -deb $debug \
 -train pre_full \
--loss kl \
--batch 8 \
+-batch 4 \
 -n_work 4 \
--lr 1e-2 \
--gamma 0.3 \
--epochs 150 \
--pat 30 \
--wdec 1e-3 \
--mom 0.9 \
+-lr_ll 1e-2 \
+-mom_ll 0.9 \
+-wdec_ll 1e-3 \
+-pl_ll none \
+-pat_ll 12 \
+-gamma_ll 0.1 \
+-path ../../ \
+-lr 5e-3 \
+-gamma 0.2 \
+-epochs 250 \
+-pat 25 \
+-wdec 1e-2 \
+-mom 0.8 \
 -pl none \
 -epochs_ll 25 \
--init 7 \
--run 0
-
+-task sex \
+-pre age \
+-loss ent \
+-retr 5 \
+-run 0 
 
 echo "------------------------------------------------"
 echo "Finished at: "`date`
 echo "------------------------------------------------"
+
 

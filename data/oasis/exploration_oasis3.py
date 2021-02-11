@@ -4,6 +4,29 @@ import matplotlib.pyplot as plt
 #%matplotlib inline
 from load_oasis3 import give_oasis_data
 
+def give_oasis_info(data_type,debug=False):
+    #Get the directory of the data_type:
+    DIR = '/gpfs3/well/win-fmrib-analysis/users/lhw539/oasis3/'
+    DIR_IDs=osp.join(DIR, 'oasis3_info/') 
+    default_name=DIR_IDs
+    if debug:
+        default_name+='debug_'
+    
+    # Load files:
+    if data_type=='train':
+        fp_ = default_name+'session_train.csv'
+    elif data_type=='val':
+        fp_ = default_name+'session_val.csv'
+    elif data_type=='test0':
+        fp_ = default_name+'session_test0.csv'
+    elif data_type=='test1':
+        fp_ = default_name+'session_test1.csv'
+    else: 
+        sys.exit("Unknown data type.")
+    
+    df_session = pd.read_csv(fp_)
+    return(df_session)
+
 data_set,_=give_oasis_data('train',debug=False)
 labels_train=np.array(data_set.label_list).flatten()
 
@@ -16,6 +39,7 @@ labels_test0=np.array(data_set.label_list).flatten()
 data_set,_=give_oasis_data('test1',debug=False)
 labels_test1=np.array(data_set.label_list).flatten()
 
+col_list=['blue','orange','red','green']
 
 
 def give_array_summary(x):
@@ -74,7 +98,6 @@ test0_subjects,test0_counts=np.unique(df_test0.Subject.values,return_counts=True
 test1_subjects,test1_counts=np.unique(df_test1.Subject.values,return_counts=True)
 
 #%%
-col_list=['blue','orange','red','green']
 fig,ax=plt.subplots(ncols=2,nrows=1)
 ax[0].bar(x=["Train","Valid","Test0","Test1"],
         height=[train_subjects.shape[0],val_subjects.shape[0],
@@ -113,3 +136,20 @@ print(np.intersect1d(test0_subjects,test1_subjects))
 
 
 # %%
+
+data_set,_=give_oasis_data('train',task='sex',debug=False)
+labels_train=np.array(data_set.label_list).flatten()
+
+data_set,_=give_oasis_data('val',task='sex',debug=False)
+labels_val=np.array(data_set.label_list).flatten()
+
+data_set,_=give_oasis_data('test0',task='sex',debug=False)
+labels_test0=np.array(data_set.label_list).flatten()
+
+data_set,_=give_oasis_data('test1',task='sex',debug=False)
+labels_test1=np.array(data_set.label_list).flatten()
+# %%
+labels_train.mean()
+labels_val.mean()
+labels_test0.mean()
+labels_test1.mean()

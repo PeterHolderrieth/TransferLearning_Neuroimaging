@@ -8,7 +8,7 @@
 #$ -l gputype=p100
 #Save file to:
 # Log locations which are relative to the current                                                                                                                                                                  # working directory of the submission
-#$ -o results/A_Run_0_init_with_scaling.log
+#$ -o results/B_Run_0_init_with_scaling.log
 
 echo "------------------------------------------------"
 echo "Job ID: $JOB_ID"
@@ -26,23 +26,24 @@ source ~/python/ccpu_py_tlneuro
 
 debug=full
 
+
 python ~/TransferLearning_Neuroimaging/train.py \
 -deb $debug \
 -train pre_full \
 -loss kl \
 -batch 8 \
 -n_work 4 \
+-wdec 1e-4 \
+-path ../../ \
 -lr 1e-2 \
 -gamma 0.3 \
 -epochs 150 \
 -pat 30 \
 -wdec 1e-3 \
--mom 0.9 \
+-mom 0.8 \
 -pl none \
--epochs_ll 25 \
 -init 7 \
 -run 0
-
 
 echo "------------------------------------------------"
 echo "Finished at: "`date`

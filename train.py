@@ -53,7 +53,8 @@ ap.set_defaults(
     LR_LL=1e-2,
     RUN=0,
     TASK='age',
-    INIT=0
+    INIT=0,
+    RETRAIN=0
     )
 
 #Debugging? Then use small data set:
@@ -91,6 +92,7 @@ ap.add_argument("-gamma_ll", "--GAMMA_LL", type=float, required=False,help="Deca
 ap.add_argument("-epochs_ll", "--N_EPOCHS_LL", type=int, required=False,help="Number of epochs for last layer training.")
 ap.add_argument("-pat_ll", "--PAT_LL", type=int, required=False,help="Patience for last layer training")
 ap.add_argument("-lr_ll", "--LR_LL", type=float, required=False, help="Learning rate for last layer training.")
+ap.add_argument("-retr", "--RETRAIN", type=int, required=False, help="Final layers to retrain.")
 
 
 #ap.add_argument("-seed","--SEED", type=int, required=False, help="Seed for randomness.")
@@ -216,7 +218,7 @@ model=model.to(DEVICE)
 #Training of last layer:
 #-------------------------------------
 if ARGS['TRAIN']=='pre_step':
-    model.module.train_final_layer()
+    model.module.train_only_final_layers(ARGS['RETRAIN'])
     optimizer=torch.optim.SGD(model.parameters(),lr=ARGS['LR_LL'],weight_decay=ARGS['WDEC_LL'],momentum=ARGS['MOM_LL'])
 
     #The following learning rate scheduler decays the learning by gamma every step_size epochs:
