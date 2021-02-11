@@ -2,6 +2,8 @@ import numpy as np
 from sklearn.decomposition import PCA, IncrementalPCA
 from sklearn.preprocessing import scale
 from sklearn.linear_model import ElasticNet
+from sklearn.linear_model import LogisticRegression
+
 import argparse
 import sys 
 import warnings
@@ -19,13 +21,15 @@ ap.set_defaults(
     N_COMP=None,
     L1RAT=0.5,
     REG=1.,
-    FEAT=None)
+    FEAT=None,
+    TASK='age')
 
 ap.add_argument("-deb", "--DEBUG", type=str, required=True,help="'debug' or 'full'.")
 ap.add_argument("-batch", "--BATCH", type=int, required=True,help="Batch size.")
 ap.add_argument("-ncomp", "--N_COMP", type=int, required=False,help="Number of principal components.")
 ap.add_argument("-l1rat", "--L1RAT", type=float, required=False,help="Ratio of L1 loss (compared to L2).")
 ap.add_argument("-reg", "--REG", type=float, required=False,help="Scaling of ElasticNet regularizer term.")
+ap.add_argument("-task", "--TASK", type=float, required=False,help="Task: either 'age' or 'sex'.")
 ap.add_argument("-feat", "--FEAT", type=int, required=False,help="Number of most correlative features to pick."+
                                                                     "If None, all features are picked.")
 
@@ -115,7 +119,7 @@ else:
 
 
 #Load train loader:
-_,train_loader=load_oasis.give_oasis_data('train',batch_size=ARGS['BATCH'],debug=DEBUG,shuffle=False)
+_,train_loader=load_oasis.give_oasis_data('train',batch_size=ARGS['BATCH'],debug=DEBUG,shuffle=False,task=ARGS['TASK'])
 
 #Set the number of PCA-components:
 N_COMP=ARGS['N_COMP'] if ARGS['N_COMP'] is not None else train_loader.batch_size-1
@@ -132,12 +136,18 @@ if ARGS['FEAT'] is not None:
     #Select the features from the data:
     data_trans=data_trans[:,inds]
 
-#Fit ElasticNet:
-eln=ElasticNet(alpha=ARGS['REG'],l1_ratio=ARGS['L1RAT'])
-eln.fit(data_trans,label)
+#Fit regression model:
+if ARGS['TASK']=='age':
+    reg_model=ElasticNet(alpha=ARGS['REG'],l1_ratio=ARGS['L1RAT'])
+elif ARGS['TASK']=='sex':
+    reg_model=LogisticRegression(penalty = 'elasticnet', solver = 'saga', l1_ratio = ARGS['L1RAT'],C=1/ARGS['REG'])
+else: 
+    sys.exit("Unknown task. Either 'sex' or 'age'.")
+
+reg_model.fit(data_trans,label)
 
 #Get validation data set:
-_,val_loader=load_oasis.give_oasis_data('val',batch_size=ARGS['BATCH'],debug=DEBUG,shuffle=False)
+_,val_loader=load_oasis.give_oasis_data('val',batch_size=ARGS['BATCH'],debug=DEBUG,shuffle=False,task=ARGS['TASK'])
 
 #Get transformed validation data:
 val_data_trans,val_label=batch_trans_pca(pca,val_loader)
@@ -147,16 +157,23 @@ if ARGS['FEAT'] is not None:
     val_data_trans=val_data_trans[:,inds]
 
 #Predict on validation set:
-Predic=eln.predict(val_data_trans)
+Predic=reg_model.predict(val_data_trans)
 
-#Get mean absolute error (mae):
-mae=np.mean(np.abs(Predic-val_label))
+if ARGS['TASK']=='age':
+    #Get mean absolute error (mae):
+    mae=np.mean(np.abs(Predic-val_label))
 
-#Get "stupid" baselines:
-mae_stupid=np.mean(np.abs(val_label-np.mean(label)))
-mae_val=np.mean(np.abs(val_label-np.mean(val_label)))
+    #Get "stupid" baselines:
+    mae_stupid=np.mean(np.abs(val_label-np.mean(label)))
+    mae_val=np.mean(np.abs(val_label-np.mean(val_label)))
+    #Print results:
+    print("MAE of ElasticNet: ",mae)
+    print("MAE on valid when train mean is predicted: ", mae_stupid)
+    print("MAE on valid when valid mean is predicted: ", mae_val)
+else: 
+    eval_func=dpl.give_my_loss_func({'type':'acc','thresh':0.5})
+    val_acc=eval_func(torch.log(Predic),val_label)
+    print("Accuracy of regression: ", val_acc)
 
-#Print results:
-print("MAE of ElasticNet: ",mae)
-print("MAE on valid when train mean is predicted: ", mae_stupid)
-print("MAE on valid when valid mean is predicted: ", mae_val)
+
+

@@ -149,7 +149,8 @@ labels_test0=np.array(data_set.label_list).flatten()
 data_set,_=give_oasis_data('test1',task='sex',debug=False)
 labels_test1=np.array(data_set.label_list).flatten()
 # %%
-labels_train.mean()
-labels_val.mean()
-labels_test0.mean()
-labels_test1.mean()
+share_men=[labels_train.mean(), labels_val.mean(), 
+        labels_test0.mean(),labels_test1.mean()]
+plt.bar(["Train","Valid","Test0","Test1"],share_men,color=col_list)
+plt.title("Share of male.")
+plt.savefig("exploration/plots/oasis3_age_dist.png")
