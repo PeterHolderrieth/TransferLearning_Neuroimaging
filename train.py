@@ -38,7 +38,7 @@ ap.set_defaults(
     PAT=1,
     PL='none',
     LOSS='kl',
-    DROP='drop',
+    DROP=0.5,
     PRO='full',
     PRE='age',
     WDEC=0.,
@@ -52,7 +52,8 @@ ap.set_defaults(
     TRAIN='pre_step',
     LR_LL=1e-2,
     RUN=0,
-    TASK='age'
+    TASK='age',
+    INIT=0
     )
 
 #Debugging? Then use small data set:
@@ -66,11 +67,13 @@ ap.add_argument("-train", "--TRAIN", type=str, required=False,help="Train mode. 
 ap.add_argument("-batch", "--BATCH_SIZE", type=int, required=False,help="Batch size.")
 ap.add_argument("-n_work", "--NUM_WORKERS", type=int, required=False,help="Number of workers.")
 ap.add_argument("-loss", "--LOSS", type=str, required=False,help="Loss function to use: mae or kl.")
-ap.add_argument("-drop", "--DROP", type=str, required=False,help="drop for dropout and none for no dropout.")
+ap.add_argument("-drop", "--DROP", type=float, required=False,help="drop for dropout and none for no dropout.")
 ap.add_argument("-pre", "--PRE", type=str, required=False, help="Pre-trained task: 'age' or 'sex'.")
 ap.add_argument("-task", "--TASK", type=str, required=False, help="Task: 'age' or 'sex'.")
 ap.add_argument("-run", "--RUN", type=int, required=False,help="Choose pre-trained model. Either 0,1,2,3 or 4.")
 ap.add_argument("-path", "--PATH", type=str, required=False,help="Path to (for later usage).")
+ap.add_argument("-init", "--INIT", type=int, required=False,help="Final layers to reinitialize while preserving scaling.")
+
 
 ap.add_argument("-pl", "--PL", type=str, required=False,help="pl indicate whether we use an adaptive learning changing when loss reaches plateu (True) or none for deterministic decay.")
 ap.add_argument("-pro", "--PRO", type=str, required=False,help="Preprocessing. Either full, min or none.")
@@ -174,16 +177,9 @@ _,val_loader=give_oasis_data('val', batch_size=ARGS['BATCH_SIZE'],
                                     task=ARGS['TASK'])                   
 
 
-if ARGS['DROP']=='drop':
-    dropout=True
-elif ARGS['DROP']=='none':
-    dropout=False
-else: 
-    sys.exit("Dropout or not? Either drop or none.")
-
 if ARGS['TRAIN']=='fresh':
     #Initialize model from scratch:
-    model = SFCN(output_dim=BIN_RANGE[1]-BIN_RANGE[0],dropout=dropout)
+    model = SFCN(output_dim=BIN_RANGE[1]-BIN_RANGE[0],dropout=ARGS['DROPOUT'])
     model=nn.DataParallel(model)
 
 elif ARGS['TRAIN']=='pre_full' or ARGS['TRAIN']=='pre_step':
@@ -195,18 +191,21 @@ elif ARGS['TRAIN']=='pre_full' or ARGS['TRAIN']=='pre_step':
         model = SFCN()
     else:
         model=SFCN(channel_number=[32, 64, 64, 64, 64, 64])
-        
+
     model=nn.DataParallel(model)
     state_dict=torch.load(PATH_TO_PRETRAINED)
     model.load_state_dict(state_dict)
-
+    
+    #Reinitialize final layers while preserve scaling:
+    model.module.reinit_final_layers_pres_scale(ARGS['INIT'])
+    
     if ARGS['PRE']!='sex' or ARGS['TASK']!='sex':
         #Reshape and reinitialize the final layer:
         c_in = model.module.classifier.conv_6.in_channels
         conv_last = nn.Conv3d(c_in, BIN_RANGE[1]-BIN_RANGE[0], kernel_size=1)
         model.module.classifier.conv_6 = conv_last
-        if dropout is False:
-            model.module.classifier.dropout.p=0.
+    
+    model.module.classifier.dropout.p=ARGS['DROP']
 else: 
     sys.exit("Training mode unknown.")
 
