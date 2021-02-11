@@ -11,9 +11,38 @@ sys.path.append('../../')
 from dataset import give_mri_data
 
 #Load abide info file:
-path='/gpfs3/well/win-fmrib-analysis/users/lhw539/abide/info/abide_info_clean_strict.csv'
-df_abide = pd.read_csv(path)
+#path='/gpfs3/well/win-fmrib-analysis/users/lhw539/abide/info/abide_info_clean_strict.csv'
+path_info='/well/win-biobank/users/jdo465/datasets/abide/abide_info_clean_strict.csv'
+df_abide = pd.read_csv(path_info)
 print(df_abide.head())
+
+name=str(int(df_abide.iloc[0,0]))
+print(name)
+
+#Go over subject numbers: 
+subject_numbers=df_abide.iloc[:,0]
+subjects,counts=np.unique(subject_numbers,return_counts=True)
+print(np.max(counts),np.max(counts))
+
+print("Number of subject numbers: ", subjects.shape)
+
+
+df_abide["path"]=''
+DIR='/well/win-biobank/users/jdo465/datasets/abide/'
+for it in range(subject_numbers.shape[0]):
+    abide1_name='abide1/mprage_00'+name+'.anat/T1_to_MNI_lin.nii.gz'
+    abide2_name='abide2/anat_'+name+'.anat/T1_to_MNI_lin.nii.gz'
+    if os.path.isfile(DIR+abide1_name):
+        filename=DIR+abide1_name
+    elif os.path.isfile(DIR+abide2_name):
+        filename=DIR+abide2_name
+    else:
+        sys.exit("File unknown.")
+    df_abide.at[it,"path"]=filename
+
+x=np.array([len(string) for string in df_abide.iloc[:,6]])
+print(np.unique(x,return_counts=True))
+
 
 #For later use:
 '''

@@ -1,8 +1,10 @@
 import numpy as np
+import torch 
 from sklearn.decomposition import PCA, IncrementalPCA
 from sklearn.preprocessing import scale
 from sklearn.linear_model import ElasticNet
 from sklearn.linear_model import LogisticRegression
+import dp_model.dp_loss as dpl
 
 import argparse
 import sys 
@@ -29,7 +31,7 @@ ap.add_argument("-batch", "--BATCH", type=int, required=True,help="Batch size.")
 ap.add_argument("-ncomp", "--N_COMP", type=int, required=False,help="Number of principal components.")
 ap.add_argument("-l1rat", "--L1RAT", type=float, required=False,help="Ratio of L1 loss (compared to L2).")
 ap.add_argument("-reg", "--REG", type=float, required=False,help="Scaling of ElasticNet regularizer term.")
-ap.add_argument("-task", "--TASK", type=float, required=False,help="Task: either 'age' or 'sex'.")
+ap.add_argument("-task", "--TASK", type=str, required=False,help="Task: either 'age' or 'sex'.")
 ap.add_argument("-feat", "--FEAT", type=int, required=False,help="Number of most correlative features to pick."+
                                                                     "If None, all features are picked.")
 
@@ -170,9 +172,9 @@ if ARGS['TASK']=='age':
     print("MAE of ElasticNet: ",mae)
     print("MAE on valid when train mean is predicted: ", mae_stupid)
     print("MAE on valid when valid mean is predicted: ", mae_val)
-else: 
-    eval_func=dpl.give_my_loss_func({'type':'acc','thresh':0.5})
-    val_acc=eval_func(torch.log(Predic),val_label)
+
+else:
+    val_acc=((Predic>0.5)*val_label+(Predic<=0.5)*(1-val_label)).mean()
     print("Accuracy of regression: ", val_acc)
 
 

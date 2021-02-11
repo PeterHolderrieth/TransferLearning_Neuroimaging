@@ -46,7 +46,6 @@ def give_oasis_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=Fals
     else: 
         fp_list = list(df_session.T1_path.values)
     
-    
     if task=='age':
         label_list = list([age_, ] for age_ in df_session.AgeBasedOnClinicalData.values)
     

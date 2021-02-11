@@ -84,6 +84,10 @@ def give_my_loss_func(kwd):
     
     elif kwd['type']=='acc':
         def my_acc(log_probs,target,thresh=kwd['thresh']):
+            '''
+            log_probs - torch.Tensor - shape (batch_size,2)
+            target - torch.Tensor - shape (batch_size)
+            '''
             log_tresh=torch.log(torch.tensor(thresh))
             above_thresh=(log_probs[:,1]>log_tresh).float()
             correct_vec=above_thresh*target+(1-above_thresh)*(1-target)
