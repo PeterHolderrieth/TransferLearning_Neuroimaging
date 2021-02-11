@@ -109,8 +109,16 @@ class SFCN(nn.Module):
         for p in self.parameters():
             p.requires_grad=False
 
+'''
+def set_grad_layer(val,layer_id):
+        for p in model.feature_extractor.conv_${val}.parameters():
+            p.requires_grad=False
 
 #How to select modules by name:
-#model=SFCN()
+model=SFCN()
 #for name, module in model.named_modules():
 #    print(name)
+
+for p in model.feature_extractor.conv_1.parameters():
+    p.requires_grad=False
+'''

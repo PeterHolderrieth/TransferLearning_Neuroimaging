@@ -20,5 +20,15 @@ E: 0.83
 F: 0.86
 - increase regularization of D --> regularization seems to bring improvement
 
-Proposal to do: re-train more layers than only the final layer. How to make sure
-task transfer works?
+G: 0.45
+- increase regularization signficantly --> bad idea, worsen results signficantly 
+
+H: 0.78
+- increase regularization compared to F 
+
+
+
+To do: 
+- fine-tune weight decay parameter
+- fine-tune dropout parameter
+- re-train more layers than only the final layer. How to make sure task transfer works?
