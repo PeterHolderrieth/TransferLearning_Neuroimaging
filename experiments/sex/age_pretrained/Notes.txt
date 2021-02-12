@@ -26,6 +26,17 @@ G: 0.45
 H: 0.78
 - increase regularization compared to F 
 
+---DROPOUT
+I: 0.85
+- increase dropout compared to F: 0.7 
+
+J: computing
+- increase dropout compared to F:  0.9
+
+K: computing
+- increase dropout compared to F: 0.6 
+
+---RETRAIN FINAL LAYERS 
 
 
 To do: 

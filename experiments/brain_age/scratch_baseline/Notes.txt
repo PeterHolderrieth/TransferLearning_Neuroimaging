@@ -4,4 +4,21 @@ Much better results than previously. So longer training is really the key here.
 I note that a problem with lr-schedule is that one does not really know whether the model has reached a minimum
 or the learning rate is simply too low. How to solve that?
 
-H: computing 
+H: 4.85 MAE
+- it has clearly converged, but it might be because of the learning rate schedule. 
+Therefore, we increase the patience significantly in the following experiments.
+
+I: 4.75 MAE
+- it has clearly converged, but it might be because of the learning rate schedule. 
+Therefore, we increase the patience significantly in the following experiments.
+
+J: computing
+
+K: 
+- decrease patience compared to I 
+
+L: 
+- increase patience compared to I 
+
+L: 
+- increase patience compared K 
