@@ -43,7 +43,7 @@ python ~/TransferLearning_Neuroimaging/train.py \
 -gamma 0.2 \
 -epochs 150 \
 -pat 15 \
--wdec 1e-2 \
+-wdec 5e-2 \
 -mom 0.8 \
 -pl none \
 -epochs_ll 25 \

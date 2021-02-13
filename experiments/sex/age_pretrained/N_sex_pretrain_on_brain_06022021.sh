@@ -43,7 +43,7 @@ python ~/TransferLearning_Neuroimaging/train.py \
 -gamma 0.2 \
 -epochs 200 \
 -pat 20 \
--wdec 1e-2 \
+-wdec 5e-2 \
 -mom 0.8 \
 -pl none \
 -epochs_ll 25 \
@@ -51,6 +51,7 @@ python ~/TransferLearning_Neuroimaging/train.py \
 -pre age \
 -loss ent \
 -retr 4 \
+-drop 0.6 \
 -run 0 
 
 echo "------------------------------------------------"

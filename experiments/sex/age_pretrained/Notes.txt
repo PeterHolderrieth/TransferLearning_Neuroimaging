@@ -30,16 +30,14 @@ H: 0.78
 I: 0.85
 - increase dropout compared to F: 0.7 
 
-J: computing
+J: 0.7
 - increase dropout compared to F:  0.9
 
-K: computing
+K: 0.85
 - increase dropout compared to F: 0.6 
 
 ---RETRAIN FINAL LAYERS 
 
 
 To do: 
-- fine-tune weight decay parameter
-- fine-tune dropout parameter
-- re-train more layers than only the final layer. How to make sure task transfer works?
+Run L, N, M

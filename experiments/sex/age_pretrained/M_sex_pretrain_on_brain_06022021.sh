@@ -44,6 +44,7 @@ python ~/TransferLearning_Neuroimaging/train.py \
 -pre age \
 -loss ent \
 -retr 3 \
+-drop 0.6 \
 -run 0 
 
 echo "------------------------------------------------"
