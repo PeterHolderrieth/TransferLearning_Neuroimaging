@@ -12,7 +12,11 @@ I: 4.75 MAE
 - it has clearly converged, but it might be because of the learning rate schedule. 
 Therefore, we increase the patience significantly in the following experiments.
 
-J: computing
+J: 4.7 MAE 
+- it was interrupted after 1300 epochs though it had clearly converged before
+
+TO DO:
+Run K, L, M
 
 K: 
 - decrease patience compared to I 
@@ -20,5 +24,5 @@ K:
 L: 
 - increase patience compared to I 
 
-L: 
+M: 
 - increase patience compared K 

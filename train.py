@@ -180,7 +180,7 @@ _,val_loader=give_oasis_data('val', batch_size=ARGS['BATCH_SIZE'],
 
 if ARGS['TRAIN']=='fresh':
     #Initialize model from scratch:
-    model = SFCN(output_dim=BIN_RANGE[1]-BIN_RANGE[0],dropout=ARGS['DROPOUT'])
+    model = SFCN(output_dim=BIN_RANGE[1]-BIN_RANGE[0],dropout=ARGS['DROP'])
     model=nn.DataParallel(model)
 
 elif ARGS['TRAIN']=='pre_full' or ARGS['TRAIN']=='pre_step':
