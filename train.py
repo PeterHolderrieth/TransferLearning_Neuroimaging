@@ -25,7 +25,6 @@ from utils import print_sep_line
 DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 print("Number of GPUs: ", torch.cuda.device_count())
 
-
 # Construct the argument parser
 ap = argparse.ArgumentParser()
 ap.set_defaults(
