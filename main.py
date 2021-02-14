@@ -29,7 +29,7 @@ config.read(ARGS['CONFIG'])
 task=config['experiment']['task']
 data=config['experiment']['data']
 method=config['experiment']['method']
-preprocessing=config['experiment']['method']
+preprocessing=config['experiment']['preprocessing']
 
 #Extract hyperparameters for experiment:
 hps=config['elastic_'+task+'_'+data]
