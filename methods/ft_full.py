@@ -18,8 +18,6 @@ from epoch import go_one_epoch
 from training import train
 from utils import TrainMeter
 from utils import print_sep_line
-#Initialize tensorboard writer:
-#writer = SummaryWriter('results/test/test_tb')
 
 #Set device type:
 DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")

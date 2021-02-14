@@ -5,40 +5,9 @@ from sklearn.preprocessing import scale
 from sklearn.linear_model import ElasticNet
 from sklearn.linear_model import LogisticRegression
 
-sys.path.append('../')
-import argparse
 import sys 
 import warnings
 warnings.filterwarnings("ignore", category=UserWarning)
-
-#Own files:
-import dp_model.dp_loss as dpl
-import data.oasis.load_oasis3 as load_oasis
-
-
-# Construct the argument parser
-ap = argparse.ArgumentParser()
-ap.set_defaults(
-    BATCH=3,
-    DEBUG='debug',
-    N_COMP=None,
-    L1RAT=0.5,
-    REG=1.,
-    FEAT=None,
-    TASK='age')
-
-ap.add_argument("-deb", "--DEBUG", type=str, required=True,help="'debug' or 'full'.")
-ap.add_argument("-batch", "--BATCH", type=int, required=True,help="Batch size.")
-ap.add_argument("-ncomp", "--N_COMP", type=int, required=False,help="Number of principal components.")
-ap.add_argument("-l1rat", "--L1RAT", type=float, required=False,help="Ratio of L1 loss (compared to L2).")
-ap.add_argument("-reg", "--REG", type=float, required=False,help="Scaling of ElasticNet regularizer term.")
-ap.add_argument("-task", "--TASK", type=str, required=False,help="Task: either 'age' or 'sex'.")
-ap.add_argument("-feat", "--FEAT", type=int, required=False,help="Number of most correlative features to pick."+
-                                                                    "If None, all features are picked.")
-
-#Get arguments:
-ARGS = vars(ap.parse_args())
-print(ARGS)
 
 #A batch version of PCA:
 def batch_fit_pca(data_loader,n_components):
@@ -111,72 +80,69 @@ def give_most_correlative_features(x,y,n_features):
     ind=corrcoeff.argsort()[-n_features:][::-1]
     return(ind)
 
-#Set debug option:
-if ARGS['DEBUG']=='debug':
-    DEBUG=True
-elif ARGS['DEBUG']=='full':
-    DEBUG=False
-else:
-    sys.exit("Unknown debug option.")
+
+def fit_elastic(train_loader,batch, ncomp, l1rat, reg, feat,method):
+    #Set the number of PCA-components:
+    ncomp=ncomp if ncomp>0 else train_loader.batch_size-1
+
+    #Get PCA of train data:
+    pca=batch_fit_pca(train_loader,ncomp)
+
+    #Get transformed train data:
+    data_trans,label=batch_trans_pca(pca,train_loader)
+
+    if feat>0:
+        #Give the indices of the most correlative indices:
+        inds=give_most_correlative_features(data_trans, label,n_features=hp['feat'])
+        #Select the features from the data:
+        data_trans=data_trans[:,inds]
+    else: 
+        inds=None
+    #Fit regression model:
+    if method=='regression':
+        reg_model=ElasticNet(alpha=reg,l1_ratio=l1rat)
+    elif task=='logistic':
+        reg_model=LogisticRegression(penalty = 'elasticnet', solver = 'saga', l1_ratio = l1rat,C=1/reg)
+    else: 
+        sys.exit("Unknown method. Either 'regression' or logistic.")
+
+    reg_model.fit(data_trans,label)
+    return(pca,reg_model,inds)
+
+def test_elastic(val_loader,space,pca,reg_model,inds=None):
+    #Get transformed validation data:
+    val_data_trans,val_label=batch_trans_pca(pca,val_loader)
+
+    if inds is not None:
+        #Select correlative features:
+        val_data_trans=val_data_trans[:,inds]
+
+    #Predict on validation set:
+    Predic=reg_model.predict(val_data_trans)
+
+    if space=='continuous':
+        #Get mean absolute error (mae):
+        mae=np.mean(np.abs(Predic-val_label))
+
+        #Get "stupid" baselines:
+        mae_stupid=np.mean(np.abs(val_label-np.mean(label)))
+        mae_val=np.mean(np.abs(val_label-np.mean(val_label)))
+        #Print results:
+        print("MAE of ElasticNet: ",mae)
+        print("MAE on valid when train mean is predicted: ", mae_stupid)
+        print("MAE on valid when valid mean is predicted: ", mae_val)
+        return(mae_val)
+        
+    elif space=='binary':
+        val_acc=((Predic>0.5)*val_label+(Predic<=0.5)*(1-val_label)).mean()
+        print("Accuracy of regression: ", val_acc)
+        return(val_acc)
+
+    else:
+        sys.exit("Unknown space. Either 'regression' or 'logistic'.")
 
 
-
-#Load train loader:
-_,train_loader=load_oasis.give_oasis_data('train',batch_size=ARGS['BATCH'],debug=DEBUG,shuffle=False,task=ARGS['TASK'])
-
-#Set the number of PCA-components:
-N_COMP=ARGS['N_COMP'] if ARGS['N_COMP'] is not None else train_loader.batch_size-1
-
-#Get PCA of train data:
-pca=batch_fit_pca(train_loader,N_COMP)
-
-#Get transformed train data:
-data_trans,label=batch_trans_pca(pca,train_loader)
-
-if ARGS['FEAT'] is not None:
-    #Give the indices of the most correlative indices:
-    inds=give_most_correlative_features(data_trans, label,n_features=ARGS['FEAT'] )
-    #Select the features from the data:
-    data_trans=data_trans[:,inds]
-
-#Fit regression model:
-if ARGS['TASK']=='age':
-    reg_model=ElasticNet(alpha=ARGS['REG'],l1_ratio=ARGS['L1RAT'])
-elif ARGS['TASK']=='sex':
-    reg_model=LogisticRegression(penalty = 'elasticnet', solver = 'saga', l1_ratio = ARGS['L1RAT'],C=1/ARGS['REG'])
-else: 
-    sys.exit("Unknown task. Either 'sex' or 'age'.")
-
-reg_model.fit(data_trans,label)
-
-#Get validation data set:
-_,val_loader=load_oasis.give_oasis_data('val',batch_size=ARGS['BATCH'],debug=DEBUG,shuffle=False,task=ARGS['TASK'])
-
-#Get transformed validation data:
-val_data_trans,val_label=batch_trans_pca(pca,val_loader)
-
-if ARGS['FEAT'] is not None:
-    #Select correlative features:
-    val_data_trans=val_data_trans[:,inds]
-
-#Predict on validation set:
-Predic=reg_model.predict(val_data_trans)
-
-if ARGS['TASK']=='age':
-    #Get mean absolute error (mae):
-    mae=np.mean(np.abs(Predic-val_label))
-
-    #Get "stupid" baselines:
-    mae_stupid=np.mean(np.abs(val_label-np.mean(label)))
-    mae_val=np.mean(np.abs(val_label-np.mean(val_label)))
-    #Print results:
-    print("MAE of ElasticNet: ",mae)
-    print("MAE on valid when train mean is predicted: ", mae_stupid)
-    print("MAE on valid when valid mean is predicted: ", mae_val)
-
-else:
-    val_acc=((Predic>0.5)*val_label+(Predic<=0.5)*(1-val_label)).mean()
-    print("Accuracy of regression: ", val_acc)
-
-
-
+def elastic_experiment(train_loader,hps,space):
+    pca,reg_model,inds=fit_elastic(train_loader,**hps)
+    result=test_elastic(val_loader,space,pca,reg_model,inds)
+    return(result)
