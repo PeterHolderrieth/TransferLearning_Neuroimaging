@@ -63,7 +63,6 @@ else:
     sys.exit("Unknown data files.")   
 
 if method=='elastic':
-    space='binary' if task=='sex' else 'continuous'
-    elastic_experiment(train_loader,hps,space)
+    elastic_experiment(train_loader,val_loader,hps)
 else: 
     sys.exit("Unknown method.")

@@ -81,7 +81,7 @@ def give_most_correlative_features(x,y,n_features):
     return(ind)
 
 
-def fit_elastic(train_loader,batch, ncomp, l1rat, reg, feat,method):
+def fit_elastic(train_loader,batch, ncomp, l1rat, reg, feat,reg_method):
     #Set the number of PCA-components:
     ncomp=ncomp if ncomp>0 else train_loader.batch_size-1
 
@@ -93,23 +93,23 @@ def fit_elastic(train_loader,batch, ncomp, l1rat, reg, feat,method):
 
     if feat>0:
         #Give the indices of the most correlative indices:
-        inds=give_most_correlative_features(data_trans, label,n_features=hp['feat'])
+        inds=give_most_correlative_features(data_trans, label,n_features=feat)
         #Select the features from the data:
         data_trans=data_trans[:,inds]
     else: 
         inds=None
     #Fit regression model:
-    if method=='regression':
+    if reg_method=='regression':
         reg_model=ElasticNet(alpha=reg,l1_ratio=l1rat)
     elif task=='logistic':
         reg_model=LogisticRegression(penalty = 'elasticnet', solver = 'saga', l1_ratio = l1rat,C=1/reg)
     else: 
-        sys.exit("Unknown method. Either 'regression' or logistic.")
+        sys.exit("Unknown reg_method. Either 'regression' or logistic.")
 
     reg_model.fit(data_trans,label)
     return(pca,reg_model,inds)
 
-def test_elastic(val_loader,space,pca,reg_model,inds=None):
+def test_elastic(val_loader,reg_method,pca,reg_model,inds=None):
     #Get transformed validation data:
     val_data_trans,val_label=batch_trans_pca(pca,val_loader)
 
@@ -120,29 +120,29 @@ def test_elastic(val_loader,space,pca,reg_model,inds=None):
     #Predict on validation set:
     Predic=reg_model.predict(val_data_trans)
 
-    if space=='continuous':
+    if reg_method=='regression':
         #Get mean absolute error (mae):
         mae=np.mean(np.abs(Predic-val_label))
 
         #Get "stupid" baselines:
-        mae_stupid=np.mean(np.abs(val_label-np.mean(label)))
+        #mae_stupid=np.mean(np.abs(val_label-np.mean(label)))
         mae_val=np.mean(np.abs(val_label-np.mean(val_label)))
         #Print results:
         print("MAE of ElasticNet: ",mae)
-        print("MAE on valid when train mean is predicted: ", mae_stupid)
+        #print("MAE on valid when train mean is predicted: ", mae_stupid)
         print("MAE on valid when valid mean is predicted: ", mae_val)
         return(mae_val)
         
-    elif space=='binary':
+    elif reg_method=='logistic':
         val_acc=((Predic>0.5)*val_label+(Predic<=0.5)*(1-val_label)).mean()
         print("Accuracy of regression: ", val_acc)
         return(val_acc)
 
     else:
-        sys.exit("Unknown space. Either 'regression' or 'logistic'.")
+        sys.exit("Unknown reg_method. Either 'regression' or 'logistic'.")
 
 
-def elastic_experiment(train_loader,hps,space):
+def elastic_experiment(train_loader,val_loader,hps):
     pca,reg_model,inds=fit_elastic(train_loader,**hps)
-    result=test_elastic(val_loader,space,pca,reg_model,inds)
+    result=test_elastic(val_loader,hps['reg_method'],pca,reg_model,inds)
     return(result)

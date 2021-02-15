@@ -1,4 +1,4 @@
-import json
+import configparser
 import sys 
 import pandas as pd
 import numpy as np
@@ -31,8 +31,8 @@ as general as possible since it initiates all programs and tasks in this project
 '''
 
 #Load data frame of hyperparameters:
-VALID_PATH='hps/valid_hps.csv'
-DEFAULT_PATH='hps/sota_hps.json'
+VALID_PATH='hyperparameters/hyperparameters.csv'
+DEFAULT_PATH='hyperparameters/config_sota.ini'
 DF_HP = pd.read_csv(VALID_PATH,index_col=0)
 print(DF_HP.head())
 
@@ -82,22 +82,22 @@ def set_if_allowed(name,input_):
         sys.exit("Error in hyperparameters file: unknown space.")
 
 
-def set_hp(name,default_val=None):
+def set_hp(name,section=None,template=None):
     #Set prompt including default from template:
     prompt=name+": "
-    if  default_val is not None:
-        default=str(default_val)
+    if template is not None and section is not None:
+        default=str(template_config[section][name])
         prompt=prompt+" || default: "+default+" || "
-
+    
     #Receive input:
     input_= input(prompt)
 
     #If no input given, set input to template:
-    if len(input_)==0 and default_val is not None:
-        input_=default_val
-        return(set_if_allowed(name,input_))
+    if len(input_)==0 and template is not None and section is not None:
+        input_=template_config[section][name]
+    
     #If length zero, try again:
-    elif len(input_)==0:
+    if len(input_)==0:
         print("Length=0 invalid.")
         return(set_hp(name))
     else: 
@@ -115,55 +115,40 @@ def file_if_exists(name):
 
 template_path = file_if_exists('template')
 if template_path is not None:
-    with open(template_path, "r") as read_file:
-        temp_data = json.load(read_file)
+    template_config=configparser.ConfigParser()
+    template_config.read(template_path)
 else: 
-    temp_data=None
+    template_config=None
 
 #Get config parser:
-config_data={}
+config = configparser.ConfigParser()
+
 
 #1. Specify the data set, the task we want to apply
 #and the method we want to use.
-config_data['experiment']={}
-exp_config=config_data['experiment']
-for key in temp_data['experiment'].keys():
-    exp_config[key]=set_hp(key,temp_data['experiment'][key])
+config['experiment']={}
+exp_config=config['experiment']
+for key in template_config['experiment'].keys():
+    exp_config[key]=str(set_hp(key,'experiment',template_config))
 
 #Set all hyperparameters needed for specific method:
-method=exp_config['method']
-task=exp_config['task']
-data=exp_config['data']
+hp_sec=str(exp_config['method']+'_'+exp_config['task']+'_'+exp_config['data'])
+config[hp_sec]={}
+hp_sec_config=config[hp_sec]
+for key in template_config[hp_sec].keys():
+    hp_sec_config[key]=str(set_hp(key,hp_sec,template_config))
 
-#Set empty dictionary:
-config_data[method]={}
-config_data[method][task]={}
-config_data[method][task][data]={}
 
-setup_config=config_data[method][task][data]
-
-hps_config=setup_config['hps']={} 
-default_hps=temp_data[method][task][data]['hps']
-
-for key in default_hps.keys():
-    hps_config[key]=set_hp(key,default_hps[key])
-
-comp_config=setup_config['computing']={} 
-default_comp=temp_data[method][task][data]['computing']
-
-for key in default_comp.keys():
-    comp_config[key]=set_hp(key,default_comp[key])
 
 #Set all experiment hyperparameters:
 if exp_config['save_config']=='yes':
-    config_data['record']={}
-    record_config=config_data['record']
-
-    for key in temp_data['record'].keys():
-        record_config[key]=set_hp(key,temp_data['record'][key])
+    config['record']={}
+    record_config=config['record']
+    for key in template_config['record'].keys():
+        record_config[key]=str(set_hp(key,'record',template_config))
 
     direct = osp.join(exp_config['parent_directory'],
-                        comp_config['folder'],
+                        hp_sec_config['folder'],
                         record_config['experiment_name'])
     if not osp.exists(direct):
         os.makedirs(direct)
@@ -171,6 +156,6 @@ if exp_config['save_config']=='yes':
         print("Directory already exists.")
 
     date_string=datetime.today().strftime('%Y%m%d_%H%M')
-    config_file_name=osp.join(direct,record_config['experiment_name']+date_string+'.json')
-    with open(config_file_name, "w") as configfile:
-        json.dump(config_data,configfile,indent=2)
+    config_file_name=osp.join(direct,record_config['experiment_name']+date_string+'.ini')
+    with open(config_file_name, 'w') as configfile:
+        config.write(configfile)

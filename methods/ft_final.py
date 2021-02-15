@@ -21,84 +21,12 @@ from utils import print_sep_line
 #Initialize tensorboard writer:
 #writer = SummaryWriter('results/test/test_tb')
 
+
+def 
+
 #Set device type:
 DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 print("Number of GPUs: ", torch.cuda.device_count())
-
-# Construct the argument parser
-ap = argparse.ArgumentParser()
-ap.set_defaults(
-    BATCH_SIZE=2,
-    LR=1e-2, 
-    NUM_WORKERS=4,
-    PRINT_EVERY=1,
-    GAMMA=0.1,
-    N_EPOCHS=3,
-    PAT=1,
-    PL='none',
-    LOSS='kl',
-    DROP=0.5,
-    PRO='full',
-    PRE='age',
-    WDEC=0.,
-    MOM=0.0,
-    PL_LL='none',
-    WDEC_LL=0.0,
-    MOM_LL=0.0,
-    GAMMA_LL=0.1,
-    N_EPOCHS_LL=3,
-    PAT_LL=1,
-    TRAIN='pre_step',
-    LR_LL=1e-2,
-    RUN=0,
-    TASK='age',
-    INIT=0,
-    RETRAIN=0
-    )
-
-#Debugging? Then use small data set:
-ap.add_argument("-deb", "--DEBUG", type=str, required=True,help="Debug or not.")
-
-#Arguments for training:
-ap.add_argument("-train", "--TRAIN", type=str, required=False,help="Train mode. Either 'fresh' (for fresh initialization), \
-                                                                    'pre_step' (for using pre-training models and re-training of final layer) \
-                                                                        or 'pre_full' for re-training of full model.")
-
-ap.add_argument("-batch", "--BATCH_SIZE", type=int, required=False,help="Batch size.")
-ap.add_argument("-n_work", "--NUM_WORKERS", type=int, required=False,help="Number of workers.")
-ap.add_argument("-loss", "--LOSS", type=str, required=False,help="Loss function to use: mae or kl.")
-ap.add_argument("-drop", "--DROP", type=float, required=False,help="drop for dropout and none for no dropout.")
-ap.add_argument("-pre", "--PRE", type=str, required=False, help="Pre-trained task: 'age' or 'sex'.")
-ap.add_argument("-task", "--TASK", type=str, required=False, help="Task: 'age' or 'sex'.")
-ap.add_argument("-run", "--RUN", type=int, required=False,help="Choose pre-trained model. Either 0,1,2,3 or 4.")
-ap.add_argument("-path", "--PATH", type=str, required=False,help="Path to (for later usage).")
-ap.add_argument("-init", "--INIT", type=int, required=False,help="Final layers to reinitialize while preserving scaling.")
-
-
-ap.add_argument("-pl", "--PL", type=str, required=False,help="pl indicate whether we use an adaptive learning changing when loss reaches plateu (True) or none for deterministic decay.")
-ap.add_argument("-pro", "--PRO", type=str, required=False,help="Preprocessing. Either full, min or none.")
-ap.add_argument("-wdec", "--WDEC", type=float, required=False,help="Weight decay.")
-ap.add_argument("-mom", "--MOM", type=float, required=False,help="Momentum for SGD.")
-ap.add_argument("-gamma", "--GAMMA", type=float, required=False,help="Decay factor for learning rate schedule.")
-ap.add_argument("-epochs", "--N_EPOCHS", type=int, required=False,help="Number of epochs.")
-ap.add_argument("-pat", "--PAT", type=int, required=False,help="Patience, i.e. number of steps until lr is diminished.")
-ap.add_argument("-lr", "--LR", type=float, required=False, help="Learning rate.")
-
-ap.add_argument("-pl_ll", "--PL_LL", type=str, required=False,help="pl for last layer training.")
-ap.add_argument("-wdec_ll", "--WDEC_LL", type=float, required=False,help="Weight decay for last layer training.")
-ap.add_argument("-mom_ll", "--MOM_LL", type=float, required=False,help="Momentum last layer training.")
-ap.add_argument("-gamma_ll", "--GAMMA_LL", type=float, required=False,help="Decay factor last layer training")
-ap.add_argument("-epochs_ll", "--N_EPOCHS_LL", type=int, required=False,help="Number of epochs for last layer training.")
-ap.add_argument("-pat_ll", "--PAT_LL", type=int, required=False,help="Patience for last layer training")
-ap.add_argument("-lr_ll", "--LR_LL", type=float, required=False, help="Learning rate for last layer training.")
-ap.add_argument("-retr", "--RETRAIN", type=int, required=False, help="Final layers to retrain.")
-
-
-#ap.add_argument("-seed","--SEED", type=int, required=False, help="Seed for randomness.")
-
-#Arguments for tracking:
-ARGS = vars(ap.parse_args())
-
 
 print_sep_line()
 print("Passed arguments: ")
