@@ -130,7 +130,6 @@ exp_config=config_data['experiment']
 for key in temp_data['experiment'].keys():
     exp_config[key]=set_hp(key,temp_data['experiment'][key])
 
-
 #Set all hyperparameters needed for specific method:
 method=exp_config['method']
 task=exp_config['task']
@@ -141,11 +140,19 @@ config_data[method]={}
 config_data[method][task]={}
 config_data[method][task][data]={}
 
-hps_config=config_data[method][task][data]
-default_section=temp_data[method][task][data]
+setup_config=config_data[method][task][data]
 
-for key in default_section.keys():
-    hps_config[key]=set_hp(key,default_section[key])
+hps_config=setup_config['hps']={} 
+default_hps=temp_data[method][task][data]['hps']
+
+for key in default_hps.keys():
+    hps_config[key]=set_hp(key,default_hps[key])
+
+comp_config=setup_config['hps']={} 
+default_comp=temp_data[method][task][data]['computing']
+
+for key in default_comp.keys():
+    comp_config[key]=set_hp(key,default_comp[key])
 
 #Set all experiment hyperparameters:
 if exp_config['save_config']=='yes':
@@ -156,7 +163,7 @@ if exp_config['save_config']=='yes':
         record_config[key]=set_hp(key,temp_data['record'][key])
 
     direct = osp.join(exp_config['parent_directory'],
-                        hps_config['folder'],
+                        comp_config['folder'],
                         record_config['experiment_name'])
     if not osp.exists(direct):
         os.makedirs(direct)

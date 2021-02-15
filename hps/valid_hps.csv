@@ -17,3 +17,5 @@ parent_directory,string,any,,,,,,,,,,,,,,,
 folder,string,any,,,,,,,,,,,,,,,
 experiment_name,string,any,,,,,,,,,,,,,,,
 preprocessing,string,values,"","",full,minimal,none,"","","","","","","","","",""
+queue,string,values,,,gpu8.q,short.qc,short.qe
+n_gpus,int,range,1,8

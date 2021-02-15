@@ -21,8 +21,8 @@ ap.add_argument("-con", "--CONFIG", type=str, required=True,help="Path to 'confi
 ARGS = vars(ap.parse_args())
 
 #Read config file:
-with open("test.json", "r") as read_file:
-    config = json.load(read_file)config.read(ARGS['CONFIG'])
+with open(ARGS["CONFIG"], "r") as read_file:
+    config = json.load(read_file)
 
 #Extract task, data, and method:
 task=config['experiment']['task']
@@ -31,7 +31,9 @@ method=config['experiment']['method']
 preprocessing=config['experiment']['preprocessing']
 
 #Extract hyperparameters for experiment:
-hps=config['elastic_'+task+'_'+data]
+config_setup=config[method][task][data]
+hps=config_setup['hps']
+computing=config_setup['computing']
 
 #Set debug flag:
 if ARGS['DEBUG']=='debug':
@@ -45,14 +47,14 @@ else:
 #Get the data files: 
 if data=='oasis':
     _,train_loader=give_oasis_data('train', batch_size=hps['batch'],
-                                            num_workers=hps['n_workers'],
+                                            num_workers=computing['n_workers'],
                                             shuffle=True,
                                             debug=debug,
                                             preprocessing=preprocessing,
                                             task=task)
 
     _,val_loader=give_oasis_data('val', batch_size=hps['batch'],
-                                        num_workers=hps['n_workers'],
+                                        num_workers=computing['n_workers'],
                                         shuffle=True,
                                         debug=debug,
                                         preprocessing=preprocessing,

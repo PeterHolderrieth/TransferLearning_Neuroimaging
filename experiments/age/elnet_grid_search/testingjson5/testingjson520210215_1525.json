@@ -1,0 +1,28 @@
+{
+  "experiment": {
+    "method": "elastic",
+    "task": "age",
+    "data": "oasis",
+    "train": "yes",
+    "valid": "no",
+    "preprocessing": "full",
+    "save_config": "yes",
+    "save_server": "yes",
+    "parent_directory": "experiments/"
+  },
+  "elastic": {
+    "age": {
+      "oasis": {
+        "hps": {
+          "folder": "age/elnet_grid_search/",
+          "queue": "gpu8.q",
+          "n_gpus": 2,
+          "n_workers": 4
+        }
+      }
+    }
+  },
+  "record": {
+    "experiment_name": "testingjson5"
+  }
+}
