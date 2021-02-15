@@ -7,7 +7,7 @@
 #$ -pe shmem 2 #Should be the same as the number of GPUs 
 #$ -l gputype=p100
 #Save file to:
-#$ -o results/N_sex_age_pretrained.log
+#$ -o results/O_sex_age_pretrained.log
 
 echo "------------------------------------------------"
 echo "Job ID: $JOB_ID"
@@ -43,13 +43,14 @@ python ~/TransferLearning_Neuroimaging/train.py \
 -gamma 0.2 \
 -epochs 250 \
 -pat 25 \
--wdec 1e-2 \
+-wdec 5e-2 \
 -mom 0.8 \
 -pl none \
 -epochs_ll 25 \
 -task sex \
 -pre age \
 -loss ent \
+-drop 0.6 \
 -retr 5 \
 -run 0 
 

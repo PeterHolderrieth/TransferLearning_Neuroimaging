@@ -36,8 +36,29 @@ J: 0.7
 K: 0.85
 - increase dropout compared to F: 0.6 
 
+
 ---RETRAIN FINAL LAYERS 
-
-
-To do: 
 Run L, N, M
+L: 0.75
+-re-train final 2 layers.
+
+M: 0.916 accuracy 
+- re-train final 3 layers 
+- increase dropout to 0.6
+- increase weight decay to 5e-2 
+
+N: 0.72 accuracy
+-re-train final 4 layers.
+
+--> weird result: 
+re-initialization of the final 3 layers 
+seem to be best but re-initialization of the final
+2 layers seems to worsen results.
+
+O: 
+
+P:
+
+Q: 
+
+

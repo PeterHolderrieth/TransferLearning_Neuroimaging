@@ -1,6 +1,6 @@
 #Parsing libraries:
 import argparse
-import configparser
+import json 
 
 from methods.elastic import elastic_experiment
 #import methods.ft_final
@@ -19,11 +19,10 @@ ap.add_argument("-con", "--CONFIG", type=str, required=True,help="Path to 'confi
 
 #Get arguments:
 ARGS = vars(ap.parse_args())
-print(ARGS)
 
 #Read config file:
-config = configparser.ConfigParser()
-config.read(ARGS['CONFIG'])
+with open("test.json", "r") as read_file:
+    config = json.load(read_file)config.read(ARGS['CONFIG'])
 
 #Extract task, data, and method:
 task=config['experiment']['task']
