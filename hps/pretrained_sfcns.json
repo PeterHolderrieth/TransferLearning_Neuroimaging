@@ -1,0 +1,27 @@
+{
+"path": "/well/win-fmrib-analysis/users/lhw539/pre_trained_models/",
+"age":{ "0": {"file": "run_20191206_00_epoch_best_mae.p", 
+                "channels": [32, 64, 64, 64, 64, 64],
+                "output_dim": 40
+                },
+        "1": {"file": "run_20191206_01_epoch_best_mae.p", 
+                "channels": [32, 64, 64, 64, 64, 64],
+                "output_dim": 40
+                },
+        "2": {"file": "run_20191206_02_epoch_best_mae.p", 
+                "channels": [32, 64, 64, 64, 64, 64],
+                "output_dim": 40
+                },
+        "3": {"file": "run_20191206_03_epoch_best_mae.p", 
+                "channels": [32, 64, 64, 64, 64, 64],
+                "output_dim": 40
+                },
+        "4": {"file": "run_20190719_00_epoch_best_mae.p", 
+                "channels": [28, 58, 128, 256, 256, 64],
+                "output_dim": 40
+                },
+"sex": {"0": {"file": "run_20191008_00_epoch_last.p",
+              "channels": [28, 58, 128, 256, 256, 64],
+                "output_dim": 2
+                }
+}
