@@ -2,29 +2,29 @@ import torch.nn as nn
 import torch 
 import sys
 
-def MSE(x,y):
+def MSE(x:torch.Tensor, y:torch.Tensor):
     '''
-    x,y - torch.Tensor - arbitrary but similar shape
+    x,y - arbitrary but same shape
     '''
     mse=torch.mean((x-y)**2)
     return(mse)
 
-def MAE(x,y):
+def MAE(x:torch.Tensor,y:torch.Tensor):
     '''
-    x,y - torch.Tensor - arbitrary but similar shape
+    x,y - arbitrary but same shape
     '''
     mae=torch.mean(torch.abs(x-y))
     return(mae)
 
-def pred_from_dist(log_probs,bin_centers):
+def pred_from_dist(log_probs:torch.Tensor,bin_centers: torch.Tensor):
     '''
     Input:
-        log_probs - torch.Tensor - shape (batch_size,length(bin_centers))/(bin_centers) - logarithmn of probability weights
-        bin_centers - list of ints - centers of the (age) bins
+        log_probs - shape (batch_size,n)  - logarithmn of probability weights
+        bin_centers - shape (n) - center of bins 
     Output: means - torch.Tensor - shape (batch_size)/[1]
     '''
     probs=torch.exp(log_probs)
-    means=torch.matmul(probs,bin_centers)#_)
+    means=torch.matmul(probs,bin_centers)
     return(means)
 
 

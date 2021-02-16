@@ -1,0 +1,50 @@
+from sfcn_utils import give_metrics
+from train_and_test.training import run_training
+
+def sfcn_train(model,   bin_min:int, 
+                        bin_max:int,
+                        space: str, 
+                        loss_met: str, 
+                        eval_met:str, 
+                        bin_step: int,
+                        sigma: float,
+                        n_epochs : int ,
+                        optim_type: str,
+                        lr: float,
+                        weight_decay: float,
+                        momentum: float,
+                        scheduler_type: str,
+                        epoch_dec: int,
+                        gamma_dec: float,
+                        threshold: float,
+                        print_every: int,
+                        print_corr: bool,
+                        info_start: str,
+                        info_end: str):
+    
+    loss_func,eval_func,label_translater=give_metrics(bin_min=bin_min, 
+                                                        bin_max=bin_max,
+                                                        space=space, 
+                                                        loss_met=loss_met, 
+                                                        eval_met=eval_met, 
+                                                        bin_step=bin_step,
+                                                        sigma=sigma)
+    
+    meter=run_training(model=model,
+                        loss_func=loss_func,
+                        eval_func=eval_func,
+                        label_translater=label_translater,
+                        n_epochs=n_epochs,
+                        optim_type=optim_type,
+                        lr=lr,
+                        weight_decay=weight_decay,
+                        momentum=momentum,
+                        scheduler_type=scheduler_type,
+                        epoch_dec=epoch_dec,
+                        gamma_dec=gamma_dec,
+                        threshold=threshold,
+                        print_every=print_every,
+                        print_corr=print_corr,
+                        info_start=info_start,
+                        info_end=info_end)
+    return meter

@@ -19,9 +19,11 @@
         "4": {"file": "run_20190719_00_epoch_best_mae.p", 
                 "channels": [28, 58, 128, 256, 256, 64],
                 "output_dim": 40
-                },
+                }
+        },
 "sex": {"0": {"file": "run_20191008_00_epoch_last.p",
               "channels": [28, 58, 128, 256, 256, 64],
                 "output_dim": 2
                 }
+        }
 }

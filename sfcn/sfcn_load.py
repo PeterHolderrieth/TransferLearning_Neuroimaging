@@ -38,10 +38,3 @@ def give_pretrained_sfcn(run: str, task: str):
     model.load_state_dict(state_dict)
 
     return(model)
-
-
-# def train_full_model(model,....): 
-#     model.module.train_full_model()
-#     info_start="Full model is being trained."
-#     info_end="Full model was being trained."
-#     train_model(model,...,info_start=info_start,info_end=info_end)

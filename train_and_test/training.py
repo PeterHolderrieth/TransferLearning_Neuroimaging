@@ -1,6 +1,9 @@
 #import utils.TrainMeter as TM
+import datetime
 from epoch import go_one_epoch
 from utils import TrainMeter as TM
+from utils import give_optimizer,give_lr_scheduler
+from utils import print_sep_line
 
 def train(model,n_epochs,loss_func,device,train_loader,val_loader,optimizer,scheduler,label_translater,eval_func,print_every=1,len_rvg=5):
     meter=TM(len_rvg=len_rvg)
@@ -48,20 +51,52 @@ def train(model,n_epochs,loss_func,device,train_loader,val_loader,optimizer,sche
 
     return(meter)
 
-def run_training(model,n_epochs,loss_func,eval_func,info_start=None,info_end=None,print_corr=True)
+def run_training(model, loss_func:callable, 
+                        eval_func:callable,
+                        label_translater:callable,
+                        n_epochs: int,
+                        optim_type:str,
+                        lr:float,
+                        weight_decay: float,
+                        momentum:float,
+                        scheduler_type:str,
+                        epoch_dec:int,
+                        gamma_dec:float,
+                        threshold:float=None,
+                        print_every:int =1,
+                        print_corr: bool =True,
+                        info_start: str =None,
+                        info_end: str =None)
 
+    #Load the device:
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     print("Number of GPUs: ", torch.cuda.device_count())
     model=model.to(device)
 
+    #Get parameter optimizer and learning rate scheduler:
+    optimizer=give_optimizer(optim_type,model,lr,weight_decay,momentum)
+    scheduler=give_lr_scheduler(scheduler_type,optimizer,epoch_dec,gamma_dec,threshold)
+    
+    
     print()
     print(info_start)
     print("Start: ", datetime.datetime.today())
     print_sep_line()
 
-    meter=train(model,n_epochs,loss_func,device,train_loader,
-                    val_loader,optimizer,scheduler,label_translater,eval_func)
-    
+    #Train the model:
+    meter=train(model=model,
+                n_epochs=n_epochs,
+                loss_func=loss_func,
+                device=device,
+                train_loader=train_loader,
+                val_loader=val_loader,
+                optimizer=optimizer,
+                scheduler=scheduler,
+                label_translater=label_translater,
+                eval_func=eval_func,
+                print_every=print_every,
+                len_rvg=len_rvg)
+                
     print_sep_line() 
     print("Finished: ", datetime.datetime.today())
     print()
@@ -73,6 +108,11 @@ def run_training(model,n_epochs,loss_func,eval_func,info_start=None,info_end=Non
         
         print("Correlation between train loss and evaluation:", "%.3f"%corr)
         print() 
+
     print_sep_line()
     
-    return(model,meter)
+    return(meter)
+
+
+
+

@@ -93,7 +93,7 @@ def get_varmat_by_subject_no(subject_no_list, subject_no_list_var_all, var_all):
 
 def num2vect(x, bin_range, bin_step, sigma):
     """
-    v,bin_centers = number2vector(x,bin_range,bin_step,sigma)
+    v,bin_centers = num2vec(x,bin_range,bin_step,sigma)
     bin_range: (start, end), size-2 tuple
     bin_step: should be a divisor of |end-start|
     sigma:

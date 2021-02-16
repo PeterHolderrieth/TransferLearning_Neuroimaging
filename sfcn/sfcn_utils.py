@@ -101,7 +101,7 @@ def give_label_translater(kwd):
     else: 
         sys.exit("Unkown type.")
 
-def give_metrics(bin_min: int, in_max: int, space: str, loss_met: str, eval_met: str, bin_step: int = 1, 
+def give_metrics(bin_min: int, bin_max: int, space: str, loss_met: str, eval_met: str, bin_step: int = 1, 
                     sigma: float = 1.):
     if space=='continuous':
         label_translater,bin_centers=give_label_translater({

@@ -7,6 +7,10 @@
 #---------------------------------Ignores all python-related scripts------------------------------------
 # Byte-compiled / optimized / DLL files
 __pycache__/
+**__pycache__/**
+**.mypycache/**
+
+
 *.py[cod]
 *$py.class
 
