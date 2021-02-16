@@ -120,7 +120,7 @@ class SFCN(nn.Module):
                 p.requires_grad=vals[it]
     
     
-    def train_final_layer():
+    def train_final_layer(self):
         '''
         Function to train classifier.
         '''
@@ -142,7 +142,7 @@ class SFCN(nn.Module):
         for p in self.parameters():
             p.requires_grad=False
 
-    def train_only_final_layers(self,n_train_layers):
+    def train_only_final_layers(self,n_train_layers:int):
         '''
         Function to train (only!) the final layers of a network.
         Input: n_train_layers - int - number of final layers to train
@@ -186,7 +186,7 @@ class SFCN(nn.Module):
                 p_=p.data.detach()
                 p.data=p_.std()*torch.randn(size=p_.shape).to(p_.device)+p_.mean()
 
-    def reinit_final_layers_pres_scale(self,n_train_layers):
+    def reinit_final_layers_pres_scale(self,n_train_layers:int):
         '''
         Function to reinitialize the final layers of the network while preserving the scaling.
         Input: n_train_layers - int - number of final layers to train
@@ -206,6 +206,15 @@ class SFCN(nn.Module):
         '''
         self.reinit_classifier_pres_scale() 
         self.reinit_featext_pres_scale()
+    
+    def change_output_dim(self, new_output_dim: int):
+        '''
+        new_output_dim - new output dimension
+        '''
+        c_in = self.classifier.conv_6.in_channels
+        conv_last = nn.Conv3d(c_in, new_output_dim, kernel_size=1)
+        self.classifier.conv_6 = conv_last
+        self.output_dim=new_output_dim
 
 
 

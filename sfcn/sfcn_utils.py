@@ -1,7 +1,40 @@
 import numpy as np
 import torch
 import sys
+
 from scipy.stats import norm
+from sfcn_loss import give_my_loss_func
+
+def crop_center(data, out_sp):
+    """
+    Returns the center part of volume data of shape out_sp
+    Input: 
+        data - torch.Tensor/np.array - shape in_sp=(n1,m1,k1) or in_sp=(batch_size,n1,m1,k1)
+        out_sp=(n2,m2,k2) - torch.Tensor/np.array/list of length 3 
+    Output:
+        data_crop - torch.Tensor/np.array - shape out_sp=(*,n2,m2,k2)
+    Require: n1>=n2, m1>=m2, k1>=k2
+    """
+    in_sp = data.shape
+    nd = np.ndim(data) #number of dimensions
+
+    #Get the limits:
+    x_crop_low = int(np.floor((in_sp[-3] - out_sp[-3]) / 2))
+    x_crop_high = in_sp[-3]-int(np.ceil((in_sp[-3] - out_sp[-3]) / 2))
+    y_crop_low = int(np.floor((in_sp[-2] - out_sp[-2]) / 2))
+    y_crop_high = in_sp[-2]-int(np.ceil((in_sp[-2] - out_sp[-2]) / 2))
+    z_crop_low = int(np.floor((in_sp[-1] - out_sp[-1]) / 2))
+    z_crop_high = in_sp[-1]-int(np.ceil((in_sp[-1] - out_sp[-1]) / 2))
+
+    #Extract:
+    if nd == 3:
+        data_crop = data[x_crop_low:x_crop_high, y_crop_low:y_crop_high, z_crop_low:z_crop_high]
+    elif nd == 4:
+        data_crop = data[:, x_crop_low:x_crop_high, y_crop_low:y_crop_high, z_crop_low:z_crop_high]
+    else:
+        raise ('Wrong dimension! dim=%d.' % nd)
+    return data_crop
+
 
 def give_label_translater(kwd):
 
@@ -68,78 +101,24 @@ def give_label_translater(kwd):
     else: 
         sys.exit("Unkown type.")
 
-def crop_center(data, out_sp):
-    """
-    Returns the center part of volume data of shape out_sp
-    Input: 
-        data - torch.Tensor/np.array - shape in_sp=(n1,m1,k1) or in_sp=(batch_size,n1,m1,k1)
-        out_sp=(n2,m2,k2) - torch.Tensor/np.array/list of length 3 
-    Output:
-        data_crop - torch.Tensor/np.array - shape out_sp=(*,n2,m2,k2)
-    Require: n1>=n2, m1>=m2, k1>=k2
-    """
-    in_sp = data.shape
-    nd = np.ndim(data) #number of dimensions
+def give_metrics(bin_min: int, in_max: int, space: str, loss_met: str, eval_met: str, bin_step: int = 1, 
+                    sigma: float = 1.):
+    if space=='continuous':
+        label_translater,bin_centers=give_label_translater({
+                                'type': 'label_to_bindist', 
+                                'bin_step': 1,
+                                'bin_range': [bin_min,bin_max],
+                                'sigma': sigma})
+        loss_func=give_my_loss_func({'type': loss_met,'bin_centers': bin_centers})
+        eval_func=give_my_loss_func({'type': eval_met,'bin_centers': bin_centers,'probs': False})
 
-    #Get the limits:
-    x_crop_low = int(np.floor((in_sp[-3] - out_sp[-3]) / 2))
-    x_crop_high = in_sp[-3]-int(np.ceil((in_sp[-3] - out_sp[-3]) / 2))
-    y_crop_low = int(np.floor((in_sp[-2] - out_sp[-2]) / 2))
-    y_crop_high = in_sp[-2]-int(np.ceil((in_sp[-2] - out_sp[-2]) / 2))
-    z_crop_low = int(np.floor((in_sp[-1] - out_sp[-1]) / 2))
-    z_crop_high = in_sp[-1]-int(np.ceil((in_sp[-1] - out_sp[-1]) / 2))
+    elif space=='binary':
+        label_translater=give_label_translater({
+                                'type': 'one_hot', 
+                                'n_classes': 2})
+        loss_func=give_my_loss_func({'type': ARGS['LOSS']})
+        eval_func=give_my_loss_func({'type':'acc','thresh':0.5})
+    else: 
+        sys.exit("Unknown tasks.")
 
-    #Extract:
-    if nd == 3:
-        data_crop = data[x_crop_low:x_crop_high, y_crop_low:y_crop_high, z_crop_low:z_crop_high]
-    elif nd == 4:
-        data_crop = data[:, x_crop_low:x_crop_high, y_crop_low:y_crop_high, z_crop_low:z_crop_high]
-    else:
-        raise ('Wrong dimension! dim=%d.' % nd)
-    return data_crop
-
-
-#A class which tracks averages and values over time:
-class AverageMeter(object):
-    def __init__(self,len_rvg=None,track=True):
-        self.len_rvg=len_rvg
-        self.track=track
-        self.reset()
-
-    def reset(self):
-        self.val = 0
-        self.avg = 0
-        self.sum = 0
-        self.count = 0
-        if self.track: 
-            self.vec=[]
-        if self.len_rvg is not None:
-            self.run_vec=[]
-            self.run_avg=0 
-
-    def update(self, val, n=1):
-        self.val = val
-        self.sum += val * n
-        self.count += n
-        self.avg = self.sum / self.count
-        if self.track: 
-            self.vec.append(val)
-        if self.len_rvg is not None:
-            self.run_vec.append(val)
-            n_rel=len(self.run_vec)
-            if n_rel>self.len_rvg:
-                self.run_vec=self.run_vec[(n_rel-self.len_rvg):]
-            self.run_avg=torch.mean(torch.tensor(self.run_vec))
-
-class TrainMeter(object):
-    def __init__(self,len_rvg=None,track=True):
-        self.tr_loss=AverageMeter(len_rvg,track)
-        self.tr_eval=AverageMeter(len_rvg,track)
-        self.val_loss=AverageMeter(len_rvg,track)
-        self.val_eval=AverageMeter(len_rvg,track)
-
-    def update(self,tr_loss_it=None,tr_eval_it=None,val_loss_it=None,val_eval_it=None,n=1):
-        if tr_loss_it is not None: self.tr_loss.update(tr_loss_it,n)     
-        if tr_eval_it is not None: self.tr_eval.update(tr_eval_it,n)      
-        if val_loss_it is not None: self.val_loss.update(val_loss_it,n)        
-        if val_eval_it is not None: self.val_eval.update(val_eval_it,n)
+    return(loss_func,eval_func,label_translater)
