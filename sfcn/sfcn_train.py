@@ -1,4 +1,4 @@
-from sfcn_utils import give_metrics
+from sfcn.sfcn_utils import give_metrics
 from train_and_test.training import run_training
 
 def sfcn_train(model,   train_loader, val_loader,

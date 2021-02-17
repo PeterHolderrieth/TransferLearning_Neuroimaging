@@ -54,8 +54,7 @@ def give_lr_scheduler(scheduler_type,optimizer,epoch_dec,gamma_dec,treshold=None
     
     if scheduler_type=='step': 
         return torch.optim.StepLR(optimizer, step_size=epoch_dec, gamma=gamma_dec)
-
-    elif scheduler_type='plateau':
+    elif scheduler_type=='plateau':
         return torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, 
                                                         patience=epoch_dec, 
                                                         factor=gamma_dec,
@@ -64,6 +63,6 @@ def give_lr_scheduler(scheduler_type,optimizer,epoch_dec,gamma_dec,treshold=None
         sys.exit("Unknown scheduler type.")
 
 def print_sep_line():
-    sep_line="--------------------------------------------------------------------------------"+
-                "--------------------------------------------------------------------------------"
+    sep_line=("--------------------------------------------------------------------------------"+
+                "--------------------------------------------------------------------------------")
     print(sep_line)

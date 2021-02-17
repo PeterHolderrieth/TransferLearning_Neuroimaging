@@ -3,7 +3,7 @@ import torch
 import sys
 
 from scipy.stats import norm
-from sfcn_loss import give_my_loss_func
+from sfcn.sfcn_loss import give_my_loss_func
 
 def crop_center(data, out_sp):
     """

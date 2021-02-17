@@ -6,7 +6,7 @@ import json
 import os.path as osp 
 
 #Own files:
-from sfcn_model import SFCN
+from sfcn.sfcn_model import SFCN
 
 
 def give_fresh_sfcn(bin_min: int, bin_max: int, dropout: float):

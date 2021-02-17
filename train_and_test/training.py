@@ -1,9 +1,8 @@
 #import utils.TrainMeter as TM
 import datetime
-from epoch import go_one_epoch
-from utils import TrainMeter as TM
-from utils import give_optimizer,give_lr_scheduler
-from utils import print_sep_line
+from train_and_test.epoch import go_one_epoch
+from train_and_test.train_utils import TrainMeter as TM
+from train_and_test.train_utils import give_optimizer,give_lr_scheduler,print_sep_line
 
 def train(model,train_loader,val_loader,loss_func,eval_func,label_translater,device,n_epochs,optimizer,scheduler,print_every=1,len_rvg=5):
     meter=TM(len_rvg=len_rvg)
@@ -68,7 +67,7 @@ def run_training(model, train_loader,
                         print_every:int =1,
                         print_corr: bool =True,
                         info_start: str =None,
-                        info_end: str =None)
+                        info_end: str =None):
 
     #Load the device:
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
