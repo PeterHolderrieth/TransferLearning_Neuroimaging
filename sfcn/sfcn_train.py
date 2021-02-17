@@ -1,7 +1,8 @@
 from sfcn_utils import give_metrics
 from train_and_test.training import run_training
 
-def sfcn_train(model,   bin_min:int, 
+def sfcn_train(model,   train_loader, val_loader,
+                        bin_min:int, 
                         bin_max:int,
                         space: str, 
                         loss_met: str, 
@@ -31,6 +32,8 @@ def sfcn_train(model,   bin_min:int,
                                                         sigma=sigma)
     
     meter=run_training(model=model,
+                        train_loader=train_loader,
+                        val_loader=val_loader,
                         loss_func=loss_func,
                         eval_func=eval_func,
                         label_translater=label_translater,

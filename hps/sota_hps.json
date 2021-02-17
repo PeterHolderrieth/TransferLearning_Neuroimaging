@@ -32,6 +32,38 @@
         }    
     },
     "sex": {
+    },
+"scratch":{ 
+    "age":{ 
+        "hps":{
+            "batch": 8,
+            "bin_min":37,
+            "bin_max":96,
+            "bin_step":1,
+            "sigma":1.0,
+            "space":"continuous",
+            "loss_met":"kl",
+            "eval_met":"mae",
+            "n_epochs":2000,
+            "optim_type": "SGD",
+            "lr": 1e-2,
+            "weight_decay":1e-3,
+            "momentum": 0.9,
+            "scheduler_type": "step",
+            "epoch_dec": 30,
+            "gamma_dec": 0.3,
+            "threshold": null,
+            "print_corr": true
+            },
+        "computing": {
+            "folder":"age/scratch_baseline/",
+            "queue": "gpu8.q",
+            "n_gpus": 2,
+            "n_workers": 4
+            }
+        },
+    "sex":{    
+        }
     },   
 "record":{
     "experiment_name": null

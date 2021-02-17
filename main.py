@@ -3,6 +3,7 @@ import argparse
 import json 
 
 from methods.elastic import elastic_experiment
+from methods.scratch import train_sfcn_from_scratch
 #import methods.ft_final
 #import methods.ft_full
 #import methods.ft_full
@@ -38,11 +39,13 @@ computing=config_setup['computing']
 #Set debug flag:
 if ARGS['DEBUG']=='debug':
     debug=True
+    hps['batch']=2
+    if 'n_epochs' in list(hps.keys()):
+        hps['n_epochs']=3
 elif ARGS['DEBUG']=='full':
     debug=False 
 else: 
     sys.exit("Unvalid debug flag.")
-
 
 #Get the data files: 
 if data=='oasis':
@@ -64,5 +67,7 @@ else:
 
 if method=='elastic':
     elastic_experiment(train_loader,val_loader,hps)
+elif method=='scratch':
+    train_sfcn_from_scratch(train_loader,val_loader,hps)
 else: 
     sys.exit("Unknown method.")

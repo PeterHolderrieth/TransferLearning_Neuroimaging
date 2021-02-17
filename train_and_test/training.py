@@ -5,7 +5,7 @@ from utils import TrainMeter as TM
 from utils import give_optimizer,give_lr_scheduler
 from utils import print_sep_line
 
-def train(model,n_epochs,loss_func,device,train_loader,val_loader,optimizer,scheduler,label_translater,eval_func,print_every=1,len_rvg=5):
+def train(model,train_loader,val_loader,loss_func,eval_func,label_translater,device,n_epochs,optimizer,scheduler,print_every=1,len_rvg=5):
     meter=TM(len_rvg=len_rvg)
     for epoch in range(n_epochs):
         
@@ -51,7 +51,9 @@ def train(model,n_epochs,loss_func,device,train_loader,val_loader,optimizer,sche
 
     return(meter)
 
-def run_training(model, loss_func:callable, 
+def run_training(model, train_loader,
+                        val_loader,
+                        loss_func:callable, 
                         eval_func:callable,
                         label_translater:callable,
                         n_epochs: int,
@@ -85,15 +87,15 @@ def run_training(model, loss_func:callable,
 
     #Train the model:
     meter=train(model=model,
-                n_epochs=n_epochs,
-                loss_func=loss_func,
-                device=device,
                 train_loader=train_loader,
                 val_loader=val_loader,
+                loss_func=loss_func,
+                eval_func=eval_func,
+                label_translater=label_translater,
+                device=device,
+                n_epochs=n_epochs,
                 optimizer=optimizer,
                 scheduler=scheduler,
-                label_translater=label_translater,
-                eval_func=eval_func,
                 print_every=print_every,
                 len_rvg=len_rvg)
                 
