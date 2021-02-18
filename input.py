@@ -39,6 +39,19 @@ DF_HP = pd.read_csv(VALID_PATH,index_col=0)
 def get_valid_values(name):
     valid_values=DF_HP.loc[name,:][4:].values
     valid_values = valid_values[~pd.isnull(valid_values)]
+    
+    if DF_HP.loc[name,"Type"]=='string':
+        valid_values=[str(value) for value in valid_values]
+    elif DF_HP.loc[name,"Type"]=='int':
+        valid_values=[int(value) for value in valid_values]
+    elif DF_HP.loc[name,"Type"]=='float':  
+        valid_values=[float(value) for value in valid_values]
+    elif DF_HP.loc[name,"Type"]=='bool':  
+        valid_values=[bool(value) for value in valid_values]
+    elif DF_HP.loc[name,"Type"]=='int_list':  
+        valid_values=[list(value) for value in valid_values]
+    else: 
+        sys.exit("Error in hyperparameters: Unknown type.")
     return(valid_values)
 
 def set_if_allowed(name,input_):
@@ -48,6 +61,10 @@ def set_if_allowed(name,input_):
         input_=int(input_)
     elif DF_HP.loc[name,"Type"]=='float':  
         input_=float(input_)
+    elif DF_HP.loc[name,"Type"]=='bool':  
+        input_=bool(input_)
+    elif DF_HP.loc[name,"Type"]=='int_list':  
+        input_=[int(val) for val in list(input_)]
     else: 
         sys.exit("Error in hyperparameters: Unknown type.")
 
@@ -76,10 +93,10 @@ def set_if_allowed(name,input_):
             print("Value out of range for "+name+".")
             print("Range is  [", DF_HP.loc[name,"Min"],",",DF_HP.loc[name,"Max"],"]")
             return(set_hp(name))
-    elif DF_HP.loc[name,"Space"]=='any':
+    elif DF_HP.loc[name,"Space"]=='any' or DF_HP.loc[name,"Space"]=='bool':
         return(input_)
     else: 
-        sys.exit("Error in hyperparameters file: unknown space.")
+        sys.exit("Error in hyperparameters file for %s. Unknown space: %s"%(name,DF_HP.loc[name,"Space"]))
 
 
 def set_hp(name,default_val=None):

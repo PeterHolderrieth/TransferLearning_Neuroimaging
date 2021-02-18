@@ -3,7 +3,7 @@
     "method": "ft_step",
     "task": "sex",
     "data": "oasis",
-    "share": null,
+    "share": 1.0,
     "train": "yes", 
     "valid": "no",
     "preprocessing": "full",
@@ -54,7 +54,7 @@
                 "scheduler_type": "step",
                 "epoch_dec": 30,
                 "gamma_dec": 0.3,
-                "threshold": null,
+                "threshold": 0.0,
                 "print_corr": true
                 },
             "computing": {
@@ -91,7 +91,7 @@
                         "scheduler_type": "step",
                         "epoch_dec": 30,
                         "gamma_dec": 0.3,
-                        "threshold": null,
+                        "threshold": 0.0,
                         "print_corr": true
                         },
             "computing": {
@@ -128,7 +128,7 @@
                         "scheduler_type": "step",
                         "epoch_dec": 30,
                         "gamma_dec": 0.3,
-                        "threshold": null,
+                        "threshold": 0.0,
                         "print_corr": true
                         },
             "computing": {
@@ -166,7 +166,7 @@
                         "scheduler_type_ll": "step",
                         "epoch_dec_ll": 8,
                         "gamma_dec_ll":0.1,
-                        "threshold_ll": null,
+                        "threshold_ll": 0.0,
                         "n_epochs":30,
                         "optim_type": "SGD",
                         "lr": 5e-4,
@@ -175,7 +175,7 @@
                         "scheduler_type": "step",
                         "epoch_dec": 5,
                         "gamma_dec": 0.2,
-                        "threshold": null,
+                        "threshold": 0.0,
                         "print_corr": true
                         },
                 "computing": {
@@ -208,7 +208,7 @@
                         "scheduler_type_ll": "step",
                         "epoch_dec_ll": 8,
                         "gamma_dec_ll":0.1,
-                        "threshold_ll": null,
+                        "threshold_ll": 0.0,
                         "n_epochs":60,
                         "optim_type": "SGD",
                         "lr": 5e-3,
@@ -217,7 +217,7 @@
                         "scheduler_type": "step",
                         "epoch_dec": 10,
                         "gamma_dec": 0.3,
-                        "threshold": null,
+                        "threshold": 0.0,
                         "print_corr": true
                         },
                 "computing": {
