@@ -7,12 +7,13 @@ import nibabel as nib
 import os
 import os.path as osp
 import pandas as pd 
+
 sys.path.append('../../')
 from dataset import give_mri_data
 
 
 
-def give_oasis_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=False,preprocessing='full', task='age'):
+def give_oasis_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=False,preprocessing='full', task='age',share=None):
     
     #Get the directory of the data_type:
     DIR = '/gpfs3/well/win-fmrib-analysis/users/lhw539/oasis3/'
@@ -58,12 +59,26 @@ def give_oasis_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=Fals
         label_list=list([sex_, ] for sex_ in subject_sex.loc[df_session.Subject.values,:].values)
     else: 
         sys.exit("Unknown task.")
+
+    if share is not None: 
+        n_total=len(fp_list)
+        n_samples=int(np.round(share*n_total))
+        inds=torch.randperm(n=n_total)[:n_samples].tolist()
+        fp_list=[fp_list[ind] for ind in inds]
+        label_list=[label_list[ind] for ind in inds]
     
     if  debug:    
-        print("Loading OASIS %5s debug data."%data_type)
+        if share is None: 
+            print("Loading OASIS %5s debug data."%data_type)
+        else: 
+            print("Loading share %.2f OASIS %5s debug data."%(share,data_type))
     else: 
-        print("Loading loaded OASIS %5s data."%data_type)
+        if share is None: 
+            print("Loading OASIS %5s data."%data_type)
+        else: 
+            print("Loading share %.2f %5s debug data."%(share,data_type))
 
+    
     return(give_mri_data(fp_list=fp_list,label_list=label_list,data_type=data_type,batch_size=batch_size,num_workers=num_workers,shuffle=shuffle,preprocessing=preprocessing))
 
 

@@ -1,3 +1,5 @@
+import torch 
+import numpy as np 
 #A class which tracks averages and values over time:
 class AverageMeter(object):
     def __init__(self,len_rvg=None,track=True):
@@ -53,7 +55,7 @@ def give_optimizer(optim_type,model,lr,weight_decay,momentum):
 def give_lr_scheduler(scheduler_type,optimizer,epoch_dec,gamma_dec,treshold=None):
     
     if scheduler_type=='step': 
-        return torch.optim.StepLR(optimizer, step_size=epoch_dec, gamma=gamma_dec)
+        return torch.optim.lr_scheduler.StepLR(optimizer, step_size=epoch_dec, gamma=gamma_dec)
     elif scheduler_type=='plateau':
         return torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, 
                                                         patience=epoch_dec, 

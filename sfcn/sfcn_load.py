@@ -9,7 +9,7 @@ import os.path as osp
 from sfcn.sfcn_model import SFCN
 
 
-def give_fresh_sfcn(bin_min: int, bin_max: int, dropout: float):
+def give_fresh_sfcn(bin_min: int, bin_max: int, dropout: float, channel_number: list):
     '''
     bin_min,bin_max - describe the range of ages for the model ([bin_min,bin_min+1] is the most left
     bin,[bin_max-1,bin_max] the most right)
@@ -23,7 +23,7 @@ def give_pretrained_sfcn(run: str, task: str):
     '''
 
     '''
-    with open("../hps/pretrained_sfcns.json", "r") as read_file:
+    with open("hps/pretrained_sfcns.json", "r") as read_file:
         config = json.load(read_file)
     
     model_info=config[task][run]

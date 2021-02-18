@@ -1,5 +1,7 @@
 #import utils.TrainMeter as TM
 import datetime
+import torch
+import numpy as np 
 from train_and_test.epoch import go_one_epoch
 from train_and_test.train_utils import TrainMeter as TM
 from train_and_test.train_utils import give_optimizer,give_lr_scheduler,print_sep_line
@@ -64,7 +66,6 @@ def run_training(model, train_loader,
                         epoch_dec:int,
                         gamma_dec:float,
                         threshold:float=None,
-                        print_every:int =1,
                         print_corr: bool =True,
                         info_start: str =None,
                         info_end: str =None):
@@ -94,9 +95,7 @@ def run_training(model, train_loader,
                 device=device,
                 n_epochs=n_epochs,
                 optimizer=optimizer,
-                scheduler=scheduler,
-                print_every=print_every,
-                len_rvg=len_rvg)
+                scheduler=scheduler)
                 
     print_sep_line() 
     print("Finished: ", datetime.datetime.today())

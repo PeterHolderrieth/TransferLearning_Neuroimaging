@@ -17,6 +17,7 @@ save_server,string,values,,,yes,no,,,,,,,,,,,
 parent_directory,string,any,,,,,,,,,,,,,,,
 folder,string,any,,,,,,,,,,,,,,,
 experiment_name,string,any,,,,,,,,,,,,,,,
-preprocessing,string,values,"","",full,minimal,none,"","","","","","","","","",""
-queue,string,values,,,gpu8.q,short.qc,short.qe
-n_gpus,int,range,1,8
+preprocessing,string,values,,,full,minimal,none,,,,,,,,,,
+queue,string,values,,,gpu8.q,short.qc,short.qe,,,,,,,,,,
+n_gpus,int,range,1,8,,,,,,,,,,,,,
+run,string,values,"","",0,1,2,3,4,"","","","","","","",""

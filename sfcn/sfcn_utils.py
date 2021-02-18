@@ -116,7 +116,7 @@ def give_metrics(bin_min: int, bin_max: int, space: str, loss_met: str, eval_met
         label_translater=give_label_translater({
                                 'type': 'one_hot', 
                                 'n_classes': 2})
-        loss_func=give_my_loss_func({'type': ARGS['LOSS']})
+        loss_func=give_my_loss_func({'type': loss_met})
         eval_func=give_my_loss_func({'type':'acc','thresh':0.5})
     else: 
         sys.exit("Unknown tasks.")

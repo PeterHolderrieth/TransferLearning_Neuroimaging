@@ -4,9 +4,9 @@ sys.path.append('../')
 from sfcn.sfcn_load import give_fresh_sfcn
 from sfcn.sfcn_train import sfcn_train
 
-def train_sfcn_from_scratch(hps): 
+def train_from_scratch_sfcn(train_loader,val_loader,hps): 
     
-    model=give_fresh_sfcn(hps['bin_min'],hps['bin_max'],hps['dropout'])
+    model=give_fresh_sfcn(hps['bin_min'],hps['bin_max'],hps['dropout'],hps['channel_number'])
     model.module.train_full_model()
 
     info_start="Full model is being trained with random initialization."

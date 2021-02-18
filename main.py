@@ -1,13 +1,14 @@
 #Parsing libraries:
 import argparse
 import json 
+import sys 
 
 from methods.elastic import elastic_experiment
-from methods.scratch import train_sfcn_from_scratch
-#import methods.ft_final
-#import methods.ft_full
-#import methods.ft_full
-#import methods.ft_full
+from methods.scratch import train_from_scratch_sfcn
+from methods.ft_full import train_sfcn_preloaded
+from methods.ft_final import train_final_sfcn_preloaded
+from methods.ft_step import train_step_sfcn_preloaded
+
 
 from data.oasis.load_oasis3 import give_oasis_data
 
@@ -30,6 +31,8 @@ task=config['experiment']['task']
 data=config['experiment']['data']
 method=config['experiment']['method']
 preprocessing=config['experiment']['preprocessing']
+share=config['experiment']['share']
+
 
 #Extract hyperparameters for experiment:
 config_setup=config[method][task][data]
@@ -42,6 +45,9 @@ if ARGS['DEBUG']=='debug':
     hps['batch']=2
     if 'n_epochs' in list(hps.keys()):
         hps['n_epochs']=3
+    if 'n_epochs_ll' in list(hps.keys()):
+        hps['n_epochs_ll']=3
+
 elif ARGS['DEBUG']=='full':
     debug=False 
 else: 
@@ -54,7 +60,8 @@ if data=='oasis':
                                             shuffle=True,
                                             debug=debug,
                                             preprocessing=preprocessing,
-                                            task=task)
+                                            task=task,
+                                            share=share)
 
     _,val_loader=give_oasis_data('val', batch_size=hps['batch'],
                                         num_workers=computing['n_workers'],
@@ -68,6 +75,12 @@ else:
 if method=='elastic':
     elastic_experiment(train_loader,val_loader,hps)
 elif method=='scratch':
-    train_sfcn_from_scratch(train_loader,val_loader,hps)
+    train_from_scratch_sfcn(train_loader,val_loader,hps)
+elif method=='ft_full':
+    train_sfcn_preloaded(train_loader,val_loader,hps)
+elif method=='ft_final':
+    train_final_sfcn_preloaded(train_loader,val_loader,hps)
+elif method=='ft_step':
+    train_step_sfcn_preloaded(train_loader,val_loader,hps)
 else: 
     sys.exit("Unknown method.")
