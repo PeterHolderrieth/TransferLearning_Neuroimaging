@@ -8,7 +8,7 @@ from methods.scratch import train_from_scratch_sfcn
 from methods.ft_full import train_sfcn_preloaded
 from methods.ft_final import train_final_sfcn_preloaded
 from methods.ft_step import train_step_sfcn_preloaded
-
+from methods.direct_transfer import test_sfcn_preloaded
 
 from data.oasis.load_oasis3 import give_oasis_data
 
@@ -43,8 +43,10 @@ computing=config_setup['computing']
 if ARGS['DEBUG']=='debug':
     debug=True
     hps['batch']=2
+
     if 'n_epochs' in list(hps.keys()):
         hps['n_epochs']=3
+    
     if 'n_epochs_ll' in list(hps.keys()):
         hps['n_epochs_ll']=3
 
@@ -67,20 +69,28 @@ if data=='oasis':
                                         num_workers=computing['n_workers'],
                                         shuffle=True,
                                         debug=debug,
-                                        preprocessing=preprocessing,
+                                        preprocessing='minimal',
                                         task=task)
 else: 
     sys.exit("Unknown data files.")   
 
 if method=='elastic':
     elastic_experiment(train_loader,val_loader,hps)
+
 elif method=='scratch':
     train_from_scratch_sfcn(train_loader,val_loader,hps)
+
 elif method=='ft_full':
     train_sfcn_preloaded(train_loader,val_loader,hps)
+
 elif method=='ft_final':
     train_final_sfcn_preloaded(train_loader,val_loader,hps)
+
 elif method=='ft_step':
     train_step_sfcn_preloaded(train_loader,val_loader,hps)
+
+elif method=='direct_transfer':
+    test_sfcn_preloaded(val_loader,hps)
+
 else: 
     sys.exit("Unknown method.")

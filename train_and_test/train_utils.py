@@ -45,6 +45,14 @@ class TrainMeter(object):
         if val_loss_it is not None: self.val_loss.update(val_loss_it,n)        
         if val_eval_it is not None: self.val_eval.update(val_eval_it,n)
 
+class TestMeter(object):
+    def __init__(self,len_rvg=None,track=True):
+        self.test_loss=AverageMeter(len_rvg,track)
+        self.test_eval=AverageMeter(len_rvg,track)
+
+    def update(self,test_loss_it=None,test_eval_it=None,n=1):   
+        if test_loss_it is not None: self.test_loss.update(test_loss_it,n)        
+        if test_eval_it is not None: self.test_eval.update(test_eval_it,n)
 
 def give_optimizer(optim_type,model,lr,weight_decay,momentum):
     if optim_type=='SGD':
