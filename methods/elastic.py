@@ -101,7 +101,7 @@ def fit_elastic(train_loader,batch, ncomp, l1rat, reg, feat,reg_method):
     #Fit regression model:
     if reg_method=='regression':
         reg_model=ElasticNet(alpha=reg,l1_ratio=l1rat)
-    elif task=='logistic':
+    elif reg_method=='logistic':
         reg_model=LogisticRegression(penalty = 'elasticnet', solver = 'saga', l1_ratio = l1rat,C=1/reg)
     else: 
         sys.exit("Unknown reg_method. Either 'regression' or logistic.")

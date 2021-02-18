@@ -159,7 +159,8 @@ config_data[method][task][data]={}
 
 setup_config=config_data[method][task][data]
 
-hps_config=setup_config['hps']={} 
+hps_config=setup_config['hps']={}
+print(temp_data)
 default_hps=temp_data[method][task][data]['hps']
 
 for key in default_hps.keys():

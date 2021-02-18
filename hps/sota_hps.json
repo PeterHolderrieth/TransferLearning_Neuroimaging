@@ -1,5 +1,6 @@
 {
-"experiment": {
+"experiment": 
+    {
     "method": "ft_step",
     "task": "sex",
     "data": "oasis",
@@ -11,10 +12,14 @@
     "save_server": "yes", 
     "parent_directory": "experiments/" 
     },
-"elastic": {
-    "age": {
-        "oasis":{
-            "hps":{
+"elastic": 
+    {
+    "age": 
+        {
+        "oasis":
+            {
+            "hps":
+                {
                 "batch": 500,
                 "ncomp":-1,
                 "l1rat":0.7,
@@ -22,20 +27,46 @@
                 "feat":60,
                 "reg_method": "regression"
                 },
-            "computing": {
-                "folder":"age/elnet_grid_search/",
-                "queue": "gpu8.q",
-                "n_gpus": 2,
-                "n_workers": 4
+            "computing": 
+                {
+                "folder":"age/elastic/",
+                "queue": "win000",
+                "n_gpus": 0,
+                "n_workers": 2
                 }
             }
-        }    
+        },    
+    "sex": 
+        {
+        "oasis":
+            {
+            "hps":
+                {
+                "batch": 500,
+                "ncomp":-1,
+                "l1rat":0.5,
+                "reg":0.1,
+                "feat":60,
+                "reg_method": "logistic"
+                },
+            "computing":
+                {
+                "folder":"sex/elastic/",
+                "queue": "win000",
+                "n_gpus": 0,
+                "n_workers": 2
+                }
+            }   
+        }
     },
-    "sex": {
-    },
-"scratch":{ 
-    "age":{ 
-        "oasis": { "hps":{
+"scratch":
+    { 
+    "age":
+        { 
+        "oasis": 
+            { 
+            "hps":
+                {
                 "batch": 8,
                 "bin_min":37,
                 "bin_max":96,
@@ -57,44 +88,85 @@
                 "threshold": 0.0,
                 "print_corr": true
                 },
-            "computing": {
-                "folder":"age/scratch_baseline/",
+            "computing":
+                {
+                "folder":"age/scratch/",
                 "queue": "gpu8.q",
                 "n_gpus": 2,
                 "n_workers": 4
                 }
             }
         },
-    "sex":{    
-        }
+    "sex":
+        { 
+        "oasis": 
+            { 
+            "hps":
+                {
+                "batch": 8,
+                "bin_min": 0,
+                "bin_max": 2,
+                "bin_step": 1,
+                "sigma": 1.0,
+                "dropout": 0.5,
+                "channel_number": [32, 64, 128, 256, 256, 64], 
+                "space": "binary",
+                "loss_met": "ent",
+                "eval_met": "acc",
+                "n_epochs": 2000,
+                "optim_type": "SGD",
+                "lr": 1e-2,
+                "weight_decay": 1e-3,
+                "momentum": 0.9,
+                "scheduler_type": "step",
+                "epoch_dec": 30,
+                "gamma_dec": 0.3,
+                "threshold": 0.0,
+                "print_corr": true
+                },
+            "computing": 
+                {
+                "folder":"sex/scratch/",
+                "queue": "gpu8.q",
+                "n_gpus": 2,
+                "n_workers": 4
+                }
+            }
+        }   
     }, 
-"ft_full":{ 
-    "age":{ 
-        "oasis": { "hps":{
-                        "run": "0",
-                        "task": "age",
-                        "batch": 8,
-                        "bin_min":37,
-                        "bin_max":96,
-                        "bin_step":1,
-                        "sigma":1.0,
-                        "dropout": 0.5,
-                        "channel_number":[32, 64, 128, 256, 256, 64], 
-                        "space":"continuous",
-                        "loss_met":"kl",
-                        "eval_met":"mae",
-                        "n_epochs":2000,
-                        "optim_type": "SGD",
-                        "lr": 1e-2,
-                        "weight_decay":1e-3,
-                        "momentum": 0.9,
-                        "scheduler_type": "step",
-                        "epoch_dec": 30,
-                        "gamma_dec": 0.3,
-                        "threshold": 0.0,
-                        "print_corr": true
-                        },
-            "computing": {
+"ft_full":
+    { 
+    "age":
+        { 
+        "oasis": 
+            { 
+            "hps":
+                {
+                "run": "0",
+                "task": "age",
+                "batch": 8,
+                "bin_min":37,
+                "bin_max":96,
+                "bin_step":1,
+                "sigma":1.0,
+                "dropout": 0.5,
+                "channel_number":[32, 64, 128, 256, 256, 64], 
+                "space":"continuous",
+                "loss_met":"kl",
+                "eval_met":"mae",
+                "n_epochs":2000,
+                "optim_type": "SGD",
+                "lr": 1e-2,
+                "weight_decay":1e-3,
+                "momentum": 0.9,
+                "scheduler_type": "step",
+                "epoch_dec": 30,
+                "gamma_dec": 0.3,
+                "threshold": 0.0,
+                "print_corr": true
+                },
+            "computing": 
+                {
                 "folder":"age/age_pretrained/",
                 "queue": "gpu8.q",
                 "n_gpus": 2,
@@ -102,9 +174,45 @@
                 }
             }
         },
-    "sex":{    
+    "sex":
+        { 
+        "oasis": 
+            { 
+            "hps":
+                {
+                "run": "0",
+                "task": "age",
+                "batch": 8,
+                "bin_min":37,
+                "bin_max":96,
+                "bin_step":1,
+                "sigma":1.0,
+                "dropout": 0.5,
+                "channel_number":[32, 64, 128, 256, 256, 64], 
+                "space":"continuous",
+                "loss_met":"kl",
+                "eval_met":"mae",
+                "n_epochs":2000,
+                "optim_type": "SGD",
+                "lr": 1e-2,
+                "weight_decay":1e-3,
+                "momentum": 0.9,
+                "scheduler_type": "step",
+                "epoch_dec": 30,
+                "gamma_dec": 0.3,
+                "threshold": 0.0,
+                "print_corr": true
+                },
+            "computing": 
+                {
+                "folder":"age/age_pretrained/",
+                "queue": "gpu8.q",
+                "n_gpus": 2,
+                "n_workers": 4
+                }
+            }
         }
-    }, 
+    },
 "ft_final":{ 
     "age":{ 
         "oasis": { "hps":{
