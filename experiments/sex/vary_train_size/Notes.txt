@@ -1,0 +1,58 @@
+After training only final layer:
+1%:
+val acc: 0.45 - train acc: 1.
+
+5%:
+
+val acc: 0.88 - train acc: 0.91
+
+10%:
+val acc:  0.87 - train acc: 1.
+
+20%:
+val acc: 0.88 - train acc: 0.93
+
+40%:
+val acc: 0.89  - train acc: 0.92
+
+80%:
+val acc: 0.89 - train acc: 0.93
+
+100%:
+
+
+After step-wise training:
+1%:
+val acc: 0.45 - train acc: 1.
+
+5%:
+val acc: 0.71 - train acc: 1.
+
+10%:
+val acc: 0.67 - train acc: 1.
+
+20%: 
+val acc: 0.55 - train acc: 0.98
+(pretty weird: after training the full model,
+the loss suddenly jumped up, did we really re-use the model?)
+
+40%: 
+val: 0.62 - train_acc: 0.97
+
+(pretty weird: after training the full model,
+the loss suddenly jumped up, did we really re-use the model?)
+
+80%: 
+val: 0.93 - train_acc: 1.
+
+(pretty weird: after training the full model,
+the loss suddenly jumped up, did we really re-use the model?)
+
+100%:
+
+val: 0.97 - train_acc: 1.
+
+QUESTION: DID IT REALLY TRAIN THE MODEL INPLACE?
+IF NOT, THE RESULTS ABOVE ARE NOT VALID!
+
+Study the jump at 40 to 80 percent, here the crucial jump lies!
