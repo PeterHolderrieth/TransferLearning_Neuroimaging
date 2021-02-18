@@ -34,7 +34,7 @@ as general as possible since it initiates all programs and tasks in this project
 VALID_PATH='hps/valid_hps.csv'
 DEFAULT_PATH='hps/sota_hps.json'
 DF_HP = pd.read_csv(VALID_PATH,index_col=0)
-print(DF_HP.head())
+#print(DF_HP.head())
 
 def get_valid_values(name):
     valid_values=DF_HP.loc[name,:][4:].values
