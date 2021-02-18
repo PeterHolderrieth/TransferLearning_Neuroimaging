@@ -6,7 +6,7 @@ from train_and_test.train_utils import TestMeter as TM
 from train_and_test.train_utils import print_sep_line
 
 def test(model,test_loader,loss_func,eval_func,label_translater,n_epochs,device):
-    meter=TM(len_rvg=len_rvg)
+    meter=TM()
     for epoch in range(n_epochs):
         #Go one epoch:
         results_test=go_one_epoch('test',model=model,
@@ -27,9 +27,9 @@ def test(model,test_loader,loss_func,eval_func,label_translater,n_epochs,device)
         loss_std=torch.tensor(meter.test_loss.vec).std().item()
         ev_std=torch.tensor(meter.test_eval.vec).std().item()
 
-        print(("test %s mean: %.5f | test %s std: %.5f |"+
-                "test %s mean:  %.5f |test %s std:  %.5f |")%(loss_name,meter.test_loss.avg
-                    ,loss_name,loss_std,ev_name,meter.test_eval.avg,ev_name,ev_std))
+    print(("test %s mean: %.5f | test %s std: %.5f |"+
+            "test %s mean:  %.5f |test %s std:  %.5f |")%(loss_name,meter.test_loss.avg
+                ,loss_name,loss_std,ev_name,meter.test_eval.avg,ev_name,ev_std))
 
     return(meter)
 
@@ -52,7 +52,7 @@ def run_test(model,test_loader,loss_func,eval_func,label_translater,n_epochs,inf
                 eval_func=eval_func,
                 label_translater=label_translater,
                 device=device,
-                n_epochs=n_epochs):
+                n_epochs=n_epochs)
                 
     print_sep_line() 
     print("Finished: ", datetime.datetime.today())

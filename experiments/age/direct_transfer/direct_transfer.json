@@ -1,7 +1,7 @@
 {
 "experiment": {
     "method": "direct_transfer",
-    "task": "sex",
+    "task": "age",
     "data": "oasis",
     "share": null,
     "train": "yes", 
@@ -12,25 +12,24 @@
     "parent_directory": "experiments/" 
     },
 "direct_transfer":{ 
-    "sex":{
+    "age":{
         "oasis": { "hps":{
                         "run": "0",
-                        "n_layer_ft": 1,
-                        "task": "sex",
+                        "task": "age",
                         "batch": 2,
-                        "bin_min":0,
-                        "bin_max":2,
+                        "bin_min":??,
+                        "bin_max":??,
                         "bin_step":1,
                         "sigma":1.0,
                         "dropout": 0.5,
-                        "space":"binary",
-                        "loss_met":"ent",
-                        "eval_met":"acc",
+                        "space":"continuous",
+                        "loss_met":"kl",
+                        "eval_met":"mae",
                         "n_epochs":1,
                         "print_corr": false
                         },
                 "computing": {
-                    "folder":"sex/vary_train_size/",
+                    "folder":"NAA",
                     "queue": "gpu8.q",
                     "n_gpus": 2,
                     "n_workers": 4    

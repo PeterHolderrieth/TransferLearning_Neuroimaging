@@ -69,7 +69,7 @@ if data=='oasis':
                                         num_workers=computing['n_workers'],
                                         shuffle=True,
                                         debug=debug,
-                                        preprocessing='minimal',
+                                        preprocessing='min',
                                         task=task)
 else: 
     sys.exit("Unknown data files.")   

@@ -13,8 +13,7 @@ def test_sfcn_preloaded(test_loader,hps):
     info_start="Full model is being tested with weights loaded from pre-trained model."
     info_end="Full model was being tested with weights loaded from pre-trained model."
 
-    return sfcn_test(model,   train_loader=train_loader, 
-                        val_loader=val_loader,
+    return sfcn_test(model,   test_loader=test_loader, 
                         bin_min=hps['bin_min'], 
                         bin_max=hps['bin_max'],
                         space=hps['space'],
