@@ -51,12 +51,16 @@ def give_oasis_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=Fals
         label_list = list([age_, ] for age_ in df_session.AgeBasedOnClinicalData.values)
     
     elif task=='sex':
+        
         #Get subject info:
         subject_df=pd.read_csv(DIR_IDs+'subject_info.csv')
+        
         #Extract subject and sex info. Set subject as index:
         subject_sex=subject_df[["Subject","Sex"]].set_index("Subject")
+        
         #Extract labels:
-        label_list=list([sex_, ] for sex_ in subject_sex.loc[df_session.Subject.values,:].values)
+        label_list=list([sex_, ] for sex_ in subject_sex.loc[df_session.Subject.values].values)
+    
     else: 
         sys.exit("Unknown task.")
 
