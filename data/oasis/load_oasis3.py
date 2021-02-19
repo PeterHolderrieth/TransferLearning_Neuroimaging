@@ -9,7 +9,7 @@ import os.path as osp
 import pandas as pd 
 
 sys.path.append('../../')
-from dataset import give_mri_data
+from data.dataset import give_mri_data
 
 
 

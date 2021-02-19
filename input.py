@@ -5,8 +5,7 @@ import numpy as np
 import os.path as osp
 import os
 from datetime import datetime
-
-
+from bmrc.write_bmrc_file import write_bmrc_file
 
 '''
 Note: I would like to two codes:
@@ -29,6 +28,7 @@ This function allows to specify a config file at the start which is used as a de
 2. A config parser program which based on a config file initiates the program. This should 
 as general as possible since it initiates all programs and tasks in this project.
 '''
+
 
 #Load data frame of hyperparameters:
 VALID_PATH='hps/valid_hps.csv'
@@ -160,7 +160,6 @@ config_data[method][task][data]={}
 setup_config=config_data[method][task][data]
 
 hps_config=setup_config['hps']={}
-print(temp_data)
 default_hps=temp_data[method][task][data]['hps']
 
 for key in default_hps.keys():
@@ -189,6 +188,17 @@ if exp_config['save_config']=='yes':
         print("Directory already exists.")
 
     date_string=datetime.today().strftime('%Y%m%d_%H%M')
-    config_file_name=osp.join(direct,record_config['experiment_name']+date_string+'.json')
-    with open(config_file_name, "w") as configfile:
+    json_filename=record_config['experiment_name']+date_string+'.json'
+
+    json_filepath=osp.join(direct,json_filename)
+
+    with open(json_filepath, "w") as configfile:
         json.dump(config_data,configfile,indent=2)
+    
+    if exp_config['save_server']=='yes':
+        server_filename=record_config['experiment_name']+date_string+'.sh'
+        log_filename=record_config['experiment_name']+date_string+'.log'
+
+        server_filepath=osp.join(direct,server_filename)
+        log_filepath=osp.join(direct,log_filename)
+        write_bmrc_file(comp_config['queue'],comp_config['n_gpus'],json_filepath,log_filepath,server_filepath)

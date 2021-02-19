@@ -1,14 +1,14 @@
 #!/bin/bash
-#$ -wd /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/bmrc/gpu_template/
+#$ -wd /users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/
 #$ -P win.prjc
-#$ -q gpu8.q
+#$ -q %s
 #$ -j y #Error and output file are merged to output file
-#$ -l gpu=2
-#$ -pe shmem 2 #Should be the same as the number of GPUs 
+#$ -l gpu=%s
+#$ -pe shmem %s #Should be the same as the number of GPUs 
 #$ -l gputype=p100
 #Save file to:
 # Log locations which are relative to the current                                                                                                                                                                  # working directory of the submission
-#$ -o template.log
+#$ -o %s
 
 echo "------------------------------------------------"
 echo "Job ID: $JOB_ID"
@@ -24,7 +24,7 @@ module load Python/3.7.4-GCCcore-8.3.0
 #Activate the correct python environment:
 source ~/python/ccpu_py_tlneuro
 
-python ~/TransferLearning_Neuroimaging/main.py -deb full -con 
+python ~/TransferLearning_Neuroimaging/main.py -deb full -con %s
 
 
 echo "------------------------------------------------"
