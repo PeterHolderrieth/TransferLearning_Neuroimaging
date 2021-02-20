@@ -6,16 +6,15 @@ from sfcn.sfcn_test import sfcn_test
 
 def test_sfcn_preloaded(test_loader,hps): 
     
-    model=give_pretrained_sfcn(hps['run'],hps['task'])
-    model.module.change_output_dim(hps['bin_max']-hps['bin_min'])
+    model,bin_min,bin_max=give_pretrained_sfcn(hps['run'],hps['task'],give_range=True)
     model.module.train_full_model()
 
     info_start="Full model is being tested with weights loaded from pre-trained model."
     info_end="Full model was being tested with weights loaded from pre-trained model."
 
     return sfcn_test(model,   test_loader=test_loader, 
-                        bin_min=hps['bin_min'], 
-                        bin_max=hps['bin_max'],
+                        bin_min=bin_min, 
+                        bin_max=bin_max,
                         space=hps['space'],
                         loss_met=hps['loss_met'],
                         eval_met=hps['eval_met'],

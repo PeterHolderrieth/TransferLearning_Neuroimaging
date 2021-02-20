@@ -177,7 +177,10 @@ if exp_config['save_config']=='yes':
     record_config=config_data['record']
 
     for key in temp_data['record'].keys():
-        record_config[key]=set_hp(key,temp_data['record'][key])
+        if key=='experiment_name':
+            record_config[key]=set_hp(key,None)
+        else:
+            record_config[key]=set_hp(key,temp_data['record'][key])
 
     direct = osp.join(exp_config['parent_directory'],
                         comp_config['folder'],

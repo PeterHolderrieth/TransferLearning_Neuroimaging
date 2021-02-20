@@ -80,7 +80,7 @@ def give_oasis_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=Fals
         if share is None: 
             print("Loading OASIS %5s data."%data_type)
         else: 
-            print("Loading share %.2f %5s debug data."%(share,data_type))
+            print("Loading share %.2f %5s data."%(share,data_type))
 
     
     return(give_mri_data(fp_list=fp_list,label_list=label_list,data_type=data_type,batch_size=batch_size,num_workers=num_workers,shuffle=shuffle,preprocessing=preprocessing))

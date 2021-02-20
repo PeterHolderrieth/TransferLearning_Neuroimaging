@@ -19,15 +19,17 @@ def give_fresh_sfcn(bin_min: int, bin_max: int, dropout: float, channel_number: 
     return nn.DataParallel(model)
 
 
-def give_pretrained_sfcn(run: str, task: str):
+def give_pretrained_sfcn(run: str, task: str, give_range:bool=False):
     '''
 
     '''
     with open("hps/pretrained_sfcns.json", "r") as read_file:
         config = json.load(read_file)
     
+    print("Load model for %s - run: %s"%(str(task),str(run)))
     model_info=config[task][run]
     path_to_pretrained=osp.join(config['path'],task,model_info['file'])
+
 
     #Initialize model:
     module=SFCN(channel_number=model_info['channels'],output_dim=model_info['output_dim'])
@@ -37,4 +39,7 @@ def give_pretrained_sfcn(run: str, task: str):
     state_dict=torch.load(path_to_pretrained)
     model.load_state_dict(state_dict)
 
-    return(model)
+    if give_range:
+        return(model,model_info['bin_min'],model_info['bin_max'])
+    else:    
+        return(model)

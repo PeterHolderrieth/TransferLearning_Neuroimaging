@@ -104,10 +104,13 @@ def run_training(model, train_loader,
     if print_corr:
         loss_arr=np.array(meter.tr_loss.vec)
         eval_arr=np.array(meter.tr_eval.vec)
-        corr=np.corrcoef(loss_arr,eval_arr)[0,1]
-        
-        print("Correlation between train loss and evaluation:", "%.3f"%corr)
-        print() 
+
+        if n_epochs>2 and loss_arr.var()>0 and eval_arr.std()>0:
+
+            corr=np.corrcoef(loss_arr,eval_arr)[0,1]
+            
+            print("Correlation between train loss and evaluation:", "%.3f"%corr)
+            print() 
 
     print_sep_line()
     

@@ -1,0 +1,95 @@
+------------------------------------------------
+Job ID: 37517208
+Run on host: compg011.hpc.in.bmrc.ox.ac.uk
+Operating system: Linux
+Username: lhw539
+Started at: Sat Feb 20 15:06:52 GMT 2021
+------------------------------------------------
+Loading share 1.00 train data.
+Loading OASIS   val data.
+Traceback (most recent call last):
+  File "/users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/main.py", line 93, in <module>
+    test_sfcn_preloaded(val_loader,hps)
+  File "/gpfs3/users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/methods/direct_transfer.py", line 9, in test_sfcn_preloaded
+    model=give_pretrained_sfcn(hps['run'],hps['task'])
+  File "/gpfs3/users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/sfcn/sfcn_load.py", line 38, in give_pretrained_sfcn
+    model.load_state_dict(state_dict)
+  File "/gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1052, in load_state_dict
+    self.__class__.__name__, "\n\t".join(error_msgs)))
+RuntimeError: Error(s) in loading state_dict for DataParallel:
+	size mismatch for module.feature_extractor.conv_0.0.weight: copying a param with shape torch.Size([32, 1, 3, 3, 3]) from checkpoint, the shape in current model is torch.Size([28, 1, 3, 3, 3]).
+	size mismatch for module.feature_extractor.conv_0.0.bias: copying a param with shape torch.Size([32]) from checkpoint, the shape in current model is torch.Size([28]).
+	size mismatch for module.feature_extractor.conv_0.1.weight: copying a param with shape torch.Size([32]) from checkpoint, the shape in current model is torch.Size([28]).
+	size mismatch for module.feature_extractor.conv_0.1.bias: copying a param with shape torch.Size([32]) from checkpoint, the shape in current model is torch.Size([28]).
+	size mismatch for module.feature_extractor.conv_0.1.running_mean: copying a param with shape torch.Size([32]) from checkpoint, the shape in current model is torch.Size([28]).
+	size mismatch for module.feature_extractor.conv_0.1.running_var: copying a param with shape torch.Size([32]) from checkpoint, the shape in current model is torch.Size([28]).
+	size mismatch for module.feature_extractor.conv_1.0.weight: copying a param with shape torch.Size([64, 32, 3, 3, 3]) from checkpoint, the shape in current model is torch.Size([58, 28, 3, 3, 3]).
+	size mismatch for module.feature_extractor.conv_1.0.bias: copying a param with shape torch.Size([64]) from checkpoint, the shape in current model is torch.Size([58]).
+	size mismatch for module.feature_extractor.conv_1.1.weight: copying a param with shape torch.Size([64]) from checkpoint, the shape in current model is torch.Size([58]).
+	size mismatch for module.feature_extractor.conv_1.1.bias: copying a param with shape torch.Size([64]) from checkpoint, the shape in current model is torch.Size([58]).
+	size mismatch for module.feature_extractor.conv_1.1.running_mean: copying a param with shape torch.Size([64]) from checkpoint, the shape in current model is torch.Size([58]).
+	size mismatch for module.feature_extractor.conv_1.1.running_var: copying a param with shape torch.Size([64]) from checkpoint, the shape in current model is torch.Size([58]).
+	size mismatch for module.feature_extractor.conv_2.0.weight: copying a param with shape torch.Size([128, 64, 3, 3, 3]) from checkpoint, the shape in current model is torch.Size([128, 58, 3, 3, 3]).
+------------------------------------------------
+Finished at: Sat Feb 20 15:06:57 GMT 2021
+------------------------------------------------
+------------------------------------------------
+Job ID: 37523144
+Run on host: compg011.hpc.in.bmrc.ox.ac.uk
+Operating system: Linux
+Username: lhw539
+Started at: Sat Feb 20 15:39:04 GMT 2021
+------------------------------------------------
+Loading share 1.00 train data.
+Loading OASIS   val data.
+Traceback (most recent call last):
+  File "/users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/main.py", line 93, in <module>
+    test_sfcn_preloaded(val_loader,hps)
+  File "/gpfs3/users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/methods/direct_transfer.py", line 9, in test_sfcn_preloaded
+    model,bin_min,bin_max=give_pretrained_sfcn(hps['run'],hps['task'],give_range=True)
+  File "/gpfs3/users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/sfcn/sfcn_load.py", line 38, in give_pretrained_sfcn
+    model.load_state_dict(state_dict)
+  File "/gpfs3/users/win-fmrib-analysis/lhw539/python/tlneuro-skylake/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1052, in load_state_dict
+    self.__class__.__name__, "\n\t".join(error_msgs)))
+RuntimeError: Error(s) in loading state_dict for DataParallel:
+	size mismatch for module.feature_extractor.conv_0.0.weight: copying a param with shape torch.Size([32, 1, 3, 3, 3]) from checkpoint, the shape in current model is torch.Size([28, 1, 3, 3, 3]).
+	size mismatch for module.feature_extractor.conv_0.0.bias: copying a param with shape torch.Size([32]) from checkpoint, the shape in current model is torch.Size([28]).
+	size mismatch for module.feature_extractor.conv_0.1.weight: copying a param with shape torch.Size([32]) from checkpoint, the shape in current model is torch.Size([28]).
+	size mismatch for module.feature_extractor.conv_0.1.bias: copying a param with shape torch.Size([32]) from checkpoint, the shape in current model is torch.Size([28]).
+	size mismatch for module.feature_extractor.conv_0.1.running_mean: copying a param with shape torch.Size([32]) from checkpoint, the shape in current model is torch.Size([28]).
+	size mismatch for module.feature_extractor.conv_0.1.running_var: copying a param with shape torch.Size([32]) from checkpoint, the shape in current model is torch.Size([28]).
+	size mismatch for module.feature_extractor.conv_1.0.weight: copying a param with shape torch.Size([64, 32, 3, 3, 3]) from checkpoint, the shape in current model is torch.Size([58, 28, 3, 3, 3]).
+	size mismatch for module.feature_extractor.conv_1.0.bias: copying a param with shape torch.Size([64]) from checkpoint, the shape in current model is torch.Size([58]).
+	size mismatch for module.feature_extractor.conv_1.1.weight: copying a param with shape torch.Size([64]) from checkpoint, the shape in current model is torch.Size([58]).
+	size mismatch for module.feature_extractor.conv_1.1.bias: copying a param with shape torch.Size([64]) from checkpoint, the shape in current model is torch.Size([58]).
+	size mismatch for module.feature_extractor.conv_1.1.running_mean: copying a param with shape torch.Size([64]) from checkpoint, the shape in current model is torch.Size([58]).
+	size mismatch for module.feature_extractor.conv_1.1.running_var: copying a param with shape torch.Size([64]) from checkpoint, the shape in current model is torch.Size([58]).
+	size mismatch for module.feature_extractor.conv_2.0.weight: copying a param with shape torch.Size([128, 64, 3, 3, 3]) from checkpoint, the shape in current model is torch.Size([128, 58, 3, 3, 3]).
+------------------------------------------------
+Finished at: Sat Feb 20 15:39:10 GMT 2021
+------------------------------------------------
+------------------------------------------------
+Job ID: 37525911
+Run on host: compg011.hpc.in.bmrc.ox.ac.uk
+Operating system: Linux
+Username: lhw539
+Started at: Sat Feb 20 15:58:19 GMT 2021
+------------------------------------------------
+Loading share 1.00 train data.
+Loading OASIS   val data.
+Load model for age - run: 4
+Number of GPUs:  2
+
+Full model is being tested with weights loaded from pre-trained model.
+Start:  2021-02-20 15:58:25.058242
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+test kld mean: 1.65490 | test kld std: 0.01330 |test mae mean:  3.90933 |test mae std:  0.02776 |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Finished:  2021-02-20 15:58:57.322966
+
+Correlation between train loss and evaluation: 0.870
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------
+Finished at: Sat Feb 20 15:58:58 GMT 2021
+------------------------------------------------
