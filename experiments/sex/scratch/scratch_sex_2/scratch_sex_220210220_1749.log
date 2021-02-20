@@ -1,0 +1,23 @@
+------------------------------------------------
+Job ID: 37536188
+Run on host: compg013.hpc.in.bmrc.ox.ac.uk
+Operating system: Linux
+Username: lhw539
+Started at: Sat Feb 20 17:53:08 GMT 2021
+------------------------------------------------
+Loading share 1.00 train data.
+Loading OASIS   val data.
+Number of GPUs:  2
+
+Full model is being trained with random initialization.
+Start:  2021-02-20 17:53:13.566129
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+|epoch:   0 | lr: 0.010 |train ent: 0.55036 |train ent ravg: 0.55036 |train acc:  0.72159 |train acc ravg:  0.72159 |val ent: 1.26697 |val entravg: 1.26697 |val acc:  0.45455 |val acc ravg:  0.45455 |
+|epoch:   1 | lr: 0.010 |train ent: 0.55611 |train ent ravg: 0.55323 |train acc:  0.71307 |train acc ravg:  0.71733 |val ent: 0.99055 |val entravg: 1.12876 |val acc:  0.44318 |val acc ravg:  0.44886 |
+|epoch:   2 | lr: 0.010 |train ent: 0.55243 |train ent ravg: 0.55297 |train acc:  0.71023 |train acc ravg:  0.71496 |val ent: 4.04906 |val entravg: 2.10220 |val acc:  0.44318 |val acc ravg:  0.44697 |
+|epoch:   3 | lr: 0.010 |train ent: 0.53037 |train ent ravg: 0.54732 |train acc:  0.72727 |train acc ravg:  0.71804 |val ent: 3.64769 |val entravg: 2.48857 |val acc:  0.45455 |val acc ravg:  0.44886 |
+|epoch:   4 | lr: 0.010 |train ent: 0.49554 |train ent ravg: 0.53696 |train acc:  0.75284 |train acc ravg:  0.72500 |val ent: 2.74157 |val entravg: 2.53917 |val acc:  0.44318 |val acc ravg:  0.44773 |
+|epoch:   5 | lr: 0.010 |train ent: 0.54072 |train ent ravg: 0.53503 |train acc:  0.71307 |train acc ravg:  0.72330 |val ent: 26.84619 |val entravg: 7.65501 |val acc:  0.53409 |val acc ravg:  0.46364 |
+|epoch:   6 | lr: 0.010 |train ent: 0.48442 |train ent ravg: 0.52070 |train acc:  0.77841 |train acc ravg:  0.73636 |val ent: 5.35521 |val entravg: 8.52794 |val acc:  0.44318 |val acc ravg:  0.46364 |
+|epoch:   7 | lr: 0.010 |train ent: 0.51591 |train ent ravg: 0.51339 |train acc:  0.73864 |train acc ravg:  0.74205 |val ent: 2.43604 |val entravg: 8.20534 |val acc:  0.45455 |val acc ravg:  0.46591 |
+|epoch:   8 | lr: 0.010 |train ent: 0.41554 |train ent ravg: 0.49043 |train acc:  0.81534 |train acc ravg:  0.75966 |val ent: 4.62588 |val entravg: 8.40098 |val acc:  0.53409 |val acc ravg:  0.48182 |

@@ -64,6 +64,8 @@ def set_if_allowed(name,input_):
     elif DF_HP.loc[name,"Type"]=='bool':  
         input_=bool(input_)
     elif DF_HP.loc[name,"Type"]=='int_list':  
+        print(input_)
+        print(type(input_))
         input_=[int(val) for val in list(input_)]
     else: 
         sys.exit("Error in hyperparameters: Unknown type.")
@@ -107,7 +109,11 @@ def set_hp(name,default_val=None):
         prompt=prompt+" || default: "+default+" || "
 
     #Receive input:
-    input_= input(prompt)
+    if DF_HP.loc[name,"Type"]=='int_list':  
+        n=6
+        input_ = list(map(int,input(prompt).strip().split()))[:n] 
+    else:
+        input_= input(prompt)
 
     #If no input given, set input to template:
     if len(input_)==0 and default_val is not None:
