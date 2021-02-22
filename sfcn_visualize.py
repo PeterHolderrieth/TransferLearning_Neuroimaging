@@ -48,14 +48,13 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 print("Number of GPUs: ", torch.cuda.device_count())
 model=model.to(device)
 filter_index=0
-n_epochs=3
+n_epochs=1000
 lr=1e-1
 maximizing_image,_=maximize_activation(model,x,filter_index,n_epochs,lr,device)
 
 maximizing_image=maximizing_image.squeeze().cpu().detach().numpy()
 x.squeeze()
-plt.imshow(maximizing_image[0])
-plt.imshow(x.squeeze()[0])
-plt.savefig("Test.pdf")
+plt.imshow(maximizing_image[80])
+plt.savefig("Test_long.pdf")
 
 
