@@ -14,8 +14,7 @@ def compute_activation(model,x, filter_index,device=None):
     '''
     activation = model.module.feature_extractor(x)
     # We avoid border artifacts by only involving non-border pixels in the loss.
-    filter_activation = activation[:, 2:-2, 2:-2, filter_index]
-    print(filter_activation.shape)
+    filter_activation = activation[:, filter_index]
     return torch.mean(filter_activation)
 
 def maximize_activation(model,x,filter_index,n_epochs,lr,device=None):
