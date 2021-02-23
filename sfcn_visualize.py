@@ -48,8 +48,8 @@ model=give_pretrained_sfcn("0", "age")
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 print("Number of GPUs: ", torch.cuda.device_count())
 model=model.to(device)
-lr=100
-n_epochs=1000
+lr=500
+n_epochs=2000
 
 for it in range(n_it):
     filter_index=torch.randint(low=0,high=40,size=[]).item()
