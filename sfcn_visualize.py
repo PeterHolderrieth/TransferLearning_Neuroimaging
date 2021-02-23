@@ -50,10 +50,14 @@ print("Number of GPUs: ", torch.cuda.device_count())
 model=model.to(device)
 lr=500
 n_epochs=2000
+x,y=next(iter(train_loader))
+shape=x.shape
+x=x.flatten()
+x=x[torch.randperm(x.shape[0])]
+x=x.reshape(shape)
 
 for it in range(n_it):
     filter_index=torch.randint(low=0,high=40,size=[]).item()
-    x,y=next(iter(train_loader))
     print(x.shape)
     maximizing_image,_=maximize_activation(model,x,filter_index,n_epochs,lr,device)
     maximizing_image=maximizing_image.squeeze().cpu().detach().numpy()
