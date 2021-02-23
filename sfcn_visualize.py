@@ -55,18 +55,17 @@ shape=x.shape
 x=x.flatten()
 x=x[torch.randperm(x.shape[0])]
 x=x.reshape(shape)
+x_np=x.squeeze().cpu().detach().numpy()
 
 for it in range(n_it):
     filter_index=torch.randint(low=0,high=40,size=[]).item()
-    print(x.shape)
     maximizing_image,_=maximize_activation(model,x,filter_index,n_epochs,lr,device)
     maximizing_image=maximizing_image.squeeze().cpu().detach().numpy()
-    x=x.squeeze().cpu().detach().numpy()
     fig, ax=plt.subplots(ncols=2,nrows=1,figsize=(20,10))
     ind=80
-    ax[0].imshow(x[ind])
+    ax[0].imshow(x_np[ind])
     ax[1].imshow(maximizing_image[ind])
-    print("Difference:", np.linalg.norm(maximizing_image-x))
+    print("Difference:", np.linalg.norm(maximizing_image-x_np))
     filename="Test_long_"+str(it)+"_"+str(filter_index)+".pdf"
     plt.savefig(filename)
 
