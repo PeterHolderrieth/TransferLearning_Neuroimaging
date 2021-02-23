@@ -49,12 +49,12 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 print("Number of GPUs: ", torch.cuda.device_count())
 model=model.to(device)
 lr=10000
-n_epochs=2000
+n_epochs=10000
 x,y=next(iter(train_loader))
 shape=x.shape
-x=x.flatten()
-x=x[torch.randperm(x.shape[0])]
-x=x.reshape(shape)
+#x=x.flatten()
+#x=x[torch.randperm(x.shape[0])]
+#x=x.reshape(shape)
 x_np=x.squeeze().cpu().detach().numpy()
 
 for it in range(n_it):
