@@ -48,7 +48,7 @@ model=give_pretrained_sfcn("0", "age")
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 print("Number of GPUs: ", torch.cuda.device_count())
 model=model.to(device)
-lr=500
+lr=10000
 n_epochs=2000
 x,y=next(iter(train_loader))
 shape=x.shape
