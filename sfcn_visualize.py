@@ -1,4 +1,4 @@
-
+import numpy as np 
 import torch 
 from torch.autograd import Variable
 import sys 
@@ -62,7 +62,7 @@ for it in range(n_it):
     ind=80
     ax[0].imshow(x[ind])
     ax[1].imshow(maximizing_image[ind])
-    print("Difference:", torch.norm(maximizing_image-x))
+    print("Difference:", np.linalg.norm(maximizing_image-x))
     filename="Test_long_"+str(it)+".pdf"
     plt.savefig(filename)
 
