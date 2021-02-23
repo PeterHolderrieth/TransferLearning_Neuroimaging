@@ -48,7 +48,7 @@ model=give_pretrained_sfcn("0", "age")
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 print("Number of GPUs: ", torch.cuda.device_count())
 model=model.to(device)
-lr=1
+lr=10
 n_epochs=1000
 
 for it in range(n_it):
@@ -63,7 +63,7 @@ for it in range(n_it):
     ax[0].imshow(x[ind])
     ax[1].imshow(maximizing_image[ind])
     print("Difference:", np.linalg.norm(maximizing_image-x))
-    filename="Test_long_"+str(it)+".pdf"
+    filename="Test_long_"+str(it)+"_"+str(filter_index)+".pdf"
     plt.savefig(filename)
 
 
