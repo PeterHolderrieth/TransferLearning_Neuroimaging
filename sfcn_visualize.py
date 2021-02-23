@@ -48,11 +48,11 @@ model=give_pretrained_sfcn("0", "age")
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 print("Number of GPUs: ", torch.cuda.device_count())
 model=model.to(device)
-lr=1e-1
-filter_index=0
+lr=1
 n_epochs=1000
 
 for it in range(n_it):
+    filter_index=torch.randint(low=0,high=40,size=[]).item()
     x,y=next(iter(train_loader))
     print(x.shape)
     maximizing_image,_=maximize_activation(model,x,filter_index,n_epochs,lr,device)
