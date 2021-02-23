@@ -54,9 +54,10 @@ n_epochs=1000
 
 for it in range(n_it):
     x,y=next(iter(train_loader))
+    print(x.shape)
     maximizing_image,_=maximize_activation(model,x,filter_index,n_epochs,lr,device)
     maximizing_image=maximizing_image.squeeze().cpu().detach().numpy()
-    x.squeeze()
+    x=x.squeeze().cpu().detach().numpy()
     fig, ax=plt.subplots(ncols=2,nrows=1,figsize=(20,10))
     ind=80
     ax[0].imshow(x[ind])
