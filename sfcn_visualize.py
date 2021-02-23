@@ -42,19 +42,27 @@ _,train_loader=give_oasis_data('train', batch_size=1,
                                         preprocessing='min',
                                         task='age',
                                         share=1.)
-x,y=next(iter(train_loader))
+
+n_it=10
 model=give_pretrained_sfcn("0", "age")
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 print("Number of GPUs: ", torch.cuda.device_count())
 model=model.to(device)
+lr=1e-1
 filter_index=0
 n_epochs=1000
-lr=1e-1
-maximizing_image,_=maximize_activation(model,x,filter_index,n_epochs,lr,device)
 
-maximizing_image=maximizing_image.squeeze().cpu().detach().numpy()
-x.squeeze()
-plt.imshow(maximizing_image[80])
-plt.savefig("Test_long.pdf")
+for it in range(n_it):
+    x,y=next(iter(train_loader))
+    maximizing_image,_=maximize_activation(model,x,filter_index,n_epochs,lr,device)
+    maximizing_image=maximizing_image.squeeze().cpu().detach().numpy()
+    x.squeeze()
+    fig, ax=plt.subplots(ncols=2,nrows=1,figsize=(20,10))
+    ind=80
+    ax[0].imshow(x[ind])
+    ax[1].imshow(maximizing_image[ind])
+    print("Difference:", torch.norm(maximizing_image-x))
+    filename="Test_long_"+str(it)+".pdf"
+    plt.savefig(filename)
 
 
