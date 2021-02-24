@@ -49,9 +49,9 @@ _,train_loader=give_oasis_data('train', batch_size=1,
                                         share=1.)
 
 
-n_it=1#00
+n_it=1
 lr_list=[0.1,1.,10.,100.,0.1]
-n_epochs=2
+n_epochs=2#0000
 alpha_list=[1e-6,1e-5,1e-4,1e-3]
 
 
@@ -72,7 +72,7 @@ for permute in [True, False]:
         maximizing_image,loss_list=maximize_activation(model,x,filter_index,n_epochs,lr,alpha,device)
         maximizing_image=maximizing_image.squeeze().cpu().detach().numpy()
         fig, ax=plt.subplots(ncols=4,nrows=1,figsize=(40,10))
-        ind=80
+        ind=torch.randint(low=60,high=100,size=[]).item()
         nm_x=Normalize(vmin=x_np.min(), vmax=x_np.max(), clip=True)
         ax[0].imshow(x_np[ind],'gray',norm=nm_x)
         ax[1].imshow(maximizing_image[ind],'gray')
