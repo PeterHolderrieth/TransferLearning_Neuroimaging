@@ -49,9 +49,9 @@ _,train_loader=give_oasis_data('train', batch_size=1,
                                         share=1.)
 
 
-n_it=1
+n_it=100
 lr_list=[0.1,1.,10.,100.,0.1]
-n_epochs=2#0000
+n_epochs=50000
 alpha_list=[1e-6,1e-5,1e-4,1e-3]
 
 
