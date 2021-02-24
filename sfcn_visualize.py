@@ -17,7 +17,7 @@ def compute_activation(model,x, filter_index,device=None):
     filter_activation = activation[:, filter_index]
     return torch.mean(filter_activation)
 
-def maximize_activation(model,x,filter_index,n_epochs,lr,device=None):
+def maximize_activation(model,x,filter_index,n_epochs,lr,alpha=1.,device=None):
     if device is not None: 
         x=x.to(device)
     x = Variable(x, requires_grad=True) 
@@ -27,7 +27,7 @@ def maximize_activation(model,x,filter_index,n_epochs,lr,device=None):
     for it in range(n_epochs):
         loss=compute_activation(model,x,filter_index,device)
         loss.backward()
-        x.data=x.data+lr*x.grad.data
+        x.data=x.data+lr*x.grad.data-lr*alpha*torch.norm(
         x.grad.zero_()
         print("Loss: %.6f"%loss)
         loss_list.append(loss)
