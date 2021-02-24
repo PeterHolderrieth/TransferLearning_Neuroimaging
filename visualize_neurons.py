@@ -55,31 +55,33 @@ n_epochs=50000
 alpha_list=[1e-6,1e-5,1e-4,1e-3]
 permute_list=[True,False]
 
-    for it in range(n_it):
-        x,y=next(iter(train_loader))
-        shape=x.shape
-        permute_index=torch.randint(low=0,high=2,size=[]).item()   
-	permute=permute_list[permute_index]
-	if permute:
-            x=x.flatten()
-            x=x[torch.randperm(x.shape[0])]
-            x=x.reshape(shape)
-        x_np=x.squeeze().cpu().detach().numpy()
-	filter_index=torch.randint(low=0,high=40,size=[]).item()
-        alpha_index=torch.randint(low=0,high=len(alpha_list),size=[]).item()
-        lr_index=torch.randint(low=0,high=len(lr_list),size=[]).item()
-        alpha=alpha_list[alpha_index]
-        lr=lr_list[lr_index]
-        maximizing_image,loss_list=maximize_activation(model,x,filter_index,n_epochs,lr,alpha,device)
-        maximizing_image=maximizing_image.squeeze().cpu().detach().numpy()
-        fig, ax=plt.subplots(ncols=4,nrows=1,figsize=(40,10))
-        ind=torch.randint(low=60,high=100,size=[]).item()
-        nm_x=Normalize(vmin=x_np.min(), vmax=x_np.max(), clip=True)
-        ax[0].imshow(x_np[ind],'gray',norm=nm_x)
-        ax[1].imshow(maximizing_image[ind],'gray')
-        ax[2].imshow(maximizing_image[ind],'gray',norm=nm_x)
-        ax[3].plot(loss_list)
-        fig.suptitle("Learning rate: %.5f || Alpha: %.5f"%(lr,alpha))
-        print("Difference:", np.linalg.norm(maximizing_image-x_np))
-        filename="Max_activ_"+str(it)+"_"+str(filter_index)+"_"+str(permute)+".pdf"
-        plt.savefig(filename)
+for it in range(n_it):
+    x,y=next(iter(train_loader))
+    shape=x.shape
+    permute_index=torch.randint(low=0,high=2,size=[]).item()   
+    permute=permute_list[permute_index]
+    
+    if permute:
+        x=x.flatten()
+        x=x[torch.randperm(x.shape[0])]
+        x=x.reshape(shape)
+    
+    x_np=x.squeeze().cpu().detach().numpy()
+    filter_index=torch.randint(low=0,high=40,size=[]).item()
+    alpha_index=torch.randint(low=0,high=len(alpha_list),size=[]).item()
+    lr_index=torch.randint(low=0,high=len(lr_list),size=[]).item()
+    alpha=alpha_list[alpha_index]
+    lr=lr_list[lr_index]
+    maximizing_image,loss_list=maximize_activation(model,x,filter_index,n_epochs,lr,alpha,device)
+    maximizing_image=maximizing_image.squeeze().cpu().detach().numpy()
+    fig, ax=plt.subplots(ncols=4,nrows=1,figsize=(40,10))
+    ind=torch.randint(low=60,high=100,size=[]).item()
+    nm_x=Normalize(vmin=x_np.min(), vmax=x_np.max(), clip=True)
+    ax[0].imshow(x_np[ind],'gray',norm=nm_x)
+    ax[1].imshow(maximizing_image[ind],'gray')
+    ax[2].imshow(maximizing_image[ind],'gray',norm=nm_x)
+    ax[3].plot(loss_list)
+    fig.suptitle("Learning rate: %.5f || Alpha: %.5f"%(lr,alpha))
+    print("Difference:", np.linalg.norm(maximizing_image-x_np))
+    filename="Max_activ_"+str(it)+"_"+str(filter_index)+"_"+str(permute)+".pdf"
+    plt.savefig(filename)
