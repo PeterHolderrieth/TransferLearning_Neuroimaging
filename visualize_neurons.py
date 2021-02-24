@@ -53,18 +53,19 @@ n_it=100
 lr_list=[0.1,1.,10.,100.,0.1]
 n_epochs=50000
 alpha_list=[1e-6,1e-5,1e-4,1e-3]
+permute_list=[True,False]
 
-
-for permute in [True, False]:
     for it in range(n_it):
         x,y=next(iter(train_loader))
         shape=x.shape
-        if permute:
+        permute_index=torch.randint(low=0,high=2,size=[]).item()   
+	permute=permute_list[permute_index]
+	if permute:
             x=x.flatten()
             x=x[torch.randperm(x.shape[0])]
             x=x.reshape(shape)
         x_np=x.squeeze().cpu().detach().numpy()
-        filter_index=torch.randint(low=0,high=40,size=[]).item()
+	filter_index=torch.randint(low=0,high=40,size=[]).item()
         alpha_index=torch.randint(low=0,high=len(alpha_list),size=[]).item()
         lr_index=torch.randint(low=0,high=len(lr_list),size=[]).item()
         alpha=alpha_list[alpha_index]
