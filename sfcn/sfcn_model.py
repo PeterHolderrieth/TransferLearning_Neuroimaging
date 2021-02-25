@@ -14,7 +14,8 @@ class SFCN(nn.Module):
         super(SFCN, self).__init__()
         self.n_layer = len(channel_number)
         self.output_dim=output_dim
-
+        self.channel_number=channel_number 
+        
         #Define part 1: feature extractor
         self.feature_extractor = nn.Sequential()
         for i in range(self.n_layer):
