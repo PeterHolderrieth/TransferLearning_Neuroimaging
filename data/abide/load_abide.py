@@ -38,6 +38,8 @@ def give_abide_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=Fals
         label_list=list([age_,] for age_ in df["Age"].to_list())
     elif task=='sex':
         label_list=list([sex_,] for sex_ in df["Sex"].to_list())
+    elif task=='autism':
+        label_list=list([label_,] for label_ in df["IsNC"].to_list())
     else: 
         sys.exit("Unknown task.")
 
