@@ -1,0 +1,44 @@
+{
+  "experiment": {
+    "method": "direct_transfer",
+    "task": "sex",
+    "data": "oasis",
+    "share": 1.0,
+    "train": "yes",
+    "valid": "no",
+    "preprocessing": "full",
+    "save_config": "yes",
+    "save_server": "yes",
+    "parent_directory": "experiments/"
+  },
+  "direct_transfer": {
+    "sex": {
+      "oasis": {
+        "hps": {
+          "run": "4",
+          "batch": 2,
+          "bin_min": 0,
+          "bin_max": 2,
+          "task": "sex",
+          "bin_step": 1,
+          "sigma": 1.0,
+          "dropout": 0.5,
+          "space": "binary",
+          "loss_met": "ent",
+          "eval_met": "acc",
+          "n_epochs": 5,
+          "print_corr": true
+        },
+        "computing": {
+          "folder": "sex/direct_transfer/",
+          "queue": "gpu8.q",
+          "n_gpus": 2,
+          "n_workers": 4
+        }
+      }
+    }
+  },
+  "record": {
+    "experiment_name": "run_4_"
+  }
+}

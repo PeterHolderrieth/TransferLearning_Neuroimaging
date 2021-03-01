@@ -11,6 +11,8 @@ from methods.ft_step import train_step_sfcn_preloaded
 from methods.direct_transfer import test_sfcn_preloaded
 
 from data.oasis.load_oasis3 import give_oasis_data
+from data.abide.load_abide import give_abide_data
+from data.ixi.load_ixi import give_ixi_data
 
 # Construct the argument parser
 ap = argparse.ArgumentParser()
@@ -66,6 +68,37 @@ if data=='oasis':
                                             share=share)
 
     _,val_loader=give_oasis_data('val', batch_size=hps['batch'],
+                                        num_workers=computing['n_workers'],
+                                        shuffle=True,
+                                        debug=debug,
+                                        preprocessing='min',
+                                        task=task)
+
+elif data=='abide':
+    _,train_loader=give_abide_data('train', batch_size=hps['batch'],
+                                            num_workers=computing['n_workers'],
+                                            shuffle=True,
+                                            debug=debug,
+                                            preprocessing=preprocessing,
+                                            task=task,
+                                            share=share)
+
+    _,val_loader=give_abide_data('val', batch_size=hps['batch'],
+                                        num_workers=computing['n_workers'],
+                                        shuffle=True,
+                                        debug=debug,
+                                        preprocessing='min',
+                                        task=task)
+elif data=='ixi':
+    _,train_loader=give_ixi_data('train', batch_size=hps['batch'],
+                                            num_workers=computing['n_workers'],
+                                            shuffle=True,
+                                            debug=debug,
+                                            preprocessing=preprocessing,
+                                            task=task,
+                                            share=share)
+
+    _,val_loader=give_ixi_data('val', batch_size=hps['batch'],
                                         num_workers=computing['n_workers'],
                                         shuffle=True,
                                         debug=debug,

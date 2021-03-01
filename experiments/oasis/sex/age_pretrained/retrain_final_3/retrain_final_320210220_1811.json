@@ -1,0 +1,62 @@
+{
+  "experiment": {
+    "method": "ft_step",
+    "task": "sex",
+    "data": "oasis",
+    "share": 1.0,
+    "train": "yes",
+    "valid": "no",
+    "preprocessing": "full",
+    "save_config": "yes",
+    "save_server": "yes",
+    "parent_directory": "experiments/"
+  },
+  "ft_step": {
+    "sex": {
+      "oasis": {
+        "hps": {
+          "run": "0",
+          "n_layer_ft": 3,
+          "task": "age",
+          "batch": 4,
+          "bin_min": 0,
+          "bin_max": 2,
+          "bin_step": 1,
+          "sigma": 1.0,
+          "dropout": 0.6,
+          "space": "binary",
+          "loss_met": "ent",
+          "eval_met": "acc",
+          "n_epochs_ll": 50,
+          "optim_type_ll": "SGD",
+          "lr_ll": 0.1,
+          "weight_decay_ll": 0.001,
+          "momentum_ll": 0.9,
+          "scheduler_type_ll": "step",
+          "epoch_dec_ll": 8,
+          "gamma_dec_ll": 0.1,
+          "threshold_ll": 0.0,
+          "n_epochs": 200,
+          "optim_type": "SGD",
+          "lr": 0.005,
+          "weight_decay": 0.05,
+          "momentum": 0.8,
+          "scheduler_type": "step",
+          "epoch_dec": 20,
+          "gamma_dec": 0.2,
+          "threshold": 0.0,
+          "print_corr": true
+        },
+        "computing": {
+          "folder": "sex/age_pretrained/",
+          "queue": "gpu8.q",
+          "n_gpus": 2,
+          "n_workers": 4
+        }
+      }
+    }
+  },
+  "record": {
+    "experiment_name": "retrain_final_3"
+  }
+}

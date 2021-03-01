@@ -1,0 +1,115 @@
+------------------------------------------------
+Job ID: 37237850
+Run on host: compg026.hpc.in.bmrc.ox.ac.uk
+Operating system: Linux
+Username: lhw539
+Started at: Thu Feb 18 05:15:46 GMT 2021
+------------------------------------------------
+Loading share 0.10 train debug data.
+Loading OASIS   val data.
+Number of GPUs:  2
+
+Final layer of model is being trained.
+Start:  2021-02-18 05:15:53.211896
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+|epoch:   0 | lr: 0.100 |train ent: 0.62053 |train ent ravg: 0.62053 |train acc:  0.75000 |train acc ravg:  0.75000 |val ent: 0.61959 |val entravg: 0.61959 |val acc:  0.51136 |val acc ravg:  0.51136 |
+|epoch:   1 | lr: 0.100 |train ent: 0.49541 |train ent ravg: 0.55797 |train acc:  0.68750 |train acc ravg:  0.71875 |val ent: 0.64816 |val entravg: 0.63387 |val acc:  0.50000 |val acc ravg:  0.50568 |
+|epoch:   2 | lr: 0.100 |train ent: 0.31754 |train ent ravg: 0.47783 |train acc:  0.81250 |train acc ravg:  0.75000 |val ent: 0.44992 |val entravg: 0.57256 |val acc:  0.78409 |val acc ravg:  0.59848 |
+|epoch:   3 | lr: 0.100 |train ent: 0.24625 |train ent ravg: 0.41993 |train acc:  0.96875 |train acc ravg:  0.80469 |val ent: 0.32857 |val entravg: 0.51156 |val acc:  0.86364 |val acc ravg:  0.66477 |
+|epoch:   4 | lr: 0.100 |train ent: 0.21205 |train ent ravg: 0.37836 |train acc:  0.96875 |train acc ravg:  0.83750 |val ent: 0.27150 |val entravg: 0.46355 |val acc:  0.87500 |val acc ravg:  0.70682 |
+|epoch:   5 | lr: 0.100 |train ent: 0.14019 |train ent ravg: 0.28229 |train acc:  0.93750 |train acc ravg:  0.87500 |val ent: 0.27306 |val entravg: 0.39424 |val acc:  0.87500 |val acc ravg:  0.77955 |
+|epoch:   6 | lr: 0.100 |train ent: 0.11183 |train ent ravg: 0.20557 |train acc:  0.96875 |train acc ravg:  0.93125 |val ent: 0.28222 |val entravg: 0.32106 |val acc:  0.87500 |val acc ravg:  0.85455 |
+|epoch:   7 | lr: 0.100 |train ent: 0.07003 |train ent ravg: 0.15607 |train acc:  1.00000 |train acc ravg:  0.96875 |val ent: 0.30336 |val entravg: 0.29174 |val acc:  0.85227 |val acc ravg:  0.86818 |
+|epoch:   8 | lr: 0.100 |train ent: 0.11372 |train ent ravg: 0.12956 |train acc:  1.00000 |train acc ravg:  0.97500 |val ent: 0.31527 |val entravg: 0.28908 |val acc:  0.84091 |val acc ravg:  0.86364 |
+|epoch:   9 | lr: 0.100 |train ent: 0.19125 |train ent ravg: 0.12540 |train acc:  0.93750 |train acc ravg:  0.96875 |val ent: 0.28299 |val entravg: 0.29138 |val acc:  0.88636 |val acc ravg:  0.86591 |
+|epoch:  10 | lr: 0.100 |train ent: 0.04846 |train ent ravg: 0.10706 |train acc:  1.00000 |train acc ravg:  0.98125 |val ent: 0.24981 |val entravg: 0.28673 |val acc:  0.87500 |val acc ravg:  0.86591 |
+|epoch:  11 | lr: 0.100 |train ent: 0.06311 |train ent ravg: 0.09732 |train acc:  0.96875 |train acc ravg:  0.98125 |val ent: 0.27585 |val entravg: 0.28546 |val acc:  0.87500 |val acc ravg:  0.86591 |
+|epoch:  12 | lr: 0.100 |train ent: 0.06367 |train ent ravg: 0.09604 |train acc:  1.00000 |train acc ravg:  0.98125 |val ent: 0.26842 |val entravg: 0.27847 |val acc:  0.88636 |val acc ravg:  0.87273 |
+|epoch:  13 | lr: 0.100 |train ent: 0.07504 |train ent ravg: 0.08831 |train acc:  1.00000 |train acc ravg:  0.98125 |val ent: 0.30729 |val entravg: 0.27687 |val acc:  0.85227 |val acc ravg:  0.87500 |
+|epoch:  14 | lr: 0.100 |train ent: 0.04149 |train ent ravg: 0.05835 |train acc:  1.00000 |train acc ravg:  0.99375 |val ent: 0.30742 |val entravg: 0.28176 |val acc:  0.86364 |val acc ravg:  0.87045 |
+|epoch:  15 | lr: 0.100 |train ent: 0.04833 |train ent ravg: 0.05833 |train acc:  1.00000 |train acc ravg:  0.99375 |val ent: 0.30283 |val entravg: 0.29236 |val acc:  0.85227 |val acc ravg:  0.86591 |
+|epoch:  16 | lr: 0.100 |train ent: 0.05892 |train ent ravg: 0.05749 |train acc:  1.00000 |train acc ravg:  1.00000 |val ent: 0.30527 |val entravg: 0.29824 |val acc:  0.85227 |val acc ravg:  0.86136 |
+|epoch:  17 | lr: 0.100 |train ent: 0.14807 |train ent ravg: 0.07437 |train acc:  0.93750 |train acc ravg:  0.98750 |val ent: 0.32902 |val entravg: 0.31037 |val acc:  0.84091 |val acc ravg:  0.85227 |
+|epoch:  18 | lr: 0.100 |train ent: 0.05055 |train ent ravg: 0.06947 |train acc:  1.00000 |train acc ravg:  0.98750 |val ent: 0.26574 |val entravg: 0.30206 |val acc:  0.87500 |val acc ravg:  0.85682 |
+|epoch:  19 | lr: 0.100 |train ent: 0.08999 |train ent ravg: 0.07917 |train acc:  0.96875 |train acc ravg:  0.98125 |val ent: 0.27192 |val entravg: 0.29496 |val acc:  0.88636 |val acc ravg:  0.86136 |
+|epoch:  20 | lr: 0.100 |train ent: 0.08820 |train ent ravg: 0.08715 |train acc:  0.93750 |train acc ravg:  0.96875 |val ent: 0.32188 |val entravg: 0.29877 |val acc:  0.85227 |val acc ravg:  0.86136 |
+|epoch:  21 | lr: 0.100 |train ent: 0.10123 |train ent ravg: 0.09561 |train acc:  0.96875 |train acc ravg:  0.96250 |val ent: 0.29885 |val entravg: 0.29748 |val acc:  0.87500 |val acc ravg:  0.86591 |
+|epoch:  22 | lr: 0.100 |train ent: 0.05682 |train ent ravg: 0.07736 |train acc:  1.00000 |train acc ravg:  0.97500 |val ent: 0.27370 |val entravg: 0.28642 |val acc:  0.87500 |val acc ravg:  0.87273 |
+|epoch:  23 | lr: 0.100 |train ent: 0.04086 |train ent ravg: 0.07542 |train acc:  1.00000 |train acc ravg:  0.97500 |val ent: 0.25202 |val entravg: 0.28367 |val acc:  0.88636 |val acc ravg:  0.87500 |
+|epoch:  24 | lr: 0.100 |train ent: 0.09965 |train ent ravg: 0.07735 |train acc:  1.00000 |train acc ravg:  0.98125 |val ent: 0.27588 |val entravg: 0.28447 |val acc:  0.87500 |val acc ravg:  0.87273 |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Finished:  2021-02-18 05:19:40.516668
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Number of GPUs:  2
+
+Full model is being trained.
+Start:  2021-02-18 05:19:40.518226
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+|epoch:   0 | lr: 0.005 |train ent: 0.82087 |train ent ravg: 0.82087 |train acc:  0.71875 |train acc ravg:  0.71875 |val ent: 2.00350 |val entravg: 2.00350 |val acc:  0.59091 |val acc ravg:  0.59091 |
+|epoch:   1 | lr: 0.005 |train ent: 1.18499 |train ent ravg: 1.00293 |train acc:  0.53125 |train acc ravg:  0.62500 |val ent: 354.13022 |val entravg: 178.06686 |val acc:  0.46591 |val acc ravg:  0.52841 |
+|epoch:   2 | lr: 0.005 |train ent: 0.38712 |train ent ravg: 0.79766 |train acc:  0.84375 |train acc ravg:  0.69792 |val ent: 153.32990 |val entravg: 169.82121 |val acc:  0.45455 |val acc ravg:  0.50379 |
+|epoch:   3 | lr: 0.005 |train ent: 0.44344 |train ent ravg: 0.70910 |train acc:  0.84375 |train acc ravg:  0.73438 |val ent: 17.62759 |val entravg: 131.77280 |val acc:  0.46591 |val acc ravg:  0.49432 |
+|epoch:   4 | lr: 0.005 |train ent: 0.25086 |train ent ravg: 0.61745 |train acc:  0.90625 |train acc ravg:  0.76875 |val ent: 12.37187 |val entravg: 107.89262 |val acc:  0.43182 |val acc ravg:  0.48182 |
+|epoch:   5 | lr: 0.005 |train ent: 0.29154 |train ent ravg: 0.51159 |train acc:  0.81250 |train acc ravg:  0.78750 |val ent: 15.14589 |val entravg: 110.52110 |val acc:  0.54545 |val acc ravg:  0.47273 |
+|epoch:   6 | lr: 0.005 |train ent: 0.48077 |train ent ravg: 0.37075 |train acc:  0.87500 |train acc ravg:  0.85625 |val ent: 1.17591 |val entravg: 39.93023 |val acc:  0.62500 |val acc ravg:  0.50455 |
+|epoch:   7 | lr: 0.005 |train ent: 0.28567 |train ent ravg: 0.35046 |train acc:  0.87500 |train acc ravg:  0.86250 |val ent: 1.65431 |val entravg: 9.59511 |val acc:  0.55682 |val acc ravg:  0.52500 |
+|epoch:   8 | lr: 0.005 |train ent: 0.25509 |train ent ravg: 0.31279 |train acc:  0.90625 |train acc ravg:  0.87500 |val ent: 1.11389 |val entravg: 6.29237 |val acc:  0.60227 |val acc ravg:  0.55227 |
+|epoch:   9 | lr: 0.005 |train ent: 0.32910 |train ent ravg: 0.32844 |train acc:  0.84375 |train acc ravg:  0.86250 |val ent: 1.04725 |val entravg: 4.02745 |val acc:  0.53409 |val acc ravg:  0.57273 |
+|epoch:  10 | lr: 0.005 |train ent: 0.22766 |train ent ravg: 0.31566 |train acc:  0.93750 |train acc ravg:  0.88750 |val ent: 1.76445 |val entravg: 1.35116 |val acc:  0.55682 |val acc ravg:  0.57500 |
+|epoch:  11 | lr: 0.005 |train ent: 0.33961 |train ent ravg: 0.28743 |train acc:  0.87500 |train acc ravg:  0.88750 |val ent: 0.88654 |val entravg: 1.29329 |val acc:  0.61364 |val acc ravg:  0.57273 |
+|epoch:  12 | lr: 0.005 |train ent: 0.36834 |train ent ravg: 0.30396 |train acc:  0.81250 |train acc ravg:  0.87500 |val ent: 1.09027 |val entravg: 1.18048 |val acc:  0.56818 |val acc ravg:  0.57500 |
+|epoch:  13 | lr: 0.005 |train ent: 0.81083 |train ent ravg: 0.41511 |train acc:  0.87500 |train acc ravg:  0.86875 |val ent: 3.59013 |val entravg: 1.67573 |val acc:  0.46591 |val acc ravg:  0.54773 |
+|epoch:  14 | lr: 0.005 |train ent: 0.14498 |train ent ravg: 0.37828 |train acc:  0.93750 |train acc ravg:  0.88750 |val ent: 0.67364 |val entravg: 1.60101 |val acc:  0.50000 |val acc ravg:  0.54091 |
+|epoch:  15 | lr: 0.005 |train ent: 0.12412 |train ent ravg: 0.35758 |train acc:  1.00000 |train acc ravg:  0.90000 |val ent: 0.62867 |val entravg: 1.37385 |val acc:  0.65909 |val acc ravg:  0.56136 |
+|epoch:  16 | lr: 0.005 |train ent: 0.29049 |train ent ravg: 0.34775 |train acc:  0.81250 |train acc ravg:  0.88750 |val ent: 0.68459 |val entravg: 1.33346 |val acc:  0.62500 |val acc ravg:  0.56364 |
+|epoch:  17 | lr: 0.005 |train ent: 0.07519 |train ent ravg: 0.28912 |train acc:  1.00000 |train acc ravg:  0.92500 |val ent: 0.70136 |val entravg: 1.25568 |val acc:  0.63636 |val acc ravg:  0.57727 |
+|epoch:  18 | lr: 0.005 |train ent: 0.26940 |train ent ravg: 0.18084 |train acc:  0.87500 |train acc ravg:  0.92500 |val ent: 0.59869 |val entravg: 0.65739 |val acc:  0.72727 |val acc ravg:  0.62955 |
+|epoch:  19 | lr: 0.005 |train ent: 0.33448 |train ent ravg: 0.21874 |train acc:  0.84375 |train acc ravg:  0.90625 |val ent: 1.36998 |val entravg: 0.79666 |val acc:  0.56818 |val acc ravg:  0.64318 |
+|epoch:  20 | lr: 0.005 |train ent: 0.40145 |train ent ravg: 0.27420 |train acc:  0.78125 |train acc ravg:  0.86250 |val ent: 5.12919 |val entravg: 1.69676 |val acc:  0.44318 |val acc ravg:  0.60000 |
+|epoch:  21 | lr: 0.005 |train ent: 0.50271 |train ent ravg: 0.31665 |train acc:  0.81250 |train acc ravg:  0.86250 |val ent: 0.97741 |val entravg: 1.75533 |val acc:  0.67045 |val acc ravg:  0.60909 |
+|epoch:  22 | lr: 0.005 |train ent: 0.14690 |train ent ravg: 0.33099 |train acc:  0.93750 |train acc ravg:  0.85000 |val ent: 1.29466 |val entravg: 1.87399 |val acc:  0.56818 |val acc ravg:  0.59545 |
+|epoch:  23 | lr: 0.005 |train ent: 0.14804 |train ent ravg: 0.30672 |train acc:  0.93750 |train acc ravg:  0.86250 |val ent: 0.72812 |val entravg: 1.89987 |val acc:  0.68182 |val acc ravg:  0.58636 |
+|epoch:  24 | lr: 0.005 |train ent: 0.31563 |train ent ravg: 0.30295 |train acc:  0.84375 |train acc ravg:  0.86250 |val ent: 1.03045 |val entravg: 1.83197 |val acc:  0.57955 |val acc ravg:  0.58864 |
+|epoch:  25 | lr: 0.005 |train ent: 0.19603 |train ent ravg: 0.26186 |train acc:  0.90625 |train acc ravg:  0.88750 |val ent: 0.76909 |val entravg: 0.95995 |val acc:  0.70455 |val acc ravg:  0.64091 |
+|epoch:  26 | lr: 0.005 |train ent: 0.24495 |train ent ravg: 0.21031 |train acc:  0.87500 |train acc ravg:  0.90000 |val ent: 0.68513 |val entravg: 0.90149 |val acc:  0.59091 |val acc ravg:  0.62500 |
+|epoch:  27 | lr: 0.005 |train ent: 0.13158 |train ent ravg: 0.20725 |train acc:  0.93750 |train acc ravg:  0.90000 |val ent: 1.38984 |val entravg: 0.92053 |val acc:  0.53409 |val acc ravg:  0.61818 |
+|epoch:  28 | lr: 0.005 |train ent: 0.08996 |train ent ravg: 0.19563 |train acc:  0.96875 |train acc ravg:  0.90625 |val ent: 0.71546 |val entravg: 0.91800 |val acc:  0.69318 |val acc ravg:  0.62045 |
+|epoch:  29 | lr: 0.005 |train ent: 0.13026 |train ent ravg: 0.15856 |train acc:  0.93750 |train acc ravg:  0.92500 |val ent: 1.84198 |val entravg: 1.08030 |val acc:  0.54545 |val acc ravg:  0.61364 |
+|epoch:  30 | lr: 0.005 |train ent: 0.17023 |train ent ravg: 0.15340 |train acc:  0.90625 |train acc ravg:  0.92500 |val ent: 0.77941 |val entravg: 1.08236 |val acc:  0.64773 |val acc ravg:  0.60227 |
+|epoch:  31 | lr: 0.005 |train ent: 0.20992 |train ent ravg: 0.14639 |train acc:  0.93750 |train acc ravg:  0.93750 |val ent: 0.79712 |val entravg: 1.10476 |val acc:  0.68182 |val acc ravg:  0.62045 |
+|epoch:  32 | lr: 0.005 |train ent: 0.18408 |train ent ravg: 0.15689 |train acc:  0.90625 |train acc ravg:  0.93125 |val ent: 2.04562 |val entravg: 1.23592 |val acc:  0.62500 |val acc ravg:  0.63864 |
+|epoch:  33 | lr: 0.005 |train ent: 0.01808 |train ent ravg: 0.14251 |train acc:  1.00000 |train acc ravg:  0.93750 |val ent: 2.17626 |val entravg: 1.52808 |val acc:  0.60227 |val acc ravg:  0.62045 |
+|epoch:  34 | lr: 0.005 |train ent: 0.07804 |train ent ravg: 0.13207 |train acc:  0.96875 |train acc ravg:  0.94375 |val ent: 3.45186 |val entravg: 1.85005 |val acc:  0.45455 |val acc ravg:  0.60227 |
+|epoch:  35 | lr: 0.005 |train ent: 0.07685 |train ent ravg: 0.11339 |train acc:  1.00000 |train acc ravg:  0.96250 |val ent: 1.04523 |val entravg: 1.90322 |val acc:  0.72727 |val acc ravg:  0.61818 |
+|epoch:  36 | lr: 0.005 |train ent: 0.09196 |train ent ravg: 0.08980 |train acc:  0.93750 |train acc ravg:  0.96250 |val ent: 2.07583 |val entravg: 2.15896 |val acc:  0.63636 |val acc ravg:  0.60909 |
+|epoch:  37 | lr: 0.005 |train ent: 0.04241 |train ent ravg: 0.06147 |train acc:  1.00000 |train acc ravg:  0.98125 |val ent: 0.81655 |val entravg: 1.91315 |val acc:  0.71591 |val acc ravg:  0.62727 |
+|epoch:  38 | lr: 0.005 |train ent: 0.10947 |train ent ravg: 0.07975 |train acc:  0.96875 |train acc ravg:  0.97500 |val ent: 0.86141 |val entravg: 1.65018 |val acc:  0.61364 |val acc ravg:  0.62955 |
+|epoch:  39 | lr: 0.005 |train ent: 0.17816 |train ent ravg: 0.09977 |train acc:  0.87500 |train acc ravg:  0.95625 |val ent: 8.86408 |val entravg: 2.73262 |val acc:  0.45455 |val acc ravg:  0.62955 |
+|epoch:  40 | lr: 0.005 |train ent: 0.19171 |train ent ravg: 0.12274 |train acc:  0.93750 |train acc ravg:  0.94375 |val ent: 2.01056 |val entravg: 2.92568 |val acc:  0.59091 |val acc ravg:  0.60227 |
+|epoch:  41 | lr: 0.005 |train ent: 0.16770 |train ent ravg: 0.13789 |train acc:  0.87500 |train acc ravg:  0.93125 |val ent: 0.66227 |val entravg: 2.64297 |val acc:  0.72727 |val acc ravg:  0.62045 |
+|epoch:  42 | lr: 0.005 |train ent: 0.08557 |train ent ravg: 0.14652 |train acc:  1.00000 |train acc ravg:  0.93125 |val ent: 0.95276 |val entravg: 2.67022 |val acc:  0.71591 |val acc ravg:  0.62045 |
+|epoch:  43 | lr: 0.005 |train ent: 0.08512 |train ent ravg: 0.14165 |train acc:  0.96875 |train acc ravg:  0.93125 |val ent: 0.66879 |val entravg: 2.63169 |val acc:  0.72727 |val acc ravg:  0.64318 |
+|epoch:  44 | lr: 0.005 |train ent: 0.08736 |train ent ravg: 0.12349 |train acc:  0.96875 |train acc ravg:  0.95000 |val ent: 1.37403 |val entravg: 1.13368 |val acc:  0.68182 |val acc ravg:  0.68864 |
+|epoch:  45 | lr: 0.005 |train ent: 0.09376 |train ent ravg: 0.10390 |train acc:  0.93750 |train acc ravg:  0.95000 |val ent: 1.34634 |val entravg: 1.00084 |val acc:  0.69318 |val acc ravg:  0.70909 |
+|epoch:  46 | lr: 0.005 |train ent: 0.17564 |train ent ravg: 0.10549 |train acc:  0.93750 |train acc ravg:  0.96250 |val ent: 1.02573 |val entravg: 1.07353 |val acc:  0.75000 |val acc ravg:  0.71364 |
+|epoch:  47 | lr: 0.005 |train ent: 0.17741 |train ent ravg: 0.12386 |train acc:  0.93750 |train acc ravg:  0.95000 |val ent: 1.93014 |val entravg: 1.26901 |val acc:  0.63636 |val acc ravg:  0.69773 |
+|epoch:  48 | lr: 0.005 |train ent: 0.05433 |train ent ravg: 0.11770 |train acc:  0.96875 |train acc ravg:  0.95000 |val ent: 3.21171 |val entravg: 1.77759 |val acc:  0.50000 |val acc ravg:  0.65227 |
+|epoch:  49 | lr: 0.005 |train ent: 0.03783 |train ent ravg: 0.10780 |train acc:  1.00000 |train acc ravg:  0.95625 |val ent: 2.56825 |val entravg: 2.01643 |val acc:  0.55682 |val acc ravg:  0.62727 |
+|epoch:  50 | lr: 0.005 |train ent: 0.07364 |train ent ravg: 0.10377 |train acc:  0.96875 |train acc ravg:  0.96250 |val ent: 0.74277 |val entravg: 1.89572 |val acc:  0.72727 |val acc ravg:  0.63409 |
+|epoch:  51 | lr: 0.005 |train ent: 0.04561 |train ent ravg: 0.07777 |train acc:  1.00000 |train acc ravg:  0.97500 |val ent: 0.50813 |val entravg: 1.79220 |val acc:  0.68182 |val acc ravg:  0.62045 |
+|epoch:  52 | lr: 0.005 |train ent: 0.08822 |train ent ravg: 0.05993 |train acc:  0.90625 |train acc ravg:  0.96875 |val ent: 0.56543 |val entravg: 1.51926 |val acc:  0.69318 |val acc ravg:  0.63182 |
+|epoch:  53 | lr: 0.005 |train ent: 0.04562 |train ent ravg: 0.05818 |train acc:  1.00000 |train acc ravg:  0.97500 |val ent: 2.87105 |val entravg: 1.45113 |val acc:  0.56818 |val acc ravg:  0.64545 |
+|epoch:  54 | lr: 0.005 |train ent: 0.05684 |train ent ravg: 0.06199 |train acc:  1.00000 |train acc ravg:  0.97500 |val ent: 3.08457 |val entravg: 1.55439 |val acc:  0.55682 |val acc ravg:  0.64545 |
+|epoch:  55 | lr: 0.005 |train ent: 0.06995 |train ent ravg: 0.06125 |train acc:  1.00000 |train acc ravg:  0.98125 |val ent: 0.70331 |val entravg: 1.54650 |val acc:  0.65909 |val acc ravg:  0.63182 |
+|epoch:  56 | lr: 0.005 |train ent: 0.01638 |train ent ravg: 0.05540 |train acc:  1.00000 |train acc ravg:  0.98125 |val ent: 1.23044 |val entravg: 1.69096 |val acc:  0.69318 |val acc ravg:  0.63409 |
+|epoch:  57 | lr: 0.005 |train ent: 0.03517 |train ent ravg: 0.04479 |train acc:  1.00000 |train acc ravg:  1.00000 |val ent: 0.63803 |val entravg: 1.70548 |val acc:  0.70455 |val acc ravg:  0.63636 |
+|epoch:  58 | lr: 0.005 |train ent: 0.01957 |train ent ravg: 0.03958 |train acc:  1.00000 |train acc ravg:  1.00000 |val ent: 1.06469 |val entravg: 1.34421 |val acc:  0.70455 |val acc ravg:  0.66364 |
+|epoch:  59 | lr: 0.005 |train ent: 0.04598 |train ent ravg: 0.03741 |train acc:  1.00000 |train acc ravg:  1.00000 |val ent: 0.86589 |val entravg: 0.90047 |val acc:  0.61364 |val acc ravg:  0.67500 |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Finished:  2021-02-18 05:40:21.020702
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------
+Finished at: Thu Feb 18 05:40:21 GMT 2021
+------------------------------------------------

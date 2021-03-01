@@ -1,0 +1,62 @@
+{
+  "experiment": {
+    "method": "ft_step",
+    "task": "age",
+    "data": "ixi",
+    "share": 1.0,
+    "train": "yes",
+    "valid": "no",
+    "preprocessing": "full",
+    "save_config": "yes",
+    "save_server": "yes",
+    "parent_directory": "experiments/"
+  },
+  "ft_step": {
+    "age": {
+      "ixi": {
+        "hps": {
+          "run": "0",
+          "n_layer_ft": 1,
+          "task": "age",
+          "batch": 4,
+          "bin_min": 17,
+          "bin_max": 89,
+          "bin_step": 1,
+          "sigma": 1.0,
+          "dropout": 0.5,
+          "space": "continuous",
+          "loss_met": "kl",
+          "eval_met": "mae",
+          "n_epochs_ll": 25,
+          "optim_type_ll": "SGD",
+          "lr_ll": 0.1,
+          "weight_decay_ll": 0.001,
+          "momentum_ll": 0.9,
+          "scheduler_type_ll": "step",
+          "epoch_dec_ll": 8,
+          "gamma_dec_ll": 0.1,
+          "threshold_ll": 0.0,
+          "n_epochs": 30,
+          "optim_type": "SGD",
+          "lr": 0.0005,
+          "weight_decay": 0.0005,
+          "momentum": 0.8,
+          "scheduler_type": "step",
+          "epoch_dec": 5,
+          "gamma_dec": 0.2,
+          "threshold": 0.0,
+          "print_corr": true
+        },
+        "computing": {
+          "folder": "ixi/age/age_pretrained/",
+          "queue": "gpu8.q",
+          "n_gpus": 2,
+          "n_workers": 4
+        }
+      }
+    }
+  },
+  "record": {
+    "experiment_name": "first_run_ixi"
+  }
+}

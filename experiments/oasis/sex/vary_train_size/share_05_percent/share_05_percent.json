@@ -1,0 +1,61 @@
+{
+"experiment": {
+    "method": "ft_step",
+    "task": "sex",
+    "data": "oasis",
+    "share": 0.05,
+    "train": "yes", 
+    "valid": "no",
+    "preprocessing": "full",
+    "save_config": "yes",
+    "save_server": "yes", 
+    "parent_directory": "experiments/" 
+    },
+"ft_step":{ 
+    "sex":{
+        "oasis": { "hps":{
+                        "run": "0",
+                        "n_layer_ft": 1,
+                        "task": "sex",
+                        "batch": 8,
+                        "bin_min":0,
+                        "bin_max":2,
+                        "bin_step":1,
+                        "sigma":1.0,
+                        "dropout": 0.5,
+                        "space":"binary",
+                        "loss_met":"ent",
+                        "eval_met":"acc",
+                        "n_epochs_ll": 25,
+                        "optim_type_ll": "SGD",
+                        "lr_ll": 1e-1,
+                        "weight_decay_ll": 1e-3,
+                        "momentum_ll": 0.9,
+                        "scheduler_type_ll": "step",
+                        "epoch_dec_ll": 8,
+                        "gamma_dec_ll":0.1,
+                        "threshold_ll": null,
+                        "n_epochs":60,
+                        "optim_type": "SGD",
+                        "lr": 5e-3,
+                        "weight_decay":5e-3,
+                        "momentum": 0.8,
+                        "scheduler_type": "step",
+                        "epoch_dec": 10,
+                        "gamma_dec": 0.3,
+                        "threshold": null,
+                        "print_corr": false
+                        },
+                "computing": {
+                    "folder":"sex/vary_train_size/",
+                    "queue": "gpu8.q",
+                    "n_gpus": 2,
+                    "n_workers": 4    
+                    }
+                }
+        }
+    },
+"record":{
+    "experiment_name": null
+    }
+}

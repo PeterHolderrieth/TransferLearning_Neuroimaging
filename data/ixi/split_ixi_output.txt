@@ -1,0 +1,37 @@
+Data shape:  (538, 15)
+Variables:  ['SEX_ID (1=m, 2=f)', 'HEIGHT', 'WEIGHT', 'ETHNIC_ID', 'MARITAL_ID', 'OCCUPATION_ID', 'QUALIFICATION_ID', 'DOB', 'DATE_AVAILABLE', 'STUDY_DATE', 'AGE', 'Site', 'Age', 'Sex', 'T1_brain']
+Age and AGE are the same.
+Sex=1 is male, sex=0 is female.
+
+We have unique filenames.
+Number of sites:  (3,)
+Sites:  ['Guys' 'HH' 'IOP']
+
+Train shape:  (215, 15)
+Validation shape:  (108, 15)
+Test shape:  (215, 15)
+
+Age
+Minimum:  19.980835044490075
+Maximum:  86.3189596167009
+Std arr:  16.170585983731367
+Mean arr:  47.81016719718887
+
+Train Age
+Minimum:  20.07118412046544
+Maximum:  86.19849418206708
+Std arr:  16.710968888389008
+Mean arr:  47.72296770291135
+
+Val Age
+Minimum:  20.16700889801506
+Maximum:  86.3189596167009
+Std arr:  16.652007274505596
+Mean arr:  50.65072122087864
+
+Test Age
+Minimum:  19.980835044490075
+Maximum:  83.45790554414785
+Std arr:  15.163318635108299
+Mean arr:  46.47048374003151
+

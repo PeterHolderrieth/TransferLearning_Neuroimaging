@@ -29,7 +29,7 @@
                 },
             "computing": 
                 {
-                "folder":"age/elastic/",
+                "folder":"oasis/age/elastic/",
                 "queue": "win000",
                 "n_gpus": 0,
                 "n_workers": 2
@@ -51,7 +51,7 @@
                 },
             "computing":
                 {
-                "folder":"sex/elastic/",
+                "folder":"oasis/sex/elastic/",
                 "queue": "win000",
                 "n_gpus": 0,
                 "n_workers": 2
@@ -90,7 +90,7 @@
                 },
             "computing":
                 {
-                "folder":"age/scratch/",
+                "folder":"oasis/age/scratch/",
                 "queue": "gpu8.q",
                 "n_gpus": 2,
                 "n_workers": 4
@@ -126,7 +126,7 @@
                 },
             "computing": 
                 {
-                "folder":"sex/scratch/",
+                "folder":"oasis/sex/scratch/",
                 "queue": "gpu8.q",
                 "n_gpus": 2,
                 "n_workers": 4
@@ -167,7 +167,7 @@
                 },
             "computing": 
                 {
-                "folder":"age/age_pretrained/",
+                "folder":"oasis/age/age_pretrained/",
                 "queue": "gpu8.q",
                 "n_gpus": 2,
                 "n_workers": 4
@@ -181,31 +181,98 @@
             "hps":
                 {
                 "run": "0",
-                "task": "age",
+                "task": "sex",
                 "batch": 8,
-                "bin_min":37,
-                "bin_max":96,
+                "bin_min":0,
+                "bin_max":2,
                 "bin_step":1,
                 "sigma":1.0,
                 "dropout": 0.5,
-                "channel_number":[32, 64, 128, 256, 256, 64], 
-                "space":"continuous",
-                "loss_met":"kl",
-                "eval_met":"mae",
-                "n_epochs":2000,
+                "space":"binary",
+                "loss_met":"ent",
+                "eval_met":"acc",
+                "n_epochs":60,
                 "optim_type": "SGD",
-                "lr": 1e-2,
-                "weight_decay":1e-3,
-                "momentum": 0.9,
+                "lr": 5e-3,
+                "weight_decay":5e-3,
+                "momentum": 0.8,
                 "scheduler_type": "step",
-                "epoch_dec": 30,
+                "epoch_dec": 10,
                 "gamma_dec": 0.3,
                 "threshold": 0.0,
                 "print_corr": true
                 },
             "computing": 
                 {
-                "folder":"age/age_pretrained/",
+                "folder":"oasis/sex/sex_pretrained/",
+                "queue": "gpu8.q",
+                "n_gpus": 2,
+                "n_workers": 4
+                }
+            },
+        "abide": 
+            { 
+            "hps":
+                {
+                "run": "0",
+                "task": "sex",
+                "batch": 8,
+                "bin_min":0,
+                "bin_max":2,
+                "bin_step":1,
+                "sigma":1.0,
+                "dropout": 0.5,
+                "space":"binary",
+                "loss_met":"ent",
+                "eval_met":"acc",
+                "n_epochs":60,
+                "optim_type": "SGD",
+                "lr": 5e-3,
+                "weight_decay":5e-3,
+                "momentum": 0.8,
+                "scheduler_type": "step",
+                "epoch_dec": 10,
+                "gamma_dec": 0.3,
+                "threshold": 0.0,
+                "print_corr": true
+                },
+            "computing": 
+                {
+                "folder":"abide/sex/sex_pretrained/",
+                "queue": "gpu8.q",
+                "n_gpus": 2,
+                "n_workers": 4
+                }
+            },
+        "ixi": 
+            { 
+            "hps":
+                {
+                "run": "0",
+                "task": "sex",
+                "batch": 8,
+                "bin_min":0,
+                "bin_max":2,
+                "bin_step":1,
+                "sigma":1.0,
+                "dropout": 0.5,
+                "space":"binary",
+                "loss_met":"ent",
+                "eval_met":"acc",
+                "n_epochs":60,
+                "optim_type": "SGD",
+                "lr": 5e-3,
+                "weight_decay":5e-3,
+                "momentum": 0.8,
+                "scheduler_type": "step",
+                "epoch_dec": 10,
+                "gamma_dec": 0.3,
+                "threshold": 0.0,
+                "print_corr": true
+                },
+            "computing": 
+                {
+                "folder":"ixi/sex/sex_pretrained/",
                 "queue": "gpu8.q",
                 "n_gpus": 2,
                 "n_workers": 4
@@ -255,7 +322,95 @@
                 },
             "computing": 
                 {
-                "folder":"age/age_pretrained/",
+                "folder":"oasis/age/age_pretrained/",
+                "queue": "gpu8.q",
+                "n_gpus": 2,
+                "n_workers": 4
+                }
+            },
+        "abide":
+            {
+            "hps":
+                {
+                "run": "0",
+                "n_layer_ft": 1,
+                "task": "age",
+                "batch": 4,
+                "bin_min":2,
+                "bin_max":59,
+                "bin_step":1,
+                "sigma":1.0,
+                "dropout": 0.5,
+                "space":"continuous",
+                "loss_met":"kl",
+                "eval_met":"mae",
+                "n_epochs_ll": 25,
+                "optim_type_ll": "SGD",
+                "lr_ll": 1e-1,
+                "weight_decay_ll": 1e-3,
+                "momentum_ll": 0.9,
+                "scheduler_type_ll": "step",
+                "epoch_dec_ll": 8,
+                "gamma_dec_ll":0.1,
+                "threshold_ll": 0.0,
+                "n_epochs":30,
+                "optim_type": "SGD",
+                "lr": 5e-4,
+                "weight_decay":5e-4,
+                "momentum": 0.8,
+                "scheduler_type": "step",
+                "epoch_dec": 5,
+                "gamma_dec": 0.2,
+                "threshold": 0.0,
+                "print_corr": true
+                },
+            "computing": 
+                {
+                "folder":"abide/age/age_pretrained/",
+                "queue": "gpu8.q",
+                "n_gpus": 2,
+                "n_workers": 4
+                }
+            },
+        "ixi":
+            {
+            "hps":
+                {
+                "run": "0",
+                "n_layer_ft": 1,
+                "task": "age",
+                "batch": 4,
+                "bin_min":17,
+                "bin_max":89,
+                "bin_step":1,
+                "sigma":1.0,
+                "dropout": 0.5,
+                "space":"continuous",
+                "loss_met":"kl",
+                "eval_met":"mae",
+                "n_epochs_ll": 25,
+                "optim_type_ll": "SGD",
+                "lr_ll": 1e-1,
+                "weight_decay_ll": 1e-3,
+                "momentum_ll": 0.9,
+                "scheduler_type_ll": "step",
+                "epoch_dec_ll": 8,
+                "gamma_dec_ll":0.1,
+                "threshold_ll": 0.0,
+                "n_epochs":30,
+                "optim_type": "SGD",
+                "lr": 5e-4,
+                "weight_decay":5e-4,
+                "momentum": 0.8,
+                "scheduler_type": "step",
+                "epoch_dec": 5,
+                "gamma_dec": 0.2,
+                "threshold": 0.0,
+                "print_corr": true
+                },
+            "computing": 
+                {
+                "folder":"ixi/age/age_pretrained/",
                 "queue": "gpu8.q",
                 "n_gpus": 2,
                 "n_workers": 4
@@ -302,7 +457,7 @@
                 },
             "computing": 
                 {
-                "folder":"sex/sex_pretrained/",
+                "folder":"oasis/sex/sex_pretrained/",
                 "queue": "gpu8.q",
                 "n_gpus": 2,
                 "n_workers": 4    
@@ -334,7 +489,7 @@
                 },
             "computing": 
                 {
-                "folder":"age/direct_transfer/",
+                "folder":"oasis/age/direct_transfer/",
                 "queue": "gpu8.q",
                 "n_gpus": 2,
                 "n_workers": 4    
@@ -363,7 +518,7 @@
                 },
             "computing": 
                 {
-                "folder":"sex/direct_transfer/",
+                "folder":"oasis/sex/direct_transfer/",
                 "queue": "gpu8.q",
                 "n_gpus": 2,
                 "n_workers": 4    
