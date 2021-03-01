@@ -11,11 +11,12 @@ print("Variables: ", list(df_session.columns))
 #Get all possible CDR scores:
 cdr_val=np.unique(df_session["cdr"].to_numpy()).astype(float)
 print("Possible CDR scores: ", cdr_val)
+
 df_session["cdr_class"]=np.nan
 
 #Count the number of subjects in each category:
 for it in range(cdr_val.size):
     cdr=cdr_val[it]
-    n_subjects=df_session[df_session["cdr"].astype(int)==cdr].shape[0]
+    n_subjects=df_session.loc[df_session["cdr"]==cdr].shape[0]
     print("%4d sessions with CDR score of %.1f"%(n_subjects,cdr))
 

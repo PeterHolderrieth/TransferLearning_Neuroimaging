@@ -18,6 +18,20 @@ def compute_activation(model,x, filter_index,device=None):
     filter_activation = activation[:, filter_index]
     return torch.mean(filter_activation)
 
+def compute_grad_wrt_input(model,x,bin_id,device=None):
+    '''
+        model - SFCN 
+        x - input MRI 
+        bin_id - bin number
+    '''
+    if device is not None: 
+        x=x.to(device)        
+    x = Variable(x, requires_grad=True) 
+    model.module.train_nothing()
+    output=model(x)[bin_id]
+    output.backward()
+    return x.grad.data
+    
 def maximize_activation(model,x,filter_index,n_epochs,lr,alpha=1.,device=None,print_every=100):
     if device is not None: 
         x=x.to(device)
@@ -26,7 +40,7 @@ def maximize_activation(model,x,filter_index,n_epochs,lr,alpha=1.,device=None,pr
     model.eval()
     loss_list=[]
     for it in range(n_epochs):
-        loss=compute_activation(model,x,filter_index,device)
+        loss=compute_activation(model,x,filter_index)
         loss.backward()
         x.data+=lr*x.grad.data-alpha*x.data
         x.grad.zero_()
