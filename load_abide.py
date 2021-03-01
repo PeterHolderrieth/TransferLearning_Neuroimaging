@@ -70,9 +70,10 @@ share_test=1-share_train-share_valid
 for site in sites: 
     df_site=df_abide.loc[df_abide["SiteNameCombine"]==site]
     df_it_train,df_it_val,df_it_test=split_data_frame(df_site,share_train,share_valid)
-    print(df_it_train.head())
-    print(df_it_val.head())
-    print(df_it_test.head())
+    print(df_it_train.shape)
+    print(df_it_val.shape)
+    print(df_it_test.shape)
+
 
 
 #x=np.array([len(string) for string in df_abide.iloc[:,6]])
