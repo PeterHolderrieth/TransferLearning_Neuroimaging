@@ -36,14 +36,14 @@
           "epoch_dec_ll": 8,
           "gamma_dec_ll": 1.0,
           "threshold_ll": 0.0,
-          "n_epochs": 30,
+          "n_epochs": 1000,
           "optim_type": "SGD",
-          "lr": 0.0005,
+          "lr": 0.01,
           "weight_decay": 0.0005,
           "momentum": 0.8,
           "scheduler_type": "step",
-          "epoch_dec": 5,
-          "gamma_dec": 1.0,
+          "epoch_dec": 20,
+          "gamma_dec": 0.8,
           "threshold": 0.0,
           "print_corr": true
         },
@@ -57,6 +57,6 @@
     }
   },
   "record": {
-    "experiment_name": "first_run_ixi"
+    "experiment_name": "second_ixi_age_pretrained"
   }
 }

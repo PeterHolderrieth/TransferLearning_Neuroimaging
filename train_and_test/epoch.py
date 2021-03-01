@@ -16,10 +16,6 @@ def go_one_epoch(state, model, loss_func, device, data_loader, optimizer, label_
     Output: 
         results - dictionary - giving evaluation metric (e.g. accuracy or MAE) and average loss 
     '''
-    #Send model to device:
-    #model=model.to(device)
-    #DEBUG:
-    #par_llayer=model.module.state_dict()['classifier.conv_6.weight'].flatten().cpu()
 
     #Set train or evaluation state:
     if state == 'train':
@@ -64,18 +60,9 @@ def go_one_epoch(state, model, loss_func, device, data_loader, optimizer, label_
         #error on the train set since we use dropout and batch normalization.
         if eval_func is not None:
             with torch.no_grad():
-                #print("True labels: ", label)
-                #print("Predictions:", torch.matmul(torch.exp(output),bin_centers))
                 eval_= eval_func(log_probs=output, target=label)
                 eval_total=eval_total+eval_.item()*n_batch        
         
-    #DEBUG: Observe gradient descent in the parameters:
-    #par_nlayer=model.state_dict()['classifier.conv_6.weight'].flatten().cpu()
-    #abs_diff=torch.abs(par_llayer-par_nlayer)
-    #print("Inner-Loop Maximum difference: ", abs_diff.max().item())
-    #print("Inner-Loop Minimum difference: ", abs_diff.min().item())    
-    #print("Inner-Loop Mean difference: ", abs_diff.mean().item())
-    
     # Output Logging
     results = { 'eval': eval_total / n_total,
                 'loss': loss_total / n_total

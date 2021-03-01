@@ -1,4 +1,5 @@
 import torch 
+import torch.nn as nn
 import numpy as np 
 #A class which tracks averages and values over time:
 class AverageMeter(object):
@@ -63,6 +64,8 @@ def give_optimizer(optim_type,model,lr,weight_decay,momentum):
 def give_lr_scheduler(scheduler_type,optimizer,epoch_dec,gamma_dec,treshold=None):
     
     if scheduler_type=='step': 
+        print("Epoch decay: ", epoch_dec)
+        print("Gamma decay: ", gamma_dec)
         return torch.optim.lr_scheduler.StepLR(optimizer, step_size=epoch_dec, gamma=gamma_dec)
     elif scheduler_type=='plateau':
         return torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, 
@@ -76,3 +79,4 @@ def print_sep_line():
     sep_line=("--------------------------------------------------------------------------------"+
                 "--------------------------------------------------------------------------------")
     print(sep_line)
+

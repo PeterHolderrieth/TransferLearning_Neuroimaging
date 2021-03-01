@@ -33,7 +33,7 @@
           "momentum": 0.8,
           "scheduler_type": "step",
           "epoch_dec": 5,
-          "gamma_dec": 0.2,
+          "gamma_dec": 1.0,
           "threshold": 0.0,
           "print_corr": true
         },

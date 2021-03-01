@@ -48,7 +48,7 @@ def train(model,train_loader,val_loader,loss_func,eval_func,label_translater,dev
                     lr,loss_name,meter.tr_loss.val,loss_name,meter.tr_loss.run_avg,ev_name,meter.tr_eval.val,ev_name,meter.tr_eval.run_avg,
                     loss_name,meter.val_loss.val,loss_name,meter.val_loss.run_avg,ev_name,meter.val_eval.val,ev_name,meter.val_eval.run_avg))
 
-        scheduler.step(meter.tr_loss.val)
+        scheduler.step() #meter.tr_loss.val)
 
     return(meter)
 
