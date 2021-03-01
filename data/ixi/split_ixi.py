@@ -123,6 +123,19 @@ print_summary(df_val["Age"],'Val Age')
 print_summary(df_test["Age"],'Test Age')
 
 
+#Print summary to see that the split is sex-matched:
+print_summary(df_ixi["Sex"],'Sex')
+print_summary(df_train["Sex"],'Train Sex')
+print_summary(df_val["Sex"],'Val Sex')
+print_summary(df_test["Sex"],'Test Sex')
+
+#Print summary to see that the split is age-matched:
+print_summary(df_ixi["IsNC"],'IsNC')
+print_summary(df_train["IsNC"],'IsNC')
+print_summary(df_val["IsNC"],'IsNC')
+print_summary(df_test["IsNC"],'IsNC')
+
+
 #Save train, validation and test files:
 df_train.to_csv(folder+'ixi_train.csv')
 df_val.to_csv(folder+'ixi_val.csv')
