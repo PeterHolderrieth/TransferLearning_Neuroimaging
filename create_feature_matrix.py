@@ -2,13 +2,14 @@ import torch
 from data.oasis.load_oasis3 import give_oasis_data
 from sfcn.sfcn_load import give_pretrained_sfcn
 import numpy as np
-from sklearn.manifold import Isomap
+from sklearn.manifold import Isomap, TSNE
+from sklearn.decomposition import PCA
 import pandas as pd 
 
 #Look up freesurfer.
 
 debug=False
-method='isomap'
+method='pca'
 
 train_dataset,_=give_oasis_data('train', batch_size=5,
                                         num_workers=4,
