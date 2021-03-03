@@ -63,8 +63,14 @@ def give_my_loss_func(kwd):
             """
             bin_centers_=bin_centers.to(log_probs.device)
             pred=pred_from_dist(log_probs,bin_centers_)
-            true_label=torch.matmul(target,bin_centers_) if probs else target
+            
+            if probs:
+                true_label=torch.matmul(target,bin_centers_)  
+            else:
+                true_label=target
+            
             mae=MAE(pred,true_label)
+
             return(mae)
         
         return(my_mae)
@@ -86,7 +92,7 @@ def give_my_loss_func(kwd):
         def my_acc(log_probs,target,thresh=kwd['thresh']):
             '''
             log_probs - torch.Tensor - shape (batch_size,2)
-            target - torch.Tensor - shape (batch_size)
+            target - torch.Tensor - shape (batch_size) binary 0/1 encoding of class
             '''
             log_tresh=torch.log(torch.tensor(thresh))
             above_thresh=(log_probs[:,1]>log_tresh).float()

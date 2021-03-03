@@ -36,9 +36,10 @@ def go_one_epoch(state, model, loss_func, device, data_loader, optimizer, label_
         data = data.to(device)
         n_batch = data.shape[0]
         label=label.squeeze().to(device)
+
         #Translate label into the same space as the outputs:
-        target_probs= label_translater(label)
-        
+        target_probs=label_translater(label)
+
         if state == 'train':
             #Compute loss and gradient step:
             optimizer.zero_grad()
