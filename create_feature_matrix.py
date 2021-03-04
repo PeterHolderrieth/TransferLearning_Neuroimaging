@@ -23,6 +23,7 @@ print("Number of GPUs: ", torch.cuda.device_count())
 
 for run in range(4):
     model=give_pretrained_sfcn(str(run), "age")
+    model.eval()
     model.module.train_nothing() 
     model=model.to(device)
 
