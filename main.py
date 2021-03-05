@@ -31,6 +31,7 @@ with open(ARGS["CONFIG"], "r") as read_file:
 #Extract task, data, and method:
 task=config['experiment']['task']
 data=config['experiment']['data']
+balance=config['experiment']['balance']
 method=config['experiment']['method']
 preprocessing=config['experiment']['preprocessing']
 share=config['experiment']['share']
@@ -81,7 +82,8 @@ elif data=='abide':
                                             debug=debug,
                                             preprocessing=preprocessing,
                                             task=task,
-                                            share=share)
+                                            share=share,
+                                            balance=balance)
 
     _,val_loader=give_abide_data('val', batch_size=hps['batch'],
                                         num_workers=computing['n_workers'],
@@ -96,7 +98,8 @@ elif data=='ixi':
                                             debug=debug,
                                             preprocessing=preprocessing,
                                             task=task,
-                                            share=share)
+                                            share=share,
+                                            balance=balance)
 
     _,val_loader=give_ixi_data('val', batch_size=hps['batch'],
                                         num_workers=computing['n_workers'],

@@ -4,12 +4,13 @@
     "method": "ft_step",
     "task": "sex",
     "data": "oasis",
+    "balance": false,
     "share": 1.0,
     "train": "yes", 
     "valid": "no",
     "preprocessing": "full",
     "save_config": "yes",
-    "save_server": "yes", 
+    "save_server": "yes",
     "parent_directory": "experiments/" 
     },
 "elastic": 
