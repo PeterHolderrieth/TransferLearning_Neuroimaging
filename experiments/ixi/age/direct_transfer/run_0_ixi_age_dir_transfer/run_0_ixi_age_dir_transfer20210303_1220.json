@@ -1,0 +1,45 @@
+{
+  "experiment": {
+    "method": "direct_transfer",
+    "task": "age",
+    "data": "ixi",
+    "share": 1.0,
+    "train": "yes",
+    "valid": "no",
+    "preprocessing": "full",
+    "save_config": "yes",
+    "save_server": "yes",
+    "parent_directory": "experiments/"
+  },
+  "direct_transfer": {
+    "age": {
+      "ixi": {
+        "hps": {
+          "run": "0",
+          "task": "age",
+          "batch": 4,
+          "bin_min_new": 17,
+          "bin_max_new": 89,
+          "rescale": true,
+          "bin_step": 1,
+          "sigma": 1.0,
+          "dropout": 0.5,
+          "space": "continuous",
+          "loss_met": "kl",
+          "eval_met": "mae",
+          "n_epochs": 1,
+          "print_corr": true
+        },
+        "computing": {
+          "folder": "ixi/age/direct_transfer/",
+          "queue": "gpu8.q",
+          "n_gpus": 2,
+          "n_workers": 4
+        }
+      }
+    }
+  },
+  "record": {
+    "experiment_name": "run_0_ixi_age_dir_transfer"
+  }
+}

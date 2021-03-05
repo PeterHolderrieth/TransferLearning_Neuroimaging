@@ -1,0 +1,65 @@
+{
+"path": "/well/win-fmrib-analysis/users/lhw539/pre_trained_models/",
+"age":{ "0": {"file": "run_20191206_00_epoch_best_mae.p", 
+                "channels": [32, 64, 64, 64, 64, 64],
+                "output_dim": 40,
+                "bin_min":42,
+                "bin_max": 82
+                },
+        "1": {"file": "run_20191206_01_epoch_best_mae.p", 
+                "channels": [32, 64, 64, 64, 64, 64],
+                "output_dim": 40,
+                "bin_min":42,
+                "bin_max": 82
+                },
+        "2": {"file": "run_20191206_02_epoch_best_mae.p", 
+                "channels": [32, 64, 64, 64, 64, 64],
+                "output_dim": 40,
+                "bin_min":42,
+                "bin_max": 82
+                },
+        "3": {"file": "run_20191206_03_epoch_best_mae.p", 
+                "channels": [32, 64, 64, 64, 64, 64],
+                "output_dim": 40,
+                "bin_min":42,
+                "bin_max": 82
+                },
+        "4": {"file": "run_20190719_00_epoch_best_mae.p", 
+                "channels": [32, 64, 128, 256, 256, 64],
+                "output_dim": 40,
+                "bin_min":42,
+                "bin_max": 82
+                }
+        },
+"sex": {"0": {  "file": "run_20191008_00_epoch_last.p",
+                "channels": [28, 58, 128, 256, 256, 64],
+                "output_dim": 2,
+                "bin_min": 0,
+                "bin_max": 2
+                },
+        "1": {  "file": "run_20200228_00_epoch_last.p",
+                "channels": [32, 64, 64, 64, 64, 64],
+                "output_dim": 2,
+                "bin_min": 0,
+                "bin_max": 2
+                }, 
+        "2": {"file": "run_20200228_01_epoch_last.p",
+                "channels": [32, 64, 64, 64, 64, 64],
+                "output_dim": 2,
+                "bin_min": 0,
+                "bin_max": 2
+                },
+        "3": {"file": "run_20200228_02_epoch_last.p",
+                "channels": [32, 64, 64, 64, 64, 64],
+                "output_dim": 2,
+                "bin_min": 0,
+                "bin_max": 2
+                }, 
+        "4": {  "file": "run_20200228_03_epoch_last.p",
+                "channels": [32, 64, 64, 64, 64, 64],
+                "output_dim": 2,
+                "bin_min": 0,
+                "bin_max": 2
+                } 
+        }
+}

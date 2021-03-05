@@ -1,0 +1,6 @@
+{'DEBUG': 'full', 'BATCH': 500, 'N_COMP': None, 'L1RAT': 0.7, 'REG': 0.1, 'FEAT': 60}
+Succesfully loaded OASIS train data.
+Succesfully loaded OASIS   val data.
+MAE of ElasticNet:  5.78573304442245
+MAE on valid when train mean is predicted:  7.3570447
+MAE on valid when valid mean is predicted:  7.3472457

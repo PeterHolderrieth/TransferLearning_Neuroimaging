@@ -1,0 +1,52 @@
+{
+  "experiment": {
+    "method": "ft_full",
+    "task": "sex",
+    "data": "ixi",
+    "share": 1.0,
+    "train": "yes",
+    "valid": "no",
+    "preprocessing": "full",
+    "save_config": "yes",
+    "save_server": "yes",
+    "parent_directory": "experiments/"
+  },
+  "ft_full": {
+    "sex": {
+      "ixi": {
+        "hps": {
+          "run": "1",
+          "task": "sex",
+          "batch": 8,
+          "bin_min": 0,
+          "bin_max": 2,
+          "bin_step": 1,
+          "sigma": 1.0,
+          "dropout": 0.5,
+          "space": "binary",
+          "loss_met": "ent",
+          "eval_met": "acc",
+          "n_epochs": 60,
+          "optim_type": "SGD",
+          "lr": 0.005,
+          "weight_decay": 0.01,
+          "momentum": 0.8,
+          "scheduler_type": "step",
+          "epoch_dec": 10,
+          "gamma_dec": 0.2,
+          "threshold": 0.0,
+          "print_corr": true
+        },
+        "computing": {
+          "folder": "ixi/sex/sex_pretrained/",
+          "queue": "gpu8.q",
+          "n_gpus": 2,
+          "n_workers": 4
+        }
+      }
+    }
+  },
+  "record": {
+    "experiment_name": "fourth_experiment"
+  }
+}
