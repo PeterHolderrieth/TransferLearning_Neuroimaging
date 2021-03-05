@@ -19,12 +19,21 @@ def batch_fit_pca(data_loader,n_components):
         pca - sklearn.decomposition.PCA - pca function fitted to data from data_loader
     '''
     batch_size=data_loader.batch_size
-    
-    pca=IncrementalPCA(n_components=n_components,batch_size=batch_size)
+    n_data_points=data_loader.dataset._len
 
-    for batch_idx, (X,Y) in enumerate(data_loader):
+    if batch_size<n_data_points:
+        print("Apply incremental PCA on data.")
+        pca=IncrementalPCA(n_components=n_components,batch_size=batch_size)
+        for batch_idx, (X,Y) in enumerate(data_loader):
+            X=X.reshape(batch_size,-1)
+            pca.partial_fit(X)
+    else:
+        print("Apply PCA on full data.")
+        pca=PCA(n_components=n_components)
+        X,Y=next(iter(data_loader))
         X=X.reshape(batch_size,-1)
-        pca.partial_fit(X)
+        pca.fit(X)
+
     return(pca)
 
 #A function transforming data from a data loader via PCA into a data matrix:
@@ -43,12 +52,13 @@ def batch_trans_pca(pca,data_loader):
     batch_size=data_loader.batch_size
 
     for batch_idx, (X,Y) in enumerate(data_loader):
-
+        print(batch_size)
         #Reshape inputs:
         X=X.reshape(batch_size,-1)
         Y=Y.flatten()
         
         #Add transformed X and non-transformed Y:
+        print("Transform data matrix of shape: ", X.shape)
         trans_list.append(pca.transform(X))
         age_list.append(Y)
 
@@ -148,19 +158,18 @@ def elastic_experiment(train_loader,val_loader,hps):
     return(result)
 
 def elastic_grid_search(train_loader,val_loader,hps):
-    batch_list=hps['batch_list']
+    batch=hps['batch']
     ncomp=hps['ncomp']
     l1rat_list=hps['l1rat_list']
     reg_list=hps['reg_list']
     feat_list=hps['feat_list']
     reg_method=hps['reg_method']
 
-    for batch in batch_list:
-        for l1rat in l1rat_list:
-            for reg in reg_list:
-                for feat in feat_list:
-                    print("----------------------------------------------------------------------------")
-                    print("Batch: %4d || L1 share: %.4f || Reg: %.4f || Feat: %4d"%(batch,l1rat,reg,feat))
-                    result=elastic_experiment(train_loader,val_loader, 
-                                            {'batch': batch, 'ncomp': ncomp, 'l1rat': l1rat, 'reg': reg, 
-                                             'feat': feat,'reg_method': reg_method})
+    for l1rat in l1rat_list:
+        for reg in reg_list:
+            for feat in feat_list:
+                print("----------------------------------------------------------------------------")
+                print("Batch: %4d || L1 share: %.4f || Reg: %.4f || Feat: %4d"%(batch,l1rat,reg,feat))
+                result=elastic_experiment(train_loader,val_loader, 
+                                        {'batch': batch, 'ncomp': ncomp, 'l1rat': l1rat, 'reg': reg, 
+                                            'feat': feat,'reg_method': reg_method})

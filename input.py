@@ -48,7 +48,9 @@ def get_valid_values(name):
         valid_values=[float(value) for value in valid_values]
     elif DF_HP.loc[name,"Type"]=='bool':  
         valid_values=[bool(value) for value in valid_values]
-    elif DF_HP.loc[name,"Type"]=='int_list':  
+    elif DF_HP.loc[name,"Type"]=='int_list':   
+        valid_values=[list(value) for value in valid_values]
+    elif DF_HP.loc[name,"Type"]=='float_list':   
         valid_values=[list(value) for value in valid_values]
     else: 
         sys.exit("Error in hyperparameters: Unknown type.")
@@ -64,9 +66,17 @@ def set_if_allowed(name,input_):
     elif DF_HP.loc[name,"Type"]=='bool':  
         input_=bool(input_)
     elif DF_HP.loc[name,"Type"]=='int_list':  
+
         print(input_)
         print(type(input_))
         input_=[int(val) for val in list(input_)]
+
+    elif DF_HP.loc[name,"Type"]=='float_list':  
+        
+        print(input_)
+        print(type(input_))
+        input_=[float(val) for val in list(input_)]
+    
     else: 
         sys.exit("Error in hyperparameters: Unknown type.")
 
