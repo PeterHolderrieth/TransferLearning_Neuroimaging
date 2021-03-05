@@ -3,7 +3,7 @@ import argparse
 import json 
 import sys 
 
-from methods.elastic import elastic_experiment
+from methods.elastic import elastic_experiment, elastic_grid_search
 from methods.scratch import train_from_scratch_sfcn
 from methods.ft_full import train_sfcn_preloaded
 from methods.ft_final import train_final_sfcn_preloaded
@@ -112,6 +112,9 @@ else:
 
 if method=='elastic':
     elastic_experiment(train_loader,val_loader,hps)
+
+elif method=='elastic_grid':
+    elastic_grid_search(train_loader,val_loader,hps)
 
 elif method=='scratch':
     train_from_scratch_sfcn(train_loader,val_loader,hps)
