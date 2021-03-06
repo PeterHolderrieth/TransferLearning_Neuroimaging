@@ -46,10 +46,8 @@ computing=config_setup['computing']
 if ARGS['DEBUG']=='debug':
     debug=True
     hps['batch']=2
-
     if 'n_epochs' in list(hps.keys()):
-        hps['n_epochs']=3
-    
+        hps['n_epochs']=3    
     if 'n_epochs_ll' in list(hps.keys()):
         hps['n_epochs_ll']=3
 

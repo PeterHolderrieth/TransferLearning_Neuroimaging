@@ -21,9 +21,11 @@ def batch_fit_pca(data_loader,n_components):
     batch_size=data_loader.batch_size
     n_data_points=data_loader.dataset._len
 
-    if batch_size<n_data_points:
+    #Batches more than 300 are usually not possible to have on memory.
+    if batch_size<n_data_points or batch_size>300:
         print("Apply incremental PCA on data.")
-        pca=IncrementalPCA(n_components=n_components,batch_size=batch_size)
+        pca=IncrementalPCA(n_components=n_components,batch_size=min(batch_size,300))
+                
         for batch_idx, (X,Y) in enumerate(data_loader):
             X=X.reshape(batch_size,-1)
             pca.partial_fit(X)
