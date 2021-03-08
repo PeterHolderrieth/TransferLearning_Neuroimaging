@@ -118,18 +118,15 @@ def set_if_allowed(name,input_):
 
 
 def set_hp(name,default_val=None):
+    
     #Set prompt including default from template:
     prompt=name+": "
     if  default_val is not None:
         default=str(default_val)
         prompt=prompt+" || default: "+default+" || "
 
-    #Receive input:
-    if df_hp.loc[name,"Type"]=='int_list':  
-        n=6
-        input_ = list(map(int,input(prompt).strip().split()))[:n] 
-    else:
-        input_= input(prompt)
+    #Get input as string:
+    input_= input(prompt)
 
     #If no input given, set input to template:
     if len(input_)==0 and default_val is not None:
