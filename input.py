@@ -32,61 +32,118 @@ as general as possible since it initiates all programs and tasks in this project
 
 #Load data frame of valid hyperparameters:
 VALID_PAR_PATH='hps/valid_hps.csv'
+DF_HP = pd.read_csv(VALID_PAR_PATH,index_col=0)
 
 #Load data frame of state-of-the-art hyperparameters:
 DEFAULT_PAR_PATH='hps/sota_hps.json'
-df_hp = pd.read_csv(VALID_PAR_PATH,index_col=0)
+
+def input_bool(string):
+    x=input(string)
+    if len(x)==0:
+        return "EMPTY"
+    if x=="True":
+        return True
+    elif x=="False":
+        return False
+    else: 
+        print("Possible values are 'True' or 'False'.")
+        return input_bool(string)
+
+def input_float(string):
+    x=input(string)
+    if len(x)==0:
+        return "EMPTY"
+    try:
+        x=float(x)
+        return(x)
+    except ValueError:
+        print("Not a float")
+        return(input_float(string))
+
+def input_string(string):
+    x=input(string)
+    if len(x)==0:
+        return "EMPTY"
+    try:
+        x=str(x)
+        return(x)
+    except ValueError:
+        print("Not a string")
+        return(input_float(string))
+
+def input_int(string):
+    x=input(string)
+    if len(x)==0:
+        return "EMPTY"
+    try:     
+        x=float(x)
+        if x.is_integer():
+            return(int(x))
+        else: 
+            print("An int, not a float, is required.")
+            return(input_int(string))
+    except ValueError:
+        print("Not an int.")
+        return(input_int(string))
+
+def input_list(string,type_):
+    print(string)
+    n=input_int("Number of elements: ")
+    if n=="EMPTY":
+        return "EMPTY"
+    else:
+        my_list=[]
+        for it in range(n):
+            x=my_input("El %2d: "%it, type_)
+            my_list.append(x)
+        return(my_list)
+
+def my_input(string,type_):
+    if type_=='int':
+        return input_int(string)
+    elif type_=='float':
+        return input_float(string)
+    elif type_=='bool':
+        return input_bool(string)
+    elif type_=='string':
+        return input_string(string)
+    elif type_=='int_list':
+        return input_list(string,"int")
+    elif type_=='float_list':
+        return input_list(string,"float")
+    elif type_=='bool_list':
+        return input_list(string,"bool")
+    elif type_=='string_list':
+        return input_list(string,"string")
+    else: 
+        sys.exit("Unknown input type.")
 
 def get_valid_values(name):
     '''
     Input: 
         name - string - name of parameter to get valid values from
     '''
-    valid_values=df_hp.loc[name,:][4:].values
+    valid_values=DF_HP.loc[name,:][4:].values
     valid_values = valid_values[~pd.isnull(valid_values)]
     
-    if df_hp.loc[name,"Type"]=='string':
+    if DF_HP.loc[name,"Type"]=='string':
         valid_values=[str(value) for value in valid_values]
-    elif df_hp.loc[name,"Type"]=='int':
+    elif DF_HP.loc[name,"Type"]=='int':
         valid_values=[int(value) for value in valid_values]
-    elif df_hp.loc[name,"Type"]=='float':  
+    elif DF_HP.loc[name,"Type"]=='float':  
         valid_values=[float(value) for value in valid_values]
-    elif df_hp.loc[name,"Type"]=='bool':  
+    elif DF_HP.loc[name,"Type"]=='bool':  
         valid_values=[bool(value) for value in valid_values]
-    elif df_hp.loc[name,"Type"]=='int_list':   
+    elif DF_HP.loc[name,"Type"]=='int_list':   
         sys.exit("Valid values for lists are not possible so far.")
-    elif df_hp.loc[name,"Type"]=='float_list':   
+    elif DF_HP.loc[name,"Type"]=='float_list':   
         sys.exit("Valid values for lists are not possible so far.")
     else: 
         sys.exit("Error in hyperparameters: Unknown type.")
     return(valid_values)
 
 def set_if_allowed(name,input_):
-    
-    if df_hp.loc[name,"Type"]=='string':
-        input_=str(input_)
-    elif df_hp.loc[name,"Type"]=='int':
-        input_=int(input_)
-    elif df_hp.loc[name,"Type"]=='float':  
-        input_=float(input_)
-    elif df_hp.loc[name,"Type"]=='bool':  
-        input_=bool(input_)
-    elif df_hp.loc[name,"Type"]=='int_list':  
-
-        print(input_)
-        print(type(input_))
-        input_=[int(val) for val in list(input_)]
-
-    elif df_hp.loc[name,"Type"]=='float_list':  
-        
-        print(input_)
-        print(type(input_))
-        input_=[float(val) for val in list(input_)]
-    
-    else: 
-        sys.exit("Error in hyperparameters: Unknown type.")
-
-    if df_hp.loc[name,"Space"]=='values':
+    if DF_HP.loc[name,"Space"]=='values':
         valid_values=get_valid_values(name)
         #Control whether input_ is a valid value:
         if input_ in valid_values:
@@ -98,43 +155,47 @@ def set_if_allowed(name,input_):
             print("Possible values are: ", valid_values)
             return(set_hp(name))
 
-    elif df_hp.loc[name,"Space"]=='range':
+    elif DF_HP.loc[name,"Space"]=='range':
 
         #Control whether lower and upper bound holds:
-        lower_bound=(input_>=df_hp.loc[name,"Min"]) or pd.isnull(df_hp.loc[name,"Min"])
-        upper_bound=(input_<=df_hp.loc[name,"Max"]) or pd.isnull(df_hp.loc[name,"Max"])
+        lower_bound=(input_>=DF_HP.loc[name,"Min"]) or pd.isnull(DF_HP.loc[name,"Min"])
+        upper_bound=(input_<=DF_HP.loc[name,"Max"]) or pd.isnull(DF_HP.loc[name,"Max"])
         if lower_bound and upper_bound:
             return(input_)
 
         #Otherwise start again:
         else:
             print("Value out of range for "+name+".")
-            print("Range is  [", df_hp.loc[name,"Min"],",",df_hp.loc[name,"Max"],"]")
+            print("Range is  [", DF_HP.loc[name,"Min"],",",DF_HP.loc[name,"Max"],"]")
             return(set_hp(name))
-    elif df_hp.loc[name,"Space"]=='any' or df_hp.loc[name,"Space"]=='bool':
+    elif DF_HP.loc[name,"Space"]=='any' or DF_HP.loc[name,"Space"]=='bool':
         return(input_)
     else: 
-        sys.exit("Error in hyperparameters file for %s. Unknown space: %s"%(name,df_hp.loc[name,"Space"]))
+        sys.exit("Error in hyperparameters file for %s. Unknown space: %s"%(name,DF_HP.loc[name,"Space"]))
 
 
 def set_hp(name,default_val=None):
-    
-    #Set prompt including default from template:
+
+    #Set prompt including default from template
     prompt=name+": "
     if  default_val is not None:
         default=str(default_val)
         prompt=prompt+" || default: "+default+" || "
 
-    #Get input as string:
-    input_= input(prompt)
+    #Get type:
+    type_=DF_HP.loc[name,"Type"]
+    
+    #Get input:
+    input_= my_input(prompt,type_)
 
-    #If no input given, set input to template:
-    if len(input_)==0 and default_val is not None:
+    #If no input given, set input to template
+    if input_=="EMPTY" and default_val is not None:
         input_=default_val
         return(set_if_allowed(name,input_))
-    #If length zero, try again:
-    elif len(input_)==0:
-        print("Length=0 invalid.")
+
+    #If no input and no template is given, try again
+    elif input_=="EMPTY":
+        print("Length=0 invalid if no default is given.")
         return(set_hp(name))
     else: 
         return(set_if_allowed(name,input_))
@@ -190,8 +251,13 @@ default_comp=temp_data[method][task][data]['computing']
 for key in default_comp.keys():
     comp_config[key]=set_hp(key,default_comp[key])
 
+
+for el in exp_config.keys():
+    print(exp_config[el])
+    print(type(exp_config[el]))
+
 #Set all experiment hyperparameters:
-if exp_config['save_config']=='yes':
+if exp_config['save_config']:
     config_data['record']={}
     record_config=config_data['record']
 
