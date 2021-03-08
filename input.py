@@ -30,48 +30,54 @@ as general as possible since it initiates all programs and tasks in this project
 '''
 
 
-#Load data frame of hyperparameters:
-VALID_PATH='hps/valid_hps.csv'
-DEFAULT_PATH='hps/sota_hps.json'
-DF_HP = pd.read_csv(VALID_PATH,index_col=0)
-#print(DF_HP.head())
+#Load data frame of valid hyperparameters:
+VALID_PAR_PATH='hps/valid_hps.csv'
+
+#Load data frame of state-of-the-art hyperparameters:
+DEFAULT_PAR_PATH='hps/sota_hps.json'
+df_hp = pd.read_csv(VALID_PAR_PATH,index_col=0)
 
 def get_valid_values(name):
-    valid_values=DF_HP.loc[name,:][4:].values
+    '''
+    Input: 
+        name - string - name of parameter to get valid values from
+    '''
+    valid_values=df_hp.loc[name,:][4:].values
     valid_values = valid_values[~pd.isnull(valid_values)]
     
-    if DF_HP.loc[name,"Type"]=='string':
+    if df_hp.loc[name,"Type"]=='string':
         valid_values=[str(value) for value in valid_values]
-    elif DF_HP.loc[name,"Type"]=='int':
+    elif df_hp.loc[name,"Type"]=='int':
         valid_values=[int(value) for value in valid_values]
-    elif DF_HP.loc[name,"Type"]=='float':  
+    elif df_hp.loc[name,"Type"]=='float':  
         valid_values=[float(value) for value in valid_values]
-    elif DF_HP.loc[name,"Type"]=='bool':  
+    elif df_hp.loc[name,"Type"]=='bool':  
         valid_values=[bool(value) for value in valid_values]
-    elif DF_HP.loc[name,"Type"]=='int_list':   
-        valid_values=[list(value) for value in valid_values]
-    elif DF_HP.loc[name,"Type"]=='float_list':   
-        valid_values=[list(value) for value in valid_values]
+    elif df_hp.loc[name,"Type"]=='int_list':   
+        sys.exit("Valid values for lists are not possible so far.")
+    elif df_hp.loc[name,"Type"]=='float_list':   
+        sys.exit("Valid values for lists are not possible so far.")
     else: 
         sys.exit("Error in hyperparameters: Unknown type.")
     return(valid_values)
 
 def set_if_allowed(name,input_):
-    if DF_HP.loc[name,"Type"]=='string':
+    
+    if df_hp.loc[name,"Type"]=='string':
         input_=str(input_)
-    elif DF_HP.loc[name,"Type"]=='int':
+    elif df_hp.loc[name,"Type"]=='int':
         input_=int(input_)
-    elif DF_HP.loc[name,"Type"]=='float':  
+    elif df_hp.loc[name,"Type"]=='float':  
         input_=float(input_)
-    elif DF_HP.loc[name,"Type"]=='bool':  
+    elif df_hp.loc[name,"Type"]=='bool':  
         input_=bool(input_)
-    elif DF_HP.loc[name,"Type"]=='int_list':  
+    elif df_hp.loc[name,"Type"]=='int_list':  
 
         print(input_)
         print(type(input_))
         input_=[int(val) for val in list(input_)]
 
-    elif DF_HP.loc[name,"Type"]=='float_list':  
+    elif df_hp.loc[name,"Type"]=='float_list':  
         
         print(input_)
         print(type(input_))
@@ -80,7 +86,7 @@ def set_if_allowed(name,input_):
     else: 
         sys.exit("Error in hyperparameters: Unknown type.")
 
-    if DF_HP.loc[name,"Space"]=='values':
+    if df_hp.loc[name,"Space"]=='values':
         valid_values=get_valid_values(name)
         #Control whether input_ is a valid value:
         if input_ in valid_values:
@@ -92,23 +98,23 @@ def set_if_allowed(name,input_):
             print("Possible values are: ", valid_values)
             return(set_hp(name))
 
-    elif DF_HP.loc[name,"Space"]=='range':
+    elif df_hp.loc[name,"Space"]=='range':
 
         #Control whether lower and upper bound holds:
-        lower_bound=(input_>=DF_HP.loc[name,"Min"]) or pd.isnull(DF_HP.loc[name,"Min"])
-        upper_bound=(input_<=DF_HP.loc[name,"Max"]) or pd.isnull(DF_HP.loc[name,"Max"])
+        lower_bound=(input_>=df_hp.loc[name,"Min"]) or pd.isnull(df_hp.loc[name,"Min"])
+        upper_bound=(input_<=df_hp.loc[name,"Max"]) or pd.isnull(df_hp.loc[name,"Max"])
         if lower_bound and upper_bound:
             return(input_)
 
         #Otherwise start again:
         else:
             print("Value out of range for "+name+".")
-            print("Range is  [", DF_HP.loc[name,"Min"],",",DF_HP.loc[name,"Max"],"]")
+            print("Range is  [", df_hp.loc[name,"Min"],",",df_hp.loc[name,"Max"],"]")
             return(set_hp(name))
-    elif DF_HP.loc[name,"Space"]=='any' or DF_HP.loc[name,"Space"]=='bool':
+    elif df_hp.loc[name,"Space"]=='any' or df_hp.loc[name,"Space"]=='bool':
         return(input_)
     else: 
-        sys.exit("Error in hyperparameters file for %s. Unknown space: %s"%(name,DF_HP.loc[name,"Space"]))
+        sys.exit("Error in hyperparameters file for %s. Unknown space: %s"%(name,df_hp.loc[name,"Space"]))
 
 
 def set_hp(name,default_val=None):
@@ -119,7 +125,7 @@ def set_hp(name,default_val=None):
         prompt=prompt+" || default: "+default+" || "
 
     #Receive input:
-    if DF_HP.loc[name,"Type"]=='int_list':  
+    if df_hp.loc[name,"Type"]=='int_list':  
         n=6
         input_ = list(map(int,input(prompt).strip().split()))[:n] 
     else:
@@ -137,14 +143,14 @@ def set_hp(name,default_val=None):
         return(set_if_allowed(name,input_))
 
 def file_if_exists(name):
-    path = input (name+" || Default: "+DEFAULT_PATH+"|| : ")
+    path = input (name+" || Default: "+DEFAULT_PAR_PATH+"|| : ")
     if osp.isfile(path) and len(path)>0:
         return(path)
     elif len(path)>0:
         print("File does not exist.")
         return(file_if_exists(name))
     else: 
-        return DEFAULT_PATH
+        return DEFAULT_PAR_PATH
 
 template_path = file_if_exists('template')
 if template_path is not None:
