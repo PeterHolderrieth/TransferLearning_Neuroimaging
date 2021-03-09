@@ -283,7 +283,7 @@ if exp_config['save_config']:
     with open(json_filepath, "w") as configfile:
         json.dump(config_data,configfile,indent=2)
     
-    if exp_config['save_server']=='yes':
+    if exp_config['save_server']:
         server_filename=record_config['experiment_name']+date_string+'.sh'
         log_filename=record_config['experiment_name']+date_string+'.log'
 

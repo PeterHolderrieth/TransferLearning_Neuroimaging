@@ -1,0 +1,56 @@
+{
+  "experiment": {
+    "method": "elastic_grid",
+    "task": "sex",
+    "data": "abide",
+    "balance": true,
+    "share": 1.0,
+    "train": true,
+    "valid": false,
+    "preprocessing": "full",
+    "save_config": true,
+    "save_server": true,
+    "parent_directory": "experiments/"
+  },
+  "elastic_grid": {
+    "sex": {
+      "abide": {
+        "hps": {
+          "batch": 300,
+          "ncomp": -1,
+          "l1rat_list": [
+            1.0,
+            0.1,
+            0.3,
+            0.6,
+            0.9,
+            1.0
+          ],
+          "reg_list": [
+            0.1,
+            1.0,
+            10.0,
+            20.0
+          ],
+          "feat_list": [
+            40,
+            60,
+            80,
+            120,
+            160
+          ],
+          "reg_method": "logistic"
+        },
+        "computing": {
+          "folder": "abide/sex/elastic/",
+          "queue": "win000",
+          "n_gpus": 0,
+          "n_workers": 2
+        }
+      }
+    }
+  },
+  "record": {
+    "experiment_name": "elastic_grid_sex_abide"
+  }
+}
