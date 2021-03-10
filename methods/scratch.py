@@ -12,7 +12,7 @@ def train_from_scratch_sfcn(train_loader,val_loader,hps):
     info_start="Full model is being trained with random initialization."
     info_end="Full model was being trained with random initialization."
 
-    sfcn_train(model,   train_loader=train_loader, 
+    meter=sfcn_train(model,   train_loader=train_loader, 
                         val_loader=val_loader,
                         bin_min=hps['bin_min'], 
                         bin_max=hps['bin_max'],
@@ -33,8 +33,7 @@ def train_from_scratch_sfcn(train_loader,val_loader,hps):
                         print_corr=hps['print_corr'],
                         info_start=info_start,
                         info_end=info_end)
-    
-
+    return(model)
 
 '''
 Utilities for later us:

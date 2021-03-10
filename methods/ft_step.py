@@ -61,3 +61,5 @@ def train_step_sfcn_preloaded(train_loader,val_loader,hps):
                     print_corr=hps['print_corr'],
                     info_start=info_start,
                     info_end=info_end)
+    
+    return model
