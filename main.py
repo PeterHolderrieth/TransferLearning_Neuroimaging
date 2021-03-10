@@ -90,7 +90,8 @@ if not ARGS['TEST']:
                                             debug=debug,
                                             preprocessing=preprocessing,
                                             task=task,
-                                            share=share)
+                                            share=share,
+                                            balance=balance)
 
     _,val_loader=give_dataset(data,'val', batch_size=hps['batch'],
                                         num_workers=computing['n_workers'],
