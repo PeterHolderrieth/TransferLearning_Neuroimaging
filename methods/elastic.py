@@ -157,7 +157,8 @@ def test_elastic(val_loader,reg_method,pca,reg_model,inds=None):
 def elastic_experiment(train_loader,val_loader,hps):
     pca,reg_model,inds=fit_elastic(train_loader,**hps)
     result=test_elastic(val_loader,hps['reg_method'],pca,reg_model,inds)
-    return(result)
+    model_dict={'pca':pca,'reg_model': inds,'inds': inds}
+    return(result,model_dict)
 
 def elastic_grid_search(train_loader,val_loader,hps):
     batch=hps['batch']
@@ -172,6 +173,6 @@ def elastic_grid_search(train_loader,val_loader,hps):
             for feat in feat_list:
                 print("----------------------------------------------------------------------------")
                 print("Batch: %4d || L1 share: %.4f || Reg: %.4f || Feat: %4d"%(batch,l1rat,reg,feat))
-                result=elastic_experiment(train_loader,val_loader, 
+                result,_=elastic_experiment(train_loader,val_loader, 
                                         {'batch': batch, 'ncomp': ncomp, 'l1rat': l1rat, 'reg': reg, 
                                             'feat': feat,'reg_method': reg_method})

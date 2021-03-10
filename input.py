@@ -235,6 +235,10 @@ config_data={}
 #and the method we want to use.
 config_data['experiment']={}
 exp_config=config_data['experiment']
+
+#Set initialization parameters:
+exp_config["training_completed"]=False
+
 for key in temp_data['experiment'].keys():
     exp_config[key]=set_hp(key,temp_data['experiment'][key])
 
@@ -271,6 +275,8 @@ for el in exp_config.keys():
 if exp_config['save_config']:
     config_data['record']={}
     record_config=config_data['record']
+
+    record_config["model_has_been_saved"]=False
 
     for key in temp_data['record'].keys():
         if key=='experiment_name':

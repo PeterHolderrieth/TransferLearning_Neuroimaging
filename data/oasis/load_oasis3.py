@@ -27,7 +27,7 @@ def give_oasis_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=Fals
         fp_ = default_name+'session_train.csv'
     elif data_type=='val':
         fp_ = default_name+'session_val.csv'
-    elif data_type=='test0':
+    elif data_type=='test':
         fp_ = default_name+'session_test0.csv'
     elif data_type=='test1':
         fp_ = default_name+'session_test1.csv'

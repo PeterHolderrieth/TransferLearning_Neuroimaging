@@ -3,10 +3,14 @@ sys.path.append('../')
 
 from sfcn.sfcn_load import give_fresh_sfcn
 from sfcn.sfcn_train import sfcn_train
+from sfcn.sfcn_test import sfcn_test 
+
+def load_from_scratch_sfcn(bin_min,bin_max,dropout,channel_number): 
+    return give_fresh_sfcn(bin_min,bin_max,dropout,channel_number)
 
 def train_from_scratch_sfcn(train_loader,val_loader,hps): 
     
-    model=give_fresh_sfcn(hps['bin_min'],hps['bin_max'],hps['dropout'],hps['channel_number'])
+    model=load_from_scratch_sfcn(hps['bin_min'],hps['bin_max'],hps['dropout'],hps['channel_number'])
     model.module.train_full_model()
 
     info_start="Full model is being trained with random initialization."
@@ -34,6 +38,35 @@ def train_from_scratch_sfcn(train_loader,val_loader,hps):
                         info_start=info_start,
                         info_end=info_end)
     return(model)
+
+def test_from_scratch_sfcn(test_loader,hps,file_path=None,model=None):
+    if file_path is not None:
+        model=load_from_scratch_sfcn(hps['bin_min'],hps['bin_max'],hps['dropout'],hps['channel_number'])
+        model.load_state_dict(file_path)
+    elif model is not None:
+        pass 
+    else: 
+        sys.exit("Neither model nor file path is given.")
+
+    model.train_nothing()
+    model.eval()
+    
+    info_start="Model loaded from %s is being tested."%file_path
+    info_end="Model loaded from %s has been tested."%file_path
+
+    return sfcn_test(model=model,
+                test_loader=test_loader,
+                bin_min=hps['bin_min'],
+                bin_max=hps['bin_max'],
+                space=hps['space'],
+                loss_met=hps['loss_met'],
+                eval_met=hps['eval_met'],
+                bin_step=hps['bin_step'],
+                sigma=hps['sigma'],
+                n_epochs=3,
+                print_corr=True,
+                info_start=info_start,
+                info_end=info_end)
 
 '''
 Utilities for later us:
