@@ -1,4 +1,5 @@
 import sys
+import torch
 sys.path.append('../')
 
 from sfcn.sfcn_load import give_pretrained_sfcn
@@ -47,13 +48,13 @@ def test_full_sfcn_preloaded(test_loader,hps,file_path=None,model=None):
         
     if file_path is not None:
         model=load_full_sfcn_preloaded(hps['run'],hps['task'],hps['bin_min'],hps['bin_max'])
-        model.load_state_dict(file_path)
+        model.load_state_dict(torch.load(file_path))
     elif model is not None:
         pass 
     else: 
         sys.exit("Neither model nor file path is given.")
 
-    model.train_nothing()
+    model.module.train_nothing()
     model.eval()
     
     info_start="Model loaded from %s is being tested."%file_path

@@ -64,6 +64,18 @@ else:
     sys.exit("Unvalid debug flag.")
 
 
+if record_config.get('model_save',False) or ARGS['TEST']:
+    #How to save filepath:
+    ending='.p'
+    if debug: 
+        ending='_debug'+ending
+
+    directory=os.path.join(record_config['model_save_folder'],data,task)
+    file_path=os.path.join(directory,record_config['model_save_name']+ending)
+
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+
 #-------------------------------------
 #*************TRAINING*************
 #-------------------------------------
@@ -116,23 +128,16 @@ if not ARGS['TEST']:
 
 
     #save model and set training completed:
-    model_save=record_config.get('model_save',False)
-    if model_save:
+    if record_config.get('model_save',False):
         if method in ['scratch','ft_full','ft_step','ft_final']:
-            
-            ending='.p'
-            if debug: 
-                ending='_debug'+ending
-
-            file_path=os.path.join(record_config['model_save_folder'],record_config['model_save_name']+ending)
             torch.save(model.state_dict(),file_path)
             config['record']['model_has_been_saved']=True
 
         elif method=='elastic':
-            print("So far, it is not possible to save the elastic net model.")
+            sys.exit("So far, it is not possible to save the elastic net model.")
 
         elif method=='direct_transfer':
-            print("It is not necessary to save the 'direct transfer' model. It has not been trained.")
+            sys.exit("It is not necessary to save the 'direct transfer' model. It has not been trained.")
         
         else:
             sys.exit("Unknown method.")
@@ -144,15 +149,15 @@ if not ARGS['TEST']:
             print("Save configfile.")
             json.dump(config,configfile,indent=2)
     
+    still_have_model=True
+else: 
+    still_have_model=False
 #-------------------------------------
 #*************TESTING*****************
+    model_save=record_config.get('model_save',False)
 #-------------------------------------
-test_after_training=config['experiment'].get('test_after_training',False)
-
-if ARGS['TEST'] or test_after_training:
-    file_path=os.path.join(record_config['model_save_folder'],record_config['model_save_name']+'.p')
-
-    if not config['experiment'].get('training_completed',False):
+if ARGS['TEST'] or config['experiment'].get('test_after_training',False):
+    if not config['experiment'].get('training_completed',False) and not debug:
         sys.exit("Training of the model was not completed. We should not test.")
 
     _,test_loader=give_dataset(data,'test', batch_size=hps['batch'],
@@ -163,7 +168,7 @@ if ARGS['TEST'] or test_after_training:
                                         task=task,
                                         share=1.0)
     if method=='elastic':
-        if test_after_training:
+        if still_have_model:
             test_elastic(test_loader,hps['reg_method'],**model_dict)
         else: 
             sys.exit("So far, saving elastic net is not enabled. So testing loading it does not work either.")
@@ -172,25 +177,25 @@ if ARGS['TEST'] or test_after_training:
         sys.exit("Testing is not enabled for elastic net grid search.")
 
     elif method=='scratch':
-        if test_after_training:
+        if still_have_model:
             test_from_scratch_sfcn(test_loader,hps,model=model)
         else: 
             test_from_scratch_sfcn(test_loader,hps,file_path=file_path)
 
     elif method=='ft_full':
-        if test_after_training:
+        if still_have_model:
             test_full_sfcn_preloaded(test_loader,hps,model=model)
         else: 
             test_full_sfcn_preloaded(test_loader,hps,file_path=file_path)
 
     elif method=='ft_final':
-        if test_after_training:
+        if still_have_model:
             test_final_sfcn_preloaded(test_loader,hps,model=model)
         else: 
             test_final_sfcn_preloaded(test_loader,hps,file_path=file_path)
 
     elif method=='ft_step':
-        if test_after_training:
+        if still_have_model:
             test_step_sfcn_preloaded(test_loader,hps,model=model)
         else: 
             test_step_sfcn_preloaded(test_loader,hps,file_path=file_path)

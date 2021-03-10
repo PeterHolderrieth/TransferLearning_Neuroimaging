@@ -267,9 +267,9 @@ for key in default_comp.keys():
     comp_config[key]=set_hp(key,default_comp[key])
 
 
-for el in exp_config.keys():
-    print(exp_config[el])
-    print(type(exp_config[el]))
+#for el in exp_config.keys():
+#    print(exp_config[el])
+#    print(type(exp_config[el]))
 
 #Set all experiment hyperparameters:
 if exp_config['save_config']:

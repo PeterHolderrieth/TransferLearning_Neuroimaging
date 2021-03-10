@@ -230,7 +230,7 @@ class SFCN(nn.Module):
 # print(list(model.feature_extractor[5].parameters())[0].flatten()[0])
 # print(list(model.classifier.parameters())[0].flatten()[0])
 # # print()
-# model.train_only_final_layers(2)
+# model.module.train_only_final_layers(2)
 # model.reinit_full_model_pres_scale()
 # print(list(model.feature_extractor[0].parameters())[0].flatten()[0])
 # print(list(model.feature_extractor[1].parameters())[0].flatten()[0])

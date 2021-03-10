@@ -31,7 +31,7 @@ def give_ixi_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=False,
         fp_ = default_name+'ixi_train'+balance+'.csv'
     elif data_type=='val':
         fp_ = default_name+'ixi_val'+balance+'.csv'
-    elif data_type=='test0':
+    elif data_type=='test':
         fp_ = default_name+'ixi_test'+balance+'.csv'
     else: 
         sys.exit("Unknown data type.")

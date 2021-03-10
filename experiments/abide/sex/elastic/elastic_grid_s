@@ -239,3 +239,27 @@ Accuracy of regression:  0.695
 ----------------------------------------------------------------------------
 Batch:  200 || L1 share: 1.0000 || Reg: 20.0000 || Feat:  160
 Apply incremental PCA on data.
+200
+Transform data matrix of shape:  torch.Size([200, 4915200])
+200
+Transform data matrix of shape:  torch.Size([200, 4915200])
+200
+Transform data matrix of shape:  torch.Size([200, 4915200])
+200
+Transform data matrix of shape:  torch.Size([200, 4915200])
+Accuracy of regression:  0.77
+----------------------------------------------------------------------------
+Batch:  200 || L1 share: 0.1000 || Reg: 0.1000 || Feat:   40
+Apply incremental PCA on data.
+200
+Transform data matrix of shape:  torch.Size([200, 4915200])
+200
+Transform data matrix of shape:  torch.Size([200, 4915200])
+200
+Transform data matrix of shape:  torch.Size([200, 4915200])
+200
+Transform data matrix of shape:  torch.Size([200, 4915200])
+Accuracy of regression:  0.64
+----------------------------------------------------------------------------
+Batch:  200 || L1 share: 0.1000 || Reg: 0.1000 || Feat:   60
+Apply incremental PCA on data.
