@@ -1,0 +1,17 @@
+------------------------------------------------
+Job ID: 39044638
+Run on host: compg013.hpc.in.bmrc.ox.ac.uk
+Operating system: Linux
+Username: lhw539
+Started at: Wed Mar 10 10:17:56 GMT 2021
+------------------------------------------------
+Loading ABIDE train data.
+Loading ABIDE   val data.
+Number of GPUs:  2
+Epoch decay:  30
+Gamma decay:  0.3
+
+Full model is being trained with random initialization.
+Start:  2021-03-10 10:18:04.656567
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+|epoch:   0 | lr: 0.010 |train kld: 1.81534 |train kld ravg: 1.81534 |train mae:  9.50500 |train mae ravg:  9.50500 |val kld: 1.67433 |val kldravg: 1.67433 |val mae:  3.21227 |val mae ravg:  3.21227 |

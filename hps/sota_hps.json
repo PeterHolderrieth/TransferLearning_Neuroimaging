@@ -90,8 +90,27 @@
                 "batch": 2000,
                 "ncomp":-1,
                 "l1rat_list":[1.0,0.1,0.3,0.6,0.9, 1.0],
-                "reg_list":[0.1,1.0,10.0],
-                "feat_list":[40,60,80],
+                "reg_list":[0.1,1.0,10.0,20.0,40.0],
+                "feat_list":[40,60,80,100,120,140,160,180],
+                "reg_method": "regression"
+                },
+            "computing": 
+                {
+                "folder":"abide/age/elastic/",
+                "queue": "win000",
+                "n_gpus": 0,
+                "n_workers": 2
+                }
+            },
+        "ixi":
+            {
+            "hps":
+                {
+                "batch": 2000,
+                "ncomp":-1,
+                "l1rat_list":[1.0,0.1,0.3,0.6,0.9, 1.0],
+                "reg_list":[0.1,1.0,10.0,20.0,40.0],
+                "feat_list":[40,60,80,100,120,140,160,180],
                 "reg_method": "regression"
                 },
             "computing": 
@@ -111,14 +130,33 @@
                 {
                 "batch": 300,
                 "ncomp":-1,
-                "l1rat_list":[1.0,0.1,0.3,0.6,0.9, 1.0],
+                "l1rat_list":[0.0,0.1,0.3,0.6,0.9, 1.0],
                 "reg_list":[0.1,1.0,10.0,20.0],
                 "feat_list":[40,60,80,120,160],
                 "reg_method": "logistic"
                 },
             "computing": 
                 {
-                "folder":"abide/sex/elastic/",
+                "folder":"ixi/sex/elastic/",
+                "queue": "win000",
+                "n_gpus": 0,
+                "n_workers": 2
+                }
+            },
+        "ixi":
+            {
+            "hps":
+                {
+                "batch": 300,
+                "ncomp":-1,
+                "l1rat_list":[0.0,0.1,0.3,0.6,0.9, 1.0],
+                "reg_list":[0.1,1.0,10.0,20.0],
+                "feat_list":[40,60,80,120,160],
+                "reg_method": "logistic"
+                },
+            "computing": 
+                {
+                "folder":"ixi/sex/elastic/",
                 "queue": "win000",
                 "n_gpus": 0,
                 "n_workers": 2
@@ -144,7 +182,7 @@
                 "space":"continuous",
                 "loss_met":"kl",
                 "eval_met":"mae",
-                "n_epochs":2000,
+                "n_epochs":1200,
                 "optim_type": "SGD",
                 "lr": 1e-2,
                 "weight_decay":1e-3,
@@ -158,6 +196,72 @@
             "computing":
                 {
                 "folder":"oasis/age/scratch/",
+                "queue": "gpu8.q",
+                "n_gpus": 2,
+                "n_workers": 4
+                }
+            },
+        "abide": 
+            { 
+            "hps":
+                {
+                "batch": 8,
+                "bin_min":2,
+                "bin_max":59,
+                "bin_step":1,
+                "sigma":1.0,
+                "dropout": 0.5,
+                "channel_number":[32, 64, 64, 64, 64, 64], 
+                "space":"continuous",
+                "loss_met":"kl",
+                "eval_met":"mae",
+                "n_epochs":1200,
+                "optim_type": "SGD",
+                "lr": 1e-2,
+                "weight_decay":1e-3,
+                "momentum": 0.9,
+                "scheduler_type": "step",
+                "epoch_dec": 30,
+                "gamma_dec": 0.3,
+                "threshold": 0.0,
+                "print_corr": true
+                },
+            "computing":
+                {
+                "folder":"abide/age/scratch/",
+                "queue": "gpu8.q",
+                "n_gpus": 2,
+                "n_workers": 4
+                }
+            },
+        "ixi": 
+            { 
+            "hps":
+                {
+                "batch": 8,
+                "bin_min":17,
+                "bin_max":89,
+                "bin_step":1,
+                "sigma":1.0,
+                "dropout": 0.5,
+                "channel_number":[32, 64, 64, 64, 64, 64], 
+                "space":"continuous",
+                "loss_met":"kl",
+                "eval_met":"mae",
+                "n_epochs":1200,
+                "optim_type": "SGD",
+                "lr": 1e-2,
+                "weight_decay":1e-3,
+                "momentum": 0.9,
+                "scheduler_type": "step",
+                "epoch_dec": 30,
+                "gamma_dec": 0.3,
+                "threshold": 0.0,
+                "print_corr": true
+                },
+            "computing":
+                {
+                "folder":"ixi/age/scratch/",
                 "queue": "gpu8.q",
                 "n_gpus": 2,
                 "n_workers": 4

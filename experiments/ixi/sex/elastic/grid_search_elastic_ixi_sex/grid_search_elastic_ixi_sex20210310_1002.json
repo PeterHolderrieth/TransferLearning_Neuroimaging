@@ -2,7 +2,7 @@
   "experiment": {
     "method": "elastic_grid",
     "task": "sex",
-    "data": "abide",
+    "data": "ixi",
     "balance": true,
     "share": 1.0,
     "train": true,
@@ -14,12 +14,12 @@
   },
   "elastic_grid": {
     "sex": {
-      "abide": {
+      "ixi": {
         "hps": {
-          "batch": 200,
+          "batch": 250,
           "ncomp": -1,
           "l1rat_list": [
-            1.0,
+            0.0,
             0.1,
             0.3,
             0.6,
@@ -42,7 +42,7 @@
           "reg_method": "logistic"
         },
         "computing": {
-          "folder": "abide/sex/elastic/",
+          "folder": "ixi/sex/elastic/",
           "queue": "win000",
           "n_gpus": 0,
           "n_workers": 2
@@ -51,6 +51,6 @@
     }
   },
   "record": {
-    "experiment_name": "elastic_grid_sex_abide"
+    "experiment_name": "grid_search_elastic_ixi_sex"
   }
 }

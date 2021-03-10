@@ -1,3 +1,13 @@
+BEST RESULTS:
+Batch:  300 || L1 share: 0.8000 || Reg: 10.0000 || Feat:  120
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  2.719123514980376
+MAE on valid when valid mean is predicted:  4.2175555
+
 ------------------------------------------------
 Job ID: 
 Run on host: win000.hpc.in.bmrc.ox.ac.uk

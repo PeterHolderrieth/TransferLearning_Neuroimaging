@@ -1,0 +1,25 @@
+------------------------------------------------
+Job ID: 
+Run on host: win000.hpc.in.bmrc.ox.ac.uk
+Operating system: Linux
+Username: lhw539
+Started at: Wed Mar 10 09:48:34 GMT 2021
+------------------------------------------------
+Loading ABIDE train data.
+The data was balanced for  sex .
+Loading ABIDE   val data.
+----------------------------------------------------------------------------
+Batch:  200 || L1 share: 1.0000 || Reg: 0.1000 || Feat:   40
+Apply incremental PCA on data.
+200
+Transform data matrix of shape:  torch.Size([200, 4915200])
+200
+Transform data matrix of shape:  torch.Size([200, 4915200])
+200
+Transform data matrix of shape:  torch.Size([200, 4915200])
+200
+Transform data matrix of shape:  torch.Size([200, 4915200])
+Accuracy of regression:  0.67
+----------------------------------------------------------------------------
+Batch:  200 || L1 share: 1.0000 || Reg: 0.1000 || Feat:   60
+Apply incremental PCA on data.

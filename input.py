@@ -6,7 +6,18 @@ import os.path as osp
 import os
 from datetime import datetime
 from bmrc.write_bmrc_file import write_bmrc_file
+import argparse
 
+# Construct the argument parser
+ap = argparse.ArgumentParser()
+ap.set_defaults(TEMPLATE="hps/sota_hps.json")
+
+ap.add_argument("-tem", "--TEMPLATE", type=str, required=False,help="Template file.")
+
+#Get arguments:
+ARGS = vars(ap.parse_args())
+
+template_path=ARGS["TEMPLATE"]
 '''
 Note: I would like to two codes:
 1. An interactive session where based on suggestions, I interactively
@@ -210,7 +221,7 @@ def file_if_exists(name):
     else: 
         return DEFAULT_PAR_PATH
 
-template_path = file_if_exists('template')
+#template_path = file_if_exists('template')
 if template_path is not None:
     with open(template_path, "r") as read_file:
         temp_data = json.load(read_file)
