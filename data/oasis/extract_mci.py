@@ -21,7 +21,7 @@ df_clinical = pd.read_csv(fp_clinical)
 # subject_ids,counts=np.unique(df_clinical["Subject"],return_counts=True)
 # print("Number of subjects with two or more sessions:", counts[counts>1].shape[0])
 
-df_mci=df_clinical[(df_clinical["cdr"]>0)&(df_clinical["cdr"]<2)]
+df_mci=df_clinical[(df_clinical["cdr"]>0.1)&(df_clinical["cdr"]<1.9)]
 subject_ids,counts=np.unique(df_mci["Subject"],return_counts=True)
 print("Number of subjects with two or more sessions and CDR>0:", counts[counts>1].shape[0])
 
