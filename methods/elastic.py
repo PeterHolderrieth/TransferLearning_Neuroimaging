@@ -157,7 +157,7 @@ def test_elastic(val_loader,reg_method,pca,reg_model,inds=None):
 def elastic_experiment(train_loader,val_loader,hps):
     pca,reg_model,inds=fit_elastic(train_loader,**hps)
     result=test_elastic(val_loader,hps['reg_method'],pca,reg_model,inds)
-    model_dict={'pca':pca,'reg_model': inds,'inds': inds}
+    model_dict={'pca':pca,'reg_model': reg_model,'inds': inds}
     return(result,model_dict)
 
 def elastic_grid_search(train_loader,val_loader,hps):

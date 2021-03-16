@@ -18,21 +18,31 @@ def give_oasis_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=Fals
     #Get the directory of the data_type:
     DIR = '/gpfs3/well/win-fmrib-analysis/users/lhw539/oasis3/'
     DIR_IDs=osp.join(DIR, 'oasis3_info/') 
-    default_name=DIR_IDs
-    if debug:
-        default_name+='debug_'
     
-    # Load files:
-    if data_type=='train':
-        fp_ = default_name+'session_train.csv'
-    elif data_type=='val':
-        fp_ = default_name+'session_val.csv'
-    elif data_type=='test':
-        fp_ = default_name+'session_test0.csv'
-    elif data_type=='test1':
-        fp_ = default_name+'session_test1.csv'
-    else: 
-        sys.exit("Unknown data type.")
+    if task=='progmci':
+        if data_type=='train':
+            fp_ = DIR_IDs+'mci_train.csv'
+        elif data_type=='val':
+            fp_ = DIR_IDs+'mci_valid.csv'
+        elif data_type=='test':
+            fp_ = DIR_IDs+'mci_test.csv'
+        else: 
+            sys.exit("Unknown data type.")
+    else:
+        default_name=DIR_IDs
+        if debug:
+            default_name+='debug_'
+        # Load files:
+        if data_type=='train':
+            fp_ = default_name+'session_train.csv'
+        elif data_type=='val':
+            fp_ = default_name+'session_val.csv'
+        elif data_type=='test':
+            fp_ = default_name+'session_test0.csv'
+        elif data_type=='test1':
+            fp_ = default_name+'session_test1.csv'
+        else: 
+            sys.exit("Unknown data type.")
     
     df_session = pd.read_csv(fp_)
 
@@ -60,6 +70,9 @@ def give_oasis_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=Fals
         
         #Extract labels:
         label_list=list([sex_, ] for sex_ in subject_sex.loc[df_session.Subject.values].values)        
+    
+    elif task=='progmci':
+        label_list = list([progmci_, ] for progmci_ in df_session.ProgMCI.values)
     else: 
         sys.exit("Unknown task.")
 

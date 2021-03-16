@@ -4,6 +4,7 @@ import json
 import sys 
 import os 
 import torch 
+import pickle as pk
 
 from methods.elastic import elastic_experiment, elastic_grid_search, test_elastic
 from methods.scratch import train_from_scratch_sfcn, test_from_scratch_sfcn
@@ -65,8 +66,12 @@ else:
 
 
 if record_config.get('model_save',False) or ARGS['TEST']:
-    #How to save filepath:
-    ending='.p'
+    #How to save filepath:    
+    if method=='elastic' or method=='elastic_grid':
+        ending='.pkl'
+    else: 
+        ending='.p'
+
     if debug: 
         ending='_debug'+ending
 
@@ -106,7 +111,7 @@ if not ARGS['TEST']:
 
     if method=='elastic':
         _,model_dict=elastic_experiment(train_loader,val_loader,hps)
-
+        
     elif method=='elastic_grid':
         elastic_grid_search(train_loader,val_loader,hps)
 
@@ -135,7 +140,9 @@ if not ARGS['TEST']:
             config['record']['model_has_been_saved']=True
 
         elif method=='elastic':
-            sys.exit("So far, it is not possible to save the elastic net model.")
+            pk.dump(model_dict, open(file_path,"wb"))
+            config['record']['model_has_been_saved']=True
+            #sys.exit("So far, it is not possible to save the elastic net model.")
 
         elif method=='direct_transfer':
             sys.exit("It is not necessary to save the 'direct transfer' model. It has not been trained.")
@@ -172,8 +179,9 @@ if ARGS['TEST'] or config['experiment'].get('test_after_training',False):
         if still_have_model:
             test_elastic(test_loader,hps['reg_method'],**model_dict)
         else: 
-            sys.exit("So far, saving elastic net is not enabled. So testing loading it does not work either.")
-    
+            model_dict=pk.load(open(file_path,"rb"))
+            test_elastic(test_loader,hps['reg_method'],**model_dict)
+            
     elif method=='elastic_grid':
         sys.exit("Testing is not enabled for elastic net grid search.")
 

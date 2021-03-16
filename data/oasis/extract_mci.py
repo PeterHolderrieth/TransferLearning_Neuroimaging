@@ -2,12 +2,13 @@
 import pandas as pd 
 import numpy as np
 
+np.random.seed(30121997)
+
 #Load clinical info of data:
 DIR = '/gpfs3/well/win-fmrib-analysis/users/lhw539/oasis3/oasis3_info/'
 fp_clinical = DIR+'session_info_clinical.csv'    
 df_clinical = pd.read_csv(fp_clinical)
 
-print(list(df_clinical.columns))
 
 #Exctract subjects with cdr score=0.5,1 
 df_mci=df_clinical[(df_clinical["cdr"]>0.1)&(df_clinical["cdr"]<1.9)]
@@ -85,27 +86,32 @@ subjects_train=subjects[:n_train].tolist()
 subjects_valid=subjects[n_train:(n_valid+n_train)].tolist()
 subjects_test=subjects[(n_valid+n_train):].tolist()
 
+print()
 print("Number of train subjects: ", n_train)
 print("Number of valid subjects: ", n_valid)
 print("Number of test subjects: ", n_test)
 
-print(subjects_train)
 df_session.set_index("Subject",inplace=True)
 
 df_train=df_session.loc[subjects_train].reset_index(level=0)
 df_valid=df_session.loc[subjects_valid].reset_index(level=0)
 df_test=df_session.loc[subjects_test].reset_index(level=0)
 
+print()
 print("Number of train sessions: ", df_train.shape[0])
 print("Number of valid sessions: ", df_valid.shape[0])
 print("Number of test sessions: ", df_test.shape[0])
 
 
-'''
-print("Share of male in train: ", df_train["sex"])
-print("Share of male in valid: ", df_valid.shape[0])
-print("Share of male in test: ", df_test.shape[0])
-'''
+print()
+print("Number of train sessions with progressive MCI: ", df_train["ProgMCI"].sum())
+print("Number of valid sessions with progressive MCI: ",  df_valid["ProgMCI"].sum())
+print("Number of test sessions with progressive MCI: ",  df_test["ProgMCI"].sum())
+
+df_train.to_csv(DIR+'mci_train.csv')
+df_valid.to_csv(DIR+'mci_valid.csv')
+df_test.to_csv(DIR+'mci_test.csv')
+
 
 #print(df_session[["Subject","Age","ageAtEntry","cdr"]].head())
 #print("Shape of data frame: ", df_session.shape)

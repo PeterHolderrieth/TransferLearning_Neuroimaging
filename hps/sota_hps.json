@@ -76,6 +76,28 @@
                 "n_workers": 2
                 }
             }   
+        },
+    "progmci": 
+        {
+        "oasis":
+            {
+            "hps":
+                {
+                "batch": 500,
+                "ncomp":-1,
+                "l1rat":0.5,
+                "reg":0.1,
+                "feat":60,
+                "reg_method": "logistic"
+                },
+            "computing":
+                {
+                "folder":"oasis/progmci/elastic/",
+                "queue": "win000
+                "n_gpus": 0,
+                "n_workers": 2
+                }
+            }   
         }
     },
 "elastic_grid": 
