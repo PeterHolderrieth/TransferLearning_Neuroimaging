@@ -101,9 +101,11 @@ print("Number of valid sessions: ", df_valid.shape[0])
 print("Number of test sessions: ", df_test.shape[0])
 
 
+'''
 print("Share of male in train: ", df_train["sex"])
 print("Share of male in valid: ", df_valid.shape[0])
 print("Share of male in test: ", df_test.shape[0])
+'''
 
 #print(df_session[["Subject","Age","ageAtEntry","cdr"]].head())
 #print("Shape of data frame: ", df_session.shape)
