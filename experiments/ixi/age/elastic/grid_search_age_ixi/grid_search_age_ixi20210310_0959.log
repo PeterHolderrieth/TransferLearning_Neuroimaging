@@ -1,0 +1,30 @@
+------------------------------------------------
+Job ID: 
+Run on host: win000.hpc.in.bmrc.ox.ac.uk
+Operating system: Linux
+Username: lhw539
+Started at: Wed Mar 17 12:23:56 GMT 2021
+------------------------------------------------
+Loading ixi train data.
+Loading ixi   val data.
+----------------------------------------------------------------------------
+Batch:  250 || L1 share: 0.0000 || Reg: 0.1000 || Feat:   40
+Apply PCA on full data.
+215
+Transform data matrix of shape:  torch.Size([215, 4915200])
+108
+Transform data matrix of shape:  torch.Size([108, 4915200])
+MAE of ElasticNet:  9.647339027056047
+MAE on valid when valid mean is predicted:  14.85839
+----------------------------------------------------------------------------
+Batch:  250 || L1 share: 0.0000 || Reg: 0.1000 || Feat:   60
+Apply PCA on full data.
+215
+Transform data matrix of shape:  torch.Size([215, 4915200])
+108
+Transform data matrix of shape:  torch.Size([108, 4915200])
+MAE of ElasticNet:  9.887205062961755
+MAE on valid when valid mean is predicted:  14.85839
+----------------------------------------------------------------------------
+Batch:  250 || L1 share: 0.0000 || Reg: 0.1000 || Feat:   80
+Apply PCA on full data.

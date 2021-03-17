@@ -1,0 +1,17 @@
+SFCN summary of best results:
+Parameters:
+{'DEBUG': 'full', 'TRAIN': 'pre_step', 'BATCH_SIZE': 4, 'NUM_WORKERS': 4, 'LOSS': 'kl', 'DROP': 'drop', 'RUN': 0, 'PATH': '../../', 'PL': 'none', 'PRE': 'full', 'WDEC': 0.0005, 'MOM': 0.8, 'GAMMA': 0.2, 'N_EPOCHS': 30, 'PAT': 5, 'LR': 0.0005, 'PL_LL': 'none', 'WDEC_LL': 0.001, 'MOM_LL': 0.9, 'GAMMA_LL': 0.1, 'N_EPOCHS_LL': 25, 'PAT_LL': 8, 'LR_LL': 0.1, 'PRINT_EVERY': 1}
+Result with different pre-trained models:
+2.88426 
+3.05740 
+2.88000
+2.80857
+2.83546
+
+- Check with Nicola 
+- Proposal: do it with ABIDE. (Reorganize labels)
+- IXI MRI dataset. (tutorial colab pages in IXI.)
+- Initialize with age prediction. Do it for sex prediction. 
+
+
+
