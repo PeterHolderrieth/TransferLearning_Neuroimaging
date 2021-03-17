@@ -192,12 +192,15 @@ class SFCN(nn.Module):
         Function to reinitialize the final layers of the network while preserving the scaling.
         Input: n_train_layers - int - number of final layers to train
         '''
+        n_train_layers=min(n_train_layers,self.n_layer+1)
         #Set gradient to true for the final layers:
         if n_train_layers>0:
+            print("Initialize classifier layer.")
             self.reinit_classifier_pres_scale() 
         if n_train_layers>1:
             n_feature_layers=n_train_layers-1
             feat_layers=[self.n_layer-it-1 for it in range(n_feature_layers)] 
+            print("Reinitialize feature layers: ", feat_layers)
             self.reinit_featext_pres_scale(feat_layers)
     
 
@@ -217,8 +220,7 @@ class SFCN(nn.Module):
         self.classifier.conv_6 = conv_last
         self.output_dim=new_output_dim
 
-
-
+#print(sfcn.feature_extractor)
 # model=SFCN(dropout=0.5)
 # #for name, module in model.named_modules():
 # #    print(name)

@@ -1,0 +1,8 @@
+A: 4.65 MAE
+B: 4.99 MAE (it overfitted, increase regularization)
+
+Both times, we observe a slighlty quicker convergence compared to standard 
+random initialization. Generally, it would interesting to consider that for two completely
+unrelated task and to do re-training always with renormalization.
+
+Running C, D, and E:

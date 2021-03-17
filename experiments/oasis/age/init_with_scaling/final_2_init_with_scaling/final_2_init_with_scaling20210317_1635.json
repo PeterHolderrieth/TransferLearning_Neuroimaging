@@ -1,0 +1,69 @@
+{
+  "experiment": {
+    "training_completed": false,
+    "method": "ft_step",
+    "task": "age",
+    "data": "oasis",
+    "balance": false,
+    "share": 1.0,
+    "test_after_training": true,
+    "preprocessing": "full",
+    "save_config": true,
+    "seed": 1001,
+    "save_server": true,
+    "parent_directory": "experiments/"
+  },
+  "ft_step": {
+    "age": {
+      "oasis": {
+        "hps": {
+          "reinit_with_scaling": 100,
+          "run": "4",
+          "n_layer_ft": 1,
+          "task": "age",
+          "batch": 4,
+          "bin_min": 37,
+          "bin_max": 96,
+          "bin_step": 1,
+          "sigma": 1.0,
+          "dropout": 0.5,
+          "space": "continuous",
+          "loss_met": "kl",
+          "eval_met": "mae",
+          "n_epochs_ll": 25,
+          "optim_type_ll": "SGD",
+          "lr_ll": 0.1,
+          "weight_decay_ll": 0.001,
+          "momentum_ll": 0.9,
+          "scheduler_type_ll": "step",
+          "epoch_dec_ll": 8,
+          "gamma_dec_ll": 0.1,
+          "threshold_ll": 0.0,
+          "n_epochs": 30,
+          "optim_type": "SGD",
+          "lr": 0.0005,
+          "weight_decay": 0.0005,
+          "momentum": 0.8,
+          "scheduler_type": "step",
+          "epoch_dec": 5,
+          "gamma_dec": 0.2,
+          "threshold": 0.0,
+          "print_corr": true
+        },
+        "computing": {
+          "folder": "oasis/age/init_with_scaling",
+          "queue": "gpu8.q",
+          "n_gpus": 2,
+          "n_workers": 4
+        }
+      }
+    }
+  },
+  "record": {
+    "model_has_been_saved": false,
+    "experiment_name": "final_2_init_with_scaling",
+    "model_save": true,
+    "model_save_folder": "/well/win-fmrib-analysis/users/lhw539/saved_models/",
+    "model_save_name": "final_2_init_with_scaling"
+  }
+}

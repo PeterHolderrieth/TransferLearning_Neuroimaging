@@ -296,6 +296,7 @@
             { 
             "hps":
                 {
+                "reinit_with_scaling": null,
                 "batch": 8,
                 "bin_min": 0,
                 "bin_max": 2,
@@ -401,15 +402,15 @@
             { 
             "hps":
                 {
+                "reinit_with_scaling": null,
                 "run": "0",
-                "task": "age",
+                "task": "age",                
                 "batch": 8,
                 "bin_min":37,
                 "bin_max":96,
                 "bin_step":1,
                 "sigma":1.0,
                 "dropout": 0.5,
-                "channel_number":[32, 64, 128, 256, 256, 64], 
                 "space":"continuous",
                 "loss_met":"kl",
                 "eval_met":"mae",
@@ -439,6 +440,7 @@
             { 
             "hps":
                 {
+                "reinit_with_scaling": null,
                 "run": "0",
                 "task": "sex",
                 "batch": 8,
@@ -539,6 +541,47 @@
             }
         }
     },
+"ft_final":
+    { 
+    "age":
+        { 
+        "oasis": 
+            { 
+            "hps":
+                {
+                "run": "0",
+                "task": "age",        
+                "n_layer_ft": 1,       
+                "batch": 8,
+                "bin_min":37,
+                "bin_max":96,
+                "bin_step":1,
+                "sigma":1.0,
+                "dropout": 0.5,
+                "space":"continuous",
+                "loss_met":"kl",
+                "eval_met":"mae",
+                "n_epochs":50,
+                "optim_type": "SGD",
+                "lr": 1e-1,
+                "weight_decay":1e-3,
+                "momentum": 0.9,
+                "scheduler_type": "step",
+                "epoch_dec": 10,
+                "gamma_dec": 0.1,
+                "threshold": 0.0,
+                "print_corr": true
+                },
+            "computing": 
+                {
+                "folder":"oasis/age/ft_final",
+                "queue": "gpu8.q",
+                "n_gpus": 2,
+                "n_workers": 4
+                }
+            }
+        }
+    },
 "ft_step":
     { 
     "age":
@@ -547,6 +590,7 @@
             {
             "hps":
                 {
+                "reinit_with_scaling": null,
                 "run": "4",
                 "n_layer_ft": 1,
                 "task": "age",

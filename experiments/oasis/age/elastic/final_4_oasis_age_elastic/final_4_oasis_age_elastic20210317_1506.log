@@ -1,0 +1,25 @@
+------------------------------------------------
+Job ID: 
+Run on host: win000.hpc.in.bmrc.ox.ac.uk
+Operating system: Linux
+Username: lhw539
+Started at: Wed Mar 17 16:11:09 GMT 2021
+------------------------------------------------
+Loading share 1.00 train data.
+Loading share 1.00   val data.
+Apply incremental PCA on data.
+355
+Transform data matrix of shape:  torch.Size([355, 4915200])
+91
+Transform data matrix of shape:  torch.Size([91, 4915200])
+MAE of ElasticNet:  6.815762665143024
+MAE on valid when valid mean is predicted:  7.3472466
+Save configfile.
+Loading share 1.00  test data.
+500
+Transform data matrix of shape:  torch.Size([500, 4915200])
+MAE of ElasticNet:  6.678369244558197
+MAE on valid when valid mean is predicted:  6.9301867
+------------------------------------------------
+Finished at: Wed Mar 17 16:28:34 GMT 2021
+------------------------------------------------

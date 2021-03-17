@@ -7,16 +7,18 @@ from sfcn.sfcn_load import give_pretrained_sfcn
 from sfcn.sfcn_train import sfcn_train
 from sfcn.sfcn_test import sfcn_test
 
-def load_step_sfcn_preloaded(run,task,bin_min,bin_max):
+def load_step_sfcn_preloaded(run,task,bin_min,bin_max,reinit_with_scaling=None):
     
     model=give_pretrained_sfcn(run,task)
     model.module.change_output_dim(bin_max-bin_min)
-
+    if reinit_with_scaling is not None:
+        print("Reinitialize with same scaling.")
+        model.module.reinit_final_layers_pres_scale(reinit_with_scaling)
     return model 
 
 def train_step_sfcn_preloaded(train_loader,val_loader,hps): 
 
-    model=load_step_sfcn_preloaded(hps['run'],hps['task'],hps['bin_min'],hps['bin_max'])
+    model=load_step_sfcn_preloaded(hps['run'],hps['task'],hps['bin_min'],hps['bin_max'],hps.get('reinit_with_scaling',None))
     model.module.train_only_final_layers(hps['n_layer_ft'])
 
     info_start="Final layer of model is being trained."
