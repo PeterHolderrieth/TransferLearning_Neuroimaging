@@ -1,0 +1,89 @@
+------------------------------------------------
+Job ID: 34322294
+Run on host: compg013.hpc.in.bmrc.ox.ac.uk
+Operating system: Linux
+Username: lhw539
+Started at: Thu Jan 28 00:38:25 GMT 2021
+------------------------------------------------
+Number of GPUs:  2
+{'DEBUG': 'full', 'TRAIN': 'pre_step', 'BATCH_SIZE': 8, 'NUM_WORKERS': 4, 'LOSS': 'kl', 'DROP': 'drop', 'PATH': '../../', 'PL': 'none', 'PRE': 'full', 'WDEC': 0.0001, 'MOM': 0.9, 'GAMMA': 0.1, 'N_EPOCHS': 30, 'PAT': 10, 'LR': 0.0001, 'PL_LL': 'none', 'WDEC_LL': 0.001, 'MOM_LL': 0.9, 'GAMMA_LL': 0.1, 'N_EPOCHS_LL': 25, 'PAT_LL': 8, 'LR_LL': 0.1, 'PRINT_EVERY': 1}
+Debug:  full
+Path:  ../../
+Patience:  8
+Succesfully loaded OASIS train data.
+Succesfully loaded OASIS   val data.
+
+Start training of last layer:  2021-01-28 00:38:33.621696
+----------------------------------------------------------------------------------------------------------------------
+Number of epochs of pre-training: 25
+|epoch:   0 | lr: 0.100 |train loss: 2.01929 |train loss ravg: 2.01929 |train MAE:  5.15684 |train MAE ravg:  5.15684 |val loss: 1.75782 |val loss ravg: 1.75782 |val MAE:  4.28752 |val MAE ravg:  4.28752 |
+|epoch:   1 | lr: 0.100 |train loss: 1.65338 |train loss ravg: 1.83633 |train MAE:  3.83800 |train MAE ravg:  4.49742 |val loss: 1.68152 |val loss ravg: 1.71967 |val MAE:  3.83077 |val MAE ravg:  4.05915 |
+|epoch:   2 | lr: 0.100 |train loss: 1.64596 |train loss ravg: 1.77287 |train MAE:  3.76202 |train MAE ravg:  4.25229 |val loss: 1.58922 |val loss ravg: 1.67619 |val MAE:  3.39096 |val MAE ravg:  3.83642 |
+|epoch:   3 | lr: 0.100 |train loss: 1.63491 |train loss ravg: 1.73838 |train MAE:  3.63974 |train MAE ravg:  4.09915 |val loss: 1.54346 |val loss ravg: 1.64301 |val MAE:  3.43839 |val MAE ravg:  3.73691 |
+|epoch:   4 | lr: 0.100 |train loss: 1.54442 |train loss ravg: 1.69959 |train MAE:  3.47035 |train MAE ravg:  3.97339 |val loss: 1.52066 |val loss ravg: 1.61854 |val MAE:  3.26604 |val MAE ravg:  3.64274 |
+|epoch:   5 | lr: 0.100 |train loss: 1.61047 |train loss ravg: 1.68474 |train MAE:  3.52128 |train MAE ravg:  3.89804 |val loss: 1.55615 |val loss ravg: 1.60814 |val MAE:  3.33764 |val MAE ravg:  3.59189 |
+|epoch:   6 | lr: 0.100 |train loss: 1.54926 |train loss ravg: 1.66538 |train MAE:  3.44536 |train MAE ravg:  3.83337 |val loss: 1.47432 |val loss ravg: 1.58902 |val MAE:  3.09358 |val MAE ravg:  3.52070 |
+|epoch:   7 | lr: 0.100 |train loss: 1.61137 |train loss ravg: 1.65863 |train MAE:  3.53563 |train MAE ravg:  3.79615 |val loss: 1.46926 |val loss ravg: 1.57405 |val MAE:  3.23273 |val MAE ravg:  3.48470 |
+|epoch:   8 | lr: 0.100 |train loss: 1.59643 |train loss ravg: 1.65172 |train MAE:  3.60723 |train MAE ravg:  3.77516 |val loss: 1.47011 |val loss ravg: 1.56250 |val MAE:  3.06947 |val MAE ravg:  3.43857 |
+|epoch:   9 | lr: 0.010 |train loss: 1.52006 |train loss ravg: 1.63855 |train MAE:  3.63817 |train MAE ravg:  3.76146 |val loss: 1.44527 |val loss ravg: 1.55078 |val MAE:  3.07759 |val MAE ravg:  3.40247 |
+|epoch:  10 | lr: 0.010 |train loss: 1.47799 |train loss ravg: 1.58442 |train MAE:  3.44803 |train MAE ravg:  3.59058 |val loss: 1.42550 |val loss ravg: 1.51755 |val MAE:  3.01801 |val MAE ravg:  3.27552 |
+|epoch:  11 | lr: 0.010 |train loss: 1.48335 |train loss ravg: 1.56742 |train MAE:  3.31997 |train MAE ravg:  3.53878 |val loss: 1.45326 |val loss ravg: 1.49472 |val MAE:  3.12608 |val MAE ravg:  3.20505 |
+|epoch:  12 | lr: 0.010 |train loss: 1.45284 |train loss ravg: 1.54811 |train MAE:  3.46358 |train MAE ravg:  3.50893 |val loss: 1.47222 |val loss ravg: 1.48302 |val MAE:  3.25398 |val MAE ravg:  3.19135 |
+|epoch:  13 | lr: 0.010 |train loss: 1.45041 |train loss ravg: 1.52966 |train MAE:  3.29105 |train MAE ravg:  3.47406 |val loss: 1.43099 |val loss ravg: 1.47177 |val MAE:  3.10311 |val MAE ravg:  3.15782 |
+|epoch:  14 | lr: 0.010 |train loss: 1.46956 |train loss ravg: 1.52217 |train MAE:  3.32187 |train MAE ravg:  3.45922 |val loss: 1.44928 |val loss ravg: 1.46464 |val MAE:  3.21279 |val MAE ravg:  3.15250 |
+|epoch:  15 | lr: 0.010 |train loss: 1.45089 |train loss ravg: 1.50621 |train MAE:  3.41631 |train MAE ravg:  3.44872 |val loss: 1.43637 |val loss ravg: 1.45266 |val MAE:  3.12196 |val MAE ravg:  3.13093 |
+|epoch:  16 | lr: 0.010 |train loss: 1.45279 |train loss ravg: 1.49657 |train MAE:  3.40712 |train MAE ravg:  3.44490 |val loss: 1.37987 |val loss ravg: 1.44321 |val MAE:  2.98383 |val MAE ravg:  3.11996 |
+|epoch:  17 | lr: 0.010 |train loss: 1.44609 |train loss ravg: 1.48004 |train MAE:  3.40379 |train MAE ravg:  3.43171 |val loss: 1.44738 |val loss ravg: 1.44103 |val MAE:  3.15651 |val MAE ravg:  3.11233 |
+|epoch:  18 | lr: 0.001 |train loss: 1.46217 |train loss ravg: 1.46661 |train MAE:  3.39069 |train MAE ravg:  3.41006 |val loss: 1.45544 |val loss ravg: 1.43956 |val MAE:  3.18581 |val MAE ravg:  3.12397 |
+|epoch:  19 | lr: 0.001 |train loss: 1.44939 |train loss ravg: 1.45955 |train MAE:  3.38578 |train MAE ravg:  3.38482 |val loss: 1.45025 |val loss ravg: 1.44006 |val MAE:  3.23064 |val MAE ravg:  3.13927 |
+|epoch:  20 | lr: 0.001 |train loss: 1.44582 |train loss ravg: 1.45633 |train MAE:  3.36726 |train MAE ravg:  3.37674 |val loss: 1.42215 |val loss ravg: 1.43972 |val MAE:  3.07000 |val MAE ravg:  3.14447 |
+|epoch:  21 | lr: 0.001 |train loss: 1.45684 |train loss ravg: 1.45368 |train MAE:  3.47531 |train MAE ravg:  3.39228 |val loss: 1.45301 |val loss ravg: 1.43970 |val MAE:  3.13298 |val MAE ravg:  3.14516 |
+|epoch:  22 | lr: 0.001 |train loss: 1.46281 |train loss ravg: 1.45468 |train MAE:  3.42076 |train MAE ravg:  3.38799 |val loss: 1.41637 |val loss ravg: 1.43411 |val MAE:  3.05321 |val MAE ravg:  3.12508 |
+|epoch:  23 | lr: 0.001 |train loss: 1.45606 |train loss ravg: 1.45524 |train MAE:  3.55075 |train MAE ravg:  3.41396 |val loss: 1.43906 |val loss ravg: 1.43492 |val MAE:  3.10372 |val MAE ravg:  3.12514 |
+|epoch:  24 | lr: 0.001 |train loss: 1.48157 |train loss ravg: 1.45644 |train MAE:  3.59973 |train MAE ravg:  3.44175 |val loss: 1.45007 |val loss ravg: 1.43500 |val MAE:  3.18475 |val MAE ravg:  3.12234 |
+----------------------------------------------------------------------------------------------------------------------
+Finished training of full model.
+2021-01-28 01:04:16.557526
+Correlation between train loss and MAE: 0.92312
+
+
+Start training of full model:  2021-01-28 01:04:16.567334
+----------------------------------------------------------------------------------------------------------------------
+|epoch:   0 | lr: 0.000 |train loss: 1.41979 |train loss ravg: 1.41979 |train MAE:  3.30094 |train MAE ravg:  3.30094 |val loss: 1.43299 |val loss ravg: 1.43299 |val MAE:  3.00006 |val MAE ravg:  3.00006 |
+|epoch:   1 | lr: 0.000 |train loss: 1.39257 |train loss ravg: 1.40618 |train MAE:  3.17709 |train MAE ravg:  3.23902 |val loss: 1.41844 |val loss ravg: 1.42572 |val MAE:  2.98779 |val MAE ravg:  2.99393 |
+|epoch:   2 | lr: 0.000 |train loss: 1.33996 |train loss ravg: 1.38411 |train MAE:  2.96664 |train MAE ravg:  3.14822 |val loss: 1.42227 |val loss ravg: 1.42457 |val MAE:  3.02378 |val MAE ravg:  3.00388 |
+|epoch:   3 | lr: 0.000 |train loss: 1.32108 |train loss ravg: 1.36835 |train MAE:  2.93699 |train MAE ravg:  3.09542 |val loss: 1.40269 |val loss ravg: 1.41910 |val MAE:  2.94246 |val MAE ravg:  2.98852 |
+|epoch:   4 | lr: 0.000 |train loss: 1.33622 |train loss ravg: 1.36192 |train MAE:  2.97631 |train MAE ravg:  3.07160 |val loss: 1.36277 |val loss ravg: 1.40783 |val MAE:  2.81671 |val MAE ravg:  2.95416 |
+|epoch:   5 | lr: 0.000 |train loss: 1.31266 |train loss ravg: 1.35371 |train MAE:  2.91856 |train MAE ravg:  3.04609 |val loss: 1.40395 |val loss ravg: 1.40719 |val MAE:  2.97912 |val MAE ravg:  2.95832 |
+|epoch:   6 | lr: 0.000 |train loss: 1.31626 |train loss ravg: 1.34836 |train MAE:  2.88170 |train MAE ravg:  3.02260 |val loss: 1.40643 |val loss ravg: 1.40708 |val MAE:  2.96137 |val MAE ravg:  2.95876 |
+|epoch:   7 | lr: 0.000 |train loss: 1.27026 |train loss ravg: 1.33860 |train MAE:  2.72265 |train MAE ravg:  2.98511 |val loss: 1.38374 |val loss ravg: 1.40416 |val MAE:  2.88949 |val MAE ravg:  2.95010 |
+|epoch:   8 | lr: 0.000 |train loss: 1.28447 |train loss ravg: 1.33259 |train MAE:  2.79702 |train MAE ravg:  2.96421 |val loss: 1.37646 |val loss ravg: 1.40108 |val MAE:  2.96146 |val MAE ravg:  2.95136 |
+|epoch:   9 | lr: 0.000 |train loss: 1.27076 |train loss ravg: 1.32640 |train MAE:  2.76499 |train MAE ravg:  2.94429 |val loss: 1.39872 |val loss ravg: 1.40085 |val MAE:  2.98458 |val MAE ravg:  2.95468 |
+|epoch:  10 | lr: 0.000 |train loss: 1.25709 |train loss ravg: 1.31013 |train MAE:  2.66019 |train MAE ravg:  2.88021 |val loss: 1.38222 |val loss ravg: 1.39577 |val MAE:  2.89238 |val MAE ravg:  2.94392 |
+|epoch:  11 | lr: 0.000 |train loss: 1.25729 |train loss ravg: 1.29661 |train MAE:  2.78089 |train MAE ravg:  2.84059 |val loss: 1.40813 |val loss ravg: 1.39474 |val MAE:  2.98553 |val MAE ravg:  2.94369 |
+|epoch:  12 | lr: 0.000 |train loss: 1.24149 |train loss ravg: 1.28676 |train MAE:  2.64121 |train MAE ravg:  2.80805 |val loss: 1.35882 |val loss ravg: 1.38839 |val MAE:  2.85707 |val MAE ravg:  2.92702 |
+|epoch:  13 | lr: 0.000 |train loss: 1.22414 |train loss ravg: 1.27706 |train MAE:  2.58718 |train MAE ravg:  2.77307 |val loss: 1.37676 |val loss ravg: 1.38580 |val MAE:  2.84793 |val MAE ravg:  2.91757 |
+|epoch:  14 | lr: 0.000 |train loss: 1.25230 |train loss ravg: 1.26867 |train MAE:  2.70716 |train MAE ravg:  2.74615 |val loss: 1.40781 |val loss ravg: 1.39031 |val MAE:  2.98454 |val MAE ravg:  2.93435 |
+|epoch:  15 | lr: 0.000 |train loss: 1.23037 |train loss ravg: 1.26044 |train MAE:  2.60898 |train MAE ravg:  2.71520 |val loss: 1.38289 |val loss ravg: 1.38820 |val MAE:  2.92745 |val MAE ravg:  2.92918 |
+|epoch:  16 | lr: 0.000 |train loss: 1.25857 |train loss ravg: 1.25467 |train MAE:  2.66444 |train MAE ravg:  2.69347 |val loss: 1.39583 |val loss ravg: 1.38714 |val MAE:  2.96690 |val MAE ravg:  2.92973 |
+|epoch:  17 | lr: 0.000 |train loss: 1.22438 |train loss ravg: 1.25009 |train MAE:  2.56817 |train MAE ravg:  2.67802 |val loss: 1.35747 |val loss ravg: 1.38451 |val MAE:  2.81021 |val MAE ravg:  2.92181 |
+|epoch:  18 | lr: 0.000 |train loss: 1.24620 |train loss ravg: 1.24626 |train MAE:  2.61902 |train MAE ravg:  2.66022 |val loss: 1.39798 |val loss ravg: 1.38666 |val MAE:  2.98363 |val MAE ravg:  2.92402 |
+|epoch:  19 | lr: 0.000 |train loss: 1.20986 |train loss ravg: 1.24017 |train MAE:  2.52731 |train MAE ravg:  2.63645 |val loss: 1.39402 |val loss ravg: 1.38619 |val MAE:  2.97446 |val MAE ravg:  2.92301 |
+|epoch:  20 | lr: 0.000 |train loss: 1.21700 |train loss ravg: 1.23616 |train MAE:  2.62062 |train MAE ravg:  2.63250 |val loss: 1.35376 |val loss ravg: 1.38335 |val MAE:  2.79207 |val MAE ravg:  2.91298 |
+|epoch:  21 | lr: 0.000 |train loss: 1.24527 |train loss ravg: 1.23496 |train MAE:  2.63657 |train MAE ravg:  2.61807 |val loss: 1.39129 |val loss ravg: 1.38166 |val MAE:  2.95258 |val MAE ravg:  2.90968 |
+|epoch:  22 | lr: 0.000 |train loss: 1.19682 |train loss ravg: 1.23049 |train MAE:  2.56003 |train MAE ravg:  2.60995 |val loss: 1.41367 |val loss ravg: 1.38715 |val MAE:  3.02701 |val MAE ravg:  2.92668 |
+|epoch:  23 | lr: 0.000 |train loss: 1.19597 |train loss ravg: 1.22767 |train MAE:  2.44243 |train MAE ravg:  2.59547 |val loss: 1.37261 |val loss ravg: 1.38673 |val MAE:  2.83375 |val MAE ravg:  2.92526 |
+|epoch:  24 | lr: 0.000 |train loss: 1.23276 |train loss ravg: 1.22572 |train MAE:  2.57995 |train MAE ravg:  2.58275 |val loss: 1.39378 |val loss ravg: 1.38533 |val MAE:  2.95949 |val MAE ravg:  2.92276 |
+|epoch:  25 | lr: 0.000 |train loss: 1.27455 |train loss ravg: 1.23014 |train MAE:  2.73538 |train MAE ravg:  2.59539 |val loss: 1.38389 |val loss ravg: 1.38543 |val MAE:  2.88248 |val MAE ravg:  2.91826 |
+|epoch:  26 | lr: 0.000 |train loss: 1.24470 |train loss ravg: 1.22875 |train MAE:  2.57751 |train MAE ravg:  2.58670 |val loss: 1.41251 |val loss ravg: 1.38710 |val MAE:  3.03421 |val MAE ravg:  2.92499 |
+|epoch:  27 | lr: 0.000 |train loss: 1.23929 |train loss ravg: 1.23024 |train MAE:  2.67780 |train MAE ravg:  2.59766 |val loss: 1.39941 |val loss ravg: 1.39129 |val MAE:  3.01918 |val MAE ravg:  2.94589 |
+|epoch:  28 | lr: 0.000 |train loss: 1.20863 |train loss ravg: 1.22648 |train MAE:  2.48692 |train MAE ravg:  2.58445 |val loss: 1.39995 |val loss ravg: 1.39149 |val MAE:  2.91314 |val MAE ravg:  2.93884 |
+|epoch:  29 | lr: 0.000 |train loss: 1.22651 |train loss ravg: 1.22815 |train MAE:  2.55490 |train MAE ravg:  2.58721 |val loss: 1.39066 |val loss ravg: 1.39115 |val MAE:  2.90410 |val MAE ravg:  2.93180 |
+----------------------------------------------------------------------------------------------------------------------
+Finished training of full model.
+2021-01-28 02:50:34.832256
+Correlation between train loss and MAE: 0.98280
+
+------------------------------------------------
+Finished at: Thu Jan 28 02:50:36 GMT 2021
+------------------------------------------------
