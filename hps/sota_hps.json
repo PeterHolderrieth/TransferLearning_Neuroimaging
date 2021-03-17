@@ -184,6 +184,27 @@
                 "n_workers": 2
                 }
             }
+        },
+    "progmci": 
+        {
+        "oasis":{
+            "hps":
+                {
+                "batch": 300,
+                "ncomp":-1,
+                "l1rat_list":[0.6,0.7,0.8,0.9,0.95,1.0],
+                "reg_list":[10.0,20.0,30.0,40.0,50.0],
+                "feat_list":[3,10,20,15,25,30,60,120],
+                "reg_method": "logistic"
+                },
+            "computing": 
+                {
+                "folder":"oasis/progmci/elastic/",
+                "queue": "win000",
+                "n_gpus": 0,
+                "n_workers": 2
+                }
+            }
         }
     },
 "scratch":
