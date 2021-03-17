@@ -5,6 +5,8 @@ import sys
 import os 
 import torch 
 import pickle as pk
+import numpy as np 
+import torch
 
 from methods.elastic import elastic_experiment, elastic_grid_search, test_elastic
 from methods.scratch import train_from_scratch_sfcn, test_from_scratch_sfcn
@@ -39,7 +41,11 @@ balance=config['experiment']['balance']
 method=config['experiment']['method']
 preprocessing=config['experiment']['preprocessing']
 share=config['experiment']['share']
+seed=config['experiment'].get('seed',np.random.randint(low=0,high=10000))
 
+#Set seed:
+np.random.seed(seed)
+torch.manual_seed(seed)
 
 record_config=config['record']
 
