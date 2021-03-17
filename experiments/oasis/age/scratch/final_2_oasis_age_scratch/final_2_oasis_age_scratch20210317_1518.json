@@ -1,0 +1,64 @@
+{
+  "experiment": {
+    "training_completed": false,
+    "method": "scratch",
+    "task": "age",
+    "data": "oasis",
+    "balance": false,
+    "share": 1.0,
+    "test_after_training": true,
+    "preprocessing": "full",
+    "save_config": true,
+    "seed": 1001,
+    "save_server": true,
+    "parent_directory": "experiments/"
+  },
+  "scratch": {
+    "age": {
+      "oasis": {
+        "hps": {
+          "batch": 8,
+          "bin_min": 37,
+          "bin_max": 96,
+          "bin_step": 1,
+          "sigma": 1.0,
+          "dropout": 0.5,
+          "channel_number": [
+            32,
+            64,
+            128,
+            256,
+            256,
+            64
+          ],
+          "space": "continuous",
+          "loss_met": "kl",
+          "eval_met": "mae",
+          "n_epochs": 1200,
+          "optim_type": "SGD",
+          "lr": 0.01,
+          "weight_decay": 0.001,
+          "momentum": 0.9,
+          "scheduler_type": "step",
+          "epoch_dec": 30,
+          "gamma_dec": 0.3,
+          "threshold": 0.0,
+          "print_corr": true
+        },
+        "computing": {
+          "folder": "oasis/age/scratch/",
+          "queue": "gpu8.q",
+          "n_gpus": 2,
+          "n_workers": 4
+        }
+      }
+    }
+  },
+  "record": {
+    "model_has_been_saved": false,
+    "experiment_name": "final_2_oasis_age_scratch",
+    "model_save": true,
+    "model_save_folder": "/well/win-fmrib-analysis/users/lhw539/saved_models/",
+    "model_save_name": "final_2_oasis_age_scratch"
+  }
+}
