@@ -1,0 +1,65 @@
+{
+  "experiment": {
+    "training_completed": false,
+    "method": "elastic_grid",
+    "task": "progmci",
+    "data": "oasis",
+    "balance": false,
+    "share": 1.0,
+    "test_after_training": false,
+    "preprocessing": "full",
+    "save_config": true,
+    "seed": 234,
+    "save_server": true,
+    "parent_directory": "experiments/"
+  },
+  "elastic_grid": {
+    "progmci": {
+      "oasis": {
+        "hps": {
+          "batch": 300,
+          "ncomp": -1,
+          "l1rat_list": [
+            0.6,
+            0.7,
+            0.8,
+            0.9,
+            0.95,
+            1.0
+          ],
+          "reg_list": [
+            10.0,
+            20.0,
+            30.0,
+            40.0,
+            50.0
+          ],
+          "feat_list": [
+            3,
+            10,
+            20,
+            15,
+            25,
+            30,
+            60,
+            120
+          ],
+          "reg_method": "logistic"
+        },
+        "computing": {
+          "folder": "oasis/progmci/elastic/",
+          "queue": "win000",
+          "n_gpus": 0,
+          "n_workers": 2
+        }
+      }
+    }
+  },
+  "record": {
+    "model_has_been_saved": false,
+    "experiment_name": "grid_search_1_prog_mci",
+    "model_save": false,
+    "model_save_folder": "/well/win-fmrib-analysis/users/lhw539/saved_models/",
+    "model_save_name": "no_saved"
+  }
+}
