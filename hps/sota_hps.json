@@ -93,7 +93,7 @@
             "computing":
                 {
                 "folder":"oasis/progmci/elastic/",
-                "queue": "win000
+                "queue": "win000",
                 "n_gpus": 0,
                 "n_workers": 2
                 }
@@ -541,12 +541,12 @@
 "ft_step":
     { 
     "age":
-        { 
+        {
         "oasis":
             {
             "hps":
                 {
-                "run": "0",
+                "run": "4",
                 "n_layer_ft": 1,
                 "task": "age",
                 "batch": 4,
