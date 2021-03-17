@@ -34,3 +34,22 @@ Start:  2021-03-17 17:20:45.468036
 |epoch:  16 | lr: 0.001 |train kld: 1.49059 |train kld ravg: 1.48553 |train mae:  3.49383 |train mae ravg:  3.36449 |val kld: 1.42124 |val kldravg: 1.43560 |val mae:  3.02650 |val mae ravg:  3.08658 |
 |epoch:  17 | lr: 0.001 |train kld: 1.42965 |train kld ravg: 1.48298 |train mae:  3.30726 |train mae ravg:  3.38823 |val kld: 1.44507 |val kldravg: 1.43771 |val mae:  3.16309 |val mae ravg:  3.09754 |
 |epoch:  18 | lr: 0.001 |train kld: 1.51695 |train kld ravg: 1.49246 |train mae:  3.53308 |train mae ravg:  3.42657 |val kld: 1.45414 |val kldravg: 1.43789 |val mae:  3.09900 |val mae ravg:  3.11004 |
+|epoch:  19 | lr: 0.001 |train kld: 1.42592 |train kld ravg: 1.47407 |train mae:  3.25166 |train mae ravg:  3.40329 |val kld: 1.43779 |val kldravg: 1.43747 |val mae:  3.02358 |val mae ravg:  3.07827 |
+|epoch:  20 | lr: 0.001 |train kld: 1.48886 |train kld ravg: 1.47039 |train mae:  3.54608 |train mae ravg:  3.42638 |val kld: 1.45198 |val kldravg: 1.44204 |val mae:  3.14308 |val mae ravg:  3.09105 |
+|epoch:  21 | lr: 0.001 |train kld: 1.46916 |train kld ravg: 1.46611 |train mae:  3.31264 |train mae ravg:  3.39014 |val kld: 1.42087 |val kldravg: 1.44197 |val mae:  2.99023 |val mae ravg:  3.08380 |
+|epoch:  22 | lr: 0.001 |train kld: 1.44145 |train kld ravg: 1.46847 |train mae:  3.25903 |train mae ravg:  3.38050 |val kld: 1.43464 |val kldravg: 1.43988 |val mae:  3.07513 |val mae ravg:  3.06621 |
+|epoch:  23 | lr: 0.001 |train kld: 1.45851 |train kld ravg: 1.45678 |train mae:  3.45524 |train mae ravg:  3.36493 |val kld: 1.45309 |val kldravg: 1.43967 |val mae:  3.17758 |val mae ravg:  3.08192 |
+|epoch:  24 | lr: 0.000 |train kld: 1.52913 |train kld ravg: 1.47742 |train mae:  3.55129 |train mae ravg:  3.42486 |val kld: 1.44313 |val kldravg: 1.44074 |val mae:  3.14367 |val mae ravg:  3.10594 |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Finished:  2021-03-17 17:32:42.851072
+
+Correlation between train loss and evaluation: 0.789
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Number of GPUs:  2
+Epoch decay:  5
+Gamma decay:  0.2
+
+Full model is being trained.
+Start:  2021-03-17 17:32:42.853320
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
