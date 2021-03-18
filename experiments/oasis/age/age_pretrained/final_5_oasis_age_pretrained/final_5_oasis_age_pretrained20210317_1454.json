@@ -1,6 +1,6 @@
 {
   "experiment": {
-    "training_completed": true,
+    "training_completed": false,
     "method": "ft_step",
     "task": "age",
     "data": "oasis",
@@ -17,7 +17,7 @@
     "age": {
       "oasis": {
         "hps": {
-          "run": "4",
+          "run": "0",
           "n_layer_ft": 1,
           "task": "age",
           "batch": 4,
@@ -29,7 +29,7 @@
           "space": "continuous",
           "loss_met": "kl",
           "eval_met": "mae",
-          "n_epochs_ll": 25,
+          "n_epochs_ll": 50,
           "optim_type_ll": "SGD",
           "lr_ll": 0.1,
           "weight_decay_ll": 0.001,
@@ -59,7 +59,7 @@
     }
   },
   "record": {
-    "model_has_been_saved": true,
+    "model_has_been_saved": false,
     "experiment_name": "final_5_oasis_age_pretrained",
     "model_save": true,
     "model_save_folder": "/well/win-fmrib-analysis/users/lhw539/saved_models/",
