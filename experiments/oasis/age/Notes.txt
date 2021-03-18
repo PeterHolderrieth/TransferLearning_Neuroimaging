@@ -1,3 +1,8 @@
-Direct transfer, elastic: done
+Note: age_pretrained uses run 4 while ft_final uses run 0. It seems
+that run 0 gives much better results from the start. We should think about
+re-running experiments age_pretrained with run 0
+
+Elastic: done
 Age-pretrained, elastic,  scratch: running final experiments
 ft_final,ft_final_from_sex,sex-pretrained: optimizing hyperparameters
+Direct transfer: still to run for test set.
