@@ -18,7 +18,7 @@
       "oasis": {
         "hps": {
           "reinit_with_scaling": 100,
-          "run": "4",
+          "run": "0",
           "n_layer_ft": 1,
           "task": "age",
           "batch": 4,
@@ -60,7 +60,7 @@
     }
   },
   "record": {
-    "model_has_been_saved": true,
+    "model_has_been_saved": false,
     "experiment_name": "final_3_init_with_scaling",
     "model_save": true,
     "model_save_folder": "/well/win-fmrib-analysis/users/lhw539/saved_models/",

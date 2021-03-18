@@ -34,10 +34,11 @@ ARGS = vars(ap.parse_args())
 with open(ARGS["CONFIG"], "r") as read_file:
     config = json.load(read_file)
 
+print("Test (in contrast to train): ", ARGS['TEST'])
 #Extract task, data, and method:
 task=config['experiment']['task']
 data=config['experiment']['data']
-balance=config['experiment']['balance']
+balance=config['experiment'].get('balance',False)
 method=config['experiment']['method']
 preprocessing=config['experiment']['preprocessing']
 share=config['experiment']['share']
@@ -71,7 +72,7 @@ else:
     sys.exit("Unvalid debug flag.")
 
 
-if record_config.get('model_save',False) or ARGS['TEST']:
+if record_config.get('model_save',False) or (ARGS['TEST'] and method!='direct_transfer'):
     #How to save filepath:    
     if method=='elastic' or method=='elastic_grid':
         ending='.pkl'
@@ -171,7 +172,7 @@ else:
     model_save=record_config.get('model_save',False)
 #-------------------------------------
 if ARGS['TEST'] or config['experiment'].get('test_after_training',False):
-    if not config['experiment'].get('training_completed',False) and not debug:
+    if not config['experiment'].get('training_completed',False) and not debug and method!='direct_transfer':
         sys.exit("Training of the model was not completed. We should not test.")
 
     _,test_loader=give_dataset(data,'test', batch_size=hps['batch'],

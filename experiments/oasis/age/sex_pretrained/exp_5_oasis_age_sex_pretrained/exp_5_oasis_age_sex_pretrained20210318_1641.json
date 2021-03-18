@@ -1,15 +1,15 @@
 {
   "experiment": {
-    "training_completed": false,
+    "training_completed": true,
     "method": "ft_step",
     "task": "age",
     "data": "oasis",
     "balance": false,
     "share": 1.0,
-    "test_after_training": true,
+    "test_after_training": false,
     "preprocessing": "full",
     "save_config": true,
-    "seed": 1004,
+    "seed": 32,
     "save_server": true,
     "parent_directory": "experiments/"
   },
@@ -17,11 +17,10 @@
     "age": {
       "oasis": {
         "hps": {
-          "reinit_with_scaling": 100,
           "run": "0",
           "n_layer_ft": 1,
-          "task": "age",
-          "batch": 4,
+          "task": "sex",
+          "batch": 8,
           "bin_min": 37,
           "bin_max": 96,
           "bin_step": 1,
@@ -39,19 +38,19 @@
           "epoch_dec_ll": 8,
           "gamma_dec_ll": 0.1,
           "threshold_ll": 0.0,
-          "n_epochs": 30,
+          "n_epochs": 200,
           "optim_type": "SGD",
-          "lr": 0.0005,
-          "weight_decay": 0.0005,
-          "momentum": 0.8,
+          "lr": 0.01,
+          "weight_decay": 0.001,
+          "momentum": 0.9,
           "scheduler_type": "step",
-          "epoch_dec": 5,
-          "gamma_dec": 0.2,
+          "epoch_dec": 30,
+          "gamma_dec": 0.3,
           "threshold": 0.0,
           "print_corr": true
         },
         "computing": {
-          "folder": "oasis/age/init_with_scaling",
+          "folder": "oasis/age/sex_pretrained",
           "queue": "gpu8.q",
           "n_gpus": 2,
           "n_workers": 4
@@ -61,9 +60,9 @@
   },
   "record": {
     "model_has_been_saved": false,
-    "experiment_name": "final_5_init_with_scaling",
-    "model_save": true,
+    "experiment_name": "exp_5_oasis_age_sex_pretrained",
+    "model_save": false,
     "model_save_folder": "/well/win-fmrib-analysis/users/lhw539/saved_models/",
-    "model_save_name": "final_5_init_with_scaling"
+    "model_save_name": "not_saved"
   }
 }
