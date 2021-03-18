@@ -1,0 +1,17 @@
+------------------------------------------------
+Job ID: 40000052
+Run on host: compg026.hpc.in.bmrc.ox.ac.uk
+Operating system: Linux
+Username: lhw539
+Started at: Thu Mar 18 10:36:39 GMT 2021
+------------------------------------------------
+Loading share 1.00 train data.
+Loading share 1.00   val data.
+Number of GPUs:  2
+Epoch decay:  30
+Gamma decay:  0.3
+
+Full model is being trained with random initialization.
+Start:  2021-03-18 10:36:46.547297
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+|epoch:   0 | lr: 0.010 |train kld: 2.38951 |train kld ravg: 2.38951 |train mae:  6.35632 |train mae ravg:  6.35632 |val kld: 2.25883 |val kldravg: 2.25883 |val mae:  7.47638 |val mae ravg:  7.47638 |

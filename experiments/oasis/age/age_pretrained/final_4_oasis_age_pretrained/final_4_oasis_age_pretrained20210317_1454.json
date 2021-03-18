@@ -1,6 +1,6 @@
 {
   "experiment": {
-    "training_completed": false,
+    "training_completed": true,
     "method": "ft_step",
     "task": "age",
     "data": "oasis",
@@ -59,7 +59,7 @@
     }
   },
   "record": {
-    "model_has_been_saved": false,
+    "model_has_been_saved": true,
     "experiment_name": "final_4_oasis_age_pretrained",
     "model_save": true,
     "model_save_folder": "/well/win-fmrib-analysis/users/lhw539/saved_models/",
