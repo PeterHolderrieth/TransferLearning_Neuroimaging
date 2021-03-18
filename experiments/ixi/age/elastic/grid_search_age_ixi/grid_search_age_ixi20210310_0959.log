@@ -1810,3 +1810,48 @@ MAE on valid when valid mean is predicted:  14.85839
 ----------------------------------------------------------------------------
 Batch:  250 || L1 share: 1.0000 || Reg: 0.1000 || Feat:   40
 Apply PCA on full data.
+215
+Transform data matrix of shape:  torch.Size([215, 4915200])
+108
+Transform data matrix of shape:  torch.Size([108, 4915200])
+MAE of ElasticNet:  10.597442883127847
+MAE on valid when valid mean is predicted:  14.858391
+----------------------------------------------------------------------------
+Batch:  250 || L1 share: 1.0000 || Reg: 0.1000 || Feat:   60
+Apply PCA on full data.
+215
+Transform data matrix of shape:  torch.Size([215, 4915200])
+108
+Transform data matrix of shape:  torch.Size([108, 4915200])
+MAE of ElasticNet:  10.944015866224072
+MAE on valid when valid mean is predicted:  14.858391
+----------------------------------------------------------------------------
+Batch:  250 || L1 share: 1.0000 || Reg: 0.1000 || Feat:   80
+Apply PCA on full data.
+215
+Transform data matrix of shape:  torch.Size([215, 4915200])
+108
+Transform data matrix of shape:  torch.Size([108, 4915200])
+MAE of ElasticNet:  10.927072548531093
+MAE on valid when valid mean is predicted:  14.85839
+----------------------------------------------------------------------------
+Batch:  250 || L1 share: 1.0000 || Reg: 0.1000 || Feat:  100
+Apply PCA on full data.
+215
+Transform data matrix of shape:  torch.Size([215, 4915200])
+108
+Transform data matrix of shape:  torch.Size([108, 4915200])
+MAE of ElasticNet:  10.49725840739455
+MAE on valid when valid mean is predicted:  14.858388
+----------------------------------------------------------------------------
+Batch:  250 || L1 share: 1.0000 || Reg: 0.1000 || Feat:  120
+Apply PCA on full data.
+215
+Transform data matrix of shape:  torch.Size([215, 4915200])
+108
+Transform data matrix of shape:  torch.Size([108, 4915200])
+MAE of ElasticNet:  12.216235121064225
+MAE on valid when valid mean is predicted:  14.858388
+----------------------------------------------------------------------------
+Batch:  250 || L1 share: 1.0000 || Reg: 0.1000 || Feat:  140
+Apply PCA on full data.
