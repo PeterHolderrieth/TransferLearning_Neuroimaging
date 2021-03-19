@@ -8,7 +8,7 @@
 #$ -l gputype=p100
 #Save file to:
 # Log locations which are relative to the current                                                                                                                                                                  # working directory of the submission
-#$ -o experiments/oasis/age/age_pretrained/final_3_oasis_age_pretrained/final_3_oasis_age_pretrained20210317_1452.log
+#$ -o experiments/oasis/age/age_pretrained/run_1_exp_6_oasis_age_age_pretrained/run_1_exp_6_oasis_age_age_pretrained20210319_1817.log
 
 echo "------------------------------------------------"
 echo "Job ID: $JOB_ID"
@@ -24,7 +24,7 @@ module load Python/3.7.4-GCCcore-8.3.0
 #Activate the correct python environment:
 source ~/python/ccpu_py_tlneuro
 
-python ~/TransferLearning_Neuroimaging/main.py -deb full -con experiments/oasis/age/age_pretrained/final_3_oasis_age_pretrained/final_3_oasis_age_pretrained20210317_1452.json
+python ~/TransferLearning_Neuroimaging/main.py -deb full -con experiments/oasis/age/age_pretrained/run_1_exp_6_oasis_age_age_pretrained/run_1_exp_6_oasis_age_age_pretrained20210319_1817.json
 
 
 echo "------------------------------------------------"
