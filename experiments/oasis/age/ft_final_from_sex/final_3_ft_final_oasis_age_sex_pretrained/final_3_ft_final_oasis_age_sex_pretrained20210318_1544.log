@@ -1,0 +1,38 @@
+------------------------------------------------
+Job ID: 40018635
+Run on host: compg010.hpc.in.bmrc.ox.ac.uk
+Operating system: Linux
+Username: lhw539
+Started at: Fri Mar 19 13:54:08 GMT 2021
+------------------------------------------------
+Test (in contrast to train):  False
+Loading share 1.00 train data.
+Loading share 1.00   val data.
+Load model for sex - run: 0
+Number of GPUs:  2
+Epoch decay:  10
+Gamma decay:  0.1
+
+Full model is being trained with weights loaded from pre-trained model.
+Start:  2021-03-19 13:54:14.868698
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+|epoch:   0 | lr: 0.100 |train kld: 2.28977 |train kld ravg: 2.28977 |train mae:  6.35785 |train mae ravg:  6.35785 |val kld: 2.24605 |val kldravg: 2.24605 |val mae:  7.42639 |val mae ravg:  7.42639 |
+|epoch:   1 | lr: 0.100 |train kld: 2.04988 |train kld ravg: 2.16983 |train mae:  6.18576 |train mae ravg:  6.27181 |val kld: 2.25070 |val kldravg: 2.24837 |val mae:  7.29667 |val mae ravg:  7.36153 |
+|epoch:   2 | lr: 0.100 |train kld: 2.03490 |train kld ravg: 2.12485 |train mae:  6.14002 |train mae ravg:  6.22788 |val kld: 2.24619 |val kldravg: 2.24765 |val mae:  7.39443 |val mae ravg:  7.37249 |
+|epoch:   3 | lr: 0.100 |train kld: 2.03391 |train kld ravg: 2.10211 |train mae:  6.18014 |train mae ravg:  6.21594 |val kld: 2.26615 |val kldravg: 2.25227 |val mae:  7.52410 |val mae ravg:  7.41039 |
+|epoch:   4 | lr: 0.100 |train kld: 2.04589 |train kld ravg: 2.09087 |train mae:  6.21653 |train mae ravg:  6.21606 |val kld: 2.22520 |val kldravg: 2.24686 |val mae:  7.15940 |val mae ravg:  7.36020 |
+|epoch:   5 | lr: 0.100 |train kld: 2.02882 |train kld ravg: 2.03868 |train mae:  6.12572 |train mae ravg:  6.16963 |val kld: 2.22421 |val kldravg: 2.24249 |val mae:  7.25673 |val mae ravg:  7.32626 |
+|epoch:   6 | lr: 0.100 |train kld: 2.02395 |train kld ravg: 2.03349 |train mae:  6.11874 |train mae ravg:  6.15623 |val kld: 2.25289 |val kldravg: 2.24293 |val mae:  7.46076 |val mae ravg:  7.35908 |
+|epoch:   7 | lr: 0.100 |train kld: 2.02056 |train kld ravg: 2.03063 |train mae:  6.17693 |train mae ravg:  6.16361 |val kld: 2.23925 |val kldravg: 2.24154 |val mae:  7.22109 |val mae ravg:  7.32442 |
+|epoch:   8 | lr: 0.100 |train kld: 2.03580 |train kld ravg: 2.03100 |train mae:  6.14658 |train mae ravg:  6.15690 |val kld: 2.26776 |val kldravg: 2.24186 |val mae:  7.38121 |val mae ravg:  7.29584 |
+|epoch:   9 | lr: 0.100 |train kld: 2.02776 |train kld ravg: 2.02738 |train mae:  6.21497 |train mae ravg:  6.15659 |val kld: 2.23687 |val kldravg: 2.24419 |val mae:  7.27738 |val mae ravg:  7.31944 |
+|epoch:  10 | lr: 0.010 |train kld: 2.00309 |train kld ravg: 2.02223 |train mae:  6.19361 |train mae ravg:  6.17017 |val kld: 2.26239 |val kldravg: 2.25183 |val mae:  7.54335 |val mae ravg:  7.37676 |
+|epoch:  11 | lr: 0.010 |train kld: 1.99856 |train kld ravg: 2.01715 |train mae:  6.20355 |train mae ravg:  6.18713 |val kld: 2.22163 |val kldravg: 2.24558 |val mae:  7.26686 |val mae ravg:  7.33798 |
+|epoch:  12 | lr: 0.010 |train kld: 1.99717 |train kld ravg: 2.01247 |train mae:  6.22605 |train mae ravg:  6.19695 |val kld: 2.19510 |val kldravg: 2.23675 |val mae:  7.18728 |val mae ravg:  7.33122 |
+|epoch:  13 | lr: 0.010 |train kld: 1.99784 |train kld ravg: 2.00488 |train mae:  6.20414 |train mae ravg:  6.20846 |val kld: 2.25842 |val kldravg: 2.23488 |val mae:  7.43206 |val mae ravg:  7.34139 |
+|epoch:  14 | lr: 0.010 |train kld: 1.99025 |train kld ravg: 1.99738 |train mae:  6.16935 |train mae ravg:  6.19934 |val kld: 2.24886 |val kldravg: 2.23728 |val mae:  7.45133 |val mae ravg:  7.37617 |
+|epoch:  15 | lr: 0.010 |train kld: 1.99026 |train kld ravg: 1.99481 |train mae:  6.13914 |train mae ravg:  6.18845 |val kld: 2.21125 |val kldravg: 2.22705 |val mae:  7.12587 |val mae ravg:  7.29268 |
+|epoch:  16 | lr: 0.010 |train kld: 1.99792 |train kld ravg: 1.99469 |train mae:  6.15566 |train mae ravg:  6.17887 |val kld: 2.22399 |val kldravg: 2.22752 |val mae:  7.28960 |val mae ravg:  7.29723 |
+|epoch:  17 | lr: 0.010 |train kld: 1.99192 |train kld ravg: 1.99364 |train mae:  6.14056 |train mae ravg:  6.16177 |val kld: 2.23477 |val kldravg: 2.23546 |val mae:  7.38634 |val mae ravg:  7.33704 |
+|epoch:  18 | lr: 0.010 |train kld: 1.99971 |train kld ravg: 1.99401 |train mae:  6.17782 |train mae ravg:  6.15651 |val kld: 2.23204 |val kldravg: 2.23018 |val mae:  7.26125 |val mae ravg:  7.30288 |
+|epoch:  19 | lr: 0.010 |train kld: 2.00449 |train kld ravg: 1.99686 |train mae:  6.18078 |train mae ravg:  6.15880 |val kld: 2.24549 |val kldravg: 2.22951 |val mae:  7.40044 |val mae ravg:  7.29270 |
