@@ -297,10 +297,11 @@ if exp_config['save_config']:
         
         #Update seed:
         exp_config['seed']=seed
-
+        
+        #If we have several replicates, we rename models and experiments based on the run:
         if ARGS['REPLICATES']>0:
-            record_config['model_save_name']='run_'+str(it)+'_'+default_model_name
-            record_config['experiment_name']='run_'+str(it)+'_'+default_exp_name
+            record_config['model_save_name']='run_'+str(it+1)+'_'+default_model_name
+            record_config['experiment_name']='run_'+str(it+1)+'_'+default_exp_name
 
 
         direct = osp.join(exp_config['parent_directory'],
