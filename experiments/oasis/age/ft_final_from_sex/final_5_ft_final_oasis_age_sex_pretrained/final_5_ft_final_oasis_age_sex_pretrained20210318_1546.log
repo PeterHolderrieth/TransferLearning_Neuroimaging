@@ -83,3 +83,18 @@ NameError: name 'sfcn_test' is not defined
 ------------------------------------------------
 Finished at: Fri Mar 19 14:56:07 GMT 2021
 ------------------------------------------------
+Test (in contrast to train):  True
+Loading share 1.00  test data.
+Load model for sex - run: 0
+Number of GPUs:  1
+
+Model loaded from /well/win-fmrib-analysis/users/lhw539/saved_models/oasis/age/final_5_ft_final_oasis_age_sex_pretrained.p is being tested.
+Start:  2021-03-19 16:03:50.321160
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+test kld mean: 2.18504 | test kld std: 0.00636 |test mae mean:  6.91117 |test mae std:  0.04447 |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Finished:  2021-03-19 16:06:18.866948
+
+Correlation between train loss and evaluation: 0.995
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -10,9 +10,11 @@ import argparse
 
 # Construct the argument parser
 ap = argparse.ArgumentParser()
-ap.set_defaults(TEMPLATE="hps/sota_hps.json")
+ap.set_defaults(TEMPLATE="hps/sota_hps.json",
+                REPLICATES=1)
 
 ap.add_argument("-tem", "--TEMPLATE", type=str, required=False,help="Template file.")
+ap.add_argument("-rep", "--REPLICATES", type=int, required=False,help="Template file.")
 
 #Get arguments:
 ARGS = vars(ap.parse_args())
@@ -281,29 +283,50 @@ if exp_config['save_config']:
     for key in temp_data['record'].keys():
         if key=='experiment_name':
             record_config[key]=set_hp(key,None)
+        elif key=='model_save_name':
+            record_config[key]=set_hp(key,record_config.get('experiment_name','not_saving_model'))
         else:
             record_config[key]=set_hp(key,temp_data['record'][key])
 
-    direct = osp.join(exp_config['parent_directory'],
-                        comp_config['folder'],
-                        record_config['experiment_name'])
-    if not osp.exists(direct):
-        os.makedirs(direct)
-    else: 
-        print("Directory already exists.")
-
-    date_string=datetime.today().strftime('%Y%m%d_%H%M')
-    json_filename=record_config['experiment_name']+date_string+'.json'
-
-    json_filepath=osp.join(direct,json_filename)
-
-    with open(json_filepath, "w") as configfile:
-        json.dump(config_data,configfile,indent=2)
     
-    if exp_config['save_server']:
-        server_filename=record_config['experiment_name']+date_string+'.sh'
-        log_filename=record_config['experiment_name']+date_string+'.log'
+    seed=exp_config['seed']
+    default_model_name=record_config['model_save_name']
+    default_exp_name=record_config['experiment_name']
 
-        server_filepath=osp.join(direct,server_filename)
-        log_filepath=osp.join(direct,log_filename)
-        write_bmrc_file(comp_config['queue'],comp_config['n_gpus'],json_filepath,log_filepath,server_filepath)
+    for it in range(ARGS['REPLICATES']):
+        
+        #Update seed:
+        exp_config['seed']=seed
+
+        if ARGS['REPLICATES']>0:
+            record_config['model_save_name']='run_'+str(it)+'_'+default_model_name
+            record_config['experiment_name']='run_'+str(it)+'_'+default_exp_name
+
+
+        direct = osp.join(exp_config['parent_directory'],
+                    comp_config['folder'],
+                    record_config['experiment_name'])
+
+        if not osp.exists(direct):
+            os.makedirs(direct)
+        else: 
+            print("Directory already exists.")
+
+        date_string=datetime.today().strftime('%Y%m%d_%H%M')
+        json_filename=record_config['experiment_name']+date_string+'.json'
+
+        json_filepath=osp.join(direct,json_filename)
+
+        with open(json_filepath, "w") as configfile:
+            json.dump(config_data,configfile,indent=2)
+    
+        if exp_config['save_server']:
+            server_filename=record_config['experiment_name']+date_string+'.sh'
+            log_filename=record_config['experiment_name']+date_string+'.log'
+
+            server_filepath=osp.join(direct,server_filename)
+            log_filepath=osp.join(direct,log_filename)
+            write_bmrc_file(comp_config['queue'],comp_config['n_gpus'],json_filepath,log_filepath,server_filepath)
+
+        #Update seed:
+        seed=exp_config['seed']+np.random.randint(low=1, high=1000)

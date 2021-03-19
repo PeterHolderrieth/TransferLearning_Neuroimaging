@@ -4,6 +4,7 @@ sys.path.append('../')
 
 from sfcn.sfcn_load import give_pretrained_sfcn
 from sfcn.sfcn_train import sfcn_train
+from sfcn.sfcn_test import sfcn_test
 
 def load_full_sfcn_preloaded(run,task,bin_min,bin_max,reinit_with_scaling=None):
     

@@ -1,0 +1,37 @@
+{
+  "experiment": {
+    "method": "elastic",
+    "task": "sex",
+    "data": "oasis",
+    "share": 1.0,
+    "train": "yes",
+    "valid": "no",
+    "preprocessing": "full",
+    "save_config": "yes",
+    "save_server": "yes",
+    "parent_directory": "experiments/"
+  },
+  "elastic": {
+    "sex": {
+      "oasis": {
+        "hps": {
+          "batch": 500,
+          "ncomp": -1,
+          "l1rat": 0.5,
+          "reg": 0.1,
+          "feat": 60,
+          "reg_method": "logistic"
+        },
+        "computing": {
+          "folder": "sex/elastic/",
+          "queue": "win000",
+          "n_gpus": 1,
+          "n_workers": 2
+        }
+      }
+    }
+  },
+  "record": {
+    "experiment_name": "final_test"
+  }
+}
