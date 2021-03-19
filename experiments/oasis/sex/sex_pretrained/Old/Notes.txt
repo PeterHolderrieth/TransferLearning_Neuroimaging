@@ -1,0 +1,18 @@
+A,B:
+achieved 97% accuracy on the validation set! Pretty good, I would say!
+Train accuracy is almost constantly at 1. Maybe we need to regularize a bit more? Increase 
+dropout-rate? Or increase weight decay? 
+
+C: accuracy 98.5%
+- regularization seems to bring a performance boost
+- Next step: maybe increase regularization even more, e.g. with weight decay or dropout rate?
+
+D: accuracy 97.7% 
+- regularization seems to bring less of a performance boost here 
+- Next step: regularize in a different way
+
+E: accuracy 98.8%
+-regularize even more (increase weight decay, increase momentum)
+
+F: accuracy 99.6 %
+-increase gamma, increase learning rate, increase patience, increase number of epochs.

@@ -1,4 +1,5 @@
-Elastic: done
-Age-pretrained, ft_final, ft_final_from_sex, scratch, init with scaling, direct transfer: RUNNING final experiments
-Sex-pretrained: still optimizing hyperparameters.
+Elastic,scratch: done
+ft_final, ft_final_from_sex, direct transfer: RUNNING final experiments
+Age-pretrained,Sex-pretrained: still optimizing hyperparameters.
+Init with scaling: wait for optimal parameters for age_pretrained (we want to run it with the same parameters)
  
