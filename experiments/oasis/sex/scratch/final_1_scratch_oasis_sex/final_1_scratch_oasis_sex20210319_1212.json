@@ -1,8 +1,8 @@
 {
   "experiment": {
-    "training_completed": true,
-    "method": "ft_final",
-    "task": "age",
+    "training_completed": false,
+    "method": "scratch",
+    "task": "sex",
     "data": "oasis",
     "balance": false,
     "share": 1.0,
@@ -13,35 +13,41 @@
     "save_server": true,
     "parent_directory": "experiments/"
   },
-  "ft_final": {
-    "age": {
+  "scratch": {
+    "sex": {
       "oasis": {
         "hps": {
-          "run": "0",
-          "task": "age",
-          "n_layer_ft": 1,
+          "reinit_with_scaling": 0,
           "batch": 8,
-          "bin_min": 37,
-          "bin_max": 96,
+          "bin_min": 0,
+          "bin_max": 2,
           "bin_step": 1,
           "sigma": 1.0,
           "dropout": 0.5,
-          "space": "continuous",
-          "loss_met": "kl",
-          "eval_met": "mae",
-          "n_epochs": 50,
+          "channel_number": [
+            32,
+            64,
+            64,
+            64,
+            64,
+            64
+          ],
+          "space": "binary",
+          "loss_met": "ent",
+          "eval_met": "acc",
+          "n_epochs": 300,
           "optim_type": "SGD",
           "lr": 0.1,
           "weight_decay": 0.001,
           "momentum": 0.9,
           "scheduler_type": "step",
-          "epoch_dec": 10,
-          "gamma_dec": 0.1,
+          "epoch_dec": 30,
+          "gamma_dec": 0.5,
           "threshold": 0.0,
           "print_corr": true
         },
         "computing": {
-          "folder": "oasis/age/ft_final",
+          "folder": "oasis/sex/scratch/",
           "queue": "gpu8.q",
           "n_gpus": 2,
           "n_workers": 4
@@ -50,10 +56,10 @@
     }
   },
   "record": {
-    "model_has_been_saved": true,
-    "experiment_name": "final_1_ft_final_oasis_age_age_pretrained",
+    "model_has_been_saved": false,
+    "experiment_name": "final_1_scratch_oasis_sex",
     "model_save": true,
     "model_save_folder": "/well/win-fmrib-analysis/users/lhw539/saved_models/",
-    "model_save_name": "final_1_ft_final_oasis_age_age_pretrained"
+    "model_save_name": "final_1_scratch_oasis_sex"
   }
 }

@@ -317,7 +317,7 @@
             { 
             "hps":
                 {
-                "reinit_with_scaling": null,
+                "reinit_with_scaling": 0,
                 "batch": 8,
                 "bin_min": 0,
                 "bin_max": 2,
@@ -328,7 +328,7 @@
                 "space": "binary",
                 "loss_met": "ent",
                 "eval_met": "acc",
-                "n_epochs": 1000,
+                "n_epochs": 300,
                 "optim_type": "SGD",
                 "lr": 1e-1,
                 "weight_decay": 1e-3,
