@@ -307,3 +307,34 @@ Start:  2021-03-20 01:26:49.626612
 |epoch: 289 | lr: 0.000 |train ent: 0.00697 |train ent ravg: 0.00816 |train acc:  1.00000 |train acc ravg:  1.00000 |val ent: 0.66549 |val entravg: 0.70996 |val acc:  0.77273 |val acc ravg:  0.76591 |
 |epoch: 290 | lr: 0.000 |train ent: 0.01068 |train ent ravg: 0.00815 |train acc:  1.00000 |train acc ravg:  1.00000 |val ent: 0.77231 |val entravg: 0.71775 |val acc:  0.75000 |val acc ravg:  0.76364 |
 |epoch: 291 | lr: 0.000 |train ent: 0.00644 |train ent ravg: 0.00794 |train acc:  1.00000 |train acc ravg:  1.00000 |val ent: 0.77097 |val entravg: 0.73838 |val acc:  0.71591 |val acc ravg:  0.75227 |
+|epoch: 292 | lr: 0.000 |train ent: 0.00816 |train ent ravg: 0.00810 |train acc:  1.00000 |train acc ravg:  1.00000 |val ent: 0.73939 |val entravg: 0.72974 |val acc:  0.76136 |val acc ravg:  0.75227 |
+|epoch: 293 | lr: 0.000 |train ent: 0.01129 |train ent ravg: 0.00871 |train acc:  1.00000 |train acc ravg:  1.00000 |val ent: 0.67785 |val entravg: 0.72520 |val acc:  0.77273 |val acc ravg:  0.75455 |
+|epoch: 294 | lr: 0.000 |train ent: 0.01086 |train ent ravg: 0.00949 |train acc:  1.00000 |train acc ravg:  1.00000 |val ent: 0.73510 |val entravg: 0.73912 |val acc:  0.75000 |val acc ravg:  0.75000 |
+|epoch: 295 | lr: 0.000 |train ent: 0.00802 |train ent ravg: 0.00895 |train acc:  1.00000 |train acc ravg:  1.00000 |val ent: 0.74768 |val entravg: 0.73420 |val acc:  0.76136 |val acc ravg:  0.75227 |
+|epoch: 296 | lr: 0.000 |train ent: 0.00743 |train ent ravg: 0.00915 |train acc:  1.00000 |train acc ravg:  1.00000 |val ent: 0.72189 |val entravg: 0.72438 |val acc:  0.76136 |val acc ravg:  0.76136 |
+|epoch: 297 | lr: 0.000 |train ent: 0.01804 |train ent ravg: 0.01113 |train acc:  0.99432 |train acc ravg:  0.99886 |val ent: 0.69012 |val entravg: 0.71453 |val acc:  0.78409 |val acc ravg:  0.76591 |
+|epoch: 298 | lr: 0.000 |train ent: 0.00988 |train ent ravg: 0.01084 |train acc:  1.00000 |train acc ravg:  0.99886 |val ent: 0.70530 |val entravg: 0.72002 |val acc:  0.75000 |val acc ravg:  0.76136 |
+|epoch: 299 | lr: 0.000 |train ent: 0.00575 |train ent ravg: 0.00982 |train acc:  1.00000 |train acc ravg:  0.99886 |val ent: 0.69954 |val entravg: 0.71291 |val acc:  0.76136 |val acc ravg:  0.76364 |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Finished:  2021-03-20 13:19:12.534994
+
+Correlation between train loss and evaluation: -0.992
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Save configfile.
+Loading share 1.00  test data.
+Number of GPUs:  2
+
+Model loaded from None is being tested.
+Start:  2021-03-20 13:19:12.741743
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+test ent mean: 0.33378 | test ent std: 0.00061 |test acc mean:  0.88137 |test acc std:  0.00085 |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Finished:  2021-03-20 13:21:45.743519
+
+Correlation between train loss and evaluation: -0.934
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------
+Finished at: Sat Mar 20 13:21:47 GMT 2021
+------------------------------------------------

@@ -17,3 +17,41 @@ Accuracy of regression:  0.5714286
 ------------------------------------------------
 Finished at: Fri Mar 19 16:44:11 GMT 2021
 ------------------------------------------------
+------------------------------------------------
+Job ID: 
+Run on host: win000.hpc.in.bmrc.ox.ac.uk
+Operating system: Linux
+Username: lhw539
+Started at: Sat Mar 20 13:01:38 GMT 2021
+------------------------------------------------
+Test (in contrast to train):  False
+Loading share 1.00 train data.
+Loading share 1.00   val data.
+Apply incremental PCA on data.
+------------------------------------------------
+Finished at: Sat Mar 20 13:10:21 GMT 2021
+------------------------------------------------
+------------------------------------------------
+Job ID: 
+Run on host: win000.hpc.in.bmrc.ox.ac.uk
+Operating system: Linux
+Username: lhw539
+Started at: Sat Mar 20 13:26:31 GMT 2021
+------------------------------------------------
+Test (in contrast to train):  False
+Loading share 1.00 train data.
+Loading share 1.00   val data.
+Apply incremental PCA on data.
+355
+Transform data matrix of shape:  torch.Size([355, 4915200])
+91
+Transform data matrix of shape:  torch.Size([91, 4915200])
+Accuracy of regression:  0.5714286
+Save configfile.
+Loading share 1.00  test data.
+500
+Transform data matrix of shape:  torch.Size([500, 4915200])
+Accuracy of regression:  0.694
+------------------------------------------------
+Finished at: Sat Mar 20 13:40:37 GMT 2021
+------------------------------------------------

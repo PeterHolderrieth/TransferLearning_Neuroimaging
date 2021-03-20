@@ -1,0 +1,58 @@
+{
+  "experiment": {
+    "training_completed": false,
+    "method": "elastic_grid",
+    "task": "age",
+    "data": "ixi",
+    "balance": false,
+    "share": 1.0,
+    "test_after_training": false,
+    "preprocessing": "full",
+    "save_config": true,
+    "seed": 234,
+    "save_server": true,
+    "parent_directory": "experiments/"
+  },
+  "elastic_grid": {
+    "age": {
+      "ixi": {
+        "hps": {
+          "batch": 250,
+          "ncomp": -1,
+          "l1rat_list": [
+            0.7,
+            0.8,
+            0.9,
+            0.95
+          ],
+          "reg_list": [
+            15.0,
+            20.0,
+            25.0,
+            30.0
+          ],
+          "feat_list": [
+            130,
+            145,
+            134,
+            140
+          ],
+          "reg_method": "regression"
+        },
+        "computing": {
+          "folder": "ixi/age/elastic/",
+          "queue": "win000",
+          "n_gpus": 0,
+          "n_workers": 2
+        }
+      }
+    }
+  },
+  "record": {
+    "model_has_been_saved": false,
+    "experiment_name": "elastic_grid_age_ixi",
+    "model_save": false,
+    "model_save_folder": "/well/win-fmrib-analysis/users/lhw539/saved_models/",
+    "model_save_name": "elastic_grid_age_ixi"
+  }
+}

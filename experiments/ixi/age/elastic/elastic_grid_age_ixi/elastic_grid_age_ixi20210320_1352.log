@@ -1,0 +1,49 @@
+------------------------------------------------
+Job ID: 
+Run on host: win000.hpc.in.bmrc.ox.ac.uk
+Operating system: Linux
+Username: lhw539
+Started at: Sat Mar 20 13:53:01 GMT 2021
+------------------------------------------------
+Test (in contrast to train):  False
+Loading ixi train data.
+Loading ixi   val data.
+----------------------------------------------------------------------------
+Batch:  250 || L1 share: 0.7000 || Reg: 15.0000 || Feat:  130
+Apply PCA on full data.
+215
+Transform data matrix of shape:  torch.Size([215, 4915200])
+108
+Transform data matrix of shape:  torch.Size([108, 4915200])
+MAE of ElasticNet:  10.74571047237557
+MAE on valid when valid mean is predicted:  14.85839
+----------------------------------------------------------------------------
+Batch:  250 || L1 share: 0.7000 || Reg: 15.0000 || Feat:  145
+Apply PCA on full data.
+215
+Transform data matrix of shape:  torch.Size([215, 4915200])
+108
+Transform data matrix of shape:  torch.Size([108, 4915200])
+MAE of ElasticNet:  10.089367757485654
+MAE on valid when valid mean is predicted:  14.85839
+----------------------------------------------------------------------------
+Batch:  250 || L1 share: 0.7000 || Reg: 15.0000 || Feat:  134
+Apply PCA on full data.
+215
+Transform data matrix of shape:  torch.Size([215, 4915200])
+108
+Transform data matrix of shape:  torch.Size([108, 4915200])
+MAE of ElasticNet:  11.56825141727735
+MAE on valid when valid mean is predicted:  14.858391
+----------------------------------------------------------------------------
+Batch:  250 || L1 share: 0.7000 || Reg: 15.0000 || Feat:  140
+Apply PCA on full data.
+215
+Transform data matrix of shape:  torch.Size([215, 4915200])
+108
+Transform data matrix of shape:  torch.Size([108, 4915200])
+MAE of ElasticNet:  10.005004620833473
+MAE on valid when valid mean is predicted:  14.85839
+----------------------------------------------------------------------------
+Batch:  250 || L1 share: 0.7000 || Reg: 20.0000 || Feat:  130
+Apply PCA on full data.

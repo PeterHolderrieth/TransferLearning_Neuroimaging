@@ -11,7 +11,6 @@ def load_full_sfcn_preloaded(run,task,bin_min,bin_max,reinit_with_scaling=None):
     model=give_pretrained_sfcn(run,task)
     model.module.change_output_dim(bin_max-bin_min)
     if reinit_with_scaling is not None:
-        print("Reinitialize with same scaling.")
         model.module.reinit_final_layers_pres_scale(reinit_with_scaling)
     return model 
 

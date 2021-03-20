@@ -2,8 +2,10 @@ Exp 1: 2.90 MAE (got expected result)
 Exp 2: Train MAE 2.2 (really low) but Valid MAE (2.9-3.0)
 --> increase regularization with experiment 5 and 6
 
-Exp 3:
-Exp 4:
-Exp 5 (increase weight decay compared to 2):
-Exp 6 (increase dropout compared to 2)
-Exp 7 (increase dropout and weight decay):
+Exp 3: 2.90 MAE (but difference between train and valid MAE is zero!)
+Exp 4: 2.90 MAE (not really an improvement!)
+Exp 5 (increase weight decay compared to 2): RUNNING
+Exp 6 (increase dropout compared to 2): RUNNING
+Exp 7 (increase dropout and weight decay): RUNNING
+Exp 8 (almost no decline for small learning rate): RUNNING
+Exp 9 (almost no decline for small learning rate and smaller batch size): RUNNING

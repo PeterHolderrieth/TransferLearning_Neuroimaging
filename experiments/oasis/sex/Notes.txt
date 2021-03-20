@@ -1,5 +1,15 @@
-Sex-pretrained: done - however, it is very weird that the results are only slighlty better than
-the ones not trained at all. We still run two experiments where re-run with a very small learning rate to see how that goes.
-We should also think re-training only the final layer to see how that goes.
+Scratch, direct transfer: done 
 
-Scratch, Elastic, direct transfer: RUNNING FINAL.
+Elastic: RUNNING FINAL.
+
+Ft-final sex: Optimizing hyperparameters.
+
+Sex-pretrained: done - kind of! In fact, we still optimize hyperparameters!
+- however, it is very weird that the results are only slighlty better than
+the ones not trained at all. We still run experiments where we re-run with a very small learning rate to see how that goes. We still
+try to optimize hyperparameters to make it work better!
+
+We should also think re-training only the final layer to see how that goes. It seems that there might not be a big advantage actually!
+Compare with age!
+
+

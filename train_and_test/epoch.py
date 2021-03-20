@@ -22,7 +22,6 @@ def go_one_epoch(state, model, loss_func, device, data_loader, optimizer, label_
         model.train()
     elif state == 'test':
         model.eval()
-    
     else:
         raise (f'train or test? Received {state}')
 

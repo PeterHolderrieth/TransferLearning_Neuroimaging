@@ -1,0 +1,38 @@
+------------------------------------------------
+Job ID: 
+Run on host: win000.hpc.in.bmrc.ox.ac.uk
+Operating system: Linux
+Username: lhw539
+Started at: Sat Mar 20 13:54:20 GMT 2021
+------------------------------------------------
+Test (in contrast to train):  False
+Loading ixi train data.
+The data was balanced for  sex .
+Loading ixi   val data.
+----------------------------------------------------------------------------
+Batch:  250 || L1 share: 0.0000 || Reg: 0.1000 || Feat:   40
+Apply PCA on full data.
+240
+Transform data matrix of shape:  torch.Size([240, 4915200])
+108
+Transform data matrix of shape:  torch.Size([108, 4915200])
+Accuracy of regression:  0.7407407
+----------------------------------------------------------------------------
+Batch:  250 || L1 share: 0.0000 || Reg: 0.1000 || Feat:   60
+Apply PCA on full data.
+240
+Transform data matrix of shape:  torch.Size([240, 4915200])
+108
+Transform data matrix of shape:  torch.Size([108, 4915200])
+Accuracy of regression:  0.7037037
+----------------------------------------------------------------------------
+Batch:  250 || L1 share: 0.0000 || Reg: 0.1000 || Feat:   80
+Apply PCA on full data.
+240
+Transform data matrix of shape:  torch.Size([240, 4915200])
+108
+Transform data matrix of shape:  torch.Size([108, 4915200])
+Accuracy of regression:  0.6759259
+----------------------------------------------------------------------------
+Batch:  250 || L1 share: 0.0000 || Reg: 0.1000 || Feat:  120
+Apply PCA on full data.
