@@ -10,7 +10,15 @@ from sfcn.sfcn_test import sfcn_test
 def load_final_sfcn_preloaded(run,task,bin_min,bin_max,reinit_with_scaling=None):
     
     model=give_pretrained_sfcn(run,task)
-    model.module.change_output_dim(bin_max-bin_min)
+    new_output_dim=bin_max-bin_min
+    old_output_dim=model.module.output_dim
+
+    if new_output_dim!=old_output_dim:
+        print("Output dimension is changed. Reshape final layer.")
+        model.module.change_output_dim(new_output_dim)
+    else: 
+        print("Output dimensions match. No reshaping of final layer.")
+
     if reinit_with_scaling is not None:
         model.module.reinit_final_layers_pres_scale(reinit_with_scaling)
     return model 

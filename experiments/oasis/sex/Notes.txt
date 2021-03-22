@@ -12,9 +12,12 @@ try to optimize hyperparameters to make it work better!
 We should also think re-training only the final layer to see how that goes. It seems that there might not be a big advantage actually!
 Compare with age!
 
-LOOK AT RESULTS FROM THE OTHER REPO WE CREATED WHICH ONLY TRAINS ON MODEL.EVAL()! 
+- LOOK AT RESULTS FROM THE OTHER REPO WE CREATED WHICH ONLY TRAINS ON MODEL.EVAL()! 
 IF THAT IMPROVES RESULTS, THINK ABOUT HAVING AN OPTIMAL PROCEDURE WHICH GOES 
 MODEL.EVAL() + ONLY TRAINING FINAL LAYER.
+
+- WE CHANGED THE CODE SUCH THAT THE FINAL LAYER IS NOT REINITIALIZED WHEN IT HAS THE SAME SHAPE.
+WE TESTED IT WITH ft_final/exp_2_* and --/exp_2_*
 
 
 

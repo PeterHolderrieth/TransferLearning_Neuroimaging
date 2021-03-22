@@ -1,3 +1,7 @@
+-------------------------------------------------------
+THIS JOB WAS SUBMITTED WHEN THE FINAL LAYER WAS REINITIALIZED LEADING TO QUITE NOT SO GOOD RESULTS.
+--------------------------------------------------------
+
 ------------------------------------------------
 Job ID: 41220229
 Run on host: compg010.hpc.in.bmrc.ox.ac.uk
@@ -12,6 +16,9 @@ Load model for sex - run: 0
 Number of GPUs:  2
 Epoch decay:  10
 Gamma decay:  0.1
+
+
+
 
 Full model is being trained with weights loaded from pre-trained model.
 Start:  2021-03-22 11:52:11.327873
@@ -76,3 +83,31 @@ Save configfile.
 ------------------------------------------------
 Finished at: Mon Mar 22 12:20:32 GMT 2021
 ------------------------------------------------
+
+-------------------------------------------------------
+THIS JOB WAS SUBMITTED WHEN THE FINAL LAYER WAS NOT REINITIALIZED LEADING TO QUITE NOT SO GOOD RESULTS.
+--------------------------------------------------------
+------------------------------------------------
+Job ID: 41225249
+Run on host: compg026.hpc.in.bmrc.ox.ac.uk
+Operating system: Linux
+Username: lhw539
+Started at: Mon Mar 22 12:47:06 GMT 2021
+------------------------------------------------
+Test (in contrast to train):  False
+Loading share 1.00 train data.
+Loading share 1.00   val data.
+Load model for sex - run: 0
+Output dimensions match. No reshaping of final layer.
+Number of GPUs:  2
+Epoch decay:  10
+Gamma decay:  0.1
+
+Full model is being trained with weights loaded from pre-trained model.
+Start:  2021-03-22 12:47:12.810660
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+|epoch:   0 | lr: 0.100 |train ent: 0.18356 |train ent ravg: 0.18356 |train acc:  0.92614 |train acc ravg:  0.92614 |val ent: 0.22931 |val entravg: 0.22931 |val acc:  0.90909 |val acc ravg:  0.90909 |
+|epoch:   1 | lr: 0.100 |train ent: 0.16304 |train ent ravg: 0.17330 |train acc:  0.93750 |train acc ravg:  0.93182 |val ent: 0.22986 |val entravg: 0.22958 |val acc:  0.89773 |val acc ravg:  0.90341 |
+|epoch:   2 | lr: 0.100 |train ent: 0.19758 |train ent ravg: 0.18139 |train acc:  0.91761 |train acc ravg:  0.92708 |val ent: 0.23804 |val entravg: 0.23240 |val acc:  0.89773 |val acc ravg:  0.90152 |
+|epoch:   3 | lr: 0.100 |train ent: 0.18941 |train ent ravg: 0.18340 |train acc:  0.92614 |train acc ravg:  0.92685 |val ent: 0.25025 |val entravg: 0.23687 |val acc:  0.88636 |val acc ravg:  0.89773 |
+|epoch:   4 | lr: 0.100 |train ent: 0.18061 |train ent ravg: 0.18284 |train acc:  0.93750 |train acc ravg:  0.92898 |val ent: 0.25555 |val entravg: 0.24060 |val acc:  0.87500 |val acc ravg:  0.89318 |

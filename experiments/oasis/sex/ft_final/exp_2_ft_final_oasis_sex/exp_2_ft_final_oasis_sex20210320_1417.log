@@ -1,3 +1,7 @@
+-------------------------------------------------------
+THIS JOB WAS SUBMITTED WHEN THE FINAL LAYER WAS REINITIALIZED LEADING TO QUITE NOT SO GOOD RESULTS.
+--------------------------------------------------------
+
 ------------------------------------------------
 Job ID: 41220249
 Run on host: compg026.hpc.in.bmrc.ox.ac.uk
@@ -76,3 +80,28 @@ Save configfile.
 ------------------------------------------------
 Finished at: Mon Mar 22 12:16:35 GMT 2021
 ------------------------------------------------
+
+
+-------------------------------------------------------
+THIS JOB WAS SUBMITTED WHEN THE FINAL LAYER WAS NOT RESHAPED.
+--------------------------------------------------------------------------------------------------------
+Job ID: 41225316
+Run on host: compg010.hpc.in.bmrc.ox.ac.uk
+Operating system: Linux
+Username: lhw539
+Started at: Mon Mar 22 12:48:10 GMT 2021
+------------------------------------------------
+Test (in contrast to train):  False
+Loading share 1.00 train data.
+Loading share 1.00   val data.
+Load model for sex - run: 0
+Output dimensions match. No reshaping of final layer.
+Number of GPUs:  2
+Epoch decay:  10
+Gamma decay:  0.1
+
+Full model is being trained with weights loaded from pre-trained model.
+Start:  2021-03-22 12:48:17.594997
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+|epoch:   0 | lr: 0.100 |train ent: 0.22430 |train ent ravg: 0.22430 |train acc:  0.92330 |train acc ravg:  0.92330 |val ent: 0.22155 |val entravg: 0.22155 |val acc:  0.89773 |val acc ravg:  0.89773 |
+|epoch:   1 | lr: 0.100 |train ent: 0.24471 |train ent ravg: 0.23450 |train acc:  0.90341 |train acc ravg:  0.91335 |val ent: 0.24332 |val entravg: 0.23243 |val acc:  0.89773 |val acc ravg:  0.89773 |
