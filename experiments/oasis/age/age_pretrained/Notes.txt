@@ -4,8 +4,9 @@ Exp 2: Train MAE 2.2 (really low) but Valid MAE (2.9-3.0)
 
 Exp 3: 2.90 MAE (but difference between train and valid MAE is zero!)
 Exp 4: 2.90 MAE (not really an improvement!)
-Exp 5 (increase weight decay compared to 2): RUNNING
-Exp 6 (increase dropout compared to 2): RUNNING
-Exp 7 (increase dropout and weight decay): RUNNING
-Exp 8 (almost no decline for small learning rate): RUNNING
-Exp 9 (almost no decline for small learning rate and smaller batch size): RUNNING
+Exp 5 (increase weight decay compared to 2): 3.14 MAE (after achieving 2.90 MAE with re-training final layer, very weird)
+- this run illustrates overfitting quite well!
+Exp 6 (increase dropout compared to 2): Similar to Exp 5
+Exp 7 (increase dropout and weight decay): 4.75 MAE
+Exp 8 (almost no decline for small learning rate): Generally, quite good results (smooth continueation of training but no improvement)
+Exp 9 (almost no decline for small learning rate and smaller batch size): Similar to exp 8
