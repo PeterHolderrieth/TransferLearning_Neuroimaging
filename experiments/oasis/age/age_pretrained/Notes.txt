@@ -1,3 +1,6 @@
+Comment: the effects of re-training the full model after only re-training the final layer are very interesting. 
+The MAE's suddenly jump a lot! Plot the training curves in your dissertation!
+
 Exp 1: 2.90 MAE (got expected result)
 Exp 2: Train MAE 2.2 (really low) but Valid MAE (2.9-3.0)
 --> increase regularization with experiment 5 and 6
@@ -8,5 +11,14 @@ Exp 5 (increase weight decay compared to 2): 3.14 MAE (after achieving 2.90 MAE 
 - this run illustrates overfitting quite well!
 Exp 6 (increase dropout compared to 2): Similar to Exp 5
 Exp 7 (increase dropout and weight decay): 4.75 MAE
-Exp 8 (almost no decline for small learning rate): Generally, quite good results (smooth continueation of training but no improvement)
-Exp 9 (almost no decline for small learning rate and smaller batch size): Similar to exp 8
+Exp 8 (almost no decline for small learning rate): Generally, quite good results (smooth continueation of training but no improvement) (but really good test
+results!)
+Exp 9 (almost no decline for small learning rate and smaller batch size): Similar to exp 8 (also quite good test results!)
+----------------
+
+We build on Exp8!
+
+Final two optimization experiments before running finals:
+
+Exp 10 (increase weight decay compared to Exp 8):
+Exp 11 (increase dropout compared to Exp 9):
