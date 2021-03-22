@@ -1,5 +1,6 @@
 import torch 
 from data.oasis.load_oasis3 import give_oasis_data
+from data.uk_biobank.load_ukb import give_ukb_data
 from sfcn.sfcn_load import give_pretrained_sfcn
 import numpy as np
 from sklearn.manifold import Isomap, TSNE
@@ -11,19 +12,28 @@ import pandas as pd
 debug=False
 methods=['pca','tsne','isomap']
 
-train_dataset,_=give_oasis_data('train', batch_size=5,
+# train_dataset,_=give_oasis_data('train', batch_size=5,
+#                                         num_workers=4,
+#                                         shuffle=False,
+#                                         debug=debug,
+#                                         preprocessing='min',
+#                                         task='age',
+#                                         share=1.)
+
+train_dataset,_=give_ukb_data('train', batch_size=5,
                                         num_workers=4,
                                         shuffle=False,
                                         debug=debug,
                                         preprocessing='min',
                                         task='age',
-                                        share=1.)
+                                        share=300/40000)
+
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 print("Number of GPUs: ", torch.cuda.device_count())
 
 for method in methods:
     for run in range(4):
-        model=give_pretrained_sfcn(str(run), "age")
+        model=give_pretrained_sfcn(str(run), "sex")
         model.eval()
         model.module.train_nothing() 
         model=model.to(device)
@@ -63,8 +73,8 @@ for method in methods:
 
         df=pd.DataFrame(trans_feat_matrix,columns=['tSNE1','tSNE2'])
         df['fp']=fp
-        df['age']=[float(label[0]) for label in train_dataset.label_list]
+        df['label']=[float(label[0]) for label in train_dataset.label_list]
 
         folder="visualization/data/"
-        filename="oasis_run_"+str(run)+'_'+method+'.csv'
+        filename="ukb_run_"+str(run)+'_'+method+'.csv'
         df.to_csv(folder+filename)

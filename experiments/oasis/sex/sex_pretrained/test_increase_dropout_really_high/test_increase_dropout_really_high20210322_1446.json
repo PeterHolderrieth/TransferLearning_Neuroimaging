@@ -35,8 +35,8 @@
           "weight_decay": 0.001,
           "momentum": 0.8,
           "scheduler_type": "step",
-          "epoch_dec": 10,
-          "gamma_dec": 0.3,
+          "epoch_dec": 20,
+          "gamma_dec": 0.5,
           "threshold": 0.0,
           "print_corr": true
         },
