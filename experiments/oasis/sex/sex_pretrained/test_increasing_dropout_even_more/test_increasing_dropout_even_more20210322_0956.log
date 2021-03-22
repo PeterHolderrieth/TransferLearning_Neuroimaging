@@ -70,3 +70,32 @@ Start:  2021-03-22 10:42:09.817644
 |epoch:  51 | lr: 0.000 |train ent: 0.02761 |train ent ravg: 0.02427 |train acc:  0.99716 |train acc ravg:  0.99943 |val ent: 0.10229 |val entravg: 0.10002 |val acc:  0.98864 |val acc ravg:  0.97500 |
 |epoch:  52 | lr: 0.000 |train ent: 0.02923 |train ent ravg: 0.02545 |train acc:  1.00000 |train acc ravg:  0.99943 |val ent: 0.10383 |val entravg: 0.10025 |val acc:  0.98864 |val acc ravg:  0.97500 |
 |epoch:  53 | lr: 0.000 |train ent: 0.01903 |train ent ravg: 0.02498 |train acc:  1.00000 |train acc ravg:  0.99943 |val ent: 0.10715 |val entravg: 0.10223 |val acc:  0.97727 |val acc ravg:  0.97727 |
+|epoch:  54 | lr: 0.000 |train ent: 0.03262 |train ent ravg: 0.02633 |train acc:  0.99432 |train acc ravg:  0.99830 |val ent: 0.11506 |val entravg: 0.10533 |val acc:  0.97727 |val acc ravg:  0.97955 |
+|epoch:  55 | lr: 0.000 |train ent: 0.02457 |train ent ravg: 0.02661 |train acc:  1.00000 |train acc ravg:  0.99830 |val ent: 0.09889 |val entravg: 0.10544 |val acc:  0.96591 |val acc ravg:  0.97955 |
+|epoch:  56 | lr: 0.000 |train ent: 0.02231 |train ent ravg: 0.02555 |train acc:  1.00000 |train acc ravg:  0.99886 |val ent: 0.08219 |val entravg: 0.10142 |val acc:  1.00000 |val acc ravg:  0.98182 |
+|epoch:  57 | lr: 0.000 |train ent: 0.02524 |train ent ravg: 0.02475 |train acc:  1.00000 |train acc ravg:  0.99886 |val ent: 0.09152 |val entravg: 0.09896 |val acc:  0.96591 |val acc ravg:  0.97727 |
+|epoch:  58 | lr: 0.000 |train ent: 0.03100 |train ent ravg: 0.02715 |train acc:  1.00000 |train acc ravg:  0.99886 |val ent: 0.11482 |val entravg: 0.10050 |val acc:  0.97727 |val acc ravg:  0.97727 |
+|epoch:  59 | lr: 0.000 |train ent: 0.02918 |train ent ravg: 0.02646 |train acc:  0.99716 |train acc ravg:  0.99943 |val ent: 0.10544 |val entravg: 0.09857 |val acc:  0.97727 |val acc ravg:  0.97727 |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Finished:  2021-03-22 13:01:55.357944
+
+Correlation between train loss and evaluation: -0.982
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Save configfile.
+Loading share 1.00  test data.
+Number of GPUs:  2
+
+Model loaded from None is being tested.
+Start:  2021-03-22 13:01:55.438550
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+test ent mean: 0.12410 | test ent std: 0.00087 |test acc mean:  0.95490 |test acc std:  0.00085 |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Finished:  2021-03-22 13:04:12.131317
+
+Correlation between train loss and evaluation: -0.978
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------
+Finished at: Mon Mar 22 13:04:13 GMT 2021
+------------------------------------------------
