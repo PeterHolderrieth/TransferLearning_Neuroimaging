@@ -17,7 +17,7 @@ def give_oasis_info(data_type,debug=False):
         fp_ = default_name+'session_train.csv'
     elif data_type=='val':
         fp_ = default_name+'session_val.csv'
-    elif data_type=='test0':
+    elif data_type=='test':
         fp_ = default_name+'session_test0.csv'
     elif data_type=='test1':
         fp_ = default_name+'session_test1.csv'

@@ -1,47 +1,52 @@
 {
   "experiment": {
-    "training_completed": true,
-    "method": "ft_full",
-    "task": "sex",
-    "data": "oasis",
+    "training_completed": false,
+    "method": "scratch",
+    "task": "age",
+    "data": "abide",
     "balance": false,
     "share": 1.0,
     "test_after_training": true,
     "preprocessing": "full",
     "save_config": true,
-    "seed": 1000,
+    "seed": 1001,
     "save_server": true,
     "parent_directory": "experiments/"
   },
-  "ft_full": {
-    "sex": {
-      "oasis": {
+  "scratch": {
+    "age": {
+      "abide": {
         "hps": {
-          "reinit_with_scaling": 0,
-          "run": "0",
-          "task": "sex",
           "batch": 8,
-          "bin_min": 0,
-          "bin_max": 2,
+          "bin_min": 2,
+          "bin_max": 59,
           "bin_step": 1,
           "sigma": 1.0,
-          "dropout": 0.8,
-          "space": "binary",
-          "loss_met": "ent",
-          "eval_met": "acc",
-          "n_epochs": 60,
+          "dropout": 0.5,
+          "channel_number": [
+            32,
+            64,
+            64,
+            64,
+            64,
+            64
+          ],
+          "space": "continuous",
+          "loss_met": "kl",
+          "eval_met": "mae",
+          "n_epochs": 300,
           "optim_type": "SGD",
           "lr": 0.01,
           "weight_decay": 0.001,
-          "momentum": 0.8,
+          "momentum": 0.9,
           "scheduler_type": "step",
-          "epoch_dec": 20,
-          "gamma_dec": 0.5,
+          "epoch_dec": 30,
+          "gamma_dec": 0.3,
           "threshold": 0.0,
           "print_corr": true
         },
         "computing": {
-          "folder": "oasis/sex/sex_pretrained/",
+          "folder": "abide/age/scratch/",
           "queue": "gpu8.q",
           "n_gpus": 2,
           "n_workers": 4
@@ -51,9 +56,9 @@
   },
   "record": {
     "model_has_been_saved": false,
-    "experiment_name": "test_increase_dropout_really_high",
-    "model_save": false,
+    "experiment_name": "final_2_abide_age_scratch",
+    "model_save": true,
     "model_save_folder": "/well/win-fmrib-analysis/users/lhw539/saved_models/",
-    "model_save_name": "test_increase_dropout_really_high"
+    "model_save_name": "final_2_abide_age_scratch"
   }
 }

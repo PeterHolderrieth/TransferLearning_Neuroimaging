@@ -1,0 +1,59 @@
+{
+  "experiment": {
+    "method": "scratch",
+    "task": "age",
+    "data": "abide",
+    "balance": false,
+    "share": 1.0,
+    "train": true,
+    "valid": false,
+    "preprocessing": "full",
+    "save_config": true,
+    "save_server": true,
+    "parent_directory": "experiments/"
+  },
+  "scratch": {
+    "age": {
+      "abide": {
+        "hps": {
+          "batch": 4,
+          "bin_min": 2,
+          "bin_max": 59,
+          "bin_step": 1,
+          "sigma": 1.0,
+          "dropout": 0.6,
+          "channel_number": [
+            32,
+            64,
+            64,
+            64,
+            64,
+            64
+          ],
+          "space": "continuous",
+          "loss_met": "kl",
+          "eval_met": "mae",
+          "n_epochs": 1200,
+          "optim_type": "SGD",
+          "lr": 0.01,
+          "weight_decay": 0.001,
+          "momentum": 0.9,
+          "scheduler_type": "step",
+          "epoch_dec": 30,
+          "gamma_dec": 0.3,
+          "threshold": 0.0,
+          "print_corr": true
+        },
+        "computing": {
+          "folder": "abide/age/scratch/",
+          "queue": "gpu8.q",
+          "n_gpus": 2,
+          "n_workers": 4
+        }
+      }
+    }
+  },
+  "record": {
+    "experiment_name": "exp_3_abide_scratch"
+  }
+}

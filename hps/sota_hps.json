@@ -258,7 +258,7 @@
                 "space":"continuous",
                 "loss_met":"kl",
                 "eval_met":"mae",
-                "n_epochs":1200,
+                "n_epochs":300,
                 "optim_type": "SGD",
                 "lr": 1e-2,
                 "weight_decay":1e-3,

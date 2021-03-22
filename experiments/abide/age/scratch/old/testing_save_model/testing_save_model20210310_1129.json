@@ -1,0 +1,63 @@
+{
+  "experiment": {
+    "method": "scratch",
+    "task": "age",
+    "data": "abide",
+    "balance": false,
+    "share": 1.0,
+    "test_after_training": true,
+    "preprocessing": "full",
+    "save_config": true,
+    "save_server": true,
+    "parent_directory": "experiments/",
+    "training_completed": false
+  },
+  "scratch": {
+    "age": {
+      "abide": {
+        "hps": {
+          "batch": 2,
+          "bin_min": 2,
+          "bin_max": 59,
+          "bin_step": 1,
+          "sigma": 1.0,
+          "dropout": 0.5,
+          "channel_number": [
+            32,
+            64,
+            64,
+            64,
+            64,
+            64
+          ],
+          "space": "continuous",
+          "loss_met": "kl",
+          "eval_met": "mae",
+          "n_epochs": 3,
+          "optim_type": "SGD",
+          "lr": 0.01,
+          "weight_decay": 0.001,
+          "momentum": 0.9,
+          "scheduler_type": "step",
+          "epoch_dec": 30,
+          "gamma_dec": 0.3,
+          "threshold": 0.0,
+          "print_corr": true
+        },
+        "computing": {
+          "folder": "abide/age/scratch/",
+          "queue": "gpu8.q",
+          "n_gpus": 2,
+          "n_workers": 4
+        }
+      }
+    }
+  },
+  "record": {
+    "experiment_name": "testing_save_model",
+    "model_save": true,
+    "model_save_folder": "/well/win-fmrib-analysis/users/lhw539/saved_models/",
+    "model_save_name": "testing_save_model",
+    "model_has_been_saved": true
+  }
+}

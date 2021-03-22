@@ -1,0 +1,53 @@
+{
+  "experiment": {
+    "method": "elastic_grid",
+    "task": "age",
+    "data": "abide",
+    "balance": false,
+    "share": 1.0,
+    "train": "yes",
+    "valid": "no",
+    "preprocessing": "full",
+    "save_config": "yes",
+    "save_server": "yes",
+    "parent_directory": "experiments/"
+  },
+  "elastic_grid": {
+    "age": {
+      "abide": {
+        "hps": {
+          "batch": 300,
+          "ncomp": -1,
+          "l1rat_list": [
+            1.0,
+            0.1,
+            0.3,
+            0.6,
+            0.9,
+            1.0
+          ],
+          "reg_list": [
+            0.1,
+            1.0,
+            10.0
+          ],
+          "feat_list": [
+            40,
+            60,
+            80
+          ],
+          "reg_method": "regression"
+        },
+        "computing": {
+          "folder": "abide/age/elastic/",
+          "queue": "win000",
+          "n_gpus": 0,
+          "n_workers": 2
+        }
+      }
+    }
+  },
+  "record": {
+    "experiment_name": "grid_search_elastic_abide"
+  }
+}

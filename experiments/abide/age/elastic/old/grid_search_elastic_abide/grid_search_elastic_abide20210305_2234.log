@@ -1,0 +1,527 @@
+Best result so far:
+---------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 10.0000 || Feat:   80
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  2.8761029317325204
+MAE on valid when valid mean is predicted:  4.2175555
+
+
+------------------------------------------------
+Job ID: 
+Run on host: win000.hpc.in.bmrc.ox.ac.uk
+Operating system: Linux
+Username: lhw539
+Started at: Fri Mar 5 22:53:13 GMT 2021
+------------------------------------------------
+Loading ABIDE train data.
+Loading ABIDE   val data.
+----------------------------------------------------------------------------
+Batch: 2000 || L1 share: 1.0000 || Reg: 0.1000 || Feat:   40
+Apply PCA on full data.
+------------------------------------------------
+Finished at: Fri Mar 5 22:58:12 GMT 2021
+-----------------------------------------------
+------------------------------------------------
+Job ID:
+Run on host: win000.hpc.in.bmrc.ox.ac.uk
+Operating system: Linux
+Username: lhw539
+Started at: Sat Mar 6 15:02:52 GMT 2021
+------------------------------------------------
+Loading ABIDE train data.
+Loading ABIDE   val data.
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 1.0000 || Reg: 0.1000 || Feat:   40
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  3.0702081270169512
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 1.0000 || Reg: 0.1000 || Feat:   60
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  4.142915467204322
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 1.0000 || Reg: 0.1000 || Feat:   80
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  4.164453870376752
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 1.0000 || Reg: 1.0000 || Feat:   40
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  3.7344103695461652
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 1.0000 || Reg: 1.0000 || Feat:   60
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  3.2427802250949447
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 1.0000 || Reg: 1.0000 || Feat:   80
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  4.293705885888745
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 1.0000 || Reg: 10.0000 || Feat:   40
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  3.004033484785736
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 1.0000 || Reg: 10.0000 || Feat:   60
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  4.1114306769256
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 1.0000 || Reg: 10.0000 || Feat:   80
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  3.7082724249936265
+MAE on valid when valid mean is predicted:  4.217556
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.1000 || Reg: 0.1000 || Feat:   40
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  3.4410152655670356
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.1000 || Reg: 0.1000 || Feat:   60
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  3.9322568057604577
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.1000 || Reg: 0.1000 || Feat:   80
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  3.72936781081437
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.1000 || Reg: 1.0000 || Feat:   40
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  3.447721839087378
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.1000 || Reg: 1.0000 || Feat:   60
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  2.9481886370205164
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.1000 || Reg: 1.0000 || Feat:   80
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  3.4480113927813307
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.1000 || Reg: 10.0000 || Feat:   40
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  3.3714227167045707
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.1000 || Reg: 10.0000 || Feat:   60
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  3.889447438688761
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.1000 || Reg: 10.0000 || Feat:   80
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  2.8820435305872607
+MAE on valid when valid mean is predicted:  4.2175555
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.3000 || Reg: 0.1000 || Feat:   40
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  3.078556254349086
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.3000 || Reg: 0.1000 || Feat:   60
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  3.419092507732171
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.3000 || Reg: 0.1000 || Feat:   80
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  4.7065148082834565
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.3000 || Reg: 1.0000 || Feat:   40
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  4.261870219962009
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.3000 || Reg: 1.0000 || Feat:   60
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  4.288755490501817
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.3000 || Reg: 1.0000 || Feat:   80
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  3.2476188118277096
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.3000 || Reg: 10.0000 || Feat:   40
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  3.253571534702041
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.3000 || Reg: 10.0000 || Feat:   60
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  2.9848328611906694
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.3000 || Reg: 10.0000 || Feat:   80
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  3.9328862725005007
+MAE on valid when valid mean is predicted:  4.217556
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.6000 || Reg: 0.1000 || Feat:   40
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  4.032421752539228
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.6000 || Reg: 0.1000 || Feat:   60
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  3.223234891806322
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.6000 || Reg: 0.1000 || Feat:   80
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  3.138318596714253
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.6000 || Reg: 1.0000 || Feat:   40
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  4.103742739718844
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.6000 || Reg: 1.0000 || Feat:   60
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  3.1068162816363807
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.6000 || Reg: 1.0000 || Feat:   80
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  3.0532529701756546
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.6000 || Reg: 10.0000 || Feat:   40
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  3.8753145774258617
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.6000 || Reg: 10.0000 || Feat:   60
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  3.138361739962003
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.6000 || Reg: 10.0000 || Feat:   80
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  4.439598746975919
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 0.1000 || Feat:   40
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  3.423526425339771
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 0.1000 || Feat:   60
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  3.283557468738535
+MAE on valid when valid mean is predicted:  4.217556
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 0.1000 || Feat:   80
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  4.032011484357411
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 1.0000 || Feat:   40
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  3.7327452808799215
+MAE on valid when valid mean is predicted:  4.217556
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 1.0000 || Feat:   60
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  2.8856689791446564
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 1.0000 || Feat:   80
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  3.3954154292407677
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 10.0000 || Feat:   40
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  2.939063846903288
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 10.0000 || Feat:   60
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  2.9248592382664897
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 10.0000 || Feat:   80
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  2.8761029317325204
+MAE on valid when valid mean is predicted:  4.2175555
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 1.0000 || Reg: 0.1000 || Feat:   40
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  4.369189141430027
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 1.0000 || Reg: 0.1000 || Feat:   60
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  3.211382899360434
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 1.0000 || Reg: 0.1000 || Feat:   80
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  3.6609859710565487
+MAE on valid when valid mean is predicted:  4.217556
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 1.0000 || Reg: 1.0000 || Feat:   40
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  3.808062420284817
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 1.0000 || Reg: 1.0000 || Feat:   60
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  3.9395239778569073
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 1.0000 || Reg: 1.0000 || Feat:   80
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  3.8674907241998393
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 1.0000 || Reg: 10.0000 || Feat:   40
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  3.6457757793111925
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 1.0000 || Reg: 10.0000 || Feat:   60
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  2.9930104960357133
+MAE on valid when valid mean is predicted:  4.2175565
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 1.0000 || Reg: 10.0000 || Feat:   80
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  3.8387515917506114
+MAE on valid when valid mean is predicted:  4.2175565
+------------------------------------------------
+Finished at: Sun Mar 7 02:21:44 GMT 2021
+------------------------------------------------
+
+-
