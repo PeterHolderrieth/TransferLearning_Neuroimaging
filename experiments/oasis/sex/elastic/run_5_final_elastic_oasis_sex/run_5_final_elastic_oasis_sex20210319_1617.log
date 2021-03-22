@@ -40,3 +40,14 @@ Loading share 1.00   val data.
 Apply incremental PCA on data.
 355
 Transform data matrix of shape:  torch.Size([355, 4915200])
+91
+Transform data matrix of shape:  torch.Size([91, 4915200])
+Accuracy of regression:  0.5604396
+Save configfile.
+Loading share 1.00  test data.
+500
+Transform data matrix of shape:  torch.Size([500, 4915200])
+Accuracy of regression:  0.648
+------------------------------------------------
+Finished at: Sat Mar 20 14:24:23 GMT 2021
+------------------------------------------------
