@@ -115,3 +115,30 @@ Start:  2021-03-22 10:04:36.018980
 |epoch:  33 | lr: 0.000 |train kld: 1.25605 |train kld ravg: 1.24209 |train mae:  2.63456 |train mae ravg:  2.56770 |val kld: 1.37063 |val kldravg: 1.37382 |val mae:  2.97559 |val mae ravg:  2.94983 |
 |epoch:  34 | lr: 0.000 |train kld: 1.22549 |train kld ravg: 1.23367 |train mae:  2.54575 |train mae ravg:  2.54179 |val kld: 1.38654 |val kldravg: 1.37286 |val mae:  2.98631 |val mae ravg:  2.93923 |
 |epoch:  35 | lr: 0.000 |train kld: 1.24051 |train kld ravg: 1.23444 |train mae:  2.65803 |train mae ravg:  2.57963 |val kld: 1.37111 |val kldravg: 1.36938 |val mae:  2.89824 |val mae ravg:  2.91618 |
+|epoch:  36 | lr: 0.000 |train kld: 1.23802 |train kld ravg: 1.23923 |train mae:  2.62371 |train mae ravg:  2.60226 |val kld: 1.34975 |val kldravg: 1.37163 |val mae:  2.79316 |val mae ravg:  2.91790 |
+|epoch:  37 | lr: 0.000 |train kld: 1.21907 |train kld ravg: 1.23583 |train mae:  2.45437 |train mae ravg:  2.58328 |val kld: 1.40579 |val kldravg: 1.37677 |val mae:  3.02827 |val mae ravg:  2.93631 |
+|epoch:  38 | lr: 0.000 |train kld: 1.22660 |train kld ravg: 1.22994 |train mae:  2.44708 |train mae ravg:  2.54579 |val kld: 1.39122 |val kldravg: 1.38088 |val mae:  3.07033 |val mae ravg:  2.95526 |
+|epoch:  39 | lr: 0.000 |train kld: 1.24105 |train kld ravg: 1.23305 |train mae:  2.50241 |train mae ravg:  2.53712 |val kld: 1.39601 |val kldravg: 1.38278 |val mae:  3.02936 |val mae ravg:  2.96387 |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Finished:  2021-03-22 11:42:47.800736
+
+Correlation between train loss and evaluation: 0.970
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Save configfile.
+Loading share 1.00  test data.
+Number of GPUs:  2
+
+Model loaded from None is being tested.
+Start:  2021-03-22 11:42:47.831350
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+test kld mean: 1.42568 | test kld std: 0.00129 |test mae mean:  3.18959 |test mae std:  0.00435 |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Finished:  2021-03-22 11:44:38.468220
+
+Correlation between train loss and evaluation: 0.984
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------
+Finished at: Mon Mar 22 11:44:39 GMT 2021
+------------------------------------------------
