@@ -19,3 +19,18 @@ Test (in contrast to train):  False
 Loading ABIDE train data.
 Loading ABIDE   val data.
 Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  3.437779728853249
+MAE on valid when valid mean is predicted:  4.2175565
+Save configfile.
+Loading ABIDE  test data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+MAE of ElasticNet:  3.7198990956893634
+MAE on valid when valid mean is predicted:  4.265732
+------------------------------------------------
+Finished at: Mon Mar 22 17:46:31 GMT 2021
+------------------------------------------------

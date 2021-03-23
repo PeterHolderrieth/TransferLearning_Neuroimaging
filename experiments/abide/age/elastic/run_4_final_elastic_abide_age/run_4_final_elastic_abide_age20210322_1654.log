@@ -8,3 +8,29 @@ Started at: Mon Mar 22 16:57:51 GMT 2021
 ------------------------------------------------
 Finished at: Mon Mar 22 16:57:52 GMT 2021
 ------------------------------------------------
+------------------------------------------------
+Job ID: 
+Run on host: win000.hpc.in.bmrc.ox.ac.uk
+Operating system: Linux
+Username: lhw539
+Started at: Mon Mar 22 17:46:31 GMT 2021
+------------------------------------------------
+Test (in contrast to train):  False
+Loading ABIDE train data.
+Loading ABIDE   val data.
+Apply incremental PCA on data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+269
+Transform data matrix of shape:  torch.Size([269, 4915200])
+MAE of ElasticNet:  3.51317326115243
+MAE on valid when valid mean is predicted:  4.2175565
+Save configfile.
+Loading ABIDE  test data.
+300
+Transform data matrix of shape:  torch.Size([300, 4915200])
+MAE of ElasticNet:  3.7755739716455916
+MAE on valid when valid mean is predicted:  4.0394664
+------------------------------------------------
+Finished at: Mon Mar 22 17:58:07 GMT 2021
+------------------------------------------------
