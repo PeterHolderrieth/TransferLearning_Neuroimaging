@@ -143,7 +143,7 @@ for label in labels:
                 df['label']=[float(train_dataset.label_list[idx][0]) for idx in inds]
 
                 folder="/well/win-fmrib-analysis/users/lhw539/visualization/"
-                filename=str(ARGS['DATA'])+"_run_"+str(run)+'_'+method+'_pretrained_on_'+str(pretrained_task)+'_'+str(n_samples)+'_samples.csv'
+                filename=str(ARGS['DATA'])+"_run_"+str(run)+'_'+method+'_label'+label+'_pretrained_on_'+str(pretrained_task)+'_'+str(n_samples)+'_samples.csv'
                 if ARGS['DEBUG']=='full':
                     print("Saving csv file to: ", folder+filename)
                     df.to_csv(folder+filename)
