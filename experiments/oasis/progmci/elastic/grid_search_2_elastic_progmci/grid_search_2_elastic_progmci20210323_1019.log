@@ -1,0 +1,1149 @@
+------------------------------------------------
+Job ID: 
+Run on host: win000.hpc.in.bmrc.ox.ac.uk
+Operating system: Linux
+Username: lhw539
+Started at: Tue Mar 23 10:24:06 GMT 2021
+------------------------------------------------
+Test (in contrast to train):  False
+Loading share 1.00 train data.
+Loading share 1.00   val data.
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8500 || Reg: 20.0000 || Feat:   10
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.45454547
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8500 || Reg: 20.0000 || Feat:    5
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.36363637
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8500 || Reg: 20.0000 || Feat:    3
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.18181819
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8500 || Reg: 20.0000 || Feat:   12
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8500 || Reg: 20.0000 || Feat:   15
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.36363637
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8500 || Reg: 20.0000 || Feat:   20
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.36363637
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8500 || Reg: 15.0000 || Feat:   10
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8500 || Reg: 15.0000 || Feat:    5
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.6363636
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8500 || Reg: 15.0000 || Feat:    3
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.45454547
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8500 || Reg: 15.0000 || Feat:   12
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.45454547
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8500 || Reg: 15.0000 || Feat:   15
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.6363636
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8500 || Reg: 15.0000 || Feat:   20
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8500 || Reg: 22.0000 || Feat:   10
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8500 || Reg: 22.0000 || Feat:    5
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.45454547
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8500 || Reg: 22.0000 || Feat:    3
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8500 || Reg: 22.0000 || Feat:   12
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8500 || Reg: 22.0000 || Feat:   15
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8500 || Reg: 22.0000 || Feat:   20
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8500 || Reg: 25.0000 || Feat:   10
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8500 || Reg: 25.0000 || Feat:    5
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8500 || Reg: 25.0000 || Feat:    3
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8500 || Reg: 25.0000 || Feat:   12
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.36363637
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8500 || Reg: 25.0000 || Feat:   15
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.36363637
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8500 || Reg: 25.0000 || Feat:   20
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.6363636
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8500 || Reg: 19.0000 || Feat:   10
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8500 || Reg: 19.0000 || Feat:    5
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8500 || Reg: 19.0000 || Feat:    3
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8500 || Reg: 19.0000 || Feat:   12
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8500 || Reg: 19.0000 || Feat:   15
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8500 || Reg: 19.0000 || Feat:   20
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8500 || Reg: 15.0000 || Feat:   10
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8500 || Reg: 15.0000 || Feat:    5
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8500 || Reg: 15.0000 || Feat:    3
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8500 || Reg: 15.0000 || Feat:   12
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.6363636
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8500 || Reg: 15.0000 || Feat:   15
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.45454547
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8500 || Reg: 15.0000 || Feat:   20
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.6363636
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 20.0000 || Feat:   10
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.45454547
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 20.0000 || Feat:    5
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.6363636
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 20.0000 || Feat:    3
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.6363636
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 20.0000 || Feat:   12
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.6363636
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 20.0000 || Feat:   15
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 20.0000 || Feat:   20
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 15.0000 || Feat:   10
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 15.0000 || Feat:    5
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 15.0000 || Feat:    3
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 15.0000 || Feat:   12
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.6363636
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 15.0000 || Feat:   15
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 15.0000 || Feat:   20
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 22.0000 || Feat:   10
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.6363636
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 22.0000 || Feat:    5
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.6363636
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 22.0000 || Feat:    3
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.45454547
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 22.0000 || Feat:   12
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 22.0000 || Feat:   15
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 22.0000 || Feat:   20
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 25.0000 || Feat:   10
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.6363636
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 25.0000 || Feat:    5
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 25.0000 || Feat:    3
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.45454547
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 25.0000 || Feat:   12
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 25.0000 || Feat:   15
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.6363636
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 25.0000 || Feat:   20
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.45454547
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 19.0000 || Feat:   10
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 19.0000 || Feat:    5
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.6363636
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 19.0000 || Feat:    3
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 19.0000 || Feat:   12
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 19.0000 || Feat:   15
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 19.0000 || Feat:   20
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.6363636
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 15.0000 || Feat:   10
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.6363636
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 15.0000 || Feat:    5
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.45454547
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 15.0000 || Feat:    3
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.27272728
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 15.0000 || Feat:   12
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.6363636
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 15.0000 || Feat:   15
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9000 || Reg: 15.0000 || Feat:   20
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9300 || Reg: 20.0000 || Feat:   10
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.45454547
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9300 || Reg: 20.0000 || Feat:    5
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9300 || Reg: 20.0000 || Feat:    3
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.6363636
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9300 || Reg: 20.0000 || Feat:   12
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.45454547
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9300 || Reg: 20.0000 || Feat:   15
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9300 || Reg: 20.0000 || Feat:   20
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.6363636
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9300 || Reg: 15.0000 || Feat:   10
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.6363636
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9300 || Reg: 15.0000 || Feat:    5
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.36363637
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9300 || Reg: 15.0000 || Feat:    3
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.45454547
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9300 || Reg: 15.0000 || Feat:   12
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9300 || Reg: 15.0000 || Feat:   15
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.45454547
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9300 || Reg: 15.0000 || Feat:   20
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9300 || Reg: 22.0000 || Feat:   10
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9300 || Reg: 22.0000 || Feat:    5
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.6363636
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9300 || Reg: 22.0000 || Feat:    3
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9300 || Reg: 22.0000 || Feat:   12
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.6363636
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9300 || Reg: 22.0000 || Feat:   15
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.6363636
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9300 || Reg: 22.0000 || Feat:   20
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.27272728
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9300 || Reg: 25.0000 || Feat:   10
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.45454547
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9300 || Reg: 25.0000 || Feat:    5
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9300 || Reg: 25.0000 || Feat:    3
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9300 || Reg: 25.0000 || Feat:   12
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.6363636
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9300 || Reg: 25.0000 || Feat:   15
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.6363636
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9300 || Reg: 25.0000 || Feat:   20
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9300 || Reg: 19.0000 || Feat:   10
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9300 || Reg: 19.0000 || Feat:    5
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9300 || Reg: 19.0000 || Feat:    3
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9300 || Reg: 19.0000 || Feat:   12
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.45454547
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9300 || Reg: 19.0000 || Feat:   15
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9300 || Reg: 19.0000 || Feat:   20
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9300 || Reg: 15.0000 || Feat:   10
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9300 || Reg: 15.0000 || Feat:    5
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.45454547
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9300 || Reg: 15.0000 || Feat:    3
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.6363636
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9300 || Reg: 15.0000 || Feat:   12
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9300 || Reg: 15.0000 || Feat:   15
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.9300 || Reg: 15.0000 || Feat:   20
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.45454547
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8800 || Reg: 20.0000 || Feat:   10
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8800 || Reg: 20.0000 || Feat:    5
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8800 || Reg: 20.0000 || Feat:    3
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8800 || Reg: 20.0000 || Feat:   12
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.45454547
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8800 || Reg: 20.0000 || Feat:   15
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.6363636
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8800 || Reg: 20.0000 || Feat:   20
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8800 || Reg: 15.0000 || Feat:   10
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.6363636
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8800 || Reg: 15.0000 || Feat:    5
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8800 || Reg: 15.0000 || Feat:    3
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.45454547
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8800 || Reg: 15.0000 || Feat:   12
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8800 || Reg: 15.0000 || Feat:   15
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8800 || Reg: 15.0000 || Feat:   20
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.36363637
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8800 || Reg: 22.0000 || Feat:   10
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.36363637
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8800 || Reg: 22.0000 || Feat:    5
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.45454547
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8800 || Reg: 22.0000 || Feat:    3
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.45454547
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8800 || Reg: 22.0000 || Feat:   12
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.6363636
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8800 || Reg: 22.0000 || Feat:   15
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.6363636
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8800 || Reg: 22.0000 || Feat:   20
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8800 || Reg: 25.0000 || Feat:   10
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8800 || Reg: 25.0000 || Feat:    5
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.45454547
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8800 || Reg: 25.0000 || Feat:    3
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8800 || Reg: 25.0000 || Feat:   12
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.72727275
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8800 || Reg: 25.0000 || Feat:   15
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8800 || Reg: 25.0000 || Feat:   20
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.36363637
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8800 || Reg: 19.0000 || Feat:   10
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.45454547
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8800 || Reg: 19.0000 || Feat:    5
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.6363636
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8800 || Reg: 19.0000 || Feat:    3
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8800 || Reg: 19.0000 || Feat:   12
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.45454547
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8800 || Reg: 19.0000 || Feat:   15
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8800 || Reg: 19.0000 || Feat:   20
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.45454547
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8800 || Reg: 15.0000 || Feat:   10
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8800 || Reg: 15.0000 || Feat:    5
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8800 || Reg: 15.0000 || Feat:    3
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.54545456
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8800 || Reg: 15.0000 || Feat:   12
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.6363636
+----------------------------------------------------------------------------
+Batch:  300 || L1 share: 0.8800 || Reg: 15.0000 || Feat:   15
+Apply PCA on full data.

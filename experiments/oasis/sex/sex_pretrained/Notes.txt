@@ -4,4 +4,7 @@ Lr small: 80% (bad)
 Lr zero: very bad results. BUG!!!!!!!!!!!!!!!!!! FIX IT!!!!!! WHAT IS WRONG HERE???? IS THAT BATCH NORMALIZATION PARAMETERS
 ARE CONSTANTLY UPDATED????? RUN AGAIN AND SEE IF PARAMETERS CHANGE!
 Increasing droupout even more: 97.7% validation accurac!
+Replicate that experiment with higher epoch_dec: RUNNING
+Replicate that experiment with less momentum: RUNNING 
+
 We tested now what happens if we just set model.eval() at the start (see other folder).

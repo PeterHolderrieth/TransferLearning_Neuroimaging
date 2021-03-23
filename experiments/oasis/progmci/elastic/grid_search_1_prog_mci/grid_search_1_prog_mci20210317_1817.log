@@ -1,3 +1,12 @@
+Best parameters so far:
+Batch:  300 || L1 share: 0.9000 || Reg: 20.0000 || Feat:   10
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.72727275
+
 ------------------------------------------------
 Job ID: 
 Run on host: win000.hpc.in.bmrc.ox.ac.uk

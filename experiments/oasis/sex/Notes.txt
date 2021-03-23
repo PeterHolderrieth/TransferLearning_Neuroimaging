@@ -1,14 +1,12 @@
 Scratch, direct transfer, elastic: done 
 
-Ft-final sex: Optimizing hyperparameters.
+Sex-pretrained: almost done (running final two experiments). Then run finals!
 
-Sex-pretrained: done - kind of! In fact, we still optimize hyperparameters!
-- however, it is very weird that the results are only slighlty better than
-the ones not trained at all. We still run experiments where we re-run with a very small learning rate to see how that goes. We still
-try to optimize hyperparameters to make it work better!
+Ft-final sex: Optimizing hyperparameters (although not absolutely necessary to include. For consistency, it 
+would still be good to get it.)
 
-We should also think re-training only the final layer to see how that goes. It seems that there might not be a big advantage actually!
-Compare with age!
+Vary train size: WAITING for results of sex_pretrained to get hyperparameters which can be used.
+
 
 - THINK ABOUT HAVING AN OPTIMAL PROCEDURE WHICH GOES 
 MODEL.EVAL() + ONLY TRAINING FINAL LAYER (I.E.ALLOW THE MODEL TO BE TRAINED WITHOUT UPDATING BATCHNORM)

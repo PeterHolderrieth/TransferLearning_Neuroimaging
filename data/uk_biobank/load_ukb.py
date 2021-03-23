@@ -13,7 +13,7 @@ from data.dataset import give_mri_data
 
 
 
-def give_ukb_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=False,preprocessing='full', task='age',share=None):
+def give_ukb_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=False,preprocessing='full', task='age',share=None,balance=None):
     
     #Get the directory of the data_type:
     fp_= '/well/win-biobank/users/jdo465/age_sex_prediction/ukb_results/rap40k_sfcn5mp_20191206/SubjectInfoFiles/subjects40k.csv'
