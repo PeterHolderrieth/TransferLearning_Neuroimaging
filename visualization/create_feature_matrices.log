@@ -1,0 +1,18 @@
+------------------------------------------------
+Job ID: 41351615
+Run on host: compg013.hpc.in.bmrc.ox.ac.uk
+Operating system: Linux
+Username: lhw539
+Started at: Wed Mar 24 02:43:35 GMT 2021
+------------------------------------------------
+Loading share 1.00 of UKB  full data.
+Number of GPUs:  2
+Traceback (most recent call last):
+  File "/users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/create_feature_matrix.py", line 93, in <module>
+    model=give_pretrained_sfcn(run, pretrained_task)
+  File "/gpfs3/users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/sfcn/sfcn_load.py", line 26, in give_pretrained_sfcn
+    with open("hps/pretrained_sfcns.json", "r") as read_file:
+FileNotFoundError: [Errno 2] No such file or directory: 'hps/pretrained_sfcns.json'
+------------------------------------------------
+Finished at: Wed Mar 24 02:43:39 GMT 2021
+------------------------------------------------
