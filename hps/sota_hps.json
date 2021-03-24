@@ -54,6 +54,25 @@
                 "n_gpus": 0,
                 "n_workers": 2
                 }
+            },
+        "ixi": 
+            {
+            "hps":
+                {
+                "batch": 250,
+                "ncomp":-1,
+                "l1rat":0.9,
+                "reg":20.0,
+                "feat":140,
+                "reg_method": "regression"
+                },
+            "computing": 
+                {
+                "folder":"ixi/age/elastic/",
+                "queue": "win000",
+                "n_gpus": 0,
+                "n_workers": 2
+                }
             }
         },    
     "sex": 
@@ -76,7 +95,45 @@
                 "n_gpus": 0,
                 "n_workers": 2
                 }
-            }   
+            },
+        "abide":
+            {
+            "hps":
+                {
+                "batch": 200,
+                "ncomp":-1,
+                "l1rat":0.55,
+                "reg":0.5,
+                "feat":150,
+                "reg_method": "logistic"
+                },
+            "computing":
+                {
+                "folder":"abide/sex/elastic/",
+                "queue": "win000",
+                "n_gpus": 0,
+                "n_workers": 2
+                }
+            },
+        "ixi":
+            {
+            "hps":
+                {
+                "batch": 250,
+                "ncomp":-1,
+                "l1rat":1.0,
+                "reg":1.0,
+                "feat":160,
+                "reg_method": "logistic"
+                },
+            "computing":
+                {
+                "folder":"ixi/sex/elastic/",
+                "queue": "win000",
+                "n_gpus": 0,
+                "n_workers": 2
+                }
+            }
         },
     "progmci": 
         {
@@ -291,7 +348,7 @@
                 "space":"continuous",
                 "loss_met":"kl",
                 "eval_met":"mae",
-                "n_epochs":1200,
+                "n_epochs":180,
                 "optim_type": "SGD",
                 "lr": 1e-2,
                 "weight_decay":1e-3,
@@ -394,7 +451,7 @@
                 "space": "binary",
                 "loss_met": "ent",
                 "eval_met": "acc",
-                "n_epochs": 1000,
+                "n_epochs": 250,
                 "optim_type": "SGD",
                 "lr": 1e-1,
                 "weight_decay": 1e-3,
@@ -510,7 +567,7 @@
                 "n_epochs":60,
                 "optim_type": "SGD",
                 "lr": 5e-3,
-                "weight_decay":5e-3,
+                "weight_decay":5e-2,
                 "momentum": 0.8,
                 "scheduler_type": "step",
                 "epoch_dec": 10,
@@ -530,25 +587,25 @@
             { 
             "hps":
                 {
-                "run": "0",
+                "run": "1",
                 "task": "sex",
                 "batch": 8,
-                "bin_min":0,
-                "bin_max":2,
-                "bin_step":1,
-                "sigma":1.0,
+                "bin_min": 0,
+                "bin_max": 2,
+                "bin_step": 1,
+                "sigma": 1.0,
                 "dropout": 0.5,
-                "space":"binary",
-                "loss_met":"ent",
-                "eval_met":"acc",
-                "n_epochs":60,
+                "space": "binary",
+                "loss_met": "ent",
+                "eval_met": "acc",
+                "n_epochs": 120,
                 "optim_type": "SGD",
-                "lr": 5e-3,
-                "weight_decay":5e-3,
+                "lr": 0.01,
+                "weight_decay": 0.005,
                 "momentum": 0.8,
                 "scheduler_type": "step",
-                "epoch_dec": 10,
-                "gamma_dec": 0.3,
+                "epoch_dec": 20,
+                "gamma_dec": 0.2,
                 "threshold": 0.0,
                 "print_corr": true
                 },
@@ -758,16 +815,16 @@
                 "momentum_ll": 0.9,
                 "scheduler_type_ll": "step",
                 "epoch_dec_ll": 8,
-                "gamma_dec_ll":0.1,
+                "gamma_dec_ll":1.0,
                 "threshold_ll": 0.0,
-                "n_epochs":30,
+                "n_epochs":250,
                 "optim_type": "SGD",
-                "lr": 5e-4,
+                "lr": 0.01,
                 "weight_decay":5e-4,
                 "momentum": 0.8,
                 "scheduler_type": "step",
-                "epoch_dec": 5,
-                "gamma_dec": 0.2,
+                "epoch_dec": 20,
+                "gamma_dec": 0.8,
                 "threshold": 0.0,
                 "print_corr": true
                 },

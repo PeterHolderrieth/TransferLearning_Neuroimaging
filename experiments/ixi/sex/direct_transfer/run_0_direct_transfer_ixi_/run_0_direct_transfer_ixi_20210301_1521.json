@@ -1,16 +1,18 @@
 {
-  "experiment": {
-    "method": "direct_transfer",
-    "task": "sex",
-    "data": "ixi",
-    "share": 1.0,
-    "train": "yes",
-    "valid": "no",
-    "preprocessing": "full",
-    "save_config": "yes",
-    "save_server": "yes",
-    "parent_directory": "experiments/"
-  },
+  "experiment": 
+    {
+      "method": "direct_transfer",
+      "task": "sex",
+      "data": "ixi",
+      "share": 1.0,
+      "balance": true,
+      "test_after_training": true,
+      "seed": 122,
+      "preprocessing": "full",
+      "save_config": true,
+      "save_server": true,
+      "parent_directory": "experiments/" 
+      },
   "direct_transfer": {
     "sex": {
       "ixi": {

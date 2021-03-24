@@ -1,0 +1,43 @@
+{
+  "experiment": {
+    "training_completed": true,
+    "method": "elastic",
+    "task": "sex",
+    "data": "abide",
+    "balance": true,
+    "share": 1.0,
+    "test_after_training": true,
+    "preprocessing": "full",
+    "save_config": true,
+    "seed": 123,
+    "save_server": true,
+    "parent_directory": "experiments/"
+  },
+  "elastic": {
+    "sex": {
+      "abide": {
+        "hps": {
+          "batch": 200,
+          "ncomp": -1,
+          "l1rat": 0.55,
+          "reg": 0.5,
+          "feat": 150,
+          "reg_method": "logistic"
+        },
+        "computing": {
+          "folder": "abide/sex/elastic/",
+          "queue": "win000",
+          "n_gpus": 0,
+          "n_workers": 2
+        }
+      }
+    }
+  },
+  "record": {
+    "model_has_been_saved": false,
+    "experiment_name": "run_1_final_sex_abide_elastic",
+    "model_save": false,
+    "model_save_folder": "/well/win-fmrib-analysis/users/lhw539/saved_models/",
+    "model_save_name": "run_1_final_sex_abide_elastic"
+  }
+}

@@ -1,0 +1,37 @@
+------------------------------------------------
+Job ID: 
+Run on host: win000.hpc.in.bmrc.ox.ac.uk
+Operating system: Linux
+Username: lhw539
+Started at: Wed Mar 24 12:48:29 GMT 2021
+------------------------------------------------
+Test (in contrast to train):  False
+Loading ABIDE train data.
+The data was balanced for  sex .
+Loading ABIDE   val data.
+The data was balanced for  sex .
+Apply incremental PCA on data.
+200
+Transform data matrix of shape:  torch.Size([200, 4915200])
+200
+Transform data matrix of shape:  torch.Size([200, 4915200])
+200
+Transform data matrix of shape:  torch.Size([200, 4915200])
+200
+Transform data matrix of shape:  torch.Size([200, 4915200])
+Accuracy of regression:  0.655
+Save configfile.
+Loading ABIDE  test data.
+The data was balanced for  sex .
+200
+Transform data matrix of shape:  torch.Size([200, 4915200])
+200
+Transform data matrix of shape:  torch.Size([200, 4915200])
+200
+Transform data matrix of shape:  torch.Size([200, 4915200])
+200
+Transform data matrix of shape:  torch.Size([200, 4915200])
+Accuracy of regression:  0.63125
+------------------------------------------------
+Finished at: Wed Mar 24 13:11:51 GMT 2021
+------------------------------------------------

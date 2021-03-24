@@ -34,7 +34,7 @@
           "space": "continuous",
           "loss_met": "kl",
           "eval_met": "mae",
-          "n_epochs": 1200,
+          "n_epochs": 150,
           "optim_type": "SGD",
           "lr": 0.01,
           "weight_decay": 0.0005,

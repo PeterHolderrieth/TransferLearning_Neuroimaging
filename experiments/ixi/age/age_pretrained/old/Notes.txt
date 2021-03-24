@@ -1,0 +1,9 @@
+First run: MAE 4.96 - it seemed to me that longer training would be better.
+Second run: MAE 4.90- longer training is a bit better, but not really
+Third run: something went really wrong here.
+Fourth run: 8.0 MAE - massively overfitting the train set
+Fifth run: Error
+Sixth run: 14.4 MAE (very weird behaviour, after re-training final layers, train and validation error become really bad)
+Seventh run: 13.1 MAE (again, very weird behaviour)
+Test lr zero (RUNNING): I test the experiment with learning rate 0.0 on the second run. 
+Then it should not change at all. It is for testing purposes to check that my code runs correctly.

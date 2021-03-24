@@ -1,0 +1,64 @@
+{
+  "experiment": {
+    "training_completed": false,
+    "method": "scratch",
+    "task": "age",
+    "data": "ixi",
+    "balance": false,
+    "share": 1.0,
+    "test_after_training": true,
+    "preprocessing": "full",
+    "save_config": true,
+    "seed": 3451,
+    "save_server": true,
+    "parent_directory": "experiments/"
+  },
+  "scratch": {
+    "age": {
+      "ixi": {
+        "hps": {
+          "batch": 8,
+          "bin_min": 17,
+          "bin_max": 89,
+          "bin_step": 1,
+          "sigma": 1.0,
+          "dropout": 0.5,
+          "channel_number": [
+            32,
+            64,
+            64,
+            64,
+            64,
+            64
+          ],
+          "space": "continuous",
+          "loss_met": "kl",
+          "eval_met": "mae",
+          "n_epochs": 180,
+          "optim_type": "SGD",
+          "lr": 0.01,
+          "weight_decay": 0.001,
+          "momentum": 0.9,
+          "scheduler_type": "step",
+          "epoch_dec": 30,
+          "gamma_dec": 0.3,
+          "threshold": 0.0,
+          "print_corr": true
+        },
+        "computing": {
+          "folder": "ixi/age/scratch/",
+          "queue": "gpu8.q",
+          "n_gpus": 2,
+          "n_workers": 4
+        }
+      }
+    }
+  },
+  "record": {
+    "model_has_been_saved": false,
+    "experiment_name": "run_3_final_ixi_age_scratch",
+    "model_save": true,
+    "model_save_folder": "/well/win-fmrib-analysis/users/lhw539/saved_models/",
+    "model_save_name": "run_3_final_ixi_age_scratch"
+  }
+}

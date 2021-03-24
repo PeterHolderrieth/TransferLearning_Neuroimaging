@@ -1,0 +1,43 @@
+{
+  "experiment": {
+    "training_completed": true,
+    "method": "elastic",
+    "task": "age",
+    "data": "ixi",
+    "balance": false,
+    "share": 1.0,
+    "test_after_training": true,
+    "preprocessing": "full",
+    "save_config": true,
+    "seed": 1640,
+    "save_server": true,
+    "parent_directory": "experiments/"
+  },
+  "elastic": {
+    "age": {
+      "ixi": {
+        "hps": {
+          "batch": 250,
+          "ncomp": -1,
+          "l1rat": 0.9,
+          "reg": 20.0,
+          "feat": 140,
+          "reg_method": "regression"
+        },
+        "computing": {
+          "folder": "ixi/age/elastic/",
+          "queue": "win000",
+          "n_gpus": 0,
+          "n_workers": 2
+        }
+      }
+    }
+  },
+  "record": {
+    "model_has_been_saved": false,
+    "experiment_name": "run_3_final_elastic_ixi_age",
+    "model_save": false,
+    "model_save_folder": "/well/win-fmrib-analysis/users/lhw539/saved_models/",
+    "model_save_name": "run_3_final_elastic_ixi_age"
+  }
+}
