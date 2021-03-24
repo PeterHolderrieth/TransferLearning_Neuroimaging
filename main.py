@@ -111,7 +111,8 @@ if not ARGS['TEST']:
                                         debug=debug,
                                         preprocessing='min',
                                         task=task,
-                                        share=1.0)
+                                        share=1.0,
+                                        balance=balance)
     #-------------------------------------
     #*************Run method*************
     #-------------------------------------
@@ -181,7 +182,8 @@ if ARGS['TEST'] or config['experiment'].get('test_after_training',False):
                                         debug=debug,
                                         preprocessing='min',
                                         task=task,
-                                        share=1.0)
+                                        share=1.0,
+                                        balance=balance)
     if method=='elastic':
         if still_have_model:
             test_elastic(test_loader,hps['reg_method'],**model_dict)

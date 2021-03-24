@@ -26,6 +26,8 @@ Exp 11 (increase dropout compared to Exp 9): 3.0 MAE
 Exp 12 (increase weighte decay compared to Exp 8): 2.77-2.82 valid MAE
 Exp 13 (increase learning rate compared to Exp 8): 2.92 valid MAE
 
-Exp 14 (replicating Exp 12 with more epochs and higher epoch_dec since it did not seem to have converged)
+Exp 14 (replicating Exp 12 with more epochs and higher epoch_dec since it did not seem to have converged): 2.83 valid MAE: massively overfitting 
+Exp 15 (increase regularization compared to 15):RUNNING 
+Exp 16 (increase regularization compared to 16): RUNNING
 
 AFTER THIS: PERFORM FINAL EXPERIMENTS!

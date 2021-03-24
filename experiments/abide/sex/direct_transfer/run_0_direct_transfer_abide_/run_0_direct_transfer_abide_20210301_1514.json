@@ -7,9 +7,12 @@
     "train": "yes",
     "valid": "no",
     "preprocessing": "full",
+    "test_after_training": true,
+    "balance": true,
     "save_config": "yes",
     "save_server": "yes",
-    "parent_directory": "experiments/"
+    "parent_directory": "experiments/",
+    "training_completed": true
   },
   "direct_transfer": {
     "sex": {

@@ -1,0 +1,65 @@
+{
+  "experiment": {
+    "training_completed": false,
+    "method": "scratch",
+    "task": "age",
+    "data": "abide",
+    "balance": false,
+    "share": 1.0,
+    "test_after_training": true,
+    "preprocessing": "full",
+    "save_config": true,
+    "seed": 3628,
+    "save_server": true,
+    "parent_directory": "experiments/"
+  },
+  "scratch": {
+    "age": {
+      "abide": {
+        "hps": {
+          "reinit_with_scaling": 10,
+          "batch": 8,
+          "bin_min": 2,
+          "bin_max": 59,
+          "bin_step": 1,
+          "sigma": 1.0,
+          "dropout": 0.5,
+          "channel_number": [
+            32,
+            64,
+            64,
+            64,
+            64,
+            64
+          ],
+          "space": "continuous",
+          "loss_met": "kl",
+          "eval_met": "mae",
+          "n_epochs": 300,
+          "optim_type": "SGD",
+          "lr": 0.01,
+          "weight_decay": 0.001,
+          "momentum": 0.9,
+          "scheduler_type": "step",
+          "epoch_dec": 30,
+          "gamma_dec": 0.3,
+          "threshold": 0.0,
+          "print_corr": true
+        },
+        "computing": {
+          "folder": "abide/age/scratch/",
+          "queue": "gpu8.q",
+          "n_gpus": 2,
+          "n_workers": 4
+        }
+      }
+    }
+  },
+  "record": {
+    "model_has_been_saved": true,
+    "experiment_name": "run_5_final_reinit_with_scaling_abide_age_comparing_to_scratch",
+    "model_save": true,
+    "model_save_folder": "/well/win-fmrib-analysis/users/lhw539/saved_models/",
+    "model_save_name": "run_5_final_reinit_with_scaling_abide_age_comparing_to_scratch"
+  }
+}
