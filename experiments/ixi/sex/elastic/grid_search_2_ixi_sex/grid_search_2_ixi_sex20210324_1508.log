@@ -494,3 +494,18 @@ Accuracy of regression:  0.7063492
 ------------------------------------------------
 Finished at: Wed Mar 24 21:51:12 GMT 2021
 ------------------------------------------------
+------------------------------------------------
+Job ID: 
+Run on host: win000.hpc.in.bmrc.ox.ac.uk
+Operating system: Linux
+Username: lhw539
+Started at: Thu Mar 25 14:56:52 GMT 2021
+------------------------------------------------
+Test (in contrast to train):  False
+Loading ixi train data.
+The data was balanced for  sex .
+Loading ixi   val data.
+The data was balanced for  sex .
+----------------------------------------------------------------------------
+Batch:  250 || L1 share: 0.9400 || Reg: 0.5000 || Feat:  140
+Apply PCA on full data.
