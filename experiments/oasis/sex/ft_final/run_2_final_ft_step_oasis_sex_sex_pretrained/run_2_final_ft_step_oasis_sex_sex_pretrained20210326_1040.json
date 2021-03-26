@@ -1,0 +1,59 @@
+{
+  "experiment": {
+    "training_completed": false,
+    "method": "ft_final",
+    "task": "sex",
+    "data": "oasis",
+    "balance": false,
+    "share": 1.0,
+    "test_after_training": true,
+    "preprocessing": "full",
+    "save_config": true,
+    "seed": 375,
+    "save_server": true,
+    "parent_directory": "experiments/"
+  },
+  "ft_final": {
+    "sex": {
+      "oasis": {
+        "hps": {
+          "run": "0",
+          "task": "sex",
+          "n_layer_ft": 1,
+          "batch": 8,
+          "bin_min": 0,
+          "bin_max": 2,
+          "bin_step": 1,
+          "sigma": 1.0,
+          "dropout": 0.5,
+          "space": "binary",
+          "loss_met": "ent",
+          "eval_met": "acc",
+          "n_epochs": 50,
+          "optim_type": "SGD",
+          "lr": 0.1,
+          "weight_decay": 0.001,
+          "momentum": 0.9,
+          "scheduler_type": "step",
+          "epoch_dec": 10,
+          "gamma_dec": 0.1,
+          "threshold": 0.0,
+          "print_corr": true
+        },
+        "computing": {
+          "folder": "oasis/sex/ft_final",
+          "queue": "gpu8.q",
+          "n_gpus": 2,
+          "n_workers": 4
+        }
+      }
+    }
+  },
+  "record": {
+    "model_has_been_saved": false,
+    "experiment_name": "run_2_final_ft_step_oasis_sex_sex_pretrained",
+    "model_save": true,
+    "model_save_folder": "/well/win-fmrib-analysis/users/lhw539/saved_models/",
+    "model_save_name": "run_2_final_ft_step_oasis_sex_sex_pretrained"
+  }
+}

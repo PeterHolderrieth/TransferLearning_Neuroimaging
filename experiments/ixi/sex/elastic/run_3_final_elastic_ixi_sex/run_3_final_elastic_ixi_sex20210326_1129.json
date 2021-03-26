@@ -1,0 +1,43 @@
+{
+  "experiment": {
+    "training_completed": true,
+    "method": "elastic",
+    "task": "sex",
+    "data": "ixi",
+    "balance": true,
+    "share": 1.0,
+    "test_after_training": true,
+    "preprocessing": "full",
+    "save_config": true,
+    "seed": 938,
+    "save_server": true,
+    "parent_directory": "experiments/"
+  },
+  "elastic": {
+    "sex": {
+      "ixi": {
+        "hps": {
+          "batch": 250,
+          "ncomp": -1,
+          "l1rat": 1.0,
+          "reg": 1.0,
+          "feat": 160,
+          "reg_method": "logistic"
+        },
+        "computing": {
+          "folder": "ixi/sex/elastic/",
+          "queue": "win000",
+          "n_gpus": 0,
+          "n_workers": 2
+        }
+      }
+    }
+  },
+  "record": {
+    "model_has_been_saved": false,
+    "experiment_name": "run_3_final_elastic_ixi_sex",
+    "model_save": false,
+    "model_save_folder": "/well/win-fmrib-analysis/users/lhw539/saved_models/",
+    "model_save_name": "run_3_final_elastic_ixi_sex"
+  }
+}

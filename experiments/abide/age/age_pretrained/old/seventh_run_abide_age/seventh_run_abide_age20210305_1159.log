@@ -1,0 +1,14 @@
+------------------------------------------------
+Job ID: 38680124
+Run on host: compg026.hpc.in.bmrc.ox.ac.uk
+Operating system: Linux
+Username: lhw539
+Started at: Sun Mar 7 15:46:18 GMT 2021
+------------------------------------------------
+Traceback (most recent call last):
+  File "/users/win-fmrib-analysis/lhw539/TransferLearning_Neuroimaging/main.py", line 34, in <module>
+    balance=config['experiment']['balance']
+KeyError: 'balance'
+------------------------------------------------
+Finished at: Sun Mar 7 15:46:21 GMT 2021
+------------------------------------------------
