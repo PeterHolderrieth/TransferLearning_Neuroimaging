@@ -4,6 +4,8 @@
     "task": "sex",
     "data": "oasis",
     "share": 1.0,
+    "balance": true,
+    "test_after_training": true,
     "train": "yes",
     "valid": "no",
     "preprocessing": "full",
@@ -30,7 +32,7 @@
           "print_corr": true
         },
         "computing": {
-          "folder": "sex/direct_transfer/",
+          "folder": "oasis/sex/direct_transfer/",
           "queue": "gpu8.q",
           "n_gpus": 2,
           "n_workers": 4

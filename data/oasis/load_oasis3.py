@@ -13,11 +13,16 @@ from data.dataset import give_mri_data
 
 
 
-def give_oasis_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=False,preprocessing='full', task='age',share=None):
+def give_oasis_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=False,preprocessing='full', task='age',share=None,balance=False):
     
     #Get the directory of the data_type:
     DIR = '/gpfs3/well/win-fmrib-analysis/users/lhw539/oasis3/'
     DIR_IDs=osp.join(DIR, 'oasis3_info/') 
+    
+    if balance and task=='sex':
+        balance='_balanced_'+task
+    else: 
+        balance=''
     
     if task=='progmci':
         if data_type=='train':
@@ -34,13 +39,13 @@ def give_oasis_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=Fals
             default_name+='debug_'
         # Load files:
         if data_type=='train':
-            fp_ = default_name+'session_train.csv'
+            fp_ = default_name+'session_train'+balance+'.csv'
         elif data_type=='val':
-            fp_ = default_name+'session_val.csv'
+            fp_ = default_name+'session_val'+balance+'.csv'
         elif data_type=='test':
-            fp_ = default_name+'session_test0.csv'
+            fp_ = default_name+'session_test0'+balance+'.csv'
         elif data_type=='test1':
-            fp_ = default_name+'session_test1.csv'
+            fp_ = default_name+'session_test1'+balance+'.csv'
         else: 
             sys.exit("Unknown data type.")
     
@@ -93,7 +98,9 @@ def give_oasis_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=Fals
             print("Loading OASIS %5s data."%data_type)
         else: 
             print("Loading share %.2f %5s data."%(share,data_type))
-
+    
+    if balance:
+        print("The data was balanced for ", task, ".")
     
     return(give_mri_data(fp_list=fp_list,label_list=label_list,data_type=data_type,batch_size=batch_size,num_workers=num_workers,shuffle=shuffle,preprocessing=preprocessing))
 

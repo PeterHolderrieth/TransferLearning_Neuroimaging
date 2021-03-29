@@ -585,7 +585,7 @@
             { 
             "hps":
                 {
-                "run": "1",
+                "run": "0",
                 "task": "sex",
                 "batch": 8,
                 "bin_min": 0,
@@ -596,13 +596,13 @@
                 "space": "binary",
                 "loss_met": "ent",
                 "eval_met": "acc",
-                "n_epochs": 120,
+                "n_epochs": 80,
                 "optim_type": "SGD",
-                "lr": 0.01,
-                "weight_decay": 0.005,
+                "lr": 0.005,
+                "weight_decay": 0.01,
                 "momentum": 0.8,
                 "scheduler_type": "step",
-                "epoch_dec": 20,
+                "epoch_dec": 10,
                 "gamma_dec": 0.2,
                 "threshold": 0.0,
                 "print_corr": true

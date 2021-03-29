@@ -12,7 +12,8 @@ def give_dataset(data_set,data_type,batch_size,num_workers,shuffle,debug,preproc
                                                     debug=debug,
                                                     preprocessing=preprocessing,
                                                     task=task,
-                                                    share=share)
+                                                    share=share,
+                                                    balance=balance)
 
         elif data_set=='abide':
             return give_abide_data(data_type, batch_size=batch_size,

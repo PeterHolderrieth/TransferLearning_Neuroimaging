@@ -24,7 +24,7 @@ module load Python/3.7.4-GCCcore-8.3.0
 #Activate the correct python environment:
 source ~/python/ccpu_py_tlneuro
 
-python ~/TransferLearning_Neuroimaging/main.py -deb full -con experiments/sex/direct_transfer/run_1_/run_1_20210220_1727.json
+python ~/TransferLearning_Neuroimaging/main.py -deb full -con experiments/oasis/sex/direct_transfer/run_1_/run_1_20210220_1727.json
 
 
 echo "------------------------------------------------"

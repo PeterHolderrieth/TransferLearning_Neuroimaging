@@ -21,7 +21,7 @@ def give_ukb_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=False,
     if data_type=='full':
         fp_= DIR+'full_info.csv'
 
-    elif data_type=='test':
+    elif data_type=='test' or data_type=='val' or data_type=='train':
         fp_= DIR+'test_info.csv'
 
     else:

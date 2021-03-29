@@ -1,0 +1,47 @@
+{
+  "experiment": {
+    "training_completed": false,
+    "method": "direct_transfer",
+    "task": "sex",
+    "data": "ukb",
+    "balance": true,
+    "share": 1.0,
+    "test_after_training": true,
+    "preprocessing": "full",
+    "save_config": true,
+    "seed": 2233,
+    "save_server": true,
+    "parent_directory": "experiments/"
+  },
+  "direct_transfer": {
+    "sex": {
+      "ukb": {
+        "hps": {
+          "run": "3",
+          "batch": 2,
+          "task": "sex",
+          "bin_step": 1,
+          "sigma": 1.0,
+          "space": "binary",
+          "loss_met": "ent",
+          "eval_met": "acc",
+          "n_epochs": 1,
+          "print_corr": false
+        },
+        "computing": {
+          "folder": "ukb/sex/direct_transfer/",
+          "queue": "gpu8.q",
+          "n_gpus": 2,
+          "n_workers": 4
+        }
+      }
+    }
+  },
+  "record": {
+    "model_has_been_saved": false,
+    "experiment_name": "run_4_test_models_on_ukb_sex",
+    "model_save": false,
+    "model_save_folder": "/well/win-fmrib-analysis/users/lhw539/saved_models/",
+    "model_save_name": "run_4_test_models_on_ukb_sex"
+  }
+}

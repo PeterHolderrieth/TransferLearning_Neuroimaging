@@ -20,7 +20,7 @@ def give_ixi_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=False,
     if debug:
         default_name+='debug_'
     
-    if balance:
+    if balance and task=='sex':
         balance='_balanced_'+task
     else: 
         balance=''

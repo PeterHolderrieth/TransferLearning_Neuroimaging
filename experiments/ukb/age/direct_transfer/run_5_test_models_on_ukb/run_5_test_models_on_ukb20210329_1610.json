@@ -1,0 +1,49 @@
+{
+  "experiment": {
+    "training_completed": false,
+    "method": "direct_transfer",
+    "task": "age",
+    "data": "ukb",
+    "balance": false,
+    "share": 1.0,
+    "test_after_training": true,
+    "preprocessing": "full",
+    "save_config": true,
+    "seed": 2547,
+    "save_server": true,
+    "parent_directory": "experiments/"
+  },
+  "direct_transfer": {
+    "age": {
+      "ukb": {
+        "hps": {
+          "run": "4",
+          "task": "age",
+          "batch": 4,
+          "rescale": false,
+          "bin_step": 1,
+          "sigma": 1.0,
+          "dropout": 0.5,
+          "space": "continuous",
+          "loss_met": "kl",
+          "eval_met": "mae",
+          "n_epochs": 1,
+          "print_corr": false
+        },
+        "computing": {
+          "folder": "ukb/age/direct_transfer/",
+          "queue": "gpu8.q",
+          "n_gpus": 2,
+          "n_workers": 4
+        }
+      }
+    }
+  },
+  "record": {
+    "model_has_been_saved": false,
+    "experiment_name": "run_5_test_models_on_ukb",
+    "model_save": false,
+    "model_save_folder": "/well/win-fmrib-analysis/users/lhw539/saved_models/",
+    "model_save_name": "run_5_test_models_on_ukb"
+  }
+}
