@@ -881,8 +881,6 @@
                 {
                 "run": "0",
                 "batch": 2,
-                "bin_min":42,
-                "bin_max":82,
                 "task":"age",
                 "bin_step":1,
                 "sigma":1.0,
@@ -908,8 +906,6 @@
                 "run": "0",
                 "task":"age",
                 "batch": 4,
-                "bin_min_new":2,
-                "bin_max_new":59,
                 "rescale": false,
                 "bin_step":1,
                 "sigma":1.0,
@@ -950,6 +946,31 @@
             "computing": 
                 {
                 "folder":"ixi/age/direct_transfer/",
+                "queue": "gpu8.q",
+                "n_gpus": 2,
+                "n_workers": 4    
+                }
+            },
+        "ukb": 
+            { 
+            "hps":
+                {
+                "run": "0",
+                "task":"age",
+                "batch": 4,
+                "rescale": false,
+                "bin_step":1,
+                "sigma":1.0,
+                "dropout": 0.5,
+                "space":"continuous",
+                "loss_met":"kl",
+                "eval_met":"mae",
+                "n_epochs":1,
+                "print_corr": false
+                },
+            "computing": 
+                {
+                "folder":"ukb/age/direct_transfer/",
                 "queue": "gpu8.q",
                 "n_gpus": 2,
                 "n_workers": 4    
@@ -1031,6 +1052,29 @@
             "computing": 
                 {
                 "folder":"ixi/sex/direct_transfer/",
+                "queue": "gpu8.q",
+                "n_gpus": 2,
+                "n_workers": 4    
+                }
+            },
+        "ukb": 
+            { 
+            "hps":
+                {
+                "run": "0",
+                "batch": 2,
+                "task":"sex",
+                "bin_step":1,
+                "sigma":1.0,
+                "space":"binary",
+                "loss_met":"ent",
+                "eval_met":"acc",
+                "n_epochs":1,
+                "print_corr": false
+                },
+            "computing": 
+                {
+                "folder":"ukb/sex/direct_transfer/",
                 "queue": "gpu8.q",
                 "n_gpus": 2,
                 "n_workers": 4    

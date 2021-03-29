@@ -71,7 +71,7 @@ else:
 
 
 for label in labels:
-    data_type='full' if ARGS['DATA']=='ukb' else 'train'
+    data_type='test' 
             
     train_dataset,_=give_dataset(ARGS['DATA'],data_type, 
                                             batch_size=1,
