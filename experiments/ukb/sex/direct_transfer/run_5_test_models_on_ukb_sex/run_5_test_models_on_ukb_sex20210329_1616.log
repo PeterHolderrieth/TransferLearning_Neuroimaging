@@ -1,37 +1,37 @@
 ------------------------------------------------
-Job ID: 42472536
-Run on host: compg010.hpc.in.bmrc.ox.ac.uk
+Job ID: 42472537
+Run on host: compg011.hpc.in.bmrc.ox.ac.uk
 Operating system: Linux
 Username: lhw539
-Started at: Mon Mar 29 18:35:31 BST 2021
+Started at: Mon Mar 29 19:57:59 BST 2021
 ------------------------------------------------
 Test (in contrast to train):  False
 Loading share 1.00 of UKB train data.
 Loading share 1.00 of UKB   val data.
-Load model for sex - run: 3
+Load model for sex - run: 4
 Number of GPUs:  2
 
 Full model is being tested with weights loaded from pre-trained model.
-Start:  2021-03-29 18:35:39.662231
+Start:  2021-03-29 19:58:06.456006
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
-test ent mean: 0.01753 | test ent std: nan |test acc mean:  0.99555 |test acc std:  nan |
+test ent mean: 0.01975 | test ent std: nan |test acc mean:  0.99440 |test acc std:  nan |
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
-Finished:  2021-03-29 19:21:30.397582
+Finished:  2021-03-29 20:39:31.177058
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 Save configfile.
 Loading share 1.00 of UKB  test data.
-Load model for sex - run: 3
+Load model for sex - run: 4
 Number of GPUs:  2
 
 Full model is being tested with weights loaded from pre-trained model.
-Start:  2021-03-29 19:21:30.689879
+Start:  2021-03-29 20:39:31.401279
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
-test ent mean: 0.01753 | test ent std: nan |test acc mean:  0.99555 |test acc std:  nan |
+test ent mean: 0.01975 | test ent std: nan |test acc mean:  0.99440 |test acc std:  nan |
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
-Finished:  2021-03-29 20:06:36.148362
+Finished:  2021-03-29 21:23:06.929952
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------
-Finished at: Mon Mar 29 20:06:37 BST 2021
+Finished at: Mon Mar 29 21:23:07 BST 2021
 ------------------------------------------------

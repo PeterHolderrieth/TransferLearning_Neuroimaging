@@ -1,37 +1,37 @@
 ------------------------------------------------
-Job ID: 42472536
-Run on host: compg010.hpc.in.bmrc.ox.ac.uk
+Job ID: 
+Run on host: compg007.hpc.in.bmrc.ox.ac.uk
 Operating system: Linux
 Username: lhw539
-Started at: Mon Mar 29 18:35:31 BST 2021
+Started at: Mon Mar 29 23:13:17 BST 2021
 ------------------------------------------------
 Test (in contrast to train):  False
 Loading share 1.00 of UKB train data.
 Loading share 1.00 of UKB   val data.
-Load model for sex - run: 3
-Number of GPUs:  2
+Load model for age - run: 4
+Number of GPUs:  1
 
 Full model is being tested with weights loaded from pre-trained model.
-Start:  2021-03-29 18:35:39.662231
+Start:  2021-03-29 23:13:23.785261
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
-test ent mean: 0.01753 | test ent std: nan |test acc mean:  0.99555 |test acc std:  nan |
+test kld mean: 1.12265 | test kld std: nan |test mae mean:  2.30831 |test mae std:  nan |
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
-Finished:  2021-03-29 19:21:30.397582
+Finished:  2021-03-29 23:53:40.617852
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 Save configfile.
 Loading share 1.00 of UKB  test data.
-Load model for sex - run: 3
-Number of GPUs:  2
+Load model for age - run: 4
+Number of GPUs:  1
 
 Full model is being tested with weights loaded from pre-trained model.
-Start:  2021-03-29 19:21:30.689879
+Start:  2021-03-29 23:53:40.785082
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
-test ent mean: 0.01753 | test ent std: nan |test acc mean:  0.99555 |test acc std:  nan |
+test kld mean: 1.12260 | test kld std: nan |test mae mean:  2.30815 |test mae std:  nan |
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
-Finished:  2021-03-29 20:06:36.148362
+Finished:  2021-03-30 00:33:24.986266
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------
-Finished at: Mon Mar 29 20:06:37 BST 2021
+Finished at: Tue Mar 30 00:33:25 BST 2021
 ------------------------------------------------

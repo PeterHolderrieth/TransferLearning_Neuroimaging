@@ -1,37 +1,42 @@
 ------------------------------------------------
-Job ID: 42472536
-Run on host: compg010.hpc.in.bmrc.ox.ac.uk
+Job ID: 42478262
+Run on host: compg013.hpc.in.bmrc.ox.ac.uk
 Operating system: Linux
 Username: lhw539
-Started at: Mon Mar 29 18:35:31 BST 2021
+Started at: Tue Mar 30 07:03:11 BST 2021
 ------------------------------------------------
 Test (in contrast to train):  False
-Loading share 1.00 of UKB train data.
-Loading share 1.00 of UKB   val data.
-Load model for sex - run: 3
+Loading share 1.00 train data.
+The data was balanced for  sex .
+Loading share 1.00   val data.
+The data was balanced for  sex .
+Load model for sex - run: 2
 Number of GPUs:  2
 
 Full model is being tested with weights loaded from pre-trained model.
-Start:  2021-03-29 18:35:39.662231
+Start:  2021-03-30 07:03:18.761913
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
-test ent mean: 0.01753 | test ent std: nan |test acc mean:  0.99555 |test acc std:  nan |
+test ent mean: 0.39535 | test ent std: 0.00000 |test acc mean:  0.83000 |test acc std:  0.00000 |
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
-Finished:  2021-03-29 19:21:30.397582
+Finished:  2021-03-30 07:03:54.286028
+
+Correlation between train loss and evaluation: 0.000
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 Save configfile.
-Loading share 1.00 of UKB  test data.
-Load model for sex - run: 3
+Loading share 1.00  test data.
+The data was balanced for  sex .
+Load model for sex - run: 2
 Number of GPUs:  2
 
 Full model is being tested with weights loaded from pre-trained model.
-Start:  2021-03-29 19:21:30.689879
+Start:  2021-03-30 07:03:54.346830
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
-test ent mean: 0.01753 | test ent std: nan |test acc mean:  0.99555 |test acc std:  nan |
+test ent mean: 0.30589 | test ent std: 0.00000 |test acc mean:  0.86957 |test acc std:  0.00000 |
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
-Finished:  2021-03-29 20:06:36.148362
+Finished:  2021-03-30 07:08:08.882762
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------
-Finished at: Mon Mar 29 20:06:37 BST 2021
+Finished at: Tue Mar 30 07:08:09 BST 2021
 ------------------------------------------------
