@@ -95,3 +95,38 @@ Apply incremental PCA on data.
 ------------------------------------------------
 Finished at: Mon Mar 29 19:12:43 BST 2021
 ------------------------------------------------
+------------------------------------------------
+Job ID: 
+Run on host: win000.hpc.in.bmrc.ox.ac.uk
+Operating system: Linux
+Username: lhw539
+Started at: Fri Apr 2 15:15:41 BST 2021
+------------------------------------------------
+Test (in contrast to train):  False
+Loading share 1.00 train data.
+The data was balanced for  sex .
+Loading share 1.00   val data.
+The data was balanced for  sex .
+Apply incremental PCA on data.
+200
+Transform data matrix of shape:  torch.Size([200, 4915200])
+200
+Transform data matrix of shape:  torch.Size([200, 4915200])
+100
+Transform data matrix of shape:  torch.Size([100, 4915200])
+Accuracy of regression:  0.64
+Save configfile.
+Loading share 1.00  test data.
+The data was balanced for  sex .
+200
+Transform data matrix of shape:  torch.Size([200, 4915200])
+200
+Transform data matrix of shape:  torch.Size([200, 4915200])
+200
+Transform data matrix of shape:  torch.Size([200, 4915200])
+200
+Transform data matrix of shape:  torch.Size([200, 4915200])
+Accuracy of regression:  0.725
+------------------------------------------------
+Finished at: Fri Apr 2 15:32:41 BST 2021
+------------------------------------------------
