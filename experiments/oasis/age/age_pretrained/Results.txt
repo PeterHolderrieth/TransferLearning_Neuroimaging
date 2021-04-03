@@ -9,6 +9,20 @@ Age-pretrained:
 Mean: 3.251216
 Std: 0.01990248
 
+
+Validation:
+2.83699
+2.74174
+2.80307
+2.88968
+2.83064
+
+> mean(vec)
+[1] 2.820424
+> sd(vec)
+[1] 0.05400816
+
+
 Re-Init with scaling:
 4.99108
 5.33210
@@ -18,3 +32,4 @@ Re-Init with scaling:
 
 Mean: 5.282738
 Std: 0.1968001
+

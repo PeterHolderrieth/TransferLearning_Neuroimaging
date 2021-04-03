@@ -1,0 +1,60 @@
+{
+  "experiment": {
+    "training_completed": false,
+    "method": "ft_final",
+    "task": "age",
+    "data": "ixi",
+    "balance": false,
+    "share": 1.0,
+    "test_after_training": true,
+    "preprocessing": "full",
+    "save_config": true,
+    "seed": 2242,
+    "save_server": true,
+    "parent_directory": "experiments/"
+  },
+  "ft_final": {
+    "age": {
+      "ixi": {
+        "hps": {
+          "reinit_with_scaling": 0,
+          "run": "0",
+          "n_layer_ft": 1,
+          "task": "age",
+          "batch": 4,
+          "bin_min": 17,
+          "bin_max": 89,
+          "bin_step": 1,
+          "sigma": 1.0,
+          "dropout": 0.5,
+          "space": "continuous",
+          "loss_met": "kl",
+          "eval_met": "mae",
+          "n_epochs": 25,
+          "optim_type": "SGD",
+          "lr": 0.1,
+          "weight_decay": 0.001,
+          "momentum": 0.9,
+          "scheduler_type": "step",
+          "epoch_dec": 8,
+          "gamma_dec": 1.0,
+          "threshold": 0.0,
+          "print_corr": true
+        },
+        "computing": {
+          "folder": "ixi/age/ft_final",
+          "queue": "gpu8.q",
+          "n_gpus": 2,
+          "n_workers": 4
+        }
+      }
+    }
+  },
+  "record": {
+    "model_has_been_saved": false,
+    "experiment_name": "run_5_final_ixi_age_ft_final",
+    "model_save": true,
+    "model_save_folder": "/well/win-fmrib-analysis/users/lhw539/saved_models/",
+    "model_save_name": "run_5_final_ixi_age_ft_final"
+  }
+}

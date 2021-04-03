@@ -656,6 +656,78 @@
                 "n_gpus": 2,
                 "n_workers": 4
                 }
+            },
+        "abide": 
+            { 
+            "hps":
+                {
+                "reinit_with_scaling": null,
+                "run": "0",
+                "n_layer_ft": 1,
+                "task": "age",
+                "batch": 4,
+                "bin_min": 2,
+                "bin_max": 59,
+                "bin_step": 1,
+                "sigma": 1.0,
+                "dropout": 0.3,
+                "space": "continuous",
+                "loss_met": "kl",
+                "eval_met": "mae",
+                "n_epochs":25,
+                "optim_type": "SGD",
+                "lr": 1e-1,
+                "weight_decay":1e-3,
+                "momentum": 0.9,
+                "scheduler_type": "step",
+                "epoch_dec": 8,
+                "gamma_dec": 0.5,
+                "threshold": 0.0,
+                "print_corr": true
+                },
+            "computing": 
+                {
+                "folder":"abide/age/ft_final",
+                "queue": "gpu8.q",
+                "n_gpus": 2,
+                "n_workers": 4
+                }
+            },
+        "ixi": 
+            { 
+            "hps":
+                {
+                "reinit_with_scaling": null,
+                "run": "0",
+                "n_layer_ft": 1,
+                "task": "age",
+                "batch": 4,
+                "bin_min":17,
+                "bin_max":89,
+                "bin_step":1,
+                "sigma":1.0,
+                "dropout": 0.5,
+                "space":"continuous",
+                "loss_met":"kl",
+                "eval_met":"mae",
+                "n_epochs":25,
+                "optim_type": "SGD",
+                "lr": 1e-1,
+                "weight_decay":1e-3,
+                "momentum": 0.9,
+                "scheduler_type": "step",
+                "epoch_dec": 8,
+                "gamma_dec": 1.0,
+                "threshold": 0.0,
+                "print_corr": true
+                },
+            "computing": 
+                {
+                "folder":"ixi/age/ft_final",
+                "queue": "gpu8.q",
+                "n_gpus": 2,
+                "n_workers": 4
+                }
             }
         },
     "sex":
@@ -665,7 +737,7 @@
             "hps":
                 {
                 "run": "0",
-                "task": "age",        
+                "task": "sex",        
                 "n_layer_ft": 1,       
                 "batch": 8,
                 "bin_min":0,
@@ -690,6 +762,76 @@
             "computing": 
                 {
                 "folder":"oasis/sex/ft_final",
+                "queue": "gpu8.q",
+                "n_gpus": 2,
+                "n_workers": 4
+                }
+            },
+        "abide": 
+            { 
+            "hps":
+                {
+                "run": "0",
+                "task": "sex",        
+                "n_layer_ft": 1,       
+                "batch": 8,
+                "bin_min":0,
+                "bin_max":2,
+                "bin_step":1,
+                "sigma":1.0,
+                "dropout": 0.5,
+                "space":"binary",
+                "loss_met":"ent",
+                "eval_met":"acc",
+                "n_epochs": 50,
+                "optim_type": "SGD",
+                "lr": 1e-1,
+                "weight_decay":1e-3,
+                "momentum": 0.9,
+                "scheduler_type": "step",
+                "epoch_dec": 10,
+                "gamma_dec": 0.1,
+                "threshold": 0.0,
+                "print_corr": true
+                },
+            "computing": 
+                {
+                "folder":"abide/sex/ft_final",
+                "queue": "gpu8.q",
+                "n_gpus": 2,
+                "n_workers": 4
+                }
+            },
+        "ixi": 
+            { 
+            "hps":
+                {
+                "run": "0",
+                "task": "sex",        
+                "n_layer_ft": 1,       
+                "batch": 8,
+                "bin_min":0,
+                "bin_max":2,
+                "bin_step":1,
+                "sigma":1.0,
+                "dropout": 0.5,
+                "space":"binary",
+                "loss_met":"ent",
+                "eval_met":"acc",
+                "n_epochs": 50,
+                "optim_type": "SGD",
+                "lr": 1e-1,
+                "weight_decay":1e-3,
+                "momentum": 0.9,
+                "scheduler_type": "step",
+                "epoch_dec": 10,
+                "gamma_dec": 0.1,
+                "threshold": 0.0,
+                "print_corr": true
+                },
+            "computing": 
+                {
+                "folder":"ixi/sex/ft_final",
                 "queue": "gpu8.q",
                 "n_gpus": 2,
                 "n_workers": 4
