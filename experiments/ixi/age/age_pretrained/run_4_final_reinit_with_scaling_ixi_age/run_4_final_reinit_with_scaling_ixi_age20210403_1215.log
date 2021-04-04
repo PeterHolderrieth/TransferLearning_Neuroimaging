@@ -301,3 +301,31 @@ Start:  2021-04-03 23:20:31.182758
 |epoch: 242 | lr: 0.001 |train kld: 1.81083 |train kld ravg: 1.81552 |train mae:  5.19253 |train mae ravg:  5.38347 |val kld: 2.13727 |val kldravg: 2.09849 |val mae:  7.64317 |val mae ravg:  7.06207 |
 |epoch: 243 | lr: 0.001 |train kld: 1.82839 |train kld ravg: 1.81762 |train mae:  5.32100 |train mae ravg:  5.36842 |val kld: 2.09032 |val kldravg: 2.11226 |val mae:  6.98472 |val mae ravg:  7.18808 |
 |epoch: 244 | lr: 0.001 |train kld: 1.82476 |train kld ravg: 1.82119 |train mae:  5.34082 |train mae ravg:  5.36138 |val kld: 2.19478 |val kldravg: 2.14164 |val mae:  8.63375 |val mae ravg:  7.67531 |
+|epoch: 245 | lr: 0.001 |train kld: 1.84195 |train kld ravg: 1.83028 |train mae:  5.63974 |train mae ravg:  5.46374 |val kld: 2.13648 |val kldravg: 2.13411 |val mae:  7.83592 |val mae ravg:  7.58525 |
+|epoch: 246 | lr: 0.001 |train kld: 1.81997 |train kld ravg: 1.82518 |train mae:  5.61504 |train mae ravg:  5.42182 |val kld: 2.11940 |val kldravg: 2.13565 |val mae:  7.60119 |val mae ravg:  7.73975 |
+|epoch: 247 | lr: 0.001 |train kld: 1.80464 |train kld ravg: 1.82394 |train mae:  5.58595 |train mae ravg:  5.50051 |val kld: 2.10577 |val kldravg: 2.12935 |val mae:  7.54190 |val mae ravg:  7.71949 |
+|epoch: 248 | lr: 0.001 |train kld: 1.79018 |train kld ravg: 1.81630 |train mae:  5.38477 |train mae ravg:  5.51326 |val kld: 2.12180 |val kldravg: 2.13564 |val mae:  7.74369 |val mae ravg:  7.87129 |
+|epoch: 249 | lr: 0.001 |train kld: 1.83274 |train kld ravg: 1.81790 |train mae:  5.69977 |train mae ravg:  5.58505 |val kld: 2.15050 |val kldravg: 2.12679 |val mae:  8.11995 |val mae ravg:  7.76853 |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Finished:  2021-04-04 10:16:32.617126
+
+Correlation between train loss and evaluation: 0.991
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Save configfile.
+Loading ixi  test data.
+Number of GPUs:  2
+
+Model loaded from None is being tested.
+Start:  2021-04-04 10:16:32.659466
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+test kld mean: 2.17150 | test kld std: 0.00350 |test mae mean:  7.51771 |test mae std:  0.03743 |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Finished:  2021-04-04 10:17:14.019903
+
+Correlation between train loss and evaluation: 0.416
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------
+Finished at: Sun Apr 4 10:17:15 BST 2021
+------------------------------------------------
