@@ -1,0 +1,67 @@
+------------------------------------------------
+Job ID: 42800151
+Run on host: compg010.hpc.in.bmrc.ox.ac.uk
+Operating system: Linux
+Username: lhw539
+Started at: Sat Apr 3 19:45:51 BST 2021
+------------------------------------------------
+Test (in contrast to train):  False
+Loading ixi train data.
+Loading ixi   val data.
+Load model for age - run: 0
+Output dimension is changed. Reshape final layer.
+Number of GPUs:  2
+Epoch decay:  8
+Gamma decay:  1.0
+
+Full model is being trained with weights loaded from pre-trained model.
+Start:  2021-04-03 19:45:57.484990
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+|epoch:   0 | lr: 0.100 |train kld: 2.63210 |train kld ravg: 2.63210 |train mae:  11.25251 |train mae ravg:  11.25251 |val kld: 2.23989 |val kldravg: 2.23989 |val mae:  8.18071 |val mae ravg:  8.18071 |
+|epoch:   1 | lr: 0.100 |train kld: 2.37880 |train kld ravg: 2.50545 |train mae:  8.19744 |train mae ravg:  9.72497 |val kld: 2.09664 |val kldravg: 2.16827 |val mae:  6.94980 |val mae ravg:  7.56526 |
+|epoch:   2 | lr: 0.100 |train kld: 2.33569 |train kld ravg: 2.44887 |train mae:  7.45935 |train mae ravg:  8.96977 |val kld: 2.12848 |val kldravg: 2.15500 |val mae:  6.73249 |val mae ravg:  7.28767 |
+|epoch:   3 | lr: 0.100 |train kld: 2.32902 |train kld ravg: 2.41890 |train mae:  7.80236 |train mae ravg:  8.67792 |val kld: 1.98913 |val kldravg: 2.11354 |val mae:  6.26256 |val mae ravg:  7.03139 |
+|epoch:   4 | lr: 0.100 |train kld: 2.40453 |train kld ravg: 2.41603 |train mae:  7.74194 |train mae ravg:  8.49072 |val kld: 2.12194 |val kldravg: 2.11522 |val mae:  6.30048 |val mae ravg:  6.88521 |
+|epoch:   5 | lr: 0.100 |train kld: 2.39803 |train kld ravg: 2.36921 |train mae:  7.06713 |train mae ravg:  7.65364 |val kld: 2.10001 |val kldravg: 2.08724 |val mae:  6.47132 |val mae ravg:  6.54333 |
+|epoch:   6 | lr: 0.100 |train kld: 2.31055 |train kld ravg: 2.35556 |train mae:  7.26752 |train mae ravg:  7.46766 |val kld: 2.10330 |val kldravg: 2.08857 |val mae:  6.40818 |val mae ravg:  6.43501 |
+|epoch:   7 | lr: 0.100 |train kld: 2.36404 |train kld ravg: 2.36123 |train mae:  6.84327 |train mae ravg:  7.34444 |val kld: 2.14348 |val kldravg: 2.09157 |val mae:  6.33584 |val mae ravg:  6.35568 |
+|epoch:   8 | lr: 0.100 |train kld: 2.38093 |train kld ravg: 2.37162 |train mae:  7.49507 |train mae ravg:  7.28298 |val kld: 2.08373 |val kldravg: 2.11049 |val mae:  6.18427 |val mae ravg:  6.34002 |
+|epoch:   9 | lr: 0.100 |train kld: 2.35310 |train kld ravg: 2.36133 |train mae:  7.61401 |train mae ravg:  7.25740 |val kld: 2.20007 |val kldravg: 2.12612 |val mae:  6.28808 |val mae ravg:  6.33754 |
+|epoch:  10 | lr: 0.100 |train kld: 2.29897 |train kld ravg: 2.34152 |train mae:  7.16437 |train mae ravg:  7.27685 |val kld: 2.08237 |val kldravg: 2.12259 |val mae:  6.17505 |val mae ravg:  6.27829 |
+|epoch:  11 | lr: 0.100 |train kld: 2.30552 |train kld ravg: 2.34051 |train mae:  6.78016 |train mae ravg:  7.17938 |val kld: 2.09964 |val kldravg: 2.12186 |val mae:  6.25514 |val mae ravg:  6.24768 |
+|epoch:  12 | lr: 0.100 |train kld: 2.25310 |train kld ravg: 2.31832 |train mae:  6.94933 |train mae ravg:  7.20059 |val kld: 2.24054 |val kldravg: 2.14127 |val mae:  6.09403 |val mae ravg:  6.19931 |
+|epoch:  13 | lr: 0.100 |train kld: 2.39744 |train kld ravg: 2.32162 |train mae:  6.41755 |train mae ravg:  6.98508 |val kld: 2.09693 |val kldravg: 2.14391 |val mae:  6.05542 |val mae ravg:  6.17354 |
+|epoch:  14 | lr: 0.100 |train kld: 2.35875 |train kld ravg: 2.32276 |train mae:  7.08534 |train mae ravg:  6.87935 |val kld: 2.08283 |val kldravg: 2.12046 |val mae:  6.28993 |val mae ravg:  6.17391 |
+|epoch:  15 | lr: 0.100 |train kld: 2.32785 |train kld ravg: 2.32853 |train mae:  6.44786 |train mae ravg:  6.73605 |val kld: 2.08067 |val kldravg: 2.12012 |val mae:  6.27173 |val mae ravg:  6.19325 |
+|epoch:  16 | lr: 0.100 |train kld: 2.23890 |train kld ravg: 2.31521 |train mae:  7.05690 |train mae ravg:  6.79139 |val kld: 2.04411 |val kldravg: 2.10901 |val mae:  6.33112 |val mae ravg:  6.20845 |
+|epoch:  17 | lr: 0.100 |train kld: 2.35092 |train kld ravg: 2.33477 |train mae:  6.82748 |train mae ravg:  6.76702 |val kld: 2.12517 |val kldravg: 2.08594 |val mae:  6.05706 |val mae ravg:  6.20105 |
+|epoch:  18 | lr: 0.100 |train kld: 2.34238 |train kld ravg: 2.32376 |train mae:  7.28632 |train mae ravg:  6.94078 |val kld: 2.16713 |val kldravg: 2.09998 |val mae:  5.97885 |val mae ravg:  6.18574 |
+|epoch:  19 | lr: 0.100 |train kld: 2.35500 |train kld ravg: 2.32301 |train mae:  7.27154 |train mae ravg:  6.97802 |val kld: 2.07156 |val kldravg: 2.09773 |val mae:  6.12234 |val mae ravg:  6.15222 |
+|epoch:  20 | lr: 0.100 |train kld: 2.27562 |train kld ravg: 2.31256 |train mae:  7.06671 |train mae ravg:  7.10179 |val kld: 2.15836 |val kldravg: 2.11327 |val mae:  6.14682 |val mae ravg:  6.12724 |
+|epoch:  21 | lr: 0.100 |train kld: 2.25911 |train kld ravg: 2.31661 |train mae:  6.51446 |train mae ravg:  6.99330 |val kld: 2.05936 |val kldravg: 2.11632 |val mae:  6.16754 |val mae ravg:  6.09452 |
+|epoch:  22 | lr: 0.100 |train kld: 2.25851 |train kld ravg: 2.29812 |train mae:  7.13988 |train mae ravg:  7.05578 |val kld: 2.05776 |val kldravg: 2.10284 |val mae:  6.19553 |val mae ravg:  6.12222 |
+|epoch:  23 | lr: 0.100 |train kld: 2.30768 |train kld ravg: 2.29119 |train mae:  7.26524 |train mae ravg:  7.05156 |val kld: 2.11957 |val kldravg: 2.09332 |val mae:  6.12910 |val mae ravg:  6.15227 |
+|epoch:  24 | lr: 0.100 |train kld: 2.33338 |train kld ravg: 2.28686 |train mae:  7.05731 |train mae ravg:  7.00872 |val kld: 2.06390 |val kldravg: 2.09179 |val mae:  6.05404 |val mae ravg:  6.13861 |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Finished:  2021-04-03 19:56:15.688814
+
+Correlation between train loss and evaluation: 0.782
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Save configfile.
+Loading ixi  test data.
+Number of GPUs:  2
+
+Model loaded from None is being tested.
+Start:  2021-04-03 19:56:15.722831
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+test kld mean: 2.09348 | test kld std: 0.00888 |test mae mean:  5.28281 |test mae std:  0.02696 |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Finished:  2021-04-03 19:56:56.559865
+
+Correlation between train loss and evaluation: -0.957
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------
+Finished at: Sat Apr 3 19:56:57 BST 2021
+------------------------------------------------
