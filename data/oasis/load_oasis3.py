@@ -50,7 +50,7 @@ def give_oasis_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=Fals
             sys.exit("Unknown data type.")
     
     df_session = pd.read_csv(fp_)
-
+    print(list(df_session.columns))
     #Load T1 file path values. In the special ase of test1 (dementia group),
     #we use only the scans with highest CDR score.
     if data_type=='test1':

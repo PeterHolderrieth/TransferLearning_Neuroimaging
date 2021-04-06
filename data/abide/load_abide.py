@@ -36,7 +36,7 @@ def give_abide_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=Fals
         sys.exit("Unknown data type.")
     
     df = pd.read_csv(fp_)
-    
+    #print(np.unique(df["SiteName"]).shape)
     fp_list=df["T1_brain_lin"].to_list()
 
     if task=='age':
