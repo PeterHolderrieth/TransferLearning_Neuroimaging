@@ -31,10 +31,12 @@ ap.add_argument("-nsam", "--N_SAMPLES", type=int, required=False,help="Number of
 ARGS = vars(ap.parse_args())
 
 #Look up freesurfer.
-allowed_methods=['pca','tsne','isomap']
-allowed_labels=['age','sex']
-allowed_loads=['age','sex']
-allowed_runs=['0','1','2','3','4']
+allowed_methods=['tsne']#,'pca','isomap']
+allowed_labels=['sex']
+allowed_loads=['sex']
+#allowed_runs=['0','1','2','3','4']
+#allowed_runs=["abide_3"]#,"oasis_1"]
+allowed_runs=["oasis_1"]
 
 
 #Get the methods we use:

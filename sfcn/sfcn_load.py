@@ -28,7 +28,7 @@ def give_pretrained_sfcn(run: str, task: str, give_range:bool=False):
     
     print("Load model for %s - run: %s"%(str(task),str(run)))
     model_info=config[task][run]
-    path_to_pretrained=osp.join(config['path'],task,model_info['file'])
+    path_to_pretrained=osp.join(config['path'],model_info['file'])
 
 
     #Initialize model:

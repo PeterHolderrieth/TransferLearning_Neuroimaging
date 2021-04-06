@@ -1,66 +1,126 @@
 {
-"path": "/well/win-fmrib-analysis/users/lhw539/pre_trained_models/",
-"age":{ "0": {"file": "run_20191206_00_epoch_best_mae.p", 
+"path": "/well/win-fmrib-analysis/users/lhw539/",
+"age":{ "0": {"file": "pre_trained_models/age/run_20191206_00_epoch_best_mae.p", 
                 "channels": [32, 64, 64, 64, 64, 64],
                 "output_dim": 40,
                 "bin_min":42,
                 "bin_max": 82
                 },
-        "1": {"file": "run_20191206_01_epoch_best_mae.p", 
+        "1": {"file": "pre_trained_models/age/run_20191206_01_epoch_best_mae.p", 
                 "channels": [32, 64, 64, 64, 64, 64],
                 "output_dim": 40,
                 "bin_min":42,
                 "bin_max": 82
                 },
-        "2": {"file": "run_20191206_02_epoch_best_mae.p", 
+        "2": {"file": "pre_trained_models/age/run_20191206_02_epoch_best_mae.p", 
                 "channels": [32, 64, 64, 64, 64, 64],
                 "output_dim": 40,
                 "bin_min":42,
                 "bin_max": 82
                 },
-        "3": {"file": "run_20191206_03_epoch_best_mae.p", 
+        "3": {"file": "pre_trained_models/age/run_20191206_03_epoch_best_mae.p", 
                 "channels": [32, 64, 64, 64, 64, 64],
                 "output_dim": 40,
                 "bin_min":42,
                 "bin_max": 82
                 },
-        "4": {"file": "run_20190719_00_epoch_best_mae.p", 
+        "4": {"file": "pre_trained_models/age/run_20190719_00_epoch_best_mae.p", 
                 "channels": [32, 64, 128, 256, 256, 64],
                 "output_dim": 40,
                 "bin_min":42,
                 "bin_max": 82
+                },
+        "abide_1": {"file": "saved_models/abide/age/run_1_final_abide_ft_step_age_age_pretrained.p", 
+                "channels": [32, 64, 64, 64, 64, 64],
+                "output_dim": 57,
+                "bin_min":2,
+                "bin_max": 59
+                },
+        "abide_2": {"file": "saved_models/abide/age/run_2_final_abide_ft_step_age_age_pretrained.p", 
+                "channels": [32, 64, 64, 64, 64, 64],
+                "output_dim": 57,
+                "bin_min":2,
+                "bin_max": 59
+                },
+        "abide_3": {"file": "saved_models/abide/age/run_3_final_abide_ft_step_age_age_pretrained.p", 
+                "channels": [32, 64, 64, 64, 64, 64],
+                "output_dim": 57,
+                "bin_min":2,
+                "bin_max": 59
+                },
+        "abide_4": {"file": "saved_models/abide/age/run_4_final_abide_ft_step_age_age_pretrained.p", 
+                "channels": [32, 64, 64, 64, 64, 64],
+                "output_dim": 57,
+                "bin_min":2,
+                "bin_max": 59
+                },
+        "abide_5": {"file": "saved_models/abide/age/run_5_final_abide_ft_step_age_age_pretrained.p", 
+                "channels": [32, 64, 64, 64, 64, 64],
+                "output_dim": 57,
+                "bin_min":2,
+                "bin_max": 59
                 }
         },
-"sex": {"0": {  "file": "run_20191008_00_epoch_last.p",
+"sex": {"0": {  "file": "pre_trained_models/sex/run_20191008_00_epoch_last.p",
                 "channels": [28, 58, 128, 256, 256, 64],
                 "output_dim": 2,
                 "bin_min": 0,
                 "bin_max": 2
                 },
-        "1": {  "file": "run_20200228_00_epoch_last.p",
+        "1": {  "file": "pre_trained_models/sex/run_20200228_00_epoch_last.p",
                 "channels": [32, 64, 64, 64, 64, 64],
                 "output_dim": 2,
                 "bin_min": 0,
                 "bin_max": 2
                 }, 
-        "2": {"file": "run_20200228_01_epoch_last.p",
+        "2": {"file": "pre_trained_models/sex/run_20200228_01_epoch_last.p",
                 "channels": [32, 64, 64, 64, 64, 64],
                 "output_dim": 2,
                 "bin_min": 0,
                 "bin_max": 2
                 },
-        "3": {"file": "run_20200228_02_epoch_last.p",
+        "3": {"file": "pre_trained_models/sex/run_20200228_02_epoch_last.p",
                 "channels": [32, 64, 64, 64, 64, 64],
                 "output_dim": 2,
                 "bin_min": 0,
                 "bin_max": 2
                 }, 
-        "4": {  "file": "run_20200228_03_epoch_last.p",
+        "4": {  "file": "pre_trained_models/sex/run_20200228_03_epoch_last.p",
                 "channels": [32, 64, 64, 64, 64, 64],
                 "output_dim": 2,
                 "bin_min": 0,
                 "bin_max": 2
-                } 
+                },
+        "oasis_1": {"file": "saved_models/oasis/sex/final_1_oasis_sex_sex_pretrained.p", 
+                "channels": [28, 58, 128, 256, 256, 64],
+                "output_dim": 2,
+                "bin_min":0,
+                "bin_max": 2
+                },                
+        "oasis_2": {"file": "saved_models/oasis/sex/final_2_oasis_sex_sex_pretrained.p", 
+                "channels": [28, 58, 128, 256, 256, 64],
+                "output_dim": 2,
+                "bin_min":0,
+                "bin_max": 2
+        },  
+        "oasis_3": {"file": "saved_models/oasis/sex/final_3_oasis_sex_sex_pretrained.p", 
+                "channels": [28, 58, 128, 256, 256, 64],
+                "output_dim": 2,
+                "bin_min":0,
+                "bin_max": 2
+        },  
+        "oasis_4": {"file": "saved_models/oasis/sex/final_4_oasis_sex_sex_pretrained.p", 
+                "channels": [28, 58, 128, 256, 256, 64],
+                "output_dim": 2,
+                "bin_min":0,
+                "bin_max": 2
+                },  
+        "oasis_5": {"file": "saved_models/oasis/sex/final_5_oasis_sex_sex_pretrained.p", 
+                "channels": [28, 58, 128, 256, 256, 64],
+                "output_dim": 2,
+                "bin_min":0,
+                "bin_max": 2
+                }
         }
 }
 
