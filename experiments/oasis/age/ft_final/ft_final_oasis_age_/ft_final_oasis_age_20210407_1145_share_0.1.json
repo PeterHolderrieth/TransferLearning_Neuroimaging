@@ -1,0 +1,60 @@
+{
+  "experiment": {
+    "training_completed": true,
+    "method": "ft_final",
+    "task": "age",
+    "data": "oasis",
+    "balance": false,
+    "share": 0.1,
+    "test_after_training": true,
+    "preprocessing": "full",
+    "save_config": true,
+    "seed": 123,
+    "save_server": true,
+    "parent_directory": "experiments/"
+  },
+  "ft_final": {
+    "age": {
+      "oasis": {
+        "hps": {
+          "reinit_with_scaling": 0,
+          "run": "0",
+          "task": "age",
+          "n_layer_ft": 1,
+          "batch": 8,
+          "bin_min": 37,
+          "bin_max": 96,
+          "bin_step": 1,
+          "sigma": 1.0,
+          "dropout": 0.5,
+          "space": "continuous",
+          "loss_met": "kl",
+          "eval_met": "mae",
+          "n_epochs": 50,
+          "optim_type": "SGD",
+          "lr": 0.1,
+          "weight_decay": 0.001,
+          "momentum": 0.9,
+          "scheduler_type": "step",
+          "epoch_dec": 10,
+          "gamma_dec": 0.1,
+          "threshold": 0.0,
+          "print_corr": true
+        },
+        "computing": {
+          "folder": "oasis/age/ft_final",
+          "queue": "gpu8.q",
+          "n_gpus": 2,
+          "n_workers": 4
+        }
+      }
+    }
+  },
+  "record": {
+    "model_has_been_saved": true,
+    "experiment_name": "ft_final_oasis_age_",
+    "model_save": true,
+    "model_save_folder": "/well/win-fmrib-analysis/users/lhw539/saved_models/",
+    "model_save_name": "ft_final_oasis_age_"
+  }
+}

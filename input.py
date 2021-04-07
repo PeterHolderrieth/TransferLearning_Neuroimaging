@@ -11,10 +11,14 @@ import argparse
 # Construct the argument parser
 ap = argparse.ArgumentParser()
 ap.set_defaults(TEMPLATE="hps/sota_hps.json",
-                REPLICATES=1)
+                REPLICATES=1,
+                SHARE_GRID=None)
 
 ap.add_argument("-tem", "--TEMPLATE", type=str, required=False,help="Template file.")
 ap.add_argument("-rep", "--REPLICATES", type=int, required=False,help="Template file.")
+ap.add_argument("-sg", "--SHARE_GRID", type=float, required=False,help="If given, gives the minimum x  in [0,1] where the grid should start.")
+ap.add_argument("-sp", "--GRID_SIZE", type=int, required=False,help="Gives the number of repetitions of the share grid.")
+
 
 #Get arguments:
 ARGS = vars(ap.parse_args())
@@ -314,20 +318,42 @@ if exp_config['save_config']:
             print("Directory already exists.")
 
         date_string=datetime.today().strftime('%Y%m%d_%H%M')
-        json_filename=record_config['experiment_name']+date_string+'.json'
 
-        json_filepath=osp.join(direct,json_filename)
 
-        with open(json_filepath, "w") as configfile:
-            json.dump(config_data,configfile,indent=2)
-    
-        if exp_config['save_server']:
-            server_filename=record_config['experiment_name']+date_string+'.sh'
-            log_filename=record_config['experiment_name']+date_string+'.log'
+        if ARGS['SHARE_GRID'] is not None:
+            grid_size=ARGS['GRID_SIZE']
+            min_share=ARGS['SHARE_GRID']
+            share_grid=np.linspace(min_share,1.0,num=grid_size)
+            
+            for share in share_grid:
+                json_filename=record_config['experiment_name']+date_string+'_share_'+str(share)+'.json'
+                json_filepath=osp.join(direct,json_filename)
+                exp_config['share']=share
 
-            server_filepath=osp.join(direct,server_filename)
-            log_filepath=osp.join(direct,log_filename)
-            write_bmrc_file(comp_config['queue'],comp_config['n_gpus'],json_filepath,log_filepath,server_filepath)
+                with open(json_filepath, "w") as configfile:
+                    json.dump(config_data,configfile,indent=2)  
+                
+                if exp_config['save_server']:
+                    server_filename=record_config['experiment_name']+'_share_'+str(share)+'.sh'
+                    log_filename=record_config['experiment_name']+'_share_'+str(share)+'.log'
+
+                    server_filepath=osp.join(direct,server_filename)
+                    log_filepath=osp.join(direct,log_filename)
+                    write_bmrc_file(comp_config['queue'],comp_config['n_gpus'],json_filepath,log_filepath,server_filepath)  
+        else:
+            json_filename=record_config['experiment_name']+date_string+'.json'
+
+            json_filepath=osp.join(direct,json_filename)
+            with open(json_filepath, "w") as configfile:
+                json.dump(config_data,configfile,indent=2)
+        
+            if exp_config['save_server']:
+                server_filename=record_config['experiment_name']+date_string+'.sh'
+                log_filename=record_config['experiment_name']+date_string+'.log'
+
+                server_filepath=osp.join(direct,server_filename)
+                log_filepath=osp.join(direct,log_filename)
+                write_bmrc_file(comp_config['queue'],comp_config['n_gpus'],json_filepath,log_filepath,server_filepath)
 
         #Update seed:
         seed=exp_config['seed']+np.random.randint(low=1, high=1000)
