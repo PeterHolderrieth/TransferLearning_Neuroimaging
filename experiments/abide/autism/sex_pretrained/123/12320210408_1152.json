@@ -1,12 +1,12 @@
 {
   "experiment": {
-    "training_completed": true,
+    "training_completed": false,
     "method": "ft_full",
-    "task": "sex",
-    "data": "ixi",
+    "task": "autism",
+    "data": "abide",
     "balance": true,
-    "share": 0.4375,
-    "test_after_training": true,
+    "share": 1.0,
+    "test_after_training": false,
     "preprocessing": "full",
     "save_config": true,
     "seed": 12,
@@ -14,12 +14,12 @@
     "parent_directory": "experiments/"
   },
   "ft_full": {
-    "sex": {
-      "ixi": {
+    "autism": {
+      "abide": {
         "hps": {
           "run": "0",
           "task": "sex",
-          "batch": 8,
+          "batch": 4,
           "bin_min": 0,
           "bin_max": 2,
           "bin_step": 1,
@@ -28,19 +28,19 @@
           "space": "binary",
           "loss_met": "ent",
           "eval_met": "acc",
-          "n_epochs": 80,
+          "n_epochs": 60,
           "optim_type": "SGD",
           "lr": 0.005,
-          "weight_decay": 0.01,
+          "weight_decay": 0.005,
           "momentum": 0.8,
           "scheduler_type": "step",
-          "epoch_dec": 10,
-          "gamma_dec": 0.2,
+          "epoch_dec": 20,
+          "gamma_dec": 0.5,
           "threshold": 0.0,
           "print_corr": true
         },
         "computing": {
-          "folder": "ixi/sex/sex_pretrained/",
+          "folder": "abide/autism/sex_pretrained/",
           "queue": "gpu8.q",
           "n_gpus": 2,
           "n_workers": 4
@@ -49,10 +49,10 @@
     }
   },
   "record": {
-    "model_has_been_saved": true,
-    "experiment_name": "ft_full_ixi_sex_share_grid",
-    "model_save": true,
+    "model_has_been_saved": false,
+    "experiment_name": "123",
+    "model_save": false,
     "model_save_folder": "/well/win-fmrib-analysis/users/lhw539/saved_models/",
-    "model_save_name": "ft_full_ixi_sex_share_grid"
+    "model_save_name": "123"
   }
 }

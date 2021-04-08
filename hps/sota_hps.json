@@ -470,7 +470,43 @@
                 "n_workers": 4
                 }
             }
-        }   
+        },
+    "autism":
+        {
+        "abide":
+            {
+            "hps":
+                {
+                "batch": 4,
+                "bin_min": 0,
+                "bin_max": 2,
+                "bin_step": 1,
+                "sigma": 1.0,
+                "dropout": 0.5,
+                "channel_number": [32, 64, 64, 64, 64, 64], 
+                "space": "binary",
+                "loss_met": "ent",
+                "eval_met": "acc",
+                "n_epochs": 150,
+                "optim_type": "SGD",
+                "lr": 0.01,
+                "weight_decay": 0.001,
+                "momentum": 0.9,
+                "scheduler_type": "step",
+                "epoch_dec": 30,
+                "gamma_dec": 0.3,
+                "threshold": 0.0,
+                "print_corr": true
+                },
+            "computing": 
+                {
+                "folder":"abide/sex/scratch/",
+                "queue": "gpu8.q",
+                "n_gpus": 2,
+                "n_workers": 4
+                }
+            } 
+        }
     }, 
 "ft_full":
     { 
@@ -615,7 +651,44 @@
                 "n_workers": 4
                 }
             }
-        }
+        },
+    "autism":
+            {
+            "abide":
+                { 
+                "hps": 
+                    {
+                    "run": "0",
+                    "task": "sex",
+                    "batch": 8,
+                    "bin_min": 0,
+                    "bin_max": 2,
+                    "bin_step": 1,
+                    "sigma": 1.0,
+                    "dropout": 0.5,
+                    "space": "binary",
+                    "loss_met": "ent",
+                    "eval_met": "acc",
+                    "n_epochs": 60,
+                    "optim_type": "SGD",
+                    "lr": 0.005,
+                    "weight_decay": 0.005,
+                    "momentum": 0.8,
+                    "scheduler_type": "step",
+                    "epoch_dec": 20,
+                    "gamma_dec": 0.5,
+                    "threshold": 0.0,
+                    "print_corr": true
+                    },
+                    "computing": 
+                    {
+                    "folder": "abide/autism/sex_pretrained/",
+                    "queue": "gpu8.q",
+                    "n_gpus": 2,
+                    "n_workers": 4
+                    }
+                }
+            }
     },
 "ft_final":
     { 
@@ -876,7 +949,45 @@
                 "n_workers": 4
                 }
             }
-        }
+        },
+    "autism":            
+            { 
+            "abide":
+                {
+                "hps":
+                    {
+                    "run": "0",
+                    "task": "age",        
+                    "n_layer_ft": 1,       
+                    "batch": 8,
+                    "bin_min":0,
+                    "bin_max":2,
+                    "bin_step":1,
+                    "sigma":1.0,
+                    "dropout": 0.5,
+                    "space":"binary",
+                    "loss_met":"ent",
+                    "eval_met":"acc",
+                    "n_epochs": 50,
+                    "optim_type": "SGD",
+                    "lr": 1e-1,
+                    "weight_decay":1e-3,
+                    "momentum": 0.9,
+                    "scheduler_type": "step",
+                    "epoch_dec": 10,
+                    "gamma_dec": 0.1,
+                    "threshold": 0.0,
+                    "print_corr": true
+                    },
+                "computing": 
+                    {
+                    "folder":"abide/autism/ft_final",
+                    "queue": "gpu8.q",
+                    "n_gpus": 2,
+                    "n_workers": 4
+                    }
+                }
+            }
     },
 "ft_step":
     { 
