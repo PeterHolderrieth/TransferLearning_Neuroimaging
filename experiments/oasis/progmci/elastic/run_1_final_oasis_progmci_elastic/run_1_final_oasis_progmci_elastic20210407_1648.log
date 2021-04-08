@@ -1,0 +1,54 @@
+------------------------------------------------
+Job ID: 
+Run on host: compg005.hpc.in.bmrc.ox.ac.uk
+Operating system: Linux
+Username: lhw539
+Started at: Wed Apr 7 16:52:31 BST 2021
+------------------------------------------------
+------------------------------------------------
+Finished at: Wed Apr 7 16:52:33 BST 2021
+------------------------------------------------
+------------------------------------------------
+Job ID: 
+Run on host: win000.hpc.in.bmrc.ox.ac.uk
+Operating system: Linux
+Username: lhw539
+Started at: Wed Apr 7 16:52:49 BST 2021
+------------------------------------------------
+Test (in contrast to train):  False
+['Unnamed: 0', 'Subject', 'ADRC_ADRCCLINICALDATA ID', 'MR_ID', 'Age', 'Scanner', 'Scans', 'FreeSurfers', 'PUPs', 'Date', 'T1_path', 'Date_after_clinical', 'AgeBasedOnClinicalData', 'AgeAtSession', 'AgeFollowUp', 'ProgMCI']
+Loading share 1.00 train data.
+['Unnamed: 0', 'Subject', 'ADRC_ADRCCLINICALDATA ID', 'MR_ID', 'Age', 'Scanner', 'Scans', 'FreeSurfers', 'PUPs', 'Date', 'T1_path', 'Date_after_clinical', 'AgeBasedOnClinicalData', 'AgeAtSession', 'AgeFollowUp', 'ProgMCI']
+Loading share 1.00   val data.
+Apply PCA on full data.
+
+------------------------------------------------
+Finished at: Wed Apr 7 16:53:03 BST 2021
+------------------------------------------------
+------------------------------------------------
+Job ID: 
+Run on host: win000.hpc.in.bmrc.ox.ac.uk
+Operating system: Linux
+Username: lhw539
+Started at: Wed Apr 7 16:53:59 BST 2021
+------------------------------------------------
+Test (in contrast to train):  False
+['Unnamed: 0', 'Subject', 'ADRC_ADRCCLINICALDATA ID', 'MR_ID', 'Age', 'Scanner', 'Scans', 'FreeSurfers', 'PUPs', 'Date', 'T1_path', 'Date_after_clinical', 'AgeBasedOnClinicalData', 'AgeAtSession', 'AgeFollowUp', 'ProgMCI']
+Loading share 1.00 train data.
+['Unnamed: 0', 'Subject', 'ADRC_ADRCCLINICALDATA ID', 'MR_ID', 'Age', 'Scanner', 'Scans', 'FreeSurfers', 'PUPs', 'Date', 'T1_path', 'Date_after_clinical', 'AgeBasedOnClinicalData', 'AgeAtSession', 'AgeFollowUp', 'ProgMCI']
+Loading share 1.00   val data.
+Apply PCA on full data.
+36
+Transform data matrix of shape:  torch.Size([36, 4915200])
+11
+Transform data matrix of shape:  torch.Size([11, 4915200])
+Accuracy of regression:  0.6363636
+Save configfile.
+['Unnamed: 0', 'Subject', 'ADRC_ADRCCLINICALDATA ID', 'MR_ID', 'Age', 'Scanner', 'Scans', 'FreeSurfers', 'PUPs', 'Date', 'T1_path', 'Date_after_clinical', 'AgeBasedOnClinicalData', 'AgeAtSession', 'AgeFollowUp', 'ProgMCI']
+Loading share 1.00  test data.
+10
+Transform data matrix of shape:  torch.Size([10, 4915200])
+Accuracy of regression:  0.6
+------------------------------------------------
+Finished at: Wed Apr 7 16:55:21 BST 2021
+------------------------------------------------

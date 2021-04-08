@@ -141,11 +141,11 @@
             {
             "hps":
                 {
-                "batch": 500,
-                "ncomp":-1,
-                "l1rat":0.5,
-                "reg":0.1,
-                "feat":60,
+                "batch": 300,
+                "ncomp": -1,
+                "l1rat": 0.88,
+                "reg": 25.0,
+                "feat": 12,
                 "reg_method": "logistic"
                 },
             "computing":
@@ -730,6 +730,45 @@
                 }
             }
         },
+        "progmci":
+            { 
+            "oasis": 
+                { 
+                "hps":
+                    {
+                    "reinit_with_scaling": null,
+                    "run": "0",
+                    "task": "age",        
+                    "n_layer_ft": 1,       
+                    "batch": 8,
+                    "bin_min":0,
+                    "bin_max":2,
+                    "bin_step":1,
+                    "sigma":1.0,
+                    "dropout": 0.5,
+                    "space":"binary",
+                    "loss_met":"ent",
+                    "eval_met":"acc",
+                    "n_epochs":50,
+                    "optim_type": "SGD",
+                    "lr": 1e-1,
+                    "weight_decay":1e-3,
+                    "momentum": 0.9,
+                    "scheduler_type": "step",
+                    "epoch_dec": 10,
+                    "gamma_dec": 0.1,
+                    "threshold": 0.0,
+                    "print_corr": true
+                    },
+                "computing": 
+                    {
+                    "folder":"oasis/progmci/ft_final",
+                    "queue": "gpu8.q",
+                    "n_gpus": 2,
+                    "n_workers": 4
+                    }
+                }
+            },
     "sex":
         { 
         "oasis": 
