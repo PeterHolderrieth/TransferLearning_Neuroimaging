@@ -1,0 +1,26 @@
+------------------------------------------------
+Job ID: 43021140
+Run on host: compg011.hpc.in.bmrc.ox.ac.uk
+Operating system: Linux
+Username: lhw539
+Started at: Fri Apr 9 09:28:24 BST 2021
+------------------------------------------------
+Test (in contrast to train):  False
+Loading share 0.21 train data.
+The data was balanced for  sex .
+Loading ABIDE   val data.
+The data was balanced for  sex .
+Load model for sex - run: 0
+Output dimensions match.
+Number of GPUs:  2
+Epoch decay:  20
+Gamma decay:  0.5
+
+Full model is being trained with weights loaded from pre-trained model.
+Start:  2021-04-09 09:28:32.425635
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+|epoch:   0 | lr: 0.005 |train ent: 1.42907 |train ent ravg: 1.42907 |train acc:  0.51250 |train acc ravg:  0.51250 |val ent: 10.77602 |val entravg: 10.77602 |val acc:  0.49745 |val acc ravg:  0.49745 |
+|epoch:   1 | lr: 0.005 |train ent: 1.00384 |train ent ravg: 1.21645 |train acc:  0.46250 |train acc ravg:  0.48750 |val ent: 0.76091 |val entravg: 5.76847 |val acc:  0.49745 |val acc ravg:  0.49745 |
+|epoch:   2 | lr: 0.005 |train ent: 0.99409 |train ent ravg: 1.14233 |train acc:  0.41875 |train acc ravg:  0.46458 |val ent: 0.89575 |val entravg: 4.14423 |val acc:  0.50510 |val acc ravg:  0.50000 |
+|epoch:   3 | lr: 0.005 |train ent: 0.84892 |train ent ravg: 1.06898 |train acc:  0.53125 |train acc ravg:  0.48125 |val ent: 1.20033 |val entravg: 3.40825 |val acc:  0.50000 |val acc ravg:  0.50000 |
+|epoch:   4 | lr: 0.005 |train ent: 0.85481 |train ent ravg: 1.02615 |train acc:  0.50000 |train acc ravg:  0.48500 |val ent: 0.73710 |val entravg: 2.87402 |val acc:  0.47449 |val acc ravg:  0.49490 |
