@@ -1,0 +1,22 @@
+------------------------------------------------
+Job ID: 43021142
+Run on host: compg010.hpc.in.bmrc.ox.ac.uk
+Operating system: Linux
+Username: lhw539
+Started at: Fri Apr 9 10:17:08 BST 2021
+------------------------------------------------
+Test (in contrast to train):  False
+Loading share 0.33 train data.
+The data was balanced for  sex .
+Loading ABIDE   val data.
+The data was balanced for  sex .
+Load model for sex - run: 0
+Output dimensions match.
+Number of GPUs:  2
+Epoch decay:  20
+Gamma decay:  0.5
+
+Full model is being trained with weights loaded from pre-trained model.
+Start:  2021-04-09 10:17:15.603035
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+|epoch:   0 | lr: 0.005 |train ent: 1.08797 |train ent ravg: 1.08797 |train acc:  0.46371 |train acc ravg:  0.46371 |val ent: 1.20461 |val entravg: 1.20461 |val acc:  0.49235 |val acc ravg:  0.49235 |
