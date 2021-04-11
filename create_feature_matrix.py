@@ -7,6 +7,7 @@ from sklearn.manifold import Isomap, TSNE
 from sklearn.decomposition import PCA
 import pandas as pd 
 import argparse 
+import sys
 from data.load_dataset import give_dataset
 
 # Construct the argument parser
@@ -32,11 +33,12 @@ ARGS = vars(ap.parse_args())
 
 #Look up freesurfer.
 allowed_methods=['tsne']#,'pca','isomap']
-allowed_labels=['sex']
-allowed_loads=['sex']
+allowed_labels=['age']
+allowed_loads=['age']
 #allowed_runs=['0','1','2','3','4']
 #allowed_runs=["abide_3"]#,"oasis_1"]
-allowed_runs=["oasis_1"]
+#allowed_runs=["oasis_1_age_ft","oasis_1_age_scratch"]
+allowed_runs=["abide_1_age_scratch"]
 
 
 #Get the methods we use:
