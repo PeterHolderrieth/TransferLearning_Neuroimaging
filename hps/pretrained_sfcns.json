@@ -59,8 +59,26 @@
                 "output_dim": 57,
                 "bin_min":2,
                 "bin_max": 59
-                }
+                },
+        "oasis_1_age_ft": {"file": "saved_models/oasis/age/run_5_final_oasis_age_age_pretrained_ft_step.p", 
+                        "channels": [32, 64, 64, 64, 64, 64],
+                        "output_dim": 59,
+                        "bin_min": 37,
+                        "bin_max": 96
+                },
+        "oasis_1_age_scratch": {"file": "saved_models/oasis/age/final_5_oasis_age_scratch.p", 
+                "channels": [32, 64,128,256,256,64],
+                "output_dim": 59,
+                "bin_min": 37,
+                "bin_max": 96
         },
+        "abide_1_age_scratch": {"file": "saved_models/abide/age/final_1_abide_age_scratch.p", 
+                "channels": [32, 64,128,256,256,64],
+                "output_dim": 57,
+                "bin_min":2,
+                "bin_max": 59
+        }
+},
 "sex": {"0": {  "file": "pre_trained_models/sex/run_20191008_00_epoch_last.p",
                 "channels": [28, 58, 128, 256, 256, 64],
                 "output_dim": 2,
