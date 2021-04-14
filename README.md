@@ -2,7 +2,7 @@
 
 This repository provides code for an efficient transfer learning method designed for structural MRI scans of brains.
 
-![Features of deep neural networks](https://github.com/PeterHolderrieth/Steerable_CNPs/blob/master/plots/gp/Example_predictions_SteerCNP.png?raw=true)
+![Features of deep neural networks](https://github.com/PeterHolderrieth/TransferLearning_Neuroimaging/blob/main/visualization/plots/preliminary_visualization_features.png)
 
 As a deep learning model, we use the Simple Fully Connected Neural Networks by [Peng et al (2021)](https://www.sciencedirect.com/science/article/pii/S1361841520302358)
 As pre-training data set, we use the [UK Biobank](https://www.nature.com/articles/nn.4393) neuroimaging data set giving T1-weighted structural MRI data. As target data sets,
