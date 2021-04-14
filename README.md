@@ -9,9 +9,6 @@ As pre-training data set, we use the [UK Biobank](https://www.nature.com/article
 we use [OASIS-3](https://www.oasis-brains.org/), [IXI](https://brain-development.org/ixi-dataset/), and [ABIDE I and II](http://fcon_1000.projects.nitrc.org/indi/abide/). 
 
 
-
-
-
 ![Features of deep neural networks](https://github.com/PeterHolderrieth/TransferLearning_Neuroimaging/blob/main/visualization/plots/preliminary_visualization_features.png)
 
 
