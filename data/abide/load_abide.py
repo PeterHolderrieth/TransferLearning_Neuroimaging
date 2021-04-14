@@ -14,7 +14,14 @@ from data.dataset import give_mri_data
 def give_abide_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=False,preprocessing='full', task='age',share=None,balance=False):
     '''
     Function to load ABIDE data set.
-
+    Input:
+        data_type - string - one 'train', 'val', or 'test'
+        shuffle - bool - whether to shuffle data when loading new iteration of data loader
+        debug - bool - indicates whether debug data should be loaded
+        preprocessing - string - see construct_preprocessing 
+        task - string - either 'age' or 'sex'
+        share - float between 0 and 1 - share of data to load 
+        balance - bool - whether to balance for the label
     '''
     #Get the directory of the data_type:
     DIR = '/gpfs3/well/win-fmrib-analysis/users/lhw539/abide/'
