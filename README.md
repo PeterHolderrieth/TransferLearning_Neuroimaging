@@ -2,7 +2,7 @@
 
 This repository provides code for an efficient transfer learning method designed for structural MRI scans of brains.
 
-![Features of deep neural networks](https://github.com/PeterHolderrieth/TransferLearning_Neuroimaging/blob/main/visualization/plots/brain_manifold.png)
+<img src="https://github.com/PeterHolderrieth/TransferLearning_Neuroimaging/blob/main/visualization/plots/brain_manifold.png" width="700" height="700">
 
 
 As a deep learning model, we use the Simple Fully Connected Neural Networks by [Peng et al (2021)](https://www.sciencedirect.com/science/article/pii/S1361841520302358)
