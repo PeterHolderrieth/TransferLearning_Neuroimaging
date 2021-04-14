@@ -96,12 +96,15 @@ def construct_preprocessing(kwd):
 
 
 class MRIDataset(torch.utils.data.Dataset):
-
+    '''
+    Class which gives pytorch data set fitted for 3d structural MRI images.
+    '''
     def __init__(self, file_list, label_list, preprocessing=None):
         '''
-        file_list - list of paths/to/files of type nii.giz
-        label_list - list/array of labels of the same length as the file_list
-        preprocessing - a list of functions transforming a 3d MRI scan
+        Input:
+            file_list - list of paths/to/files of type nii.giz
+            label_list - list/array of labels of the same length as the file_list
+            preprocessing - a list of functions transforming a 3d MRI scan
         '''
         self.file_list = file_list
         self.label_list = label_list
@@ -109,6 +112,11 @@ class MRIDataset(torch.utils.data.Dataset):
         self.preprocessing = preprocessing
 
     def get_data(self, idx):
+        '''
+        Input: idx - int - index of data sample to get
+        Output: data - numpy array - MRI scan
+                label - label of MRI scan
+        '''
         label = self.label_list[idx]
         fp_ = self.file_list[idx]
         x = nib.load(fp_).get_fdata()
@@ -129,7 +137,9 @@ class MRIDataset(torch.utils.data.Dataset):
 
 
 def give_mri_data(fp_list,label_list,data_type,batch_size=1,num_workers=1,shuffle=True,preprocessing='full'):
-    
+    '''
+    Function combining construct_preprocessing and MRIDataset
+    '''
     #Construct preprocessing functions:
     ps = construct_preprocessing({'method': 'pixel_shift',
                                         'x_shift': 2,

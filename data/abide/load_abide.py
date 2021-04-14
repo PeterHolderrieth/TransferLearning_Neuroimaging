@@ -12,14 +12,20 @@ sys.path.append('../../')
 from data.dataset import give_mri_data
 
 def give_abide_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=False,preprocessing='full', task='age',share=None,balance=False):
-    
+    '''
+    Function to load ABIDE data set.
+
+    '''
     #Get the directory of the data_type:
     DIR = '/gpfs3/well/win-fmrib-analysis/users/lhw539/abide/'
     DIR_IDs=osp.join(DIR, 'info/') 
+    
+    #The default is changed if we only need the debug data.
     default_name=DIR_IDs
     if debug:
         default_name+='debug_'
     
+    #Change name if task should be balanced (only possible for sex so far).
     if balance and task=='sex':
         balance='_balanced_'+task
     else: 
@@ -35,10 +41,13 @@ def give_abide_data(data_type,batch_size=1,num_workers=1,shuffle=True,debug=Fals
     else: 
         sys.exit("Unknown data type.")
     
+    #Read data frame:
     df = pd.read_csv(fp_)
-    #print(np.unique(df["SiteName"]).shape)
+
+    #Get list of file paths to MRI scans:
     fp_list=df["T1_brain_lin"].to_list()
 
+    #Get list of file paths to MRI scans:
     if task=='age':
         label_list=list([age_,] for age_ in df["Age"].to_list())
     elif task=='sex':
