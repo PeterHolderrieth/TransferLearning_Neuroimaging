@@ -9,6 +9,7 @@ As pre-training data set, we use the [UK Biobank](https://www.nature.com/article
 we use [OASIS-3](https://www.oasis-brains.org/), [IXI](https://brain-development.org/ixi-dataset/), and [ABIDE I and II](http://fcon_1000.projects.nitrc.org/indi/abide/). 
 
 
+We also provide a tool to visualize the features of a neural network via [t-SNE ](https://jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf). On the right, you can find an example of a "brain manifold" created by the convolutional kernels of the network and visualized via t-SNE. Below, there are further examples.
 
 ## Installation
 
@@ -17,5 +18,6 @@ Please note this installs additional packages used for visualization. In particu
 as a library for automatic differentation.
 
 ## Structure of the repository
-The core implementation of SFCNs can be found in `/sfcn/`. The folder `/methods/` contains all methods which we consider: transfer learning methods, direct training, elastic net regression, and direct transfer of a pre-trained model.
+The main execution of one our methods is done via executing `main.py -deb full -con /path/to/json_file.json` where the `json_file.json` can be created via `input.py`.
+The core implementation of SFCNs can be found in `/sfcn/`. The folder `/methods/` contains all methods which we consider: transfer learning methods, direct training, elastic net regression, and direct transfer of a pre-trained model. The
 
