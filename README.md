@@ -22,6 +22,7 @@ The main execution of one our methods is done via executing
 
 ```main.py -deb full -con /path/to/json_file.json```
 
-where the `json_file.json` can be created via `input.py`.
+where ``full`` can be changed to ``debug`` for debugging. The`json_file.json` can be created via `input.py`.
+
 The core implementation of SFCNs can be found in `/sfcn/`. The folder `/methods/` contains all methods which we consider: transfer learning methods, direct training, elastic net regression, and direct transfer of a pre-trained model. The
 
