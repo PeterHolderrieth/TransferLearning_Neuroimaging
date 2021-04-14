@@ -1,5 +1,0 @@
-source experiments/oasis/age/elastic/final_1_oasis_age_elastic/final_1_oasis_age_elastic20210317_1459.sh >> experiments/oasis/age/elastic/final_1_oasis_age_elastic/final_1_oasis_age_elastic20210317_1459.log
-source experiments/oasis/age/elastic/final_2_oasis_age_elastic/final_2_oasis_age_elastic20210317_1500.sh >> experiments/oasis/age/elastic/final_2_oasis_age_elastic/final_2_oasis_age_elastic20210317_1500.log
-source experiments/oasis/age/elastic/final_3_oasis_age_elastic/final_3_oasis_age_elastic20210317_1501.sh >> experiments/oasis/age/elastic/final_3_oasis_age_elastic/final_3_oasis_age_elastic20210317_1501.log
-source experiments/oasis/age/elastic/final_4_oasis_age_elastic/final_4_oasis_age_elastic20210317_1506.sh >> experiments/oasis/age/elastic/final_4_oasis_age_elastic/final_4_oasis_age_elastic20210317_1506.log
-source experiments/oasis/age/elastic/final_5_oasis_age_elastic/final_5_oasis_age_elastic20210317_1506.sh >> experiments/oasis/age/elastic/final_5_oasis_age_elastic/final_5_oasis_age_elastic20210317_1506.log

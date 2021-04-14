@@ -1,5 +1,0 @@
-source experiments/ixi/sex/elastic/run_1_final_elastic_ixi_sex/run_1_final_elastic_ixi_sex20210326_1129.sh >> experiments/ixi/sex/elastic/run_1_final_elastic_ixi_sex/run_1_final_elastic_ixi_sex20210326_1129.log  
-source experiments/ixi/sex/elastic/run_2_final_elastic_ixi_sex/run_2_final_elastic_ixi_sex20210326_1129.sh >> experiments/ixi/sex/elastic/run_2_final_elastic_ixi_sex/run_2_final_elastic_ixi_sex20210326_1129.log  
-source experiments/ixi/sex/elastic/run_3_final_elastic_ixi_sex/run_3_final_elastic_ixi_sex20210326_1129.sh >> experiments/ixi/sex/elastic/run_3_final_elastic_ixi_sex/run_3_final_elastic_ixi_sex20210326_1129.log  
-source experiments/ixi/sex/elastic/run_4_final_elastic_ixi_sex/run_4_final_elastic_ixi_sex20210326_1129.sh >> experiments/ixi/sex/elastic/run_4_final_elastic_ixi_sex/run_4_final_elastic_ixi_sex20210326_1129.log  
-source experiments/ixi/sex/elastic/run_5_final_elastic_ixi_sex/run_5_final_elastic_ixi_sex20210326_1129.sh >> experiments/ixi/sex/elastic/run_5_final_elastic_ixi_sex/run_5_final_elastic_ixi_sex20210326_1129.log  
