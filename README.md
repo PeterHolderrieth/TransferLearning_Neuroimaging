@@ -24,5 +24,6 @@ The main execution of one our methods is done via executing
 
 where ``full`` can be changed to ``debug`` for debugging. The`json_file.json` can be created via `input.py`.
 
-The core implementation of SFCNs can be found in `/sfcn/`. The folder `/methods/` contains all methods which we consider: transfer learning methods, direct training, elastic net regression, and direct transfer of a pre-trained model. The
+The core implementation of SFCNs can be found in `/sfcn/`. The folder `/methods/` contains all methods which we consider: transfer learning methods, direct training, elastic net regression, and direct transfer of a pre-trained model. 
 
+I want to thank [Stephen Smith](https://www.neuroscience.ox.ac.uk/research-directory/stephen-smith) (fMRIB) and [Han Peng](https://ha-ha-ha-han.github.io/) (VGG Group, fMRIB) for supervision of the project.
