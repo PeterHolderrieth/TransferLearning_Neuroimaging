@@ -17,5 +17,5 @@ Please note this installs additional packages used for visualization. In particu
 as a library for automatic differentation.
 
 ## Structure of the repository
-The core implementation of SFCNs can be found in `hello`.
+The core implementation of SFCNs can be found in `/sfcn/`.
 
