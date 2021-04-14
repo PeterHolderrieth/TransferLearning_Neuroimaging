@@ -2,11 +2,15 @@
 
 This repository provides code for an efficient transfer learning method designed for structural MRI scans of brains.
 
-![Features of deep neural networks](https://github.com/PeterHolderrieth/TransferLearning_Neuroimaging/blob/main/visualization/plots/preliminary_visualization_features.png)
+![Features of deep neural networks](https://github.com/PeterHolderrieth/TransferLearning_Neuroimaging/blob/main/visualization/plots/brain_manifold.png)
+
 
 As a deep learning model, we use the Simple Fully Connected Neural Networks by [Peng et al (2021)](https://www.sciencedirect.com/science/article/pii/S1361841520302358)
 As pre-training data set, we use the [UK Biobank](https://www.nature.com/articles/nn.4393) neuroimaging data set giving T1-weighted structural MRI data. As target data sets,
 we use [OASIS-3](https://www.nature.com/articles/nn.4393), [IXI](https://www.nature.com/articles/nn.4393), and [ABIDE I and II](https://www.nature.com/articles/nn.4393). 
+
+
+![Features of deep neural networks](https://github.com/PeterHolderrieth/TransferLearning_Neuroimaging/blob/main/visualization/plots/preliminary_visualization_features.png)
 
 
 ## Repository
