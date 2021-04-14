@@ -17,5 +17,5 @@ Please note this installs additional packages used for visualization. In particu
 as a library for automatic differentation.
 
 ## Structure of the repository
-The core implementation of SFCNs can be found in `/sfcn/`.
+The core implementation of SFCNs can be found in `/sfcn/`. The folder `/methods/` contains all methods which we consider: transfer learning methods, direct training, elastic net regression, and direct transfer of a pre-trained model.
 
